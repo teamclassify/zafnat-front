@@ -1,12 +1,22 @@
-import { Button } from "./components/ui/button";
-import { Input } from "./components/ui/input";
+import { Route, Switch } from "wouter";
+
+import ErrorPage from "./pages/ErrorPage";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
     <>
-      <h1>Hello</h1>
-      <Button>Helo</Button>
-      <Input />
+      <Switch>
+        <Route component={HomePage} path="/" />
+        <Route component={LoginPage} path="/login" />
+
+        {/* Start Routes */}
+
+        {/* End Routes */}
+
+        <Route component={ErrorPage} path="/:rest*" />
+      </Switch>
     </>
   );
 }
