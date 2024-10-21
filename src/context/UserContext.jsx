@@ -85,6 +85,8 @@ export default function UserProvider({ children }) {
   const handleLogin = async (userInfo) => {
     const response = await login(userInfo);
 
+    console.log(response);
+
     if (!response.error) {
       setUser({
         ...user,
@@ -143,6 +145,8 @@ export default function UserProvider({ children }) {
           firstName: user.firstName,
           email: user.email,
           photo: user.photo,
+          id: user.id,
+          roles: user.roles.map((role) => role.roleId),
         });
 
         setToken(accessToken);
