@@ -5,7 +5,7 @@ function DefaultTemplate({ children }) {
     <>
       <Header />
 
-      <main className="p-4">{children}</main>
+      <main className="py-8 mx-auto max-w-screen-lg">{children}</main>
     </>
   );
 }
