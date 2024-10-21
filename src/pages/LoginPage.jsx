@@ -8,6 +8,7 @@ function LoginPage() {
   return (
     <DefaultTemplate>
       <Button onClick={loginWithGoogle}>Login with Google</Button>
+      <h1>Hello</h1>
     </DefaultTemplate>
   );
 }
