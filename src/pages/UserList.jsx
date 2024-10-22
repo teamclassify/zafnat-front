@@ -1,9 +1,22 @@
-function UserList(){
+import Header from "../components/custom/Header";
+import { Input } from "@/components/ui/input";
+import Filter from "../components/custom/Filter";
+
+function UserList() {
   return (
     <>
-      <h1>Hola mundo</h1>
+      <Header />
+      <div className="pl-20">
+        <h3 className="scroll-m-20 pb-2 pt-6 text-2xl font-semibold tracking-tight first:mt-0 text-slate-700">
+          Usuarios
+        </h3>
+        <div className="flex gap-10">
+          <Input type="text" placeholder="Buscar" className="pl-6 w-2/5" />
+          <Filter />
+        </div>
+      </div>
     </>
-  )
+  );
 }
 
 export default UserList;
