@@ -13,15 +13,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { EllipsisVerticalIcon } from "lucide-react";
 import { useState } from "react";
-
-// import { Shield } from "lucide-react";
+import { OptionButton } from "./OptionsButton";
 
 const roles = ["Gerente", "Administrador", "Ventas", "Almacen", "Marketing"];
 
 export function CardInfo() {
-  // const [filter, setFiler] = useState("")
   const [rol, setRol] = useState(["Administrador"]);
 
   const handleRoleSelect = (selectRol) => {
@@ -33,7 +30,7 @@ export function CardInfo() {
       <CardHeader>
         <div className="flex justify-between">
           <CardTitle>Gianfranco Daniele</CardTitle>
-          <EllipsisVerticalIcon color="gray" cursor="pointer"/>
+          <OptionButton/>
         </div>
         <CardDescription>gianfrancoarnoldods@gmail.com</CardDescription>
       </CardHeader>
