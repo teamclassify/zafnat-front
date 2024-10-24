@@ -17,12 +17,32 @@ const initialUsers = [
   { name: "Astroberto", email: "astroberto@gmail.com", rol: ["Almacen"] },
 ];
 
+const roles = ["Gerente", "Administrador", "Ventas", "Almacen", "Marketing"];
+
 export default function UserList() {
   const [users, setUsers] = useState(initialUsers);
+  const [filters, setFilters] = useState([]);
 
   const handleDeleteUser = (email) => {
     const updatedUsers = users.filter((user) => user.email !== email);
     setUsers(updatedUsers);
+  };
+
+  const handleRoleSelect = (selectRol) => {
+    let newFilters = "";
+    filters.includes(selectRol)
+      ? (newFilters = filters.filter((rol) => rol !== selectRol))
+      : (newFilters = [...filters, selectRol]);
+
+    if (newFilters.length === 0) {
+      setUsers(initialUsers);
+    } else {
+      const updatedUsers = users.filter((user) =>
+        newFilters.every((selectedRole) => user.rol.includes(selectedRole))
+      );
+      setUsers(updatedUsers);
+    }
+    setFilters(newFilters);
   };
 
   return (
@@ -34,10 +54,10 @@ export default function UserList() {
         </h3>
         <div className="flex gap-10">
           <Input type="text" placeholder="Buscar" className="pl-6 w-2/5" />
-          <Filter />
+          <Filter options={roles} handleRoleSelect={handleRoleSelect} />
         </div>
         <div className="pt-10">
-          <UserGrid users={users} handleDeleteUser={handleDeleteUser}/>
+          <UserGrid users={users} handleDeleteUser={handleDeleteUser} />
         </div>
       </div>
     </>
