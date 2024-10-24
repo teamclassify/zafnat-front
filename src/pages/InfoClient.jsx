@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import Filter from "../components/custom/Filter";
 import { ClientGrid } from "../components/custom/ClientGrid";
 import { PaginationDefault } from "../components/custom/Pagination";
+import { useState } from "react";
 
 const initialClients = [
   { 
@@ -50,9 +51,30 @@ const initialClients = [
 ];
 
 
-const options = ["Orden alfabético"];
+const options = ["Orden alfabético", "Mayor compra", "Con productos recientes", "Sin productos recientes"];
 
 export default function InfoClient() {
+  const [clients, setClients] = useState(initialClients);
+
+  const handleClientSelect = (newFilters) => {
+    if (newFilters.length === 0) {
+      setClients(initialClients);
+    } else {
+      let updatedClients = ""
+      if(newFilters === "Mayor compra"){
+        updatedClients = initialClients.reduce((prev, current) => 
+          current.recentProducts.length > prev.recentProducts.length ? current : prev
+        );
+      }
+      if(newFilters === "Con productos recientes"){
+        updatedClients = initialClients.filter(user => user.recentProducts.length > 0);
+      }
+      if(newFilters === "Con productos recientes"){
+        updatedClients = initialClients.filter(user => user.recentProducts.length === 0);
+      }
+      setClients(updatedClients);
+    }
+  };
 
   return (
     <>
@@ -62,11 +84,11 @@ export default function InfoClient() {
             Información clientes
           </h3>
           <div className="flex justify-between gap-2">
-            <Input type="text" placeholder="Buscar" className="w-full" />
-            <Filter options={options} />
+            <Input type="text" placeholder="Buscar por nombre, email, dirección, ciudad..." className="w-full" />
+            <Filter options={options} handleClientSelect={handleClientSelect} />
           </div>
           <div className="pt-10">
-            <ClientGrid client={initialClients} />
+            <ClientGrid client={clients} />
           </div>
           <div className="pt-5">
             <PaginationDefault />

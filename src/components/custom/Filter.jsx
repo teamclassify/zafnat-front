@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { FilterIcon } from "lucide-react";
 
-export default function Filter({ options, handleRoleSelect }) {
+export default function Filter({ options, handleSelect }) {
   const [selectedRoles, setSelectedRoles] = useState([]);
 
   const handleCheckboxChange = (role) => {
@@ -22,7 +22,7 @@ export default function Filter({ options, handleRoleSelect }) {
     }
 
     setSelectedRoles(newSelectedRoles);
-    handleRoleSelect(newSelectedRoles);
+    handleSelect(newSelectedRoles);
   };
 
   return (

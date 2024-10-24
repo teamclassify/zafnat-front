@@ -3,7 +3,7 @@ import { Route, Switch } from "wouter";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
-import UserList from "./pages/UserList";
+import UserList from "./pages/InfoUser";
 import InfoClient from "./pages/InfoClient"
 
 import { Toaster } from "@/components/ui/sonner"
