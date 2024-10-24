@@ -98,8 +98,6 @@ export default function UserProvider({ children }) {
     } else setUser(null);
   };
 
-  console.log(token);
-
   useEffect(() => {
     const unsuscribeStateChanged = auth.onAuthStateChanged(async (user) => {
       if (user) {

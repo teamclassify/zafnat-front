@@ -12,7 +12,7 @@ import { SelectOption } from "./SelectOptions";
 
 const roles = ["Gerente", "Administrador", "Ventas", "Almacen", "Marketing"];
 
-export function CardInfo({ name, email, rol, handleDeleteUser }) {
+export function CardInfoUser({ name, email, rol, handleDeleteUser }) {
   const [selectedRoles, setSelectedRoles] = useState(rol);
 
   const handleRoleSelect = (selectedRol) => {
