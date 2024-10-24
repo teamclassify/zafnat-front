@@ -12,12 +12,14 @@ import { SelectOption } from "./SelectOptions";
 
 const roles = ["Gerente", "Administrador", "Ventas", "Almacen", "Marketing"];
 
-export function CardInfo({ name, email, rol }) {
+export function CardInfo({ name, email, rol, handleDeleteUser }) {
   const [selectedRoles, setSelectedRoles] = useState(rol);
 
   const handleRoleSelect = (selectedRol) => {
     if (!selectedRoles.includes(selectedRol)) {
       setSelectedRoles([...selectedRoles, selectedRol]);
+    }else{
+      setSelectedRoles(selectedRoles.filter((r) => r !== selectedRol));
     }
   };
 
@@ -26,7 +28,7 @@ export function CardInfo({ name, email, rol }) {
       <CardHeader>
         <div className="flex justify-between">
           <CardTitle>{name}</CardTitle>
-          <OptionButton />
+          <OptionButton name={name} email={email} rol={selectedRoles} handleRoleSelect={handleRoleSelect} handleDeleteUser={handleDeleteUser} />
         </div>
         <CardDescription>{email}</CardDescription>
       </CardHeader>
@@ -35,7 +37,7 @@ export function CardInfo({ name, email, rol }) {
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="roles">Roles y Permisos</Label>
-              <SelectOption rol={selectedRoles} title={rol[0]} />
+              <SelectOption rol={selectedRoles} title={selectedRoles[0]} />
               <SelectOption
                 rol={roles.filter((role) => !selectedRoles.includes(role))}
                 title={"Asignar más roles"}

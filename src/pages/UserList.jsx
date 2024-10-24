@@ -1,9 +1,30 @@
 import Header from "../components/custom/Header";
 import { Input } from "@/components/ui/input";
 import Filter from "../components/custom/Filter";
-import { CardInfo } from "../components/custom/CardInfo";
+import { UserGrid } from "../components/custom/UserGrid";
+import { useState } from "react";
 
-function UserList() {
+const initialUsers = [
+  { name: "Gianfranco", email: "gianfranco@gmail.com", rol: ["Administrador"] },
+  { name: "William", email: "william@gmail.com", rol: ["Gerente"] },
+  { name: "Haudi", email: "haudi@gmail.com", rol: ["Ventas", "Marketing"] },
+  {
+    name: "Maria Jose",
+    email: "mariajose@gmail.com",
+    rol: ["Marketing", "Ventas"],
+  },
+  { name: "Alessandro", email: "alessandro@gmail.com", rol: ["Administrador"] },
+  { name: "Astroberto", email: "astroberto@gmail.com", rol: ["Almacen"] },
+];
+
+export default function UserList() {
+  const [users, setUsers] = useState(initialUsers);
+
+  const handleDeleteUser = (email) => {
+    const updatedUsers = users.filter((user) => user.email !== email);
+    setUsers(updatedUsers);
+  };
+
   return (
     <>
       <Header />
@@ -16,18 +37,9 @@ function UserList() {
           <Filter />
         </div>
         <div className="pt-10">
-          <div className="grid grid-cols-[repeat(auto-fit,_minmax(320px,_1fr))] gap-4">
-            <CardInfo name={"Gianfranco"} email={"gianfranco@gmail.com"} rol={["Administrador"]}/>
-            <CardInfo name={"William"} email={"william@gmail.com"} rol={["Gerente"]}/>
-            <CardInfo name={"Haudi"} email={"haudi@gmail.com"} rol={["Ventas", "Marketing"]}/>
-            <CardInfo name={"Maria Jose"} email={"mariajose@gmail.com"} rol={["Marketing","Ventas"]}/>
-            <CardInfo name={"Alessandro"} email={"alessandro@gmail.com"} rol={["Administrador"]}/>
-            <CardInfo name={"Astroberto"} email={"astroberto@gmail.com"} rol={["Almacen"]}/>
-          </div>
+          <UserGrid users={users} handleDeleteUser={handleDeleteUser}/>
         </div>
       </div>
     </>
   );
 }
-
-export default UserList;

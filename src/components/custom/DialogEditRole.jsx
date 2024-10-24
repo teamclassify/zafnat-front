@@ -9,12 +9,13 @@ import {
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 
-export function DialogCloseButton() {
-  const [open, setOpen] = useState(true);
-  const [rol, setRol] = useState(["Administrador", "Ventas"]);
+export function DialogEditRole({name, rol, open, setOpen, handleRoleSelect}) {
+  const [selectedRol, setSelectedRol] = useState(rol);
 
-  const handleRoleSelect = (selectRol) => {
-    setRol(rol.filter((r) => r !== selectRol));
+  
+  const handleRoleEdit= (deleteRol) => {
+    setSelectedRol(selectedRol.filter((r) => r !== deleteRol));
+    handleRoleSelect(deleteRol)
   };
 
   return (
@@ -22,16 +23,16 @@ export function DialogCloseButton() {
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Eliminar Rol</DialogTitle>
-          <DialogDescription>Gianfranco Daniele</DialogDescription>
+          <DialogDescription>{name}</DialogDescription>
         </DialogHeader>
         <div className="flex gap-3">
-          {rol.map((role) => (
+          {selectedRol.map((role) => (
             <Badge key={role} value={role} variant="secondary">
               <div className="p-2 text-sm">{role}</div>
               <div className="flex justify-end align-top mb-3">
                 <X
                   className="w-3 cursor-pointer"
-                  onClick={() => handleRoleSelect(role)}
+                  onClick={() => handleRoleEdit(role)}
                 />
               </div>
             </Badge>
