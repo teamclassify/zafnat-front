@@ -1,6 +1,6 @@
 import { CardInfo } from "./CardInfo";
 
-export function UserGrid({ users, handleDeleteUser={handleDeleteUser} }) {
+export function UserGrid({ users, handleDeleteUser }) {
 
   return (
     <div className="grid grid-cols-[repeat(auto-fit,_minmax(320px,_1fr))] gap-4">

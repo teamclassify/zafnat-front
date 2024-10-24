@@ -7,7 +7,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Check, ChevronsUpDown, FilterIcon } from "lucide-react";
 
-const roles = ["Administrador", "Ventas", "Almacen", "Marketing"];
+const roles = ["Gerente", "Administrador", "Ventas", "Almacen", "Marketing"];
 
 export default function Filter() {
   const [selectedRole, setSelectedRole] = useState([]);
