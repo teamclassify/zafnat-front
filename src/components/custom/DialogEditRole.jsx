@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/dialog";
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
+import { toast } from "sonner"
+
 
 export function DialogEditRole({name, rol, open, setOpen, handleRoleSelect}) {
   const [selectedRol, setSelectedRol] = useState(rol);
@@ -15,6 +17,7 @@ export function DialogEditRole({name, rol, open, setOpen, handleRoleSelect}) {
   
   const handleRoleEdit= (deleteRol) => {
     setSelectedRol(selectedRol.filter((r) => r !== deleteRol));
+    toast("Rol actualizado correctamente")
     handleRoleSelect(deleteRol)
   };
 

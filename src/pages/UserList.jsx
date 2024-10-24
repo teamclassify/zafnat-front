@@ -1,8 +1,9 @@
-import Header from "../components/custom/Header";
+import AdminTemplate from "../components/templates/AdminTemplate";
 import { Input } from "@/components/ui/input";
 import Filter from "../components/custom/Filter";
 import { UserGrid } from "../components/custom/UserGrid";
 import { useState } from "react";
+import { PaginationDefault } from "../components/custom/Pagination";
 
 const initialUsers = [
   { name: "Gianfranco", email: "gianfranco@gmail.com", rol: ["Administrador"] },
@@ -40,19 +41,23 @@ export default function UserList() {
 
   return (
     <>
-      <Header />
-      <div className="pl-20 pr-20">
-        <h3 className="scroll-m-20 pb-2 pt-6 text-2xl font-semibold tracking-tight first:mt-0 text-slate-700">
-          Usuarios
-        </h3>
-        <div className="flex gap-10">
-          <Input type="text" placeholder="Buscar" className="pl-6 w-2/5" />
-          <Filter options={roles} handleRoleSelect={handleRoleSelect} />
+      <AdminTemplate>
+        <div>
+          <h3 className="scroll-m-20 pb-2 pt-6 text-2xl font-semibold tracking-tight first:mt-0 text-slate-700">
+            Usuarios
+          </h3>
+          <div className="flex justify-between gap-2">
+            <Input type="text" placeholder="Buscar" className="w-full" />
+            <Filter options={roles} handleRoleSelect={handleRoleSelect} />
+          </div>
+          <div className="pt-10">
+            <UserGrid users={users} handleDeleteUser={handleDeleteUser} />
+          </div>
+          <div className="pt-5">
+            <PaginationDefault />
+          </div>
         </div>
-        <div className="pt-10">
-          <UserGrid users={users} handleDeleteUser={handleDeleteUser} />
-        </div>
-      </div>
+      </AdminTemplate>
     </>
   );
 }

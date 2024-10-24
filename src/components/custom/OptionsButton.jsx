@@ -7,9 +7,15 @@ import {
 import { EllipsisVerticalIcon } from "lucide-react";
 import { useState } from "react";
 import { DialogEditRole } from "./DialogEditRole";
-import { DialogDeleteUser } from "./DialogDeleteUser";
+import { DialogDisableUser } from "./DialogDisableUser";
 
-export function OptionButton({ name, email, rol, handleRoleSelect, handleDeleteUser }) {
+export function OptionButton({
+  name,
+  email,
+  rol,
+  handleRoleSelect,
+  handleDeleteUser,
+}) {
   const [option, setOption] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
 
@@ -32,7 +38,7 @@ export function OptionButton({ name, email, rol, handleRoleSelect, handleDeleteU
         )}
 
         {option === "eliminar" && (
-          <DialogDeleteUser
+          <DialogDisableUser
             name={name}
             email={email}
             open={openDialog}
@@ -50,7 +56,7 @@ export function OptionButton({ name, email, rol, handleRoleSelect, handleDeleteU
             Editar
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => handleOptionSelect("eliminar")}>
-            Eliminar
+            Deshabilitar
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

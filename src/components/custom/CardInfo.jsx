@@ -24,7 +24,7 @@ export function CardInfo({ name, email, rol, handleDeleteUser }) {
   };
 
   return (
-    <Card className="w-[320px]">
+    <Card className="">
       <CardHeader>
         <div className="flex justify-between">
           <CardTitle>{name}</CardTitle>
