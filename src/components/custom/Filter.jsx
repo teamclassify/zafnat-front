@@ -22,7 +22,7 @@ export default function Filter({ options, handleRoleSelect }) {
     }
 
     setSelectedRoles(newSelectedRoles);
-    handleRoleSelect(role);
+    handleRoleSelect(newSelectedRoles);
   };
 
   return (

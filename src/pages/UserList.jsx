@@ -21,28 +21,21 @@ const roles = ["Gerente", "Administrador", "Ventas", "Almacen", "Marketing"];
 
 export default function UserList() {
   const [users, setUsers] = useState(initialUsers);
-  const [filters, setFilters] = useState([]);
 
   const handleDeleteUser = (email) => {
     const updatedUsers = users.filter((user) => user.email !== email);
     setUsers(updatedUsers);
   };
 
-  const handleRoleSelect = (selectRol) => {
-    let newFilters = "";
-    filters.includes(selectRol)
-      ? (newFilters = filters.filter((rol) => rol !== selectRol))
-      : (newFilters = [...filters, selectRol]);
-
+  const handleRoleSelect = (newFilters) => {
     if (newFilters.length === 0) {
       setUsers(initialUsers);
     } else {
-      const updatedUsers = users.filter((user) =>
+      const updatedUsers = initialUsers.filter((user) =>
         newFilters.every((selectedRole) => user.rol.includes(selectedRole))
       );
       setUsers(updatedUsers);
     }
-    setFilters(newFilters);
   };
 
   return (
