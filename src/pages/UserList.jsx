@@ -17,12 +17,12 @@ function UserList() {
         </div>
         <div className="pt-10">
           <div className="grid grid-cols-[repeat(auto-fit,_minmax(320px,_1fr))] gap-4">
-            <CardInfo />
-            <CardInfo />
-            <CardInfo />
-            <CardInfo />
-            <CardInfo />
-            <CardInfo />
+            <CardInfo name={"Gianfranco"} email={"gianfranco@gmail.com"} rol={["Administrador"]}/>
+            <CardInfo name={"Gianfranco"} email={"gianfranco@gmail.com"} rol={["Administrador"]}/>
+            <CardInfo name={"Gianfranco"} email={"gianfranco@gmail.com"} rol={["Administrador"]}/>
+            <CardInfo name={"Gianfranco"} email={"gianfranco@gmail.com"} rol={["Administrador"]}/>
+            <CardInfo name={"Gianfranco"} email={"gianfranco@gmail.com"} rol={["Administrador"]}/>
+            <CardInfo name={"Gianfranco"} email={"gianfranco@gmail.com"} rol={["Administrador"]}/>
           </div>
         </div>
       </div>

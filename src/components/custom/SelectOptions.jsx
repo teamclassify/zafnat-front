@@ -6,11 +6,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export function SelectOption({ rol, title }) {
+export function SelectOption({ rol, title, handleRoleSelect }) {
   return (
-    <Select>
+    <Select onValueChange={handleRoleSelect}>
       <SelectTrigger id="roles">
-        <SelectValue placeholder={title} />
+        <SelectValue placeholder={title}>{title}</SelectValue>
       </SelectTrigger>
       <SelectContent>
         <div>
