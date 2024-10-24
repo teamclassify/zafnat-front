@@ -12,7 +12,7 @@ import { SelectOption } from "./SelectOptions";
 
 const roles = ["Gerente", "Administrador", "Ventas", "Almacen", "Marketing"];
 
-export function CardInfo({name, email, rol}) {
+export function CardInfo({ name, email, rol }) {
   const [selectedRoles, setSelectedRoles] = useState(rol);
 
   const handleRoleSelect = (selectedRol) => {
@@ -26,7 +26,7 @@ export function CardInfo({name, email, rol}) {
       <CardHeader>
         <div className="flex justify-between">
           <CardTitle>{name}</CardTitle>
-          <OptionButton/>
+          <OptionButton />
         </div>
         <CardDescription>{email}</CardDescription>
       </CardHeader>
@@ -35,8 +35,12 @@ export function CardInfo({name, email, rol}) {
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="roles">Roles y Permisos</Label>
-              <SelectOption rol={selectedRoles} title={rol}/>
-              <SelectOption rol={roles.filter((role) => !selectedRoles.includes(role))} title={"Asignar más roles"} handleRoleSelect={handleRoleSelect}/>
+              <SelectOption rol={selectedRoles} title={rol[0]} />
+              <SelectOption
+                rol={roles.filter((role) => !selectedRoles.includes(role))}
+                title={"Asignar más roles"}
+                handleRoleSelect={handleRoleSelect}
+              />
             </div>
           </div>
         </form>

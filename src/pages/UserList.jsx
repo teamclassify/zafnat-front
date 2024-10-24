@@ -18,11 +18,11 @@ function UserList() {
         <div className="pt-10">
           <div className="grid grid-cols-[repeat(auto-fit,_minmax(320px,_1fr))] gap-4">
             <CardInfo name={"Gianfranco"} email={"gianfranco@gmail.com"} rol={["Administrador"]}/>
-            <CardInfo name={"Gianfranco"} email={"gianfranco@gmail.com"} rol={["Administrador"]}/>
-            <CardInfo name={"Gianfranco"} email={"gianfranco@gmail.com"} rol={["Administrador"]}/>
-            <CardInfo name={"Gianfranco"} email={"gianfranco@gmail.com"} rol={["Administrador"]}/>
-            <CardInfo name={"Gianfranco"} email={"gianfranco@gmail.com"} rol={["Administrador"]}/>
-            <CardInfo name={"Gianfranco"} email={"gianfranco@gmail.com"} rol={["Administrador"]}/>
+            <CardInfo name={"William"} email={"william@gmail.com"} rol={["Gerente"]}/>
+            <CardInfo name={"Haudi"} email={"haudi@gmail.com"} rol={["Ventas", "Marketing"]}/>
+            <CardInfo name={"Maria Jose"} email={"mariajose@gmail.com"} rol={["Marketing","Ventas"]}/>
+            <CardInfo name={"Alessandro"} email={"alessandro@gmail.com"} rol={["Administrador"]}/>
+            <CardInfo name={"Astroberto"} email={"astroberto@gmail.com"} rol={["Almacen"]}/>
           </div>
         </div>
       </div>
