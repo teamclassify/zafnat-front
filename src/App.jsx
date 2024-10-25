@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import UserList from "./pages/InfoUser";
 import InfoClient from "./pages/InfoClient"
 import AlertStock from "./pages/AlertStock"
+import ManageRole from "./pages/ManageRoles";
 
 import { Toaster } from "@/components/ui/sonner"
 
@@ -22,6 +23,7 @@ function App() {
         <Route component={UserList} path="/admin/ajustes/usuarios"></Route>
         <Route component={InfoClient} path="/admin/clientes"></Route>
         <Route component={AlertStock} path="/admin/ajustes/inventario"></Route>
+        <Route component={ManageRole} path="/admin/ajustes/roles"></Route>
 
         {/* Start Routes */}
 
