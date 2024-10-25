@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import UsersPage from "./pages/users";
 
 import { Toaster } from "@/components/ui/sonner";
+import DashboardPage from "./pages/admin-page";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       <Switch>
         <Route component={HomePage} path="/" />
         <Route component={LoginPage} path="/login" />
-        <Route component={UsersPage} path="/admin/usuarios/roles"></Route>
+        <Route component={DashboardPage} path="/admin" />
+        <Route component={UsersPage} path="/admin/ajustes/usuarios" />
 
         {/* Start Routes */}
 
