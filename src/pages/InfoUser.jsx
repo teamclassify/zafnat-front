@@ -2,30 +2,13 @@ import AdminTemplate from "../components/templates/AdminTemplate";
 import { Input } from "@/components/ui/input";
 import Filter from "../components/custom/Filter";
 import { UserGrid } from "../components/custom/UserGrid";
-import { useState } from "react";
 import { PaginationDefault } from "../components/custom/Pagination";
-import { initialUsers } from "../moks/users.json";
+import { useUserFilter } from "../hooks/useUserFilter";
 
 const roles = ["Gerente", "Administrador", "Ventas", "Almacen", "Marketing"];
 
 export default function UserList() {
-  const [users, setUsers] = useState(initialUsers);
-
-  const handleDeleteUser = (email) => {
-    const updatedUsers = users.filter((user) => user.email !== email);
-    setUsers(updatedUsers);
-  };
-
-  const handleRoleSelect = (newFilters) => {
-    if (newFilters.length === 0) {
-      setUsers(initialUsers);
-    } else {
-      const updatedUsers = initialUsers.filter((user) =>
-        newFilters.every((selectedRole) => user.rol.includes(selectedRole))
-      );
-      setUsers(updatedUsers);
-    }
-  };
+  const {users, handleDeleteUser, handleRoleSelect} = useUserFilter();
 
   return (
     <>

@@ -3,42 +3,11 @@ import { Input } from "@/components/ui/input";
 import Filter from "../components/custom/Filter";
 import { ClientGrid } from "../components/custom/ClientGrid";
 import { PaginationDefault } from "../components/custom/Pagination";
-import { useState } from "react";
-import { initialClients } from "../moks/clients.json";
+import { useClientFilter } from "../hooks/useClientFilter";
 
-const options = [
-  "Mayor compra",
-  "Con productos recientes",
-  "Sin productos recientes",
-];
 
 export default function InfoClient() {
-  const [clients, setClients] = useState(initialClients);
-
-  const handleClientSelect = (filter) => {
-    const newFilters = filter[0];
-    if (filter.length === 0) {
-      setClients(initialClients);
-    } else {
-      let updatedClients = "";
-      if (newFilters === options[0]) {
-        updatedClients = initialClients.sort(
-          (a, b) => b.recentProducts.length - a.recentProducts.length
-        );
-      }
-      if (newFilters === options[1]) {
-        updatedClients = initialClients.filter(
-          (user) => user.recentProducts.length > 0
-        );
-      }
-      if (newFilters === options[2]) {
-        updatedClients = initialClients.filter(
-          (user) => user.recentProducts.length === 0
-        );
-      }
-      setClients(updatedClients === "" ? [] : updatedClients);
-    }
-  };
+  const {clients, options, handleClientSelect} = useClientFilter()
 
   return (
     <>
