@@ -4,19 +4,7 @@ import Filter from "../components/custom/Filter";
 import { UserGrid } from "../components/custom/UserGrid";
 import { useState } from "react";
 import { PaginationDefault } from "../components/custom/Pagination";
-
-const initialUsers = [
-  { name: "Gianfranco", email: "gianfranco@gmail.com", rol: ["Administrador"] },
-  { name: "William", email: "william@gmail.com", rol: ["Gerente"] },
-  { name: "Haudi", email: "haudi@gmail.com", rol: ["Ventas", "Marketing"] },
-  {
-    name: "Maria Jose",
-    email: "mariajose@gmail.com",
-    rol: ["Marketing", "Ventas"],
-  },
-  { name: "Alessandro", email: "alessandro@gmail.com", rol: ["Administrador"] },
-  { name: "Astroberto", email: "astroberto@gmail.com", rol: ["Almacen"] },
-];
+import { initialUsers } from "../moks/users.json";
 
 const roles = ["Gerente", "Administrador", "Ventas", "Almacen", "Marketing"];
 
@@ -48,7 +36,7 @@ export default function UserList() {
           </h3>
           <div className="flex justify-between gap-2">
             <Input type="text" placeholder="Buscar" className="w-full" />
-            <Filter options={roles} handleRoleSelect={handleRoleSelect} />
+            <Filter options={roles} handleSelect={handleRoleSelect} />
           </div>
           <div className="pt-10">
             <UserGrid users={users} handleDeleteUser={handleDeleteUser} />

@@ -1,0 +1,9 @@
+  { "initialUsers": [
+    { "name": "Gianfranco", "email": "gianfranco@gmail.com", "rol": ["Administrador"] },
+    { "name": "William", "email": "william@gmail.com", "rol": ["Gerente"] },
+    { "name": "Haudi", "email": "haudi@gmail.com", "rol": ["Ventas", "Marketing"] },
+    { "name": "Maria Jose", "email": "mariajose@gmail.com","rol": ["Marketing", "Ventas"]},
+    { "name": "Alessandro", "email": "alessandro@gmail.com", "rol": ["Administrador"] },
+    { "name": "Astroberto", "email": "astroberto@gmail.com", "rol": ["Almacen"] }
+  ]
+}

@@ -20,7 +20,6 @@ export default function Filter({ options, handleSelect }) {
     } else {
       newSelectedRoles = [...selectedRoles, role];
     }
-
     setSelectedRoles(newSelectedRoles);
     handleSelect(newSelectedRoles);
   };
