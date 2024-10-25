@@ -4,10 +4,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { EllipsisVerticalIcon } from "lucide-react";
+import { HiDotsVertical } from "react-icons/hi";
+
 import { useState } from "react";
-import { DialogEditRole } from "./DialogEditRole";
 import { DialogDisableUser } from "./DialogDisableUser";
+import { DialogEditRole } from "./DialogEditRole";
 
 export function OptionButton({
   name,
@@ -47,14 +48,17 @@ export function OptionButton({
           />
         )}
       </div>
+
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <EllipsisVerticalIcon color="gray" cursor="pointer" />
+          <HiDotsVertical />
         </DropdownMenuTrigger>
+
         <DropdownMenuContent>
           <DropdownMenuItem onClick={() => handleOptionSelect("editar")}>
             Editar
           </DropdownMenuItem>
+
           <DropdownMenuItem onClick={() => handleOptionSelect("eliminar")}>
             Deshabilitar
           </DropdownMenuItem>

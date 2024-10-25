@@ -1,0 +1,130 @@
+import {
+  Book,
+  ChartBar,
+  LayoutDashboard,
+  Newspaper,
+  Settings,
+  User,
+  UserRoundPen,
+} from "lucide-react";
+import { Link, useLocation } from "wouter";
+
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import {
+  Sidebar as SidebarComponent,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/ui/sidebar";
+
+const items = [
+  {
+    title: "Dashboard",
+    url: "/admin",
+    icon: LayoutDashboard,
+  },
+  {
+    title: "Ventas",
+    url: "/admin/ventas",
+    icon: Newspaper,
+  },
+  {
+    title: "Catalogo",
+    url: "/admin/catalogo",
+    icon: Book,
+  },
+  {
+    title: "Clientes",
+    url: "/admin/clientes",
+    icon: User,
+  },
+  {
+    title: "Reportes",
+    url: "/admin/reportes",
+    icon: ChartBar,
+  },
+  {
+    title: "Ajustes",
+    url: "",
+    icon: Settings,
+    submenu: [
+      {
+        title: "Usuarios",
+        url: "/admin/ajustes/usuarios",
+        icon: User,
+      },
+      {
+        title: "Roles",
+        url: "/admin/ajustes/roles",
+        icon: UserRoundPen,
+      },
+    ],
+  },
+];
+
+export default function Sidebar() {
+  const [location] = useLocation();
+
+  console.log(location);
+
+  return (
+    <SidebarComponent>
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {items.map((item) =>
+                item.submenu?.length > 0 ? (
+                  <Collapsible key={item.title} className="w-full">
+                    <CollapsibleTrigger className="w-full">
+                      <SidebarMenuItem key={item.title}>
+                        <SidebarMenuButton asChild>
+                          <p>
+                            <item.icon />
+                            <span>{item.title}</span>
+                          </p>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    </CollapsibleTrigger>
+
+                    <CollapsibleContent className="pl-4">
+                      {item.submenu.map((subitem) => (
+                        <SidebarMenuItem
+                          key={subitem.title}
+                          className={subitem.url === location ? "font-bold" : ""}
+                        >
+                          <SidebarMenuButton asChild>
+                            <Link href={subitem.url}>
+                              <subitem.icon />
+                              <span>{subitem.title}</span>
+                            </Link>
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      ))}
+                    </CollapsibleContent>
+                  </Collapsible>
+                ) : (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton asChild>
+                      <Link href={item.url}>
+                        <item.icon />
+                        <span>{item.title}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                )
+              )}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+    </SidebarComponent>
+  );
+}
