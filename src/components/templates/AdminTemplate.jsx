@@ -1,6 +1,12 @@
+import useUser from "../../hooks/useUser";
 import Header from "../custom/Header";
 
 function AdminTemplate({ children }) {
+  const { loading } = useUser();
+
+  // TODO: Implementar un loader
+  if (loading) return <p>Cargando...</p>;
+
   return (
     <>
       <Header />
