@@ -3,10 +3,10 @@ import { Route, Switch } from "wouter";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
-import UserList from "./pages/InfoUser";
-import InfoClient from "./pages/InfoClient"
-import AlertStock from "./pages/AlertStock"
-import ManageRole from "./pages/ManageRoles";
+import UserList from "./pages/InfoUserPage";
+import InfoClient from "./pages/InfoClientPage"
+import AlertStock from "./pages/AlertStockPage"
+import ManageRole from "./pages/ManageRolesPage";
 
 import { Toaster } from "@/components/ui/sonner"
 

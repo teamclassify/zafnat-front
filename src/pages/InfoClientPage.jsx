@@ -1,28 +1,31 @@
 import AdminTemplate from "../components/templates/AdminTemplate";
 import { Input } from "@/components/ui/input";
 import Filter from "../components/custom/Filter";
-import { UserGrid } from "../components/custom/UserGrid";
+import { ClientGrid } from "../components/custom/ClientGrid";
 import { PaginationDefault } from "../components/custom/Pagination";
-import { useUserFilter } from "../hooks/useUserFilter";
+import { useClientFilter } from "../hooks/useClientFilter";
 
-const roles = ["Gerente", "Administrador", "Ventas", "Almacen", "Marketing"];
 
-export default function UserList() {
-  const {users, handleDeleteUser, handleRoleSelect} = useUserFilter();
+export default function InfoClientPage() {
+  const {clients, options, handleClientSelect} = useClientFilter()
 
   return (
     <>
       <AdminTemplate>
         <div>
           <h3 className="scroll-m-20 pb-2 pt-6 text-2xl font-semibold tracking-tight first:mt-0 text-slate-700">
-            Usuarios
+            Información clientes
           </h3>
           <div className="flex justify-between gap-2">
-            <Input type="text" placeholder="Buscar" className="w-full" />
-            <Filter options={roles} handleSelect={handleRoleSelect} />
+            <Input
+              type="text"
+              placeholder="Buscar por nombre, email, dirección, ciudad..."
+              className="w-full"
+            />
+            <Filter options={options} handleSelect={handleClientSelect} />
           </div>
           <div className="pt-10">
-            <UserGrid users={users} handleDeleteUser={handleDeleteUser} />
+            <ClientGrid client={clients} />
           </div>
           <div className="pt-5">
             <PaginationDefault />

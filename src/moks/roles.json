@@ -1,0 +1,24 @@
+{
+  "roles": [
+    {
+      "role": "Gerente",
+      "count": 5
+    },
+    {
+      "role": "Administrador",
+      "count": 3
+    },
+    {
+      "role": "Ventas",
+      "count": 20
+    },
+    {
+      "role": "Almacen",
+      "count": 7
+    },
+    {
+      "role": "Marketing",
+      "count": 10
+    }
+  ]
+}
