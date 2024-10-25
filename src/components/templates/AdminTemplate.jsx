@@ -1,5 +1,8 @@
+import { SidebarProvider } from "@/components/ui/sidebar";
+
 import useUser from "../../hooks/useUser";
 import Header from "../custom/Header";
+import Sidebar from "../custom/Sidebar";
 
 function AdminTemplate({ children }) {
   const { loading } = useUser();
@@ -9,9 +12,15 @@ function AdminTemplate({ children }) {
 
   return (
     <>
-      <Header />
+      <SidebarProvider>
+        <Sidebar />
 
-      <main className="py-8 mx-auto max-w-screen-lg px-4">{children}</main>
+        <main className="w-full">
+          <Header />
+
+          <div className="p-4">{children}</div>
+        </main>
+      </SidebarProvider>
     </>
   );
 }

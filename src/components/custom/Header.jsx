@@ -19,12 +19,12 @@ import { Input } from "../ui/input";
 import useUser from "../../hooks/useUser";
 import Logo from "./Logo";
 
-function Header() {
+function Header({ className } = { className: "" }) {
   const { user, loading, logout } = useUser();
 
   return (
     <header className="p-4 border-b">
-      <div className="mx-auto max-w-screen-lg flex items-center justify-between">
+      <div className={`w-full flex items-center justify-between ${className}`}>
         <div className="flex gap-2 items-center w-full ">
           <Logo />
           <Input placeholder="Busca aqui..." className="max-w-sm" />
