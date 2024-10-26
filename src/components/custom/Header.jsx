@@ -5,7 +5,7 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "../../components/ui/avatar";
+} from "../ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,7 +17,6 @@ import {
 import { Input } from "../ui/input";
 
 import useUser from "../../hooks/useUser";
-import Logo from "./Logo";
 
 function Header({ className } = { className: "" }) {
   const { user, loading, logout } = useUser();
@@ -26,7 +25,6 @@ function Header({ className } = { className: "" }) {
     <header className="p-4 border-b">
       <div className={`w-full flex items-center justify-between ${className}`}>
         <div className="flex gap-2 items-center w-full ">
-          <Logo />
           <Input placeholder="Busca aqui..." className="max-w-sm" />
         </div>
 
