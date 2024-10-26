@@ -4,14 +4,23 @@ import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import SingInPage from "./pages/SignInPage"
+import UsersPage from "./pages/users";
+
+import { Toaster } from "@/components/ui/sonner";
+import DashboardPage from "./pages/admin-page";
 
 function App() {
   return (
     <>
+      <Toaster />
+
       <Switch>
         <Route component={HomePage} path="/" />
         <Route component={LoginPage} path="/login" />
         <Route component={SingInPage} path="/signin"/>
+        <Route component={DashboardPage} path="/admin" />
+        <Route component={UsersPage} path="/admin/ajustes/usuarios" />
+
         {/* Start Routes */}
 
         {/* End Routes */}
