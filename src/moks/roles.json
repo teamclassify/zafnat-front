@@ -1,5 +1,5 @@
 {
-  "roles": [
+  "initialRoles": [
     {
       "role": "Gerente",
       "count": 5

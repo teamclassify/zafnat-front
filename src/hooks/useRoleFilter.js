@@ -1,39 +1,26 @@
 import { useState } from "react";
-import { initialClients } from "../moks/clients.json";
+import { initialRoles } from "../moks/roles.json";
 
-const options = [
-  "Mayor compra",
-  "Con productos recientes",
-  "Sin productos recientes",
+const rolesDefault = [
+  "Gerente",
+  "Administrador",
+  "Ventas",
+  "Almacen",
+  "Marketing",
 ];
 
-export function useClientFilter() {
-  const [clients, setClients] = useState(initialClients);
+export function useRoleFilter() {
+  const [roles, setRoles] = useState(initialRoles);
 
-  const handleClientSelect = (filter) => {
-    const newFilters = filter[0];
-    if (filter.length === 0) {
-      setClients(initialClients);
+  const handleRoleSelect = (newFilters) => {
+    let selectedRole = newFilters[0];
+    if (newFilters.length === 0) {
+      setRoles(initialRoles);
     } else {
-      let updatedClients = "";
-      if (newFilters === options[0]) {
-        updatedClients = [...initialClients].sort(
-          (a, b) => b.recentProducts.length - a.recentProducts.length
-        );
-      }
-      if (newFilters === options[1]) {
-        updatedClients = initialClients.filter(
-          (user) => user.recentProducts.length > 0
-        );
-      }
-      if (newFilters === options[2]) {
-        updatedClients = initialClients.filter(
-          (user) => user.recentProducts.length === 0
-        );
-      }
-      setClients(updatedClients);
+      const updatedUsers = initialRoles.filter((rol) => rol.role === selectedRole);
+      console.log(updatedUsers)
+      setRoles(updatedUsers);
     }
   };
-
-  return { clients, options, handleClientSelect };
+  return { roles, handleRoleSelect, rolesDefault };
 }
