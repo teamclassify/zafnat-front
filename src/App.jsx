@@ -24,9 +24,9 @@ function App() {
         <Route component={DashboardPage} path="/admin" />
         <Route component={UsersPage} path="/admin/ajustes/usuarios" />
         <Route component={SingInPage} path="/signin"/>
-        <Route component={RecoverPassword} path="/recover"/>
-        <Route component={RecoverCompleted} path="/recover_completed"/>
-        <Route component={NewPassword} path="/new_password"/>
+        <Route component={RecoverPassword} path="/recuperar"/>
+        <Route component={RecoverCompleted} path="/recuperar_completado"/>
+        <Route component={NewPassword} path="/nueva_contraseña"/>
         {/* Start Routes */}
 
         {/* End Routes */}
