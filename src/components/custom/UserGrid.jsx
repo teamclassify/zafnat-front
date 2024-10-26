@@ -8,7 +8,7 @@ export function UserGrid({ users, handleDeleteUser }) {
           key={user.email}
           firstName={user.firstName}
           email={user.email}
-          rol={""}
+          rol={user.rol}
           handleDeleteUser={handleDeleteUser}
         />
       ))}
