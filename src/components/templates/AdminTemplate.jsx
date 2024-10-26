@@ -1,4 +1,4 @@
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider } from "../ui/sidebar";
 
 import useUser from "../../hooks/useUser";
 import Header from "../custom/Header";
@@ -13,7 +13,9 @@ function AdminTemplate({ children }) {
   return (
     <>
       <SidebarProvider>
-        <Sidebar />
+        <div className="max-w-[200px]">
+          <Sidebar />
+        </div>
 
         <main className="w-full">
           <Header />

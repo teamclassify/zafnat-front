@@ -13,7 +13,7 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+} from "../ui/collapsible";
 import {
   Sidebar as SidebarComponent,
   SidebarContent,
@@ -22,7 +22,8 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
+} from "../ui/sidebar";
+import Logo from "./Logo.jsx";
 
 const items = [
   {
@@ -71,12 +72,14 @@ const items = [
 
 export default function Sidebar() {
   const [location] = useLocation();
-
-  console.log(location);
-
+  
   return (
-    <SidebarComponent>
-      <SidebarContent>
+    <SidebarComponent className="max-w-[200px]">
+      <SidebarContent className="p-2">
+        <SidebarGroup className="flex justify-center">
+          <Logo />
+        </SidebarGroup>
+        
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
