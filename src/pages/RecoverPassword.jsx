@@ -10,7 +10,7 @@ function RecoverPassword() {
         <h3>De esta forma sabremos que cuenta te pertenece</h3>
         <div className="flex flex-col mt-12 items-center gap-2">
           <h3 className="font-bold">Introduce el correo electrónico de tu cuenta</h3>
-          <Input type="email" placeholder="Email"/>
+          <Input type="email" placeholder="Email" autoComplete="email"/>
           <Button type="submit" className="self-end">Continuar</Button>
         </div>
       </div>

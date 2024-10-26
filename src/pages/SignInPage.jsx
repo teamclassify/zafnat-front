@@ -1,3 +1,5 @@
+import { Link } from "wouter";
+
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { Label } from "../components/ui/label";
 import { Input } from "../components/ui/input";
@@ -103,7 +105,7 @@ function SignInPage() {
               ¿Ya tienes una cuenta?
             </label>
             <Button variant="link" className="p-0">
-              Ingresa
+              <Link href="/login">Ingresa</Link>
             </Button>
           </div>
         </div>
