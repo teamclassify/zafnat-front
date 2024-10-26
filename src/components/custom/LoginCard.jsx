@@ -54,7 +54,7 @@ function LoginCard() {
               </label>
             </div>
             <Button variant="link">
-              <Link href="/recover">¿Olvidaste tu contraseña?</Link>
+              <Link href="/recuperar">¿Olvidaste tu contraseña?</Link>
             </Button>
           </div>
           <div className="flex justify-between">
