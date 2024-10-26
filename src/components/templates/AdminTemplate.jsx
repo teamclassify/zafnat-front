@@ -1,11 +1,28 @@
+import { SidebarProvider } from "../ui/sidebar";
+
+import useUser from "../../hooks/useUser";
 import Header from "../custom/Header";
+import Sidebar from "../custom/Sidebar";
 
 function AdminTemplate({ children }) {
+  const { loading } = useUser();
+
+  // TODO: Implementar un loader
+  if (loading) return <p>Cargando...</p>;
+
   return (
     <>
-      <Header />
+      <SidebarProvider>
+        <div className="max-w-[200px]">
+          <Sidebar />
+        </div>
 
-      <main className="py-8 mx-auto max-w-screen-lg px-4">{children}</main>
+        <main className="w-full">
+          <Header />
+
+          <div className="p-4">{children}</div>
+        </main>
+      </SidebarProvider>
     </>
   );
 }

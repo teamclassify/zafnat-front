@@ -101,11 +101,6 @@ export default function UserProvider({ children }) {
   useEffect(() => {
     const unsuscribeStateChanged = auth.onAuthStateChanged(async (user) => {
       if (user) {
-        // if (!user?.emailVerified) {
-        //   setLocation('/verificar-email')
-        //   return
-        // }
-
         const userInfo = {
           email: user.email,
           id: user.uid,
@@ -123,7 +118,7 @@ export default function UserProvider({ children }) {
         setAccessToken(token);
         setUser(userInfo);
         setLoggedIn(true);
-        setLoading(false);
+        // setLoading(false);
       } else {
         setLoading(false);
         setLoggedIn(false);

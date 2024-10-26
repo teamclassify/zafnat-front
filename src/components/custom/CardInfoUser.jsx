@@ -12,13 +12,13 @@ import { SelectOption } from "./SelectOptions";
 
 const roles = ["Gerente", "Administrador", "Ventas", "Almacen", "Marketing"];
 
-export function CardInfoUser({ name, email, rol, handleDeleteUser }) {
+export function CardInfoUser({ firstName, email, rol, handleDeleteUser }) {
   const [selectedRoles, setSelectedRoles] = useState(rol);
 
   const handleRoleSelect = (selectedRol) => {
     if (!selectedRoles.includes(selectedRol)) {
       setSelectedRoles([...selectedRoles, selectedRol]);
-    }else{
+    } else {
       setSelectedRoles(selectedRoles.filter((r) => r !== selectedRol));
     }
   };
@@ -27,11 +27,18 @@ export function CardInfoUser({ name, email, rol, handleDeleteUser }) {
     <Card>
       <CardHeader>
         <div className="flex justify-between">
-          <CardTitle>{name}</CardTitle>
-          <OptionButton name={name} email={email} rol={selectedRoles} handleRoleSelect={handleRoleSelect} handleDeleteUser={handleDeleteUser} />
+          <CardTitle>{firstName}</CardTitle>
+          <OptionButton
+            name={firstName }
+            email={email}
+            rol={selectedRoles}
+            handleRoleSelect={handleRoleSelect}
+            handleDeleteUser={handleDeleteUser}
+          />
         </div>
         <CardDescription>{email}</CardDescription>
       </CardHeader>
+
       <CardContent>
         <form>
           <div className="grid w-full items-center gap-4">
