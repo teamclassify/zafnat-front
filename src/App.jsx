@@ -7,6 +7,7 @@ import SingInPage from "./pages/SignInPage";
 import RecoverPassword from "./pages/RecoverPassword";
 import RecoverCompleted from "./pages/RecoverCompleted";
 import NewPassword from "./pages/NewPassword";
+import CreateEditProduct from "./pages/CreateEditProduct";
 
 
 function App() {
@@ -15,10 +16,11 @@ function App() {
       <Switch>
         <Route component={HomePage} path="/" />
         <Route component={LoginPage} path="/login" />
-        <Route component={SingInPage} path="/signin"/>
-        <Route component={RecoverPassword} path="/recover"/>
-        <Route component={RecoverCompleted} path="/recover_completed"/>
-        <Route component={NewPassword} path="/new_password"/>
+        <Route component={SingInPage} path="/signup"/>
+        <Route component={RecoverPassword} path="/recuperar"/>
+        <Route component={RecoverCompleted} path="/recuperar-completado"/>
+        <Route component={NewPassword} path="/contraseña-nueva"/>
+        <Route component={CreateEditProduct} path="crear-editar-producto"/>
         {/* Start Routes */}
 
         {/* End Routes */}

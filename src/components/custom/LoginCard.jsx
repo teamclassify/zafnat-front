@@ -1,3 +1,5 @@
+import { Link } from "wouter";
+
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
@@ -51,7 +53,9 @@ function LoginCard() {
                 Mostrar Contraseña
               </label>
             </div>
-            <Button variant="link">¿Olvidaste tu contraseña?</Button>
+            <Button variant="link">
+              <Link href="/recover">¿Olvidaste tu contraseña?</Link>
+            </Button>
           </div>
           <div className="flex justify-between">
             <Button className="px-12">Ingresar</Button>
@@ -76,7 +80,7 @@ function LoginCard() {
               ¿Eres nuevo?
             </label>
             <Button variant="link" className="p-0">
-              Crea tu cuenta
+              <Link href="/signup">Crea tu cuenta</Link>
             </Button>
           </div>
         </div>
