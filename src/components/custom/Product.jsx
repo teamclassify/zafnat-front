@@ -4,7 +4,7 @@ export default function Product({ image, /*reviews,*/  name, price }) {
       <img src={image} alt="image de jean" className="w-4/5" />
       <p>⭐⭐⭐⭐⭐</p>
       <p>{name}</p>
-      <p>${price}.000</p>
+      <p className="font-semibold">${price}.000</p>
     </div>
   );
 }
