@@ -1,4 +1,4 @@
-import { Product } from "./Product";
+import Product from "./Product";
 
 export function ProductGrid({ products }) {
   return (
@@ -9,7 +9,7 @@ export function ProductGrid({ products }) {
           name={product.name}
           img={product.photos}
           reviews={product.reviews}
-          price={product.skus.price}
+          price={product.skus[0].price}
         />
       ))}
     </div>
