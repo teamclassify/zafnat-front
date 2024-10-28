@@ -1,9 +1,9 @@
-import { Checkbox } from "@/components/ui/checkbox"
+import { Checkbox } from "@/components/ui/checkbox";
 
-export function CheckboxDemo({name}) {
+export function CheckboxDemo({ name, onChange }) {
   return (
     <div className="flex items-center space-x-2">
-      <Checkbox id="terms" />
+      <Checkbox id="terms" onCheckedChange={(isChecked) => onChange(name, isChecked)} />
       <label
         htmlFor="terms"
         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -11,5 +11,5 @@ export function CheckboxDemo({name}) {
         {name}
       </label>
     </div>
-  )
+  );
 }
