@@ -1,10 +1,15 @@
-import DefaultTemplate from "../components/templates/DefaultTemplate";
+import Hero from "../components/catalog/Hero";
+import Header from "../components/custom/Header";
 
 function HomePage() {
   return (
-    <DefaultTemplate>
-      <h2>Inicio</h2>
-    </DefaultTemplate>
+    <>
+      <Header className="w-[90%] max-w-screen-lg mx-auto" />
+
+      <Hero />
+
+      <main className="py-8 mx-auto max-w-screen-lg"></main>
+    </>
   );
 }
 
