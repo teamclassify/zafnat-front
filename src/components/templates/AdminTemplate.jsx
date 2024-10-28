@@ -18,7 +18,7 @@ function AdminTemplate({ children }) {
         </div>
 
         <main className="w-full">
-          <Header />
+          <Header className="px-4" />
 
           <div className="p-4">{children}</div>
         </main>
