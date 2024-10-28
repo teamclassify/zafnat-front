@@ -8,7 +8,7 @@ import { CheckboxDemo } from "./CheckBoxDemo";
 
 export default function AccordionFilter() {
   return (
-    <Accordion type="single" className="w-2/4" collapsible>
+    <Accordion type="single" className="w-2/4">
       <AccordionItem value="item-1">
         <AccordionTrigger>Categoria</AccordionTrigger>
         <AccordionContent className="flex flex-col gap-3">
@@ -17,7 +17,7 @@ export default function AccordionFilter() {
           <CheckboxDemo name="Jeans" />
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-2">
+      <AccordionItem value="item-1">
         <AccordionTrigger>Color</AccordionTrigger>
         <AccordionContent className="flex flex-col gap-3">
           <CheckboxDemo name="Azul" />
@@ -25,7 +25,7 @@ export default function AccordionFilter() {
           <CheckboxDemo name="Amarillo" />
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-3">
+      <AccordionItem value="item-1">
         <AccordionTrigger>Talla</AccordionTrigger>
         <AccordionContent className="flex flex-col gap-3">
           <CheckboxDemo name="6" />
@@ -37,7 +37,7 @@ export default function AccordionFilter() {
           <CheckboxDemo name="18" />
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-4">
+      <AccordionItem value="item-1">
         <AccordionTrigger>Modelo</AccordionTrigger>
         <AccordionContent>
           Yes. It adheres to the WAI-ARIA design pattern.
