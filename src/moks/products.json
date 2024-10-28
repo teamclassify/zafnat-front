@@ -1,0 +1,234 @@
+[
+  {
+    "id": 1,
+    "name": "Jean Classic Fit",
+    "description": "Jean de corte clásico ideal para cualquier ocasión, cómodo y resistente.",
+    "category": {
+      "id": 1,
+      "name": "Jeans",
+      "description": "Categoría de jeans para todas las ocasiones.",
+      "parent_id": null
+    },
+    "photos": [
+      {
+        "id": 1,
+        "value": "Zaf-Nat-O28-Ref-1-1.jpg"
+      },
+      {
+        "id": 2,
+        "value": "Zaf-Nat-O28-Ref-1-2.jpg"
+      },
+      {
+        "id": 3,
+        "value": "Zaf-Nat-O28-Ref-1-3.jpg"
+      }
+    ],
+    "attributes": [
+      {
+        "id": 1,
+        "type": "Size",
+        "value": "32"
+      },
+      {
+        "id": 2,
+        "type": "Color",
+        "value": "Blue"
+      }
+    ],
+    "skus": [
+      {
+        "id": 1,
+        "sku": "SKU12345",
+        "size_attribute_id": 1,
+        "color_attribute_id": 2,
+        "price": 75000,
+        "quantity": 30,
+        "created_at": "2024-10-28T10:00:00Z"
+      }
+    ],
+    "reviews": [
+      {
+        "rating": 4.5,
+        "descripcion": "Muy cómodo y de buena calidad."
+      },
+      {
+        "rating": 5.0,
+        "descripcion": "Perfecto para el uso diario. Se siente resistente."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Chaqueta Denim Casual",
+    "description": "Chaqueta de denim para un estilo casual, perfecta para el clima fresco.",
+    "category": {
+      "id": 2,
+      "name": "Chaquetas",
+      "description": "Categoría de chaquetas para cualquier clima.",
+      "parent_id": null
+    },
+    "photos": [
+      {
+        "id": 4,
+        "value": "Zaf-Nat-O28-Ref-2-1.jpg"
+      },
+      {
+        "id": 5,
+        "value": "Zaf-Nat-O28-Ref-2-2.jpg"
+      },
+      {
+        "id": 6,
+        "value": "Zaf-Nat-O28-Ref-2-3.jpg"
+      }
+    ],
+    "attributes": [
+      {
+        "id": 3,
+        "type": "Size",
+        "value": "L"
+      },
+      {
+        "id": 4,
+        "type": "Color",
+        "value": "Dark Blue"
+      }
+    ],
+    "skus": [
+      {
+        "id": 2,
+        "sku": "SKU22345",
+        "size_attribute_id": 3,
+        "color_attribute_id": 4,
+        "price": 82000,
+        "quantity": 20,
+        "created_at": "2024-10-28T10:00:00Z"
+      }
+    ],
+    "reviews": [
+      {
+        "rating": 4.0,
+        "descripcion": "Muy buena chaqueta, un poco grande en las mangas."
+      },
+      {
+        "rating": 4.8,
+        "descripcion": "Excelente calidad, el color es perfecto."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Short Casual Fit",
+    "description": "Short cómodo y versátil para los días más cálidos.",
+    "category": {
+      "id": 3,
+      "name": "Shorts",
+      "description": "Categoría de shorts para días casuales y frescos.",
+      "parent_id": null
+    },
+    "photos": [
+      {
+        "id": 7,
+        "value": "Zaf-Nat-O28-Ref-3-1.jpg"
+      },
+      {
+        "id": 8,
+        "value": "Zaf-Nat-O28-Ref-3-2.jpg"
+      },
+      {
+        "id": 9,
+        "value": "Zaf-Nat-O28-Ref-3-3.jpg"
+      }
+    ],
+    "attributes": [
+      {
+        "id": 5,
+        "type": "Size",
+        "value": "M"
+      },
+      {
+        "id": 6,
+        "type": "Color",
+        "value": "Black"
+      }
+    ],
+    "skus": [
+      {
+        "id": 3,
+        "sku": "SKU32345",
+        "size_attribute_id": 5,
+        "color_attribute_id": 6,
+        "price": 67000,
+        "quantity": 40,
+        "created_at": "2024-10-28T10:00:00Z"
+      }
+    ],
+    "reviews": [
+      {
+        "rating": 4.2,
+        "descripcion": "Ligero y fresco, ideal para el verano."
+      },
+      {
+        "rating": 4.7,
+        "descripcion": "Muy cómodo, se ajusta bien al cuerpo."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Jean Skinny Fit",
+    "description": "Jean ajustado de alta calidad, ideal para estilos modernos.",
+    "category": {
+      "id": 1,
+      "name": "Jeans",
+      "description": "Categoría de jeans para todas las ocasiones.",
+      "parent_id": null
+    },
+    "photos": [
+      {
+        "id": 10,
+        "value": "Zaf-Nat-O28-Ref-4-1.jpg"
+      },
+      {
+        "id": 11,
+        "value": "Zaf-Nat-O28-Ref-4-2.jpg"
+      },
+      {
+        "id": 12,
+        "value": "Zaf-Nat-O28-Ref-4-3.jpg"
+      }
+    ],
+    "attributes": [
+      {
+        "id": 7,
+        "type": "Size",
+        "value": "34"
+      },
+      {
+        "id": 8,
+        "type": "Color",
+        "value": "Dark Blue"
+      }
+    ],
+    "skus": [
+      {
+        "id": 4,
+        "sku": "SKU42345",
+        "size_attribute_id": 7,
+        "color_attribute_id": 8,
+        "price": 79000,
+        "quantity": 25,
+        "created_at": "2024-10-28T10:00:00Z"
+      }
+    ],
+    "reviews": [
+      {
+        "rating": 4.9,
+        "descripcion": "Me encanta el ajuste, es perfecto para un look moderno."
+      },
+      {
+        "rating": 4.3,
+        "descripcion": "Buena calidad, pero la tela es un poco rígida."
+      }
+    ]
+  }
+]
