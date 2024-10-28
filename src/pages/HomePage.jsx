@@ -1,4 +1,5 @@
 import Hero from "../components/catalog/Hero";
+import NewProductsSection from "../components/catalog/NewProductsSection";
 import Header from "../components/custom/Header";
 
 function HomePage() {
@@ -8,7 +9,9 @@ function HomePage() {
 
       <Hero />
 
-      <main className="py-8 mx-auto max-w-screen-lg"></main>
+      <main className="my-14 w-[90%] mx-auto max-w-screen-lg">
+        <NewProductsSection />
+      </main>
     </>
   );
 }
