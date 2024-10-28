@@ -1,14 +1,14 @@
 import Product from "../components/custom/Product";
-import { Title } from "../components/custom/Title";
 import AccordionFilter from "../components/custom/AccordionFilter";
 import DefaultTemplate from "../components/templates/DefaultTemplate";
 import { Button } from "../components/ui/button";
+import BreadcrumbResponsive from "../components/custom/BreadCrumbResponsive";
 
 export default function ProductCatalog() {
   return (
     <DefaultTemplate>
-      <Title title="Productos"></Title>
-      <div className="flex justify-between">
+      <BreadcrumbResponsive />
+      <div className="flex justify-between pt-4">
         <AccordionFilter />
         <div className="flex flex-col justify-center items-center gap-10">
           <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4">
