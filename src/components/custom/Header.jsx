@@ -21,7 +21,7 @@ function Header({ className } = { className: "" }) {
   const { user, loading, logout } = useUser();
 
   return (
-    <header className="p-4 border-b">
+    <header className="py-4 border-b">
       <div className={`w-full flex items-center justify-between ${className}`}>
         <div className="flex gap-2 items-center w-full ">
           {!location.includes("admin") && <Logo />}
