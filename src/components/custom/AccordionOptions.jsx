@@ -7,7 +7,7 @@ import { CheckboxDemo } from "./CheckBoxDemo";
 
 export default function AccordionOption({ id, name, options, handleSelect }) {
   return (
-    <AccordionItem value={`${id}-${name}`}>
+    <AccordionItem value={1}>
       <AccordionTrigger>{name}</AccordionTrigger>
       <AccordionContent className="flex flex-col gap-3">
         {options.map((filter, index) => (
