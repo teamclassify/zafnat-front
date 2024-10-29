@@ -1,39 +1,22 @@
 import { Accordion } from "@/components/ui/accordion";
-import { useId, useState } from "react";
+import { useId } from "react";
 import AccordionOption from "./AccordionOptions";
+import { useAccordionFilter } from "../../hooks/useAccordionFilter";
 
 const category = ["Chaquetas", "Shorts", "Jeans"];
 const size = ["8", "10", "12", "14", "16", "18"];
 const color = ["Azul", "Negro", "Amarillo"];
 
 export default function AccordionFilter({ handleFilter }) {
-  const [filterSelect, setFilterSelect] = useState({});
+  const { handleSelect } = useAccordionFilter({ handleFilter });
 
   const categoryID = useId();
   const colorID = useId();
   const sizeID = useId();
 
-  const handleSelect = (name, categoryName) => {
-    setFilterSelect((prevFilterSelect) => {
-      const categoryItems = prevFilterSelect[categoryName]  ? prevFilterSelect[categoryName ] : [];
-      const isItemSelected = categoryItems.includes(name);
-
-      const updatedCategoryItems = isItemSelected
-        ? categoryItems.filter((item) => item !== name)
-        : [...categoryItems, name];
-
-      const updatedFilterSelect = {
-        ...prevFilterSelect,
-        [categoryName]: updatedCategoryItems,
-      };
-
-      handleFilter(updatedFilterSelect)
-      return updatedFilterSelect
-    })
-  };
-
   return (
     <Accordion type="single" defaultValue={1} className="w-2/4">
+    {/**Esto se cambiara cuando itere sobre las categorias, mientras las dejo asi */}
       <AccordionOption
         id={categoryID}
         name="Category"
