@@ -10,11 +10,12 @@ export default function AccordionOption({ id, name, options, handleSelect }) {
     <AccordionItem value={`${id}-${name}`}>
       <AccordionTrigger>{name}</AccordionTrigger>
       <AccordionContent className="flex flex-col gap-3">
-        {options.map((name, index) => (
+        {options.map((filter, index) => (
           <CheckboxDemo
             key={`${id}-${index}`}
-            name={name}
+            name={filter}
             onChange={handleSelect}
+            filter={name}
           />
         ))}
       </AccordionContent>
