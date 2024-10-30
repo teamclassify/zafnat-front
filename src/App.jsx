@@ -25,11 +25,11 @@ function App() {
       <Switch>
         <Route component={HomePage} path="/" />
         <Route component={LoginPage} path="/login" />
-        <Route component={UserList} path="/admin/ajustes/usuarios"></Route>
-        <Route component={InfoClient} path="/admin/clientes"></Route>
-        <Route component={AlertStock} path="/admin/ajustes/inventario"></Route>
-        <Route component={ManageRole} path="/admin/ajustes/roles"></Route>
-        <Route component={ProductCatalog} path="/product-catalog"></Route>
+        <Route component={UserList} path="/admin/ajustes/usuarios" />
+        <Route component={InfoClient} path="/admin/clientes" />
+        <Route component={AlertStock} path="/admin/ajustes/inventario" />
+        <Route component={ManageRole} path="/admin/ajustes/roles" />
+        <Route component={ProductCatalog} path="/catalogo" />
         <Route component={DashboardPage} path="/admin" />
         <Route component={UsersPage} path="/admin/ajustes/usuarios" />
         <Route component={SingInPage} path="/signin"/>
