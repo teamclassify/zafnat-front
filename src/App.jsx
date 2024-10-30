@@ -14,7 +14,8 @@ import SingInPage from "./pages/SignInPage";
 import RecoverPassword from "./pages/RecoverPassword";
 import RecoverCompleted from "./pages/RecoverCompleted";
 import NewPassword from "./pages/NewPassword";
-
+import CreateEditProduct from "./pages/CreateEditProduct";
+import ProductCatalog from "./pages/ProductCatalog";
 
 function App() {
   return (
@@ -28,16 +29,16 @@ function App() {
         <Route component={InfoClient} path="/admin/clientes"></Route>
         <Route component={AlertStock} path="/admin/ajustes/inventario"></Route>
         <Route component={ManageRole} path="/admin/ajustes/roles"></Route>
+        <Route component={ProductCatalog} path="/product-catalog"></Route>
         <Route component={DashboardPage} path="/admin" />
         <Route component={UsersPage} path="/admin/ajustes/usuarios" />
         <Route component={SingInPage} path="/signin"/>
         <Route component={RecoverPassword} path="/recuperar"/>
         <Route component={RecoverCompleted} path="/recuperar_completado"/>
         <Route component={NewPassword} path="/nueva_contraseña"/>
-        {/* Start Routes */}
-
-        {/* End Routes */}
-
+        <Route component={RecoverCompleted} path="/recuperar-completado"/>
+        <Route component={NewPassword} path="/contraseña-nueva"/>
+        <Route component={CreateEditProduct} path="crear-editar-producto"/>
         <Route component={ErrorPage} path="/:rest*" />
       </Switch>
     </>
