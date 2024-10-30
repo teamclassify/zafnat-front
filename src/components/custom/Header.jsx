@@ -46,7 +46,11 @@ function Header({ className } = { className: "" }) {
                     <DropdownMenuContent>
                       <DropdownMenuLabel>Mi cuenta</DropdownMenuLabel>
                       <DropdownMenuSeparator />
-                      <DropdownMenuItem>Perfil</DropdownMenuItem>
+
+                      <Link href="/perfil">
+                        <DropdownMenuItem>Perfil</DropdownMenuItem>
+                      </Link>
+
                       <DropdownMenuItem>Pedidos</DropdownMenuItem>
                       <DropdownMenuItem onClick={logout}>
                         Cerrar sesion
