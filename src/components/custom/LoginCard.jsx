@@ -53,9 +53,9 @@ function LoginCard() {
                 Mostrar Contraseña
               </label>
             </div>
-            <Button variant="link">
-              <Link href="/recuperar">¿Olvidaste tu contraseña?</Link>
-            </Button>
+
+            <Button variant="link">¿Olvidaste tu contraseña?</Button>
+
           </div>
           <div className="flex justify-between">
             <Button className="px-12">Ingresar</Button>
@@ -80,7 +80,7 @@ function LoginCard() {
               ¿Eres nuevo?
             </label>
             <Button variant="link" className="p-0">
-              <Link href="/signup">Crea tu cuenta</Link>
+              Crea tu cuenta
             </Button>
           </div>
         </div>
