@@ -11,7 +11,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "../components/ui/accordion";
-import DefaultTemplate from "../components/templates/DefaultTemplate";
+import AdminTemplate from "../components/templates/AdminTemplate";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { Textarea } from "../components/ui/textarea";
@@ -29,7 +29,8 @@ const renderCheckboxItem = (icon, label, defaultChecked = false) => (
 
 function CreateEditProduct() {
   return (
-    <DefaultTemplate>
+    <AdminTemplate>
+      
       <div className="flex flex-row mb-4 align-middle justify-between">
         <h1 className="text-3xl font-bold tracking-tight">Nuevo Producto</h1>
         <Button>Guardar Producto</Button>
@@ -152,7 +153,7 @@ function CreateEditProduct() {
           </Card>
         </div>
       </div>
-    </DefaultTemplate>
+      </AdminTemplate>
   );
 }
 
