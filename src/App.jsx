@@ -16,6 +16,7 @@ import RecoverCompleted from "./pages/RecoverCompleted";
 import NewPassword from "./pages/NewPassword";
 import CreateEditProduct from "./pages/CreateEditProduct";
 import ProductCatalog from "./pages/ProductCatalog";
+import Cart from "./pages/Cart"
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route component={RecoverCompleted} path="/recuperar-completado"/>
         <Route component={NewPassword} path="/contraseña-nueva"/>
         <Route component={CreateEditProduct} path="crear-editar-producto"/>
+        <Route component={Cart} path="/carrito-de-compras" />
         <Route component={ErrorPage} path="/:rest*" />
       </Switch>
     </>
