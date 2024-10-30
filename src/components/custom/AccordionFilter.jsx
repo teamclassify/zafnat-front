@@ -15,7 +15,7 @@ export default function AccordionFilter({ handleFilter }) {
   const sizeID = useId();
 
   return (
-    <Accordion type="single" defaultValue={1} className="w-2/4">
+    <Accordion type="single" defaultValue={1} className="w-full">
     {/**Esto se cambiara cuando itere sobre las categorias, mientras las dejo asi */}
       <AccordionOption
         id={categoryID}

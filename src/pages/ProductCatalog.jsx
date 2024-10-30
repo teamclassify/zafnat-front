@@ -1,9 +1,9 @@
 import AccordionFilter from "../components/custom/AccordionFilter";
-import DefaultTemplate from "../components/templates/DefaultTemplate";
-import { PaginationDefault } from "../components/custom/Pagination";
 import BreadcrumbResponsive from "../components/custom/BreadCrumbResponsive";
-import { products } from "../moks/products.json";
+import { PaginationDefault } from "../components/custom/Pagination";
 import { ProductGrid } from "../components/custom/ProductGrid";
+import DefaultTemplate from "../components/templates/DefaultTemplate";
+import { products } from "../moks/products.json";
 
 export default function ProductCatalog() {
   const handleFilter = (filter) => {
@@ -12,16 +12,15 @@ export default function ProductCatalog() {
   };
   return (
     <DefaultTemplate>
-      <main className="w-[95%] mx-auto max-w-screen-lg">
-        <BreadcrumbResponsive />
-        <div className="flex justify-between pt-4">
-          <AccordionFilter handleFilter={handleFilter} />
-          <div className="flex flex-col justify-center items-center gap-10">
-            <ProductGrid products={products} />
-            <PaginationDefault />
-          </div>
+      <BreadcrumbResponsive />
+      <div className="grid md:grid-cols-[0.3fr,1fr] pt-4">
+        <AccordionFilter handleFilter={handleFilter} />
+
+        <div className="flex flex-col justify-center items-center gap-10">
+          <ProductGrid products={products} />
+          <PaginationDefault />
         </div>
-      </main>
+      </div>
     </DefaultTemplate>
   );
 }
