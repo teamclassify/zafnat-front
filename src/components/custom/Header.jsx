@@ -1,11 +1,7 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 
 import { Skeleton } from "@/components/ui/skeleton";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "../ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,14 +13,19 @@ import {
 import { Input } from "../ui/input";
 
 import useUser from "../../hooks/useUser";
+import Logo from "../custom/Logo";
 
 function Header({ className } = { className: "" }) {
+  const [location] = useLocation();
+
   const { user, loading, logout } = useUser();
 
   return (
-    <header className="p-4 border-b">
+    <header className="py-4 border-b">
       <div className={`w-full flex items-center justify-between ${className}`}>
         <div className="flex gap-2 items-center w-full ">
+          {!location.includes("admin") && <Logo />}
+
           <Input placeholder="Busca aqui..." className="max-w-sm" />
         </div>
 
