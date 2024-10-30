@@ -10,6 +10,7 @@ import ManageRole from "./pages/ManageRolesPage";
 import { Toaster } from "@/components/ui/sonner";
 import UsersPage from "./pages/users";
 import DashboardPage from "./pages/admin-page";
+import ProductCatalog from "./pages/ProductCatalog";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route component={InfoClient} path="/admin/clientes"></Route>
         <Route component={AlertStock} path="/admin/ajustes/inventario"></Route>
         <Route component={ManageRole} path="/admin/ajustes/roles"></Route>
+        <Route component={ProductCatalog} path="/product-catalog"></Route>
         <Route component={DashboardPage} path="/admin" />
         <Route component={UsersPage} path="/admin/ajustes/usuarios" />
         <Route component={ErrorPage} path="/:rest*" />
