@@ -1,0 +1,45 @@
+{ "initialClients": [
+  {
+    "name": "Carlos",
+    "email": "carlos@gmail.com",
+    "age": 34,
+    "address": "123 Main St, Bogotá",
+    "recentProducts": ["Jeans Classic", "Chaqueta Denim"]
+  },
+  {
+    "name": "Luis",
+    "email": "luis@gmail.com",
+    "age": 42,
+    "address": "456 Market St, Medellín",
+    "recentProducts": []
+  },
+  {
+    "name": "Andrea",
+    "email": "andrea@gmail.com",
+    "age": 29,
+    "address": "789 Sunset Ave, Cúcuta",
+    "recentProducts": ["Shorts Cargo"]
+  },
+  {
+    "name": "Sofia",
+    "email": "sofia@gmail.com",
+    "age": 31,
+    "address": "321 Elm St, Caracas",
+    "recentProducts": ["Jeans Slim Fit", "Blusa Casual"]
+  },
+  {
+    "name": "Fernando",
+    "email": "fernando@gmail.com",
+    "age": 38,
+    "address": "987 Park Rd, Bogotá",
+    "recentProducts": []
+  },
+  {
+    "name": "Roberto",
+    "email": "roberto@gmail.com",
+    "age": 45,
+    "address": "654 Industrial Rd, Caracas",
+    "recentProducts": ["Chaqueta de Cuero"]
+  }
+]
+}
