@@ -10,6 +10,11 @@ import ManageRole from "./pages/ManageRolesPage";
 import { Toaster } from "@/components/ui/sonner";
 import UsersPage from "./pages/users";
 import DashboardPage from "./pages/admin-page";
+import SingInPage from "./pages/SignInPage";
+import RecoverPassword from "./pages/RecoverPassword";
+import RecoverCompleted from "./pages/RecoverCompleted";
+import NewPassword from "./pages/NewPassword";
+import CreateEditProduct from "./pages/CreateEditProduct";
 import ProductCatalog from "./pages/ProductCatalog";
 
 function App() {
@@ -27,6 +32,11 @@ function App() {
         <Route component={ProductCatalog} path="/product-catalog"></Route>
         <Route component={DashboardPage} path="/admin" />
         <Route component={UsersPage} path="/admin/ajustes/usuarios" />
+        <Route component={SingInPage} path="/signin"/>
+        <Route component={RecoverPassword} path="/recuperar"/>
+        <Route component={RecoverCompleted} path="/recuperar-completado"/>
+        <Route component={NewPassword} path="/contraseña-nueva"/>
+        <Route component={CreateEditProduct} path="crear-editar-producto"/>
         <Route component={ErrorPage} path="/:rest*" />
       </Switch>
     </>
