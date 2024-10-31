@@ -5,22 +5,22 @@ import { Trash } from "lucide-react";
 
 export default function ProductCart() {
   return (
-    <main className="w-2/4">
+    <main>
       <div className="flex flex-row justify-between">
         <div className="flex">
           <CheckboxDemo />
-          <img src="/assets/product.png" className="w-3/12" />
+          <img src="/assets/product.png" className="w-5/12" />
           <div className="flex flex-col pt-5 gap-2">
             <p>Jean ochentero</p>
-            <p>Talla: M</p>
+            <p>Talla: 8</p>
             <Quantity />
           </div>
         </div>
-        <div className="flez flex-col ">
-          <Button variant="ghost">
+        <div className="flex flex-col items-end">
+          <Button variant="ghost" className="p-1">
             <Trash />
           </Button>
-          <p>Precio: $80.000</p>
+          <p>$80.000</p>
         </div>
       </div>
     </main>

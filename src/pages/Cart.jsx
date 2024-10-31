@@ -13,10 +13,13 @@ export default function Cart() {
         <div className="pt-5">
           <div className="flex flex-col gap-3">
             <CheckboxDemo name="prenda seleccionada"></CheckboxDemo>
-            <Separator className="w-2/4"/>
+            <Separator className="w-2/4" />
           </div>
-          <div className="flex flex-row justify-between gap-5">
-            <ProductCart />
+          <div className="flex flex-row justify-between">
+            <div className="flex flex-col gap-4 w-2/4">
+              <ProductCart />
+              <ProductCart />
+            </div>
             <Purchase />
           </div>
         </div>
