@@ -32,7 +32,8 @@ export default function Cart() {
                 img="/assets/product.png"
               />
             </div>
-            <Purchase />
+            <Purchase buy={false} name="Jean Ochentero" quantity={1}
+                price="80.000" image="/assets/product.png" />
           </div>
         </div>
       </main>

@@ -1,14 +1,16 @@
 import { Title } from "./Title";
 import { Button } from "../ui/button";
+import ProductPurchase from "./ProductPurchase";
 
-export default function Purchase() {
+export default function Purchase({ buy, name, price, quantity, image }) {
   return (
     <main className="w-2/5">
       <div className="flex flex-col gap-1">
-        <div className="pb-4">
+        <div>
           <Title title="Resumen de la compra" />
         </div>
-        <div className="flex justify-between">
+        {buy && <ProductPurchase name={name} price={price} quantity={quantity} image={image} />}
+        <div className="flex justify-between pt-4">
           <p>Subtotal</p>
           <p>$80.000</p>
         </div>
