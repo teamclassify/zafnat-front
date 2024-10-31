@@ -12,10 +12,10 @@ export default function Cart() {
         <BreadcrumbResponsive />
         <div className="pt-5">
           <div className="flex flex-col gap-3">
-            <CheckboxDemo name="prenda seleccionada"></CheckboxDemo>
+            <CheckboxDemo name="0 prendas seleccionada"></CheckboxDemo>
             <Separator className="w-2/4" />
           </div>
-          <div className="flex flex-row justify-between">
+          <div className="flex flex-row justify-between ">
             <div className="flex flex-col gap-4 w-2/4">
               <ProductCart />
               <ProductCart />

@@ -20,7 +20,7 @@ export default function Purchase() {
           <p>Envío</p>
           <p>$0.00</p>
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-between font-semibold">
           <p>Total general (1 articulo)</p>
           <p>$80.000</p>
         </div>

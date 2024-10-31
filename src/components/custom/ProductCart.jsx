@@ -6,7 +6,7 @@ import { Trash } from "lucide-react";
 export default function ProductCart() {
   return (
     <main>
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between ">
         <div className="flex">
           <CheckboxDemo />
           <img src="/assets/product.png" className="w-5/12" />
