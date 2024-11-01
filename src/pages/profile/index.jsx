@@ -1,7 +1,6 @@
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
@@ -12,6 +11,7 @@ import { Link } from "wouter";
 
 import SidebarClient from "../../components/custom/SidebarClient";
 import DefaultTemplate from "../../components/templates/DefaultTemplate";
+import ProfileTab from "./components/ProfileTab";
 
 function ProfilePage() {
   const [page, setPage] = useState("pedidos");
@@ -21,9 +21,7 @@ function ProfilePage() {
       <Breadcrumb className="mb-10">
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink>
-              <Link href="/">Inicio</Link>
-            </BreadcrumbLink>
+            <Link href="/">Inicio</Link>
           </BreadcrumbItem>
           <BreadcrumbSeparator>
             <ChevronRight />
@@ -37,7 +35,7 @@ function ProfilePage() {
       <div className="grid md:grid-cols-[0.3fr,1fr] gap-8">
         <SidebarClient page={page} onChange={(value) => setPage(value)} />
 
-        <div>{page}</div>
+        {page === "perfil" && <ProfileTab />}
       </div>
     </DefaultTemplate>
   );
