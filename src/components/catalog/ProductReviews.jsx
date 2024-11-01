@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import ReviewCard from "./ReviewCard";
 import ReviewStars from "./ReviewStars";
 
 function ProductReviews({ id }) {
@@ -63,31 +63,11 @@ function ProductReviews({ id }) {
         {reviews.length > 0 ? (
           <div className="grid gap-2">
             {reviews.map((review) => (
-              <div key={review.id} className="border p-4 rounded">
-                <header className="flex justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <Avatar>
-                      <AvatarImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSngDLxVdX-4fhpWyG8hDPxUWyGV1B9uOXJ3Q&s" />
-                      <AvatarFallback>{review.author}</AvatarFallback>
-                    </Avatar>
-
-                    <div>
-                      <p>{review.author}</p>
-                      <time className="text-xs text-zinc-400">
-                        {review.date}
-                      </time>
-                    </div>
-                  </div>
-
-                  <ReviewStars rating={review.stars} />
-                </header>
-
-                <p>{review.body}</p>
-              </div>
+              <ReviewCard key={review.id} review={review} />
             ))}
           </div>
         ) : (
-          <p>No reviews yet</p>
+          <p>No existen reseñas</p>
         )}
       </div>
     </div>
