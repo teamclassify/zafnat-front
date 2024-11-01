@@ -15,6 +15,7 @@ import AddressTab from "./components/AddressTab";
 import ProfileTab from "./components/ProfileTab";
 import ReviewsTab from "./components/ReviewsTab";
 import WishListTab from "./components/WishListTab";
+import OrdersTab from "./components/OrdersTab";
 
 function ProfilePage() {
   const [page, setPage] = useState("pedidos");
@@ -38,6 +39,7 @@ function ProfilePage() {
       <div className="grid md:grid-cols-[0.3fr,1fr] gap-8">
         <SidebarClient page={page} onChange={(value) => setPage(value)} />
 
+        {page === "pedidos" && <OrdersTab />}
         {page === "perfil" && <ProfileTab />}
         {page === "direcciones" && <AddressTab />}
         {page === "reviews" && <ReviewsTab />}
