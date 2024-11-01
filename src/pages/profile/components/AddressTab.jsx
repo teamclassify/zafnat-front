@@ -1,4 +1,6 @@
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
+import { HiDotsVertical } from "react-icons/hi";
+import { Button } from "../../../components/ui/button";
 import { Card, CardContent, CardHeader } from "../../../components/ui/card";
 import {
   DropdownMenu,
@@ -6,13 +8,18 @@ import {
   DropdownMenuItem,
 } from "../../../components/ui/dropdown-menu";
 
-import { HiDotsVertical } from "react-icons/hi";
 import HeaderTab from "./HeaderTab";
 
 function AddressTab() {
+  const handleNewAddress = () => {
+    console.log("New address");
+  };
+
   return (
     <div>
-      <HeaderTab title="Direcciones" />
+      <HeaderTab title="Direcciones">
+        <Button onClick={handleNewAddress}>Agregar direccion</Button>
+      </HeaderTab>
 
       <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))]">
         <Card>
@@ -26,7 +33,9 @@ function AddressTab() {
                 </DropdownMenuTrigger>
 
                 <DropdownMenuContent>
-                <DropdownMenuItem>Establecer como predeterminada</DropdownMenuItem>
+                  <DropdownMenuItem>
+                    Establecer como predeterminada
+                  </DropdownMenuItem>
                   <DropdownMenuItem>Editar</DropdownMenuItem>
                   <DropdownMenuItem>Eliminar</DropdownMenuItem>
                 </DropdownMenuContent>
