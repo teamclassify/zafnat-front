@@ -3,6 +3,7 @@ import { Route, Switch } from "wouter";
 import { Toaster } from "@/components/ui/sonner";
 import DashboardPage from "./pages/admin-page";
 import AlertStock from "./pages/AlertStockPage";
+import CreateEditProduct from "./pages/CreateEditProduct";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import InfoClient from "./pages/InfoClientPage";
@@ -16,8 +17,8 @@ import SingInPage from "./pages/SignInPage";
 import RecoverPassword from "./pages/RecoverPassword";
 import RecoverCompleted from "./pages/RecoverCompleted";
 import NewPassword from "./pages/NewPassword";
-import CreateEditProduct from "./pages/CreateEditProduct";
 import ProductCatalog from "./pages/ProductCatalog";
+import ProfilePage from "./pages/profile";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route component={RecoverCompleted} path="/recuperar_completado"/>
         <Route component={NewPassword} path="/contraseña-nueva"/>
         <Route component={CreateEditProduct} path="crear-editar-producto"/>
+        <Route component={ProfilePage} path="/perfil" />
         <Route component={ErrorPage} path="/:rest*" />
       </Switch>
     </>
