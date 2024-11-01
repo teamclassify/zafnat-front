@@ -1,13 +1,12 @@
 import DefaultTemplate from "../components/templates/DefaultTemplate";
-import { Button } from "../components/ui/button";
-import useUser from "../hooks/useUser";
+import LoginCard from "../components/custom/LoginCard";
 
 function LoginPage() {
-  const { loginWithGoogle } = useUser();
-
   return (
     <DefaultTemplate>
-      <Button onClick={loginWithGoogle}>Login with Google</Button>
+      <div className="flex items-center justify-center">
+        <LoginCard />
+      </div>
     </DefaultTemplate>
   );
 }
