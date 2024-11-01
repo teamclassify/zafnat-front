@@ -1,6 +1,6 @@
 function HeaderTab({ title }) {
   return (
-    <div>
+    <div className="mb-4">
       <h3 className="text-xl font-bold">{title}</h3>
     </div>
   );

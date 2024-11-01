@@ -12,6 +12,7 @@ import { Link } from "wouter";
 import SidebarClient from "../../components/custom/SidebarClient";
 import DefaultTemplate from "../../components/templates/DefaultTemplate";
 import ProfileTab from "./components/ProfileTab";
+import AddressTab from "./components/AddressTab";
 
 function ProfilePage() {
   const [page, setPage] = useState("pedidos");
@@ -36,6 +37,7 @@ function ProfilePage() {
         <SidebarClient page={page} onChange={(value) => setPage(value)} />
 
         {page === "perfil" && <ProfileTab />}
+        {page === "direcciones" && <AddressTab />}
       </div>
     </DefaultTemplate>
   );
