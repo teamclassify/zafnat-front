@@ -11,8 +11,9 @@ import { Link } from "wouter";
 
 import SidebarClient from "../../components/custom/SidebarClient";
 import DefaultTemplate from "../../components/templates/DefaultTemplate";
-import ProfileTab from "./components/ProfileTab";
 import AddressTab from "./components/AddressTab";
+import ProfileTab from "./components/ProfileTab";
+import ReviewsTab from "./components/ReviewsTab";
 
 function ProfilePage() {
   const [page, setPage] = useState("pedidos");
@@ -38,6 +39,7 @@ function ProfilePage() {
 
         {page === "perfil" && <ProfileTab />}
         {page === "direcciones" && <AddressTab />}
+        {page === "reviews" && <ReviewsTab />}
       </div>
     </DefaultTemplate>
   );
