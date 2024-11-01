@@ -10,15 +10,13 @@ import InfoClient from "./pages/InfoClientPage";
 import UserList from "./pages/InfoUserPage";
 import LoginPage from "./pages/LoginPage";
 import ManageRole from "./pages/ManageRolesPage";
-import ProductPage from "./pages/product";
-import UsersPage from "./pages/users";
-import DashboardPage from "./pages/admin-page";
-import SingInPage from "./pages/SignInPage";
-import RecoverPassword from "./pages/RecoverPassword";
-import RecoverCompleted from "./pages/RecoverCompleted";
 import NewPassword from "./pages/NewPassword";
+import ProductPage from "./pages/product";
 import ProductCatalog from "./pages/ProductCatalog";
 import ProfilePage from "./pages/profile";
+import RecoverCompleted from "./pages/RecoverCompleted";
+import RecoverPassword from "./pages/RecoverPassword";
+import UsersPage from "./pages/users";
 
 function App() {
   return (
@@ -36,10 +34,10 @@ function App() {
         <Route component={ProductCatalog} path="/catalogo" />
         <Route component={DashboardPage} path="/admin" />
         <Route component={UsersPage} path="/admin/ajustes/usuarios" />
-        <Route component={RecoverPassword} path="/recuperar"/>
-        <Route component={RecoverCompleted} path="/recuperar_completado"/>
-        <Route component={NewPassword} path="/contraseña-nueva"/>
-        <Route component={CreateEditProduct} path="crear-editar-producto"/>
+        <Route component={RecoverPassword} path="/recuperar" />
+        <Route component={RecoverCompleted} path="/recuperar_completado" />
+        <Route component={NewPassword} path="/contraseña-nueva" />
+        <Route component={CreateEditProduct} path="crear-editar-producto" />
         <Route component={ProfilePage} path="/perfil" />
         <Route component={ErrorPage} path="/:rest*" />
       </Switch>
