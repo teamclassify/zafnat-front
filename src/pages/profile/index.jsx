@@ -14,6 +14,7 @@ import DefaultTemplate from "../../components/templates/DefaultTemplate";
 import AddressTab from "./components/AddressTab";
 import ProfileTab from "./components/ProfileTab";
 import ReviewsTab from "./components/ReviewsTab";
+import WishListTab from "./components/WishListTab";
 
 function ProfilePage() {
   const [page, setPage] = useState("pedidos");
@@ -40,6 +41,7 @@ function ProfilePage() {
         {page === "perfil" && <ProfileTab />}
         {page === "direcciones" && <AddressTab />}
         {page === "reviews" && <ReviewsTab />}
+        {page === "deseados" && <WishListTab />}
       </div>
     </DefaultTemplate>
   );
