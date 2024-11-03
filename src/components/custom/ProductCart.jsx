@@ -4,6 +4,7 @@ import Quantity from "./Quantity";
 import { Trash } from "lucide-react";
 
 export default function ProductCart({name, size, quantity, img, price}) {
+  console.log(name, size, quantity, img, price)
   return (
     <main>
       <div className="flex flex-row justify-between ">
@@ -20,7 +21,7 @@ export default function ProductCart({name, size, quantity, img, price}) {
           <Button variant="ghost" className="p-1">
             <Trash />
           </Button>
-          <p>${price}</p>
+          <p>${price}.000</p>
         </div>
       </div>
     </main>
