@@ -5,8 +5,19 @@ import { Separator } from "@/components/ui/separator";
 import ProductCart from "../components/custom/ProductCart";
 import Purchase from "../components/custom/Purchase";
 import products from "../moks/products.json";
+import { useState } from "react";
 
 export default function Cart() {
+  const [productSelect, setProductSelect] = useState("");
+
+  const handleProductSelect = (product) => {
+    if (productSelect.includes(product)) {
+      setProductSelect(productSelect.filter((select) => select !== product));
+    } else {
+      setProductSelect([...productSelect, product]);
+    }
+  };
+
   return (
     <DefaultTemplate>
       <main>
@@ -30,16 +41,21 @@ export default function Cart() {
                   quantity={1}
                   price={product.skus[0].price}
                   img="/assets/product.png"
+                  handleProductSelect={handleProductSelect}
                 />
               ))}
             </div>
-            <Purchase
-              buy={false}
-              name="Jean Ochentero"
-              quantity={1}
-              price="80.000"
-              image="/assets/product.png"
-            />
+            {productSelect[0] ? (
+              <Purchase
+                buy={false}
+                name={productSelect[0].name}
+                quantity={productSelect[0].quantity}
+                price={productSelect[0].price}
+                image={productSelect[0].img}
+              />
+            ) : (
+              <Purchase buy={false} />
+            )}
           </div>
         </div>
       </main>

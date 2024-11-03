@@ -12,7 +12,7 @@ export default function Purchase({ buy, name, price, quantity, image }) {
         {buy && <ProductPurchase name={name} price={price} quantity={quantity} image={image} />}
         <div className="flex justify-between pt-4">
           <p>Subtotal</p>
-          <p>$80.000</p>
+          <p>{price ? "$" + price + ".000": "$0.00"}</p>
         </div>
         <div className="flex justify-between">
           <p>Cupon de descuento</p>
@@ -24,7 +24,7 @@ export default function Purchase({ buy, name, price, quantity, image }) {
         </div>
         <div className="flex justify-between font-semibold">
           <p>Total general (1 articulo)</p>
-          <p>$80.000</p>
+          <p>{price ? "$" + price + ".000": "$0.00"}</p>
         </div>
       </div>
       <div className="flex justify-end pt-5">
