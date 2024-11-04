@@ -10,6 +10,7 @@ export default function ProductCart({
   img,
   price,
   handleProductSelect,
+  isChecked
 }) {
   const product = {
     name: name,
@@ -27,6 +28,7 @@ export default function ProductCart({
           <CheckBoxProductPay
             product={product}
             handleProductSelect={handleProductSelect}
+            isChecked={isChecked}
           />
           <img src={img} className="w-5/12" />
           <div className="flex flex-col pt-5 gap-2">
