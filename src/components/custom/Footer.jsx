@@ -1,3 +1,5 @@
+import { Link } from "wouter";
+
 function Footer() {
   return (
     <footer className="bg-zinc-950 text-white py-20">
@@ -15,7 +17,10 @@ function Footer() {
 
         <div>
           <h4 className="text-2xl font-bold mb-2">Quienese somos</h4>
+          <Link href="/acerca-de">
           <p className="text-gray-300">Acerca de ZafNat</p>
+          </Link>
+          
         </div>
       </div>
 
