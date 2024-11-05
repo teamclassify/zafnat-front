@@ -46,9 +46,11 @@ export default function Cart() {
   };
 
   const handleDisableProduct = (productToRemove) => {
-    const aux = products.products.filter((p) => p.id !== productToRemove.id)
-    setProducts({ products: aux }); 
+    const aux = products.products.filter((p) => p.id !== productToRemove.id);
+    setProducts({ products: aux });
   };
+
+  const size = productSelect.length
 
   return (
     <DefaultTemplate>
@@ -57,9 +59,7 @@ export default function Cart() {
         <div className="pt-5">
           <div className="flex flex-col gap-3">
             <CheckBoxProductPay
-              name={`${productSelect.length} prendas seleccionada${
-                productSelect.length === 1 ? "" : "s"
-              }`}
+              name={size + (size === 1 ? " prenda seleccionada" : " prendas seleccionadas")}
               product={products}
               handleProductSelect={handleSelectAll}
               isChecked={selectAll}
@@ -88,11 +88,6 @@ export default function Cart() {
               ))}
             </div>
             <Purchase
-              //buy={false}
-              //name={productSelect.name}
-              //quantity={productSelect.quantity}
-              //price={productSelect.price}
-              //image={productSelect.img}
               products={productSelect.length > 0 ? productSelect : null}
             />
           </div>
