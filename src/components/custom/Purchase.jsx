@@ -62,7 +62,9 @@ export default function Purchase({
         </div>
       </div>
       <div className="flex justify-end pt-5">
-        <Button>Proceder al pago</Button>
+        <Button disabled={totalPrice === 0 ? true : false}>
+          Proceder al pago
+        </Button>
       </div>
     </main>
   );
