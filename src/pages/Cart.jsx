@@ -72,22 +72,21 @@ export default function Cart() {
                   img="/assets/product.png"
                   handleProductSelect={handleProductSelect}
                   isChecked={productSelect.some(
-                    (select) => select.name === product.name && select.size === product.attributes[0].value
+                    (select) =>
+                      select.name === product.name &&
+                      select.size === product.attributes[0].value
                   )}
                 />
               ))}
             </div>
-            {productSelect[0] ? (
-              <Purchase
-                buy={false}
-                name={productSelect[0].name}
-                quantity={productSelect[0].quantity}
-                price={productSelect[0].price}
-                image={productSelect[0].img}
-              />
-            ) : (
-              <Purchase buy={false} />
-            )}
+            <Purchase
+              //buy={false}
+              //name={productSelect.name}
+              //quantity={productSelect.quantity}
+              //price={productSelect.price}
+              //image={productSelect.img}
+              products={productSelect.length > 0 ? productSelect : null}
+            />
           </div>
         </div>
       </main>
