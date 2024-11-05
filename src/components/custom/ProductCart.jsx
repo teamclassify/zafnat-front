@@ -6,23 +6,18 @@ import { DialogDisableProduct } from "./DialogDisableProduct";
 import { useState } from "react";
 
 export default function ProductCart({
-  id,
-  name,
-  size,
-  quantity,
-  img,
-  price,
+  infoProduct,
   handleProductSelect,
   isChecked,
   handleDisableProduct
 }) {
   const product = {
-    id: id,
-    name: name,
-    size: size,
-    quantity: quantity,
-    price: price,
-    img: img,
+    id: infoProduct.id,
+    name: infoProduct.name,
+    size: infoProduct.attributes[0].value,
+    quantity: 1,
+    price: infoProduct.skus[0].price,
+    img: "/assets/product.png"
   };
 
   const [openDialog, setOpenDialog] = useState(false);
@@ -41,18 +36,18 @@ export default function ProductCart({
             handleProductSelect={handleProductSelect}
             isChecked={isChecked}
           />
-          <img src={img} className="w-5/12" />
+          <img src={product.img} className="w-5/12" />
           <div className="flex flex-col pt-5 gap-2">
-            <p>{name}</p>
-            <p>Talla: {size}</p>
-            <Quantity num={quantity} />
+            <p>{product.name}</p>
+            <p>Talla: {product.size}</p>
+            <Quantity num={product.quantity} />
           </div>
         </div>
         <div className="flex flex-col items-end">
           <Button variant="ghost" className="p-1" onClick={handleDeleteProduct}>
             <Trash />
           </Button>
-          <p>${price}.000</p>
+          <p>${product.price}.000</p>
         </div>
       </div>
       <DialogDisableProduct

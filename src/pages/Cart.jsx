@@ -1,56 +1,21 @@
 import DefaultTemplate from "../components/templates/DefaultTemplate";
 import BreadcrumbResponsive from "../components/custom/BreadCrumbResponsive";
 import { Separator } from "@/components/ui/separator";
-import ProductCart from "../components/custom/ProductCart";
 import Purchase from "../components/custom/Purchase";
-import initialProducts from "../moks/products.json";
-import { useState } from "react";
 import { CheckBoxProductPay } from "../components/custom/CheckBoxProductPay";
+import useProductSelect from "../hooks/useProductSelect";
+import ProductCartGrid from "../components/custom/ProductCartGrid";
 
 export default function Cart() {
-  const [products, setProducts] = useState(initialProducts);
-  const [productSelect, setProductSelect] = useState([]);
-  const [selectAll, setSelectAll] = useState(false);
-
-  const handleProductSelect = (product) => {
-    if (
-      productSelect.some(
-        (select) => select.name === product.name && select.size === product.size
-      )
-    ) {
-      setProductSelect(
-        productSelect.filter(
-          (select) =>
-            !(select.name === product.name && select.size === product.size)
-        )
-      );
-    } else {
-      setProductSelect([...productSelect, product]);
-    }
-  };
-
-  const handleSelectAll = () => {
-    if (selectAll) {
-      setProductSelect([]);
-    } else {
-      const allProducts = products.products.map((product) => ({
-        name: product.name,
-        size: product.attributes[0].value,
-        quantity: 1,
-        price: product.skus[0].price,
-        img: "/assets/product.png",
-      }));
-      setProductSelect(allProducts);
-    }
-    setSelectAll(!selectAll);
-  };
-
-  const handleDisableProduct = (productToRemove) => {
-    const aux = products.products.filter((p) => p.id !== productToRemove.id);
-    setProducts({ products: aux });
-  };
-
-  const size = productSelect.length
+  const {
+    handleDisableProduct,
+    handleProductSelect,
+    handleSelectAll,
+    size,
+    products,
+    selectAll,
+    productSelect,
+  } = useProductSelect();
 
   return (
     <DefaultTemplate>
@@ -59,7 +24,10 @@ export default function Cart() {
         <div className="pt-5">
           <div className="flex flex-col gap-3">
             <CheckBoxProductPay
-              name={size + (size === 1 ? " prenda seleccionada" : " prendas seleccionadas")}
+              name={
+                size +
+                (size === 1 ? " prenda seleccionada" : " prendas seleccionadas")
+              }
               product={products}
               handleProductSelect={handleSelectAll}
               isChecked={selectAll}
@@ -67,26 +35,12 @@ export default function Cart() {
             <Separator className="w-2/4" />
           </div>
           <div className="flex flex-row justify-between ">
-            <div className="flex flex-col gap-4 w-2/4">
-              {products.products.map((product) => (
-                <ProductCart
-                  id={product.id}
-                  key={product.id}
-                  name={product.name}
-                  size={product.attributes[0].value}
-                  quantity={1}
-                  price={product.skus[0].price}
-                  img="/assets/product.png"
-                  handleProductSelect={handleProductSelect}
-                  isChecked={productSelect.some(
-                    (select) =>
-                      select.name === product.name &&
-                      select.size === product.attributes[0].value
-                  )}
-                  handleDisableProduct={handleDisableProduct}
-                />
-              ))}
-            </div>
+            <ProductCartGrid
+              products={products}
+              handleProductSelect={handleProductSelect}
+              handleDisableProduct={handleDisableProduct}
+              productSelect={productSelect}
+            />
             <Purchase
               products={productSelect.length > 0 ? productSelect : null}
             />
