@@ -3,11 +3,12 @@ import BreadcrumbResponsive from "../components/custom/BreadCrumbResponsive";
 import { Separator } from "@/components/ui/separator";
 import ProductCart from "../components/custom/ProductCart";
 import Purchase from "../components/custom/Purchase";
-import products from "../moks/products.json";
+import initialProducts from "../moks/products.json";
 import { useState } from "react";
 import { CheckBoxProductPay } from "../components/custom/CheckBoxProductPay";
 
 export default function Cart() {
+  const [products, setProducts] = useState(initialProducts);
   const [productSelect, setProductSelect] = useState([]);
   const [selectAll, setSelectAll] = useState(false);
 
@@ -44,6 +45,11 @@ export default function Cart() {
     setSelectAll(!selectAll);
   };
 
+  const handleDisableProduct = (productToRemove) => {
+    const aux = products.products.filter((p) => p.id !== productToRemove.id)
+    setProducts({ products: aux }); 
+  };
+
   return (
     <DefaultTemplate>
       <main>
@@ -64,6 +70,7 @@ export default function Cart() {
             <div className="flex flex-col gap-4 w-2/4">
               {products.products.map((product) => (
                 <ProductCart
+                  id={product.id}
                   key={product.id}
                   name={product.name}
                   size={product.attributes[0].value}
@@ -76,6 +83,7 @@ export default function Cart() {
                       select.name === product.name &&
                       select.size === product.attributes[0].value
                   )}
+                  handleDisableProduct={handleDisableProduct}
                 />
               ))}
             </div>
