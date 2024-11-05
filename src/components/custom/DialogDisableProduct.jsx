@@ -7,6 +7,7 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner"
 
 export function DialogDisableProduct({
   open,
@@ -17,6 +18,7 @@ export function DialogDisableProduct({
   
   const onDisable = () => {
     handleDisableProduct(product);
+    toast.success('Se ha eliminado el producto del carrito de compras')
     setOpen(false);
   };
   
