@@ -1,6 +1,11 @@
+import useProduct from "../../hooks/useProduct";
 import ProductCart from "./ProductCart";
 
-export default function ProductCartGrid({ products, handleProductSelect, handleDisableProduct, productSelect }) {
+
+export default function ProductCartGrid(/*{products, handleProductSelect, handleDisableProduct, productSelect }*/) {
+
+  const {products, handleDisableProduct, handleProductSelect, productSelect} = useProduct()
+  
   return (
     <div className="flex flex-col gap-4 w-2/4">
       {products.products.map((product) => (
