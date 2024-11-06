@@ -2,29 +2,24 @@ import { Title } from "./Title";
 import { Button } from "../ui/button";
 //import ProductPurchase from "./ProductPurchase";
 import { useState, useEffect } from "react";
+import useProduct from "../../hooks/useProduct";
 
-export default function Purchase({
-  //buy,
-  //name,
-  //price,
-  //quantity,
-  //image,
-  products,
-}) {
+export default function Purchase() {
+  const {productSelect} = useProduct()
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    if (products && products.length > 0) {
+    if (productSelect && productSelect.length > 0) {
       const handlePrice = () => {
         let price = 0;
-        products.forEach((product) => (price += product.price));
+        productSelect.forEach((product) => (price += product.price));
         setTotalPrice(price);
       };
       handlePrice();
     } else {
       setTotalPrice(0);
     }
-  }, [products]);
+  }, [productSelect]);
 
   return (
     <main className="w-2/5">
@@ -53,8 +48,8 @@ export default function Purchase({
           <p>$0.00</p>
         </div>
         <div className="flex justify-between font-semibold">
-          {products && products.length > 0 ? (
-            <p>Total general ({`${products.length}`} articulo)</p>
+          {productSelect && productSelect.length > 0 ? (
+            <p>Total general ({`${productSelect.length}`} articulo)</p>
           ) : (
             <p>Total general (0 articulos)</p>
           )}

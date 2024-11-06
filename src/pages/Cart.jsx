@@ -3,21 +3,11 @@ import BreadcrumbResponsive from "../components/custom/BreadCrumbResponsive";
 import { Separator } from "@/components/ui/separator";
 import Purchase from "../components/custom/Purchase";
 import { CheckBoxProductPay } from "../components/custom/CheckBoxProductPay";
-import useProductSelect from "../hooks/useProductSelect";
 import ProductCartGrid from "../components/custom/ProductCartGrid";
+import useProduct from "../hooks/useProduct";
 
 export default function Cart() {
-  /*
-  const {
-    handleDisableProduct,
-    handleProductSelect,
-    handleSelectAll,
-    size,
-    products,
-    selectAll,
-    productSelect,
-  } = useProductSelect();
-   */
+  const { selectAll, productSelect } = useProduct();
 
   return (
     <DefaultTemplate>
@@ -25,16 +15,16 @@ export default function Cart() {
         <BreadcrumbResponsive />
         <div className="pt-5">
           <div className="flex flex-col gap-3">
-            <CheckBoxProductPay header={true} />
+            <CheckBoxProductPay
+              header={true}
+              isChecked={selectAll}
+              product={productSelect}
+            />
             <Separator className="w-2/4" />
           </div>
-
           <div className="flex flex-row justify-between ">
-            <ProductCartGrid
-              
-            />
-            
-          
+            <ProductCartGrid />
+            <Purchase />
           </div>
         </div>
       </main>

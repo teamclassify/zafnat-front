@@ -4,38 +4,30 @@ import { Trash } from "lucide-react";
 import { CheckBoxProductPay } from "./CheckBoxProductPay";
 import { DialogDisableProduct } from "./DialogDisableProduct";
 import { useState } from "react";
+import useProduct from "../../hooks/useProduct";
 
-export default function ProductCart({
-  infoProduct,
-  handleProductSelect,
-  isChecked,
-  handleDisableProduct
-}) {
+export default function ProductCart({ infoProduct, isChecked }) {
   const product = {
     id: infoProduct.id,
     name: infoProduct.name,
     size: infoProduct.attributes[0].value,
     quantity: 1,
     price: infoProduct.skus[0].price,
-    img: "/assets/product.png"
+    img: "/assets/product.png",
   };
 
   const [openDialog, setOpenDialog] = useState(false);
-
+  const { handleDisableProduct } = useProduct();
 
   const handleDeleteProduct = () => {
-    setOpenDialog(true); 
+    setOpenDialog(true);
   };
 
   return (
     <main>
       <div className="flex flex-row justify-between ">
         <div className="flex">
-          <CheckBoxProductPay
-            product={product}
-            handleProductSelect={handleProductSelect}
-            isChecked={isChecked}
-          />
+          <CheckBoxProductPay product={product} isChecked={isChecked} />
           <img src={product.img} className="w-5/12" />
           <div className="flex flex-col pt-5 gap-2">
             <p>{product.name}</p>
@@ -54,7 +46,7 @@ export default function ProductCart({
         product={product}
         setOpen={setOpenDialog}
         open={openDialog}
-        handleDisableProduct={handleDisableProduct} 
+        handleDisableProduct={handleDisableProduct}
       />
     </main>
   );
