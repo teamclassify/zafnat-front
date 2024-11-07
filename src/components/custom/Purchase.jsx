@@ -1,10 +1,10 @@
 import { Title } from "./Title";
 import { Button } from "../ui/button";
-//import ProductPurchase from "./ProductPurchase";
+import ProductPurchase from "./ProductPurchase";
 import { useState, useEffect } from "react";
 import useProduct from "../../hooks/useProduct";
 
-export default function Purchase() {
+export default function Purchase({buy}) {
   const {productSelect} = useProduct()
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -27,14 +27,9 @@ export default function Purchase() {
         <div>
           <Title title="Resumen de la compra" />
         </div>
-        {/*buy && (
-          <ProductPurchase
-            name={name}
-            price={price}
-            quantity={quantity}
-            image={image}
-          />
-        )*/}
+        {buy && (
+          <ProductPurchase/>
+        )}
         <div className="flex justify-between pt-4">
           <p>Subtotal</p>
           <p>{totalPrice ? "$" + totalPrice + ".000" : "$0.00"}</p>

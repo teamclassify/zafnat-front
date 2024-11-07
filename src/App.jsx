@@ -19,6 +19,7 @@ import RecoverPassword from "./pages/RecoverPassword";
 import UsersPage from "./pages/users";
 import AboutUsPage from "./pages/AboutUsPage";
 import Cart from "./pages/Cart";
+import Delivery from "./pages/Delivery";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <Route component={NewPassword} path="/contraseña-nueva" />
         <Route component={CreateEditProduct} path="crear-editar-producto" />
         <Route component={Cart} path="/carrito-de-compras" />
+        <Route component={Delivery} path="/entrega" />
         <Route component={ProfilePage} path="/perfil" />
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={ErrorPage} path="/:rest*" />
