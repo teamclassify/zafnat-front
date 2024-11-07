@@ -4,7 +4,6 @@ import { Trash } from "lucide-react";
 import { CheckBoxProductPay } from "./CheckBoxProductPay";
 import { DialogDisableProduct } from "./DialogDisableProduct";
 import { useState } from "react";
-import useProduct from "../../hooks/useProduct";
 
 export default function ProductCart({ infoProduct, isChecked }) {
   const product = {
@@ -17,7 +16,6 @@ export default function ProductCart({ infoProduct, isChecked }) {
   };
 
   const [openDialog, setOpenDialog] = useState(false);
-  const { handleDisableProduct } = useProduct();
 
   const handleDeleteProduct = () => {
     setOpenDialog(true);
@@ -46,7 +44,6 @@ export default function ProductCart({ infoProduct, isChecked }) {
         product={product}
         setOpen={setOpenDialog}
         open={openDialog}
-        handleDisableProduct={handleDisableProduct}
       />
     </main>
   );

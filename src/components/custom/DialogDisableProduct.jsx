@@ -7,21 +7,17 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner"
+import { toast } from "sonner";
+import useProduct from "../../hooks/useProduct";
 
-export function DialogDisableProduct({
-  open,
-  setOpen,
-  handleDisableProduct,
-  product
-}) {
-  
+export function DialogDisableProduct({ open, setOpen, product }) {
+  const { handleDisableProduct } = useProduct();
+
   const onDisable = () => {
     handleDisableProduct(product);
-    toast.success('Se ha eliminado el producto del carrito de compras')
+    toast.success("Se ha eliminado el producto del carrito de compras");
     setOpen(false);
   };
-  
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
