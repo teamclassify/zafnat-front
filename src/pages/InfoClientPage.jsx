@@ -4,6 +4,7 @@ import Filter from "../components/custom/Filter";
 import { ClientGrid } from "../components/custom/ClientGrid";
 import { PaginationDefault } from "../components/custom/Pagination";
 import { useClientFilter } from "../hooks/useClientFilter";
+import { Title } from "../components/custom/Title";
 
 
 export default function InfoClientPage() {
@@ -13,9 +14,7 @@ export default function InfoClientPage() {
     <>
       <AdminTemplate>
         <div>
-          <h3 className="scroll-m-20 pb-2 pt-6 text-2xl font-semibold tracking-tight first:mt-0 text-slate-700">
-            Información clientes
-          </h3>
+          <Title title={"Información clientes"} />
           <div className="flex justify-between gap-2">
             <Input
               type="text"

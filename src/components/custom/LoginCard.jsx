@@ -1,5 +1,3 @@
-import { Link } from "wouter";
-
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
