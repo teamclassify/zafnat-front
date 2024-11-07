@@ -40,7 +40,7 @@ function App() {
         <Route component={RecoverCompleted} path="/recuperar_completado" />
         <Route component={NewPassword} path="/contraseña-nueva" />
         <Route component={CreateEditProduct} path="crear-editar-producto" />
-        <Route component={Cart} path="/carrito-de-compras" />
+        <Route component={Cart} path="/carrito" />
         <Route component={ProfilePage} path="/perfil" />
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={ErrorPage} path="/:rest*" />

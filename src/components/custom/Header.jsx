@@ -14,6 +14,7 @@ import { Input } from "../ui/input";
 
 import useUser from "../../hooks/useUser";
 import Logo from "../custom/Logo";
+import { ShoppingCart } from "lucide-react";
 
 function Header({ className } = { className: "" }) {
   const [location] = useLocation();
@@ -29,7 +30,13 @@ function Header({ className } = { className: "" }) {
           <Input placeholder="Busca aqui..." className="max-w-sm" />
         </div>
 
-        <div className="w-full flex justify-end">
+        <div className="w-full flex justify-end gap-4 items-center">
+          <div>
+            <Link href="/carrito">
+              <ShoppingCart size={24} />
+            </Link>
+          </div>
+
           {loading ? (
             <Skeleton className="w-[30px] h-[30px] rounded-full" />
           ) : (
@@ -39,7 +46,7 @@ function Header({ className } = { className: "" }) {
                   <DropdownMenu>
                     <DropdownMenuTrigger>
                       <Avatar>
-                        <AvatarImage src={user?.photo} width={"30px"} />
+                        <AvatarImage src={user?.photo} width={"10px"} />
                         <AvatarFallback>{user.firstName}</AvatarFallback>
                       </Avatar>
                     </DropdownMenuTrigger>
