@@ -11,7 +11,7 @@ export default function Delivery() {
         <div className="pt-5">
           <div className="flex flex-row justify-between ">
             <DeliveryDetails />
-            <Purchase />
+            <Purchase buy={true}/>
           </div>
         </div>
       </main>

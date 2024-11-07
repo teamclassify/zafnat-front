@@ -4,8 +4,8 @@ import ProductPurchase from "./ProductPurchase";
 import { useState, useEffect } from "react";
 import useProduct from "../../hooks/useProduct";
 
-export default function Purchase({buy}) {
-  const {productSelect} = useProduct()
+export default function Purchase({ buy }) {
+  const { productSelect } = useProduct();
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
@@ -28,8 +28,12 @@ export default function Purchase({buy}) {
           <Title title="Resumen de la compra" />
         </div>
         {buy && (
-          <ProductPurchase/>
-        )}
+          productSelect.map((product) => (
+            <ProductPurchase hey={product.id} name={product.name} price={product.price} image={"/assets/product.png"}/>
+          ))
+        )
+        
+        }
         <div className="flex justify-between pt-4">
           <p>Subtotal</p>
           <p>{totalPrice ? "$" + totalPrice + ".000" : "$0.00"}</p>
@@ -52,9 +56,11 @@ export default function Purchase({buy}) {
         </div>
       </div>
       <div className="flex justify-end pt-5">
-        <Button disabled={totalPrice === 0 ? true : false}>
-          Proceder al pago
-        </Button>
+        {!buy && (
+          <Button disabled={totalPrice === 0 ? true : false}>
+            Proceder al pago
+          </Button>
+        )}
       </div>
     </main>
   );

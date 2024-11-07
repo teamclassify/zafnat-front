@@ -13,7 +13,7 @@ export default function Cart() {
           <SelectedCountDisplay />
           <div className="flex flex-row justify-between ">
             <ProductCartGrid />
-            <Purchase />
+            <Purchase buy={false} />
           </div>
         </div>
       </main>
