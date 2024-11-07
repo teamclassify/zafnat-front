@@ -10,7 +10,7 @@ export function CardInfoRoles({ nameRol, count }) {
     <Card className="">
       <CardHeader>
         <div className="flex justify-between">
-          <CardTitle>{nameRol}</CardTitle>
+          <CardTitle className="uppercase">{nameRol}</CardTitle>
         </div>
         <CardDescription>Usuarios con este rol: {count}</CardDescription>
       </CardHeader>
