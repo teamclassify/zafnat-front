@@ -1,67 +1,30 @@
 import { Title } from "./Title";
-import { Button } from "../ui/button";
-import ProductPurchase from "./ProductPurchase";
-import { useState, useEffect } from "react";
-import useProduct from "../../hooks/useProduct";
+import useCalculateProductPrice from "../../hooks/useCalculateProductPrice";
+import PayButton from "./PayButton";
+import PurchaseProduct from "./PurchaseProduct";
+import InformationPurchase from "./InformationPurchase";
+import InformationGeneralProducts from "./InformationGeneralProducst";
 
 export default function Purchase({ buy }) {
-  const { productSelect } = useProduct();
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  useEffect(() => {
-    if (productSelect && productSelect.length > 0) {
-      const handlePrice = () => {
-        let price = 0;
-        productSelect.forEach((product) => (price += product.price));
-        setTotalPrice(price);
-      };
-      handlePrice();
-    } else {
-      setTotalPrice(0);
-    }
-  }, [productSelect]);
+  const { totalPrice } = useCalculateProductPrice();
 
   return (
     <main className="w-2/5">
       <div className="flex flex-col gap-1">
-        <div>
-          <Title title="Resumen de la compra" />
-        </div>
-        {buy && (
-          productSelect.map((product) => (
-            <ProductPurchase hey={product.id} name={product.name} price={product.price} image={"/assets/product.png"}/>
-          ))
-        )
-        
-        }
-        <div className="flex justify-between pt-4">
-          <p>Subtotal</p>
-          <p>{totalPrice ? "$" + totalPrice + ".000" : "$0.00"}</p>
-        </div>
-        <div className="flex justify-between">
-          <p>Cupon de descuento</p>
-          <p>Aplicar cupón</p>
-        </div>
-        <div className="flex justify-between">
-          <p>Envío</p>
-          <p>$0.00</p>
-        </div>
-        <div className="flex justify-between font-semibold">
-          {productSelect && productSelect.length > 0 ? (
-            <p>Total general ({`${productSelect.length}`} articulo)</p>
-          ) : (
-            <p>Total general (0 articulos)</p>
-          )}
-          <p>{totalPrice ? "$" + totalPrice + ".000" : "$0.00"}</p>
-        </div>
+        <Title title="Resumen de la compra" />
+        <PurchaseProduct open={buy} />
+        <InformationPurchase
+          name={"Subtotal"}
+          value={totalPrice ? "$" + totalPrice + ".000" : "$0.00"}
+        />
+        <InformationPurchase
+          name={"Cupón de descuento"}
+          value={"Aplicar cupón"}
+        />
+        <InformationPurchase name={"Envío"} value={"$0.00"} />
+        <InformationGeneralProducts />
       </div>
-      <div className="flex justify-end pt-5">
-        {!buy && (
-          <Button disabled={totalPrice === 0 ? true : false}>
-            Proceder al pago
-          </Button>
-        )}
-      </div>
+      <PayButton buy={buy} totalPrice={totalPrice} />
     </main>
   );
 }
