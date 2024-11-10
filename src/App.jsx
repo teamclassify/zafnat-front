@@ -21,6 +21,7 @@ import AboutUsPage from "./pages/AboutUsPage";
 import Cart from "./pages/Cart";
 import Delivery from "./pages/Delivery";
 import Location from "./pages/Location";
+import Shipping from "./pages/Shipping"
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route component={Cart} path="/carrito" />
         <Route component={Delivery} path="/entrega" />
         <Route component={Location} path="/direccion" />
+        <Route component={Shipping} path="/envio" />
         <Route component={ProfilePage} path="/perfil" />
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={ErrorPage} path="/:rest*" />
