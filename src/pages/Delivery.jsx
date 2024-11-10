@@ -1,19 +1,17 @@
-import DefaultTemplate from "../components/templates/DefaultTemplate";
 import BreadcrumbResponsive from "../components/custom/BreadCrumbResponsive";
+import DeliveryDetails from "../components/custom/DeliveryDetails";
 import Purchase from "../components/custom/Purchase";
-import ProductCartGrid from "../components/custom/ProductCartGrid";
-import SelectedCountDisplay from "../components/custom/SelectedCountDisplay";
+import DefaultTemplate from "../components/templates/DefaultTemplate";
 
-export default function Cart() {
+export default function Delivery() {
   return (
     <DefaultTemplate>
       <main>
         <BreadcrumbResponsive />
         <div className="pt-5">
-          <SelectedCountDisplay />
           <div className="flex flex-row justify-between ">
-            <ProductCartGrid />
-            <Purchase buy={false} />
+            <DeliveryDetails />
+            <Purchase buy={true}/>
           </div>
         </div>
       </main>
