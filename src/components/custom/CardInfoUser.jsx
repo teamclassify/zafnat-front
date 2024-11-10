@@ -16,13 +16,15 @@ export function CardInfoUser({ id, firstName, email, roles, rolesOptions }) {
 
   const mutateSetRole = useMutation(
     (data) => {
-      const promise = RolesService.setRole(data.userId, data.roleId);
-
-      return promise;
+      return RolesService.setRole(data.userId, data.roleId);
     },
     {
-      onSuccess: () => {
+      onSuccess: (data) => {
         toast.success("Rol asignado correctamente");
+
+        if (data.error) {
+          toast.error(data.error);
+        }
       },
       onError: (error) => {
         toast.error("Error al asignar el rol");
@@ -38,8 +40,12 @@ export function CardInfoUser({ id, firstName, email, roles, rolesOptions }) {
       return promise;
     },
     {
-      onSuccess: () => {
+      onSuccess: (data) => {
         toast.success("Rol eliminado correctamente");
+
+        if (data.error) {
+          toast.error(data.error);
+        }
       },
       onError: (error) => {
         toast.error("Error al eliminar el rol");
