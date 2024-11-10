@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { Button } from "../ui/button";
 import CartDirection from "./CardDirection";
 import { Title } from "./Title";
@@ -13,7 +14,9 @@ export default function DeliveryDetails() {
         <CartDirection />
       </div>
       <div className="flex justify-end gap-3">
-        <Button variant="secondary">Agregar nueva dirección</Button>
+        <Link to="/direccion">
+          <Button variant="secondary">Agregar nueva dirección</Button>
+        </Link>
         <Button>Siguiente</Button>
       </div>
     </main>

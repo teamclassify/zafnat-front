@@ -20,6 +20,7 @@ import UsersPage from "./pages/users";
 import AboutUsPage from "./pages/AboutUsPage";
 import Cart from "./pages/Cart";
 import Delivery from "./pages/Delivery";
+import Location from "./pages/Location";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route component={CreateEditProduct} path="crear-editar-producto" />
         <Route component={Cart} path="/carrito" />
         <Route component={Delivery} path="/entrega" />
+        <Route component={Location} path="/direccion" />
         <Route component={ProfilePage} path="/perfil" />
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={ErrorPage} path="/:rest*" />
