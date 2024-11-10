@@ -17,7 +17,9 @@ export default function DeliveryDetails() {
         <Link to="/direccion">
           <Button variant="secondary">Agregar nueva dirección</Button>
         </Link>
-        <Button>Siguiente</Button>
+        <Link to="/envio">
+          <Button>Siguiente</Button>
+        </Link>
       </div>
     </main>
   );
