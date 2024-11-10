@@ -1,4 +1,5 @@
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
 import { useQuery } from "react-query";
 import Filter from "../components/custom/Filter";
 import { UserGrid } from "../components/custom/UserGrid";
@@ -7,14 +8,18 @@ import RolesService from "../services/api/RolesService";
 import UsersService from "../services/api/UsersService";
 
 export default function InfoUserPage() {
-  const { data, isLoading } = useQuery("users", UsersService.getAll);
+  const [filter, setFilter] = useState([]);
+
+  const { data, isLoading } = useQuery(["users", filter], () =>
+    UsersService.getAll(filter)
+  );
   const { data: dataRoles, isLoading: isLoadingRoles } = useQuery(
     "roles",
     RolesService.getAll
   );
 
   const handleRoleSelect = (role) => {
-    console.log(role);
+    setFilter(role);
   };
 
   return (
@@ -39,7 +44,16 @@ export default function InfoUserPage() {
             {isLoading ? (
               <p>Cargando...</p>
             ) : (
-              <UserGrid users={data.data ?? []} roles={dataRoles.data ?? []} />
+              <>
+                {data?.data?.length > 0 ? (
+                  <UserGrid
+                    users={data?.data ?? []}
+                    roles={dataRoles?.data ?? []}
+                  />
+                ) : (
+                  <p>No hay usuarios</p>
+                )}
+              </>
             )}
           </div>
           <div className="pt-5">{/* <PaginationDefault /> */}</div>
