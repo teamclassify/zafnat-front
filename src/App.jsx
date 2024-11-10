@@ -22,12 +22,13 @@ import Cart from "./pages/Cart";
 import Delivery from "./pages/Delivery";
 import Location from "./pages/Location";
 import Shipping from "./pages/Shipping"
+import ScrollToTop from "./components/custom/ScrollToTop";
 
 function App() {
   return (
     <>
       <Toaster />
-
+      <ScrollToTop /> 
       <Switch>
         <Route component={HomePage} path="/" />
         <Route component={LoginPage} path="/login" />
