@@ -23,6 +23,7 @@ import Delivery from "./pages/Delivery";
 import Location from "./pages/Location";
 import Shipping from "./pages/Shipping"
 import ScrollToTop from "./components/custom/ScrollToTop";
+import Pay from "./pages/Pay";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
         <Route component={Delivery} path="/entrega" />
         <Route component={Location} path="/direccion" />
         <Route component={Shipping} path="/envio" />
+        <Route component={Pay} path="/pago" />
         <Route component={ProfilePage} path="/perfil" />
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={ErrorPage} path="/:rest*" />
