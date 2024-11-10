@@ -1,14 +1,21 @@
-import AdminTemplate from "../components/templates/AdminTemplate";
 import { Input } from "@/components/ui/input";
+import { useQuery } from "react-query";
 import Filter from "../components/custom/Filter";
 import { UserGrid } from "../components/custom/UserGrid";
-import { PaginationDefault } from "../components/custom/Pagination";
-import { useUserFilter } from "../hooks/useUserFilter";
-
-const roles = ["Gerente", "Administrador", "Ventas", "Almacen", "Marketing"];
+import AdminTemplate from "../components/templates/AdminTemplate";
+import RolesService from "../services/api/RolesService";
+import UsersService from "../services/api/UsersService";
 
 export default function InfoUserPage() {
-  const {users, handleDeleteUser, handleRoleSelect} = useUserFilter();
+  const { data, isLoading } = useQuery("users", UsersService.getAll);
+  const { data: dataRoles, isLoading: isLoadingRoles } = useQuery(
+    "roles",
+    RolesService.getAll
+  );
+
+  const handleRoleSelect = (role) => {
+    console.log(role);
+  };
 
   return (
     <>
@@ -19,14 +26,23 @@ export default function InfoUserPage() {
           </h3>
           <div className="flex justify-between gap-2">
             <Input type="text" placeholder="Buscar" className="w-full" />
-            <Filter options={roles} handleSelect={handleRoleSelect} />
+            {isLoadingRoles ? (
+              <p>Cargando...</p>
+            ) : (
+              <Filter
+                options={dataRoles.data}
+                handleSelect={handleRoleSelect}
+              />
+            )}
           </div>
           <div className="pt-10">
-            <UserGrid users={users} handleDeleteUser={handleDeleteUser} />
+            {isLoading ? (
+              <p>Cargando...</p>
+            ) : (
+              <UserGrid users={data.data ?? []} roles={dataRoles.data ?? []} />
+            )}
           </div>
-          <div className="pt-5">
-            <PaginationDefault />
-          </div>
+          <div className="pt-5">{/* <PaginationDefault /> */}</div>
         </div>
       </AdminTemplate>
     </>
