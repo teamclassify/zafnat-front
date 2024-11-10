@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { Button } from "../ui/button";
 import CountryForm from "./CountryForm";
 import InputForm from "./InputForm";
@@ -25,20 +26,18 @@ export default function InfoDirection() {
           isRequired={true}
         />
       </div>
-      <div className="flex gap-4">
-        <InputForm
-          title={"Email"}
-          placeholder={"email@ejemplo.com"}
-          type={"email"}
-          isRequired={true}
-        />
-        <InputForm
-          title={"Dirección"}
-          placeholder={"Avenida 3, Barrio ... "}
-          type={"text"}
-          isRequired={true}
-        />
-      </div>
+      <InputForm
+        title={"Email"}
+        placeholder={"email@ejemplo.com"}
+        type={"email"}
+        isRequired={true}
+      />
+      <InputForm
+        title={"Dirección"}
+        placeholder={"Avenida 3, Barrio ... "}
+        type={"text"}
+        isRequired={true}
+      />
       <CountryForm />
       <div className="flex gap-4">
         <InputForm
@@ -61,7 +60,9 @@ export default function InfoDirection() {
         isRequired={true}
       />
       <div className="flex flex-row justify-end pt-2">
-        <Button>Agregar dirección</Button>
+        <Link to="/envio">
+          <Button>Siguiente</Button>
+        </Link>
       </div>
     </div>
   );
