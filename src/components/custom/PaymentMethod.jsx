@@ -4,28 +4,26 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
-} from "../ui/card"
-
-import { Button } from "../ui/button"
-import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
-import { Label } from "../ui/label"
-import { Input } from "../ui/input"
+} from "../ui/card";
+import { Button } from "../ui/button";
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { Label } from "../ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select"
+} from "../ui/select";
+import { Link } from "wouter";
+import InputForm from "../custom/InputForm"; 
 
-export function PaymentMethod() {
+export default function PaymentMethod() {
   return (
     <Card className="flex flex-col w-2/4">
       <CardHeader>
-        <CardTitle>Payment Method</CardTitle>
         <CardDescription>
-          Add a new payment method to your account.
+          Agrega un nuevo método de pago a tu cuenta
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-6">
@@ -35,7 +33,7 @@ export function PaymentMethod() {
               value="card"
               id="card"
               className="peer sr-only"
-              aria-label="Card"
+              aria-label="Tarjeta"
             />
             <Label
               htmlFor="card"
@@ -54,7 +52,7 @@ export function PaymentMethod() {
                 <rect width="20" height="14" x="2" y="5" rx="2" />
                 <path d="M2 10h20" />
               </svg>
-              Card
+              Tarjeta
             </Label>
           </div>
 
@@ -69,7 +67,7 @@ export function PaymentMethod() {
               htmlFor="paypal"
               className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
             >
-             <svg
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
@@ -86,46 +84,52 @@ export function PaymentMethod() {
             </Label>
           </div>
         </RadioGroup>
-        <div className="grid gap-2">
-          <Label htmlFor="name">Name</Label>
-          <Input id="name" placeholder="First Last" />
-        </div>
-        <div className="grid gap-2">
-          <Label htmlFor="city">City</Label>
-          <Input id="city" placeholder="" />
-        </div>
-        <div className="grid gap-2">
-          <Label htmlFor="number">Card number</Label>
-          <Input id="number" placeholder="" />
-        </div>
+        <InputForm
+          title={"Nombre"}
+          placeholder={"Nombre"}
+          type={"text"}
+          isRequired={true}
+        />
+        <InputForm
+          title={"Ciudad"}
+          placeholder={"Ciudad"}
+          type={"text"}
+          isRequired={true}
+        />
+        <InputForm
+          title={"Número de la tarjeta"}
+          placeholder={"Número de la tarjeta"}
+          type={"number"}
+          isRequired={true}
+        />
         <div className="grid grid-cols-3 gap-4">
           <div className="grid gap-2">
-            <Label htmlFor="month">Expires</Label>
+            <Label htmlFor="month">Fecha de expiración</Label>
             <Select>
-              <SelectTrigger id="month" aria-label="Month">
-                <SelectValue placeholder="Month" />
+              <SelectTrigger id="month" aria-label="Mes">
+                <SelectValue placeholder="Mes" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="1">January</SelectItem>
-                <SelectItem value="2">February</SelectItem>
-                <SelectItem value="3">March</SelectItem>
-                <SelectItem value="4">April</SelectItem>
-                <SelectItem value="5">May</SelectItem>
-                <SelectItem value="6">June</SelectItem>
-                <SelectItem value="7">July</SelectItem>
-                <SelectItem value="8">August</SelectItem>
-                <SelectItem value="9">September</SelectItem>
-                <SelectItem value="10">October</SelectItem>
-                <SelectItem value="11">November</SelectItem>
-                <SelectItem value="12">December</SelectItem>
+                <SelectItem value="1">Enero</SelectItem>
+                <SelectItem value="2">Febrero</SelectItem>
+                <SelectItem value="3">Marzo</SelectItem>
+                <SelectItem value="4">Abril</SelectItem>
+                <SelectItem value="5">Mayo</SelectItem>
+                <SelectItem value="6">Junio</SelectItem>
+                <SelectItem value="7">Julio</SelectItem>
+                <SelectItem value="8">Agosto</SelectItem>
+                <SelectItem value="9">Septiembre</SelectItem>
+                <SelectItem value="10">Octubre</SelectItem>
+                <SelectItem value="11">Noviembre</SelectItem>
+                <SelectItem value="12">Diciembre</SelectItem>
               </SelectContent>
             </Select>
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="year">Year</Label>
+            <Label htmlFor="year">Año</Label>
             <Select>
-              <SelectTrigger id="year" aria-label="Year">
-                <SelectValue placeholder="Year" />
+              <SelectTrigger id="year" aria-label="Año">
+                <SelectValue placeholder="Año" />
               </SelectTrigger>
               <SelectContent>
                 {Array.from({ length: 10 }, (_, i) => (
@@ -136,15 +140,19 @@ export function PaymentMethod() {
               </SelectContent>
             </Select>
           </div>
-          <div className="grid gap-2">
-            <Label htmlFor="cvc">CVC</Label>
-            <Input id="cvc" placeholder="CVC" />
-          </div>
+          <InputForm
+            title={"CVC"}
+            placeholder={"CVC"}
+            type={"number"}
+            isRequired={true}
+          />
         </div>
       </CardContent>
-      <CardFooter>
-        <Button className="w-full">Continue</Button>
+      <CardFooter className="flex flex-row justify-end">
+        <Link to="/compra-realizada">
+          <Button type="submit">Pagar</Button>
+        </Link>
       </CardFooter>
     </Card>
-  )
+  );
 }
