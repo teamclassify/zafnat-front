@@ -24,6 +24,7 @@ import Location from "./pages/Location";
 import Shipping from "./pages/Shipping"
 import ScrollToTop from "./components/custom/ScrollToTop";
 import Pay from "./pages/Pay";
+import PaymentDone from "./pages/PaymentDone";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
         <Route component={Location} path="/direccion" />
         <Route component={Shipping} path="/envio" />
         <Route component={Pay} path="/pago" />
+        <Route component={PaymentDone} path="/pago-realizado"/>
         <Route component={ProfilePage} path="/perfil" />
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={ErrorPage} path="/:rest*" />
