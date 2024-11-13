@@ -2,6 +2,7 @@ import { Truck } from "lucide-react";
 import { Title } from "../components/custom/Title";
 import DefaultTemplate from "../components/templates/DefaultTemplate";
 import { Button } from "../components/ui/button";
+import { Link } from "wouter";
 
 export default function PaymentDone() {
   return (
@@ -15,7 +16,9 @@ export default function PaymentDone() {
             Te enviaremos un email con los detalles de la orden y el rastreo del
             envío
           </p>
-          <Button>Continuar comprando</Button>
+          <Link to="/catalogo">
+            <Button>Continuar comprando</Button>
+          </Link>
         </div>
       </div>
     </DefaultTemplate>
