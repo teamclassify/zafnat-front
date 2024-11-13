@@ -25,6 +25,7 @@ import Shipping from "./pages/Shipping"
 import ScrollToTop from "./components/custom/ScrollToTop";
 import Pay from "./pages/Pay";
 import PaymentDone from "./pages/PaymentDone";
+import Orders from "./pages/Orders"
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
         <Route component={Shipping} path="/envio" />
         <Route component={Pay} path="/pago" />
         <Route component={PaymentDone} path="/pago-realizado"/>
+        <Route component={Orders} path="/pedidos" />
         <Route component={ProfilePage} path="/perfil" />
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={ErrorPage} path="/:rest*" />
