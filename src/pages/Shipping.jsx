@@ -13,19 +13,9 @@ export default function Shipping() {
       <div className="flex flex-row justify-between gap-3">
         <div className="flex flex-col pt-4 h-1/2 w-2/4 gap-4 ">
           <ShippingInfo
-            title={"Recogida en tienda"}
-            description={"Gratis"}
-            icon={"Store"}
-          />
-          <ShippingInfo
             title={"Envíos Nacionales"}
             description={"Depende de la zona"}
             icon={"Truck"}
-          />
-          <ShippingInfo
-            title={"Envíos Internacionales"}
-            description={"Depende de la zona"}
-            icon={"Airplane"}
           />
           <div className="flex flex-row justify-end pt-2">
             <Link to="/pago">

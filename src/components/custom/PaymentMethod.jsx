@@ -16,7 +16,8 @@ import {
   SelectValue,
 } from "../ui/select";
 import { Link } from "wouter";
-import InputForm from "../custom/InputForm"; 
+import InputForm from "../custom/InputForm";
+import PaypalIcon from "./PayPalIcon";
 
 export default function PaymentMethod() {
   return (
@@ -67,19 +68,7 @@ export default function PaymentMethod() {
               htmlFor="paypal"
               className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="mb-3 h-6 w-6"
-              >
-                <rect width="20" height="14" x="2" y="5" rx="2" />
-                <path d="M2 10h20" />
-              </svg>
+              <PaypalIcon />
               Paypal
             </Label>
           </div>
@@ -149,7 +138,7 @@ export default function PaymentMethod() {
         </div>
       </CardContent>
       <CardFooter className="flex flex-row justify-end">
-        <Link to="/compra-realizada">
+        <Link to="/pago-realizado">
           <Button type="submit">Pagar</Button>
         </Link>
       </CardFooter>
