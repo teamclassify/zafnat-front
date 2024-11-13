@@ -20,12 +20,18 @@ import UsersPage from "./pages/users";
 import AboutUsPage from "./pages/AboutUsPage";
 import Cart from "./pages/Cart";
 import Delivery from "./pages/Delivery";
+import Location from "./pages/Location";
+import Shipping from "./pages/Shipping"
+import ScrollToTop from "./components/custom/ScrollToTop";
+import Pay from "./pages/Pay";
+import PaymentDone from "./pages/PaymentDone";
+import Orders from "./pages/Orders"
 
 function App() {
   return (
     <>
       <Toaster />
-
+      <ScrollToTop /> 
       <Switch>
         <Route component={HomePage} path="/" />
         <Route component={LoginPage} path="/login" />
@@ -43,6 +49,11 @@ function App() {
         <Route component={CreateEditProduct} path="crear-editar-producto" />
         <Route component={Cart} path="/carrito" />
         <Route component={Delivery} path="/entrega" />
+        <Route component={Location} path="/direccion" />
+        <Route component={Shipping} path="/envio" />
+        <Route component={Pay} path="/pago" />
+        <Route component={PaymentDone} path="/pago-realizado"/>
+        <Route component={Orders} path="/pedidos" />
         <Route component={ProfilePage} path="/perfil" />
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={ErrorPage} path="/:rest*" />

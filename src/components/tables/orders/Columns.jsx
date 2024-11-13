@@ -19,9 +19,11 @@ export const columns = [
     header: "Estado",
     cell: ({ row }) => {
       return row.getValue("status") === "Entregado" ? (
-        <Badge variant="outline">{row.getValue("status")}</Badge>
+        <Badge className="bg-green-700">{row.getValue("status")}</Badge>
+      ) : row.getValue("status") === "Pendiente" ? (
+        <Badge className="bg-yellow-600">{row.getValue("status")}</Badge>
       ) : (
-        <Badge variant="outline">{row.getValue("status")}</Badge>
+        <Badge className="bg-red-800">{row.getValue("status")}</Badge>
       );
     },
   },
