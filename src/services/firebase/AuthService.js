@@ -69,7 +69,7 @@ const signUpWithEmailAndPassword = async (email, password) => {
     .then((user) => {
       const token = null;
 
-      sendEmailVerification(auth.currentUser);
+      // sendEmailVerification(auth.currentUser);
 
       return {
         msg: "User register successfully",
