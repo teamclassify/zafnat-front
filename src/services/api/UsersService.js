@@ -28,8 +28,36 @@ async function getAll(filter) {
   }
 }
 
+async function update(firstName, lastName, gender, phone) {
+  try {
+    const token = await getToken();
+
+    if (!token) throw new Error("Token not found");
+
+    const res = await axios({
+      url: `${URL}/users/update-profile`,
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      data: {
+        firstName,
+        lastName,
+        gender,
+        phone,
+      },
+    });
+
+    return res.data;
+  } catch (error) {
+    return handleAxiosError(error);
+  }
+}
+
 const UsersService = {
   getAll,
+  update,
 };
 
 export default UsersService;
