@@ -8,8 +8,6 @@ import Sidebar from "../custom/Sidebar";
 function AdminTemplate({ children }) {
   const { user } = useUser();
 
-  console.log(user);
-
   if (!user) {
     return <NotAuth />;
   }
