@@ -78,6 +78,7 @@ export function CardInfoUser({ id, firstName, email, roles, rolesOptions }) {
                 <label htmlFor={`${role.id}-${email}`}>{role.name}</label>
                 <Checkbox
                   id={`${role.id}-${email}`}
+                  disabled={role.name === "user"}
                   checked={
                     selectedRoles.find((r) => r.roleId === role.id)
                       ? true
