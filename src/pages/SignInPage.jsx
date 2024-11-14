@@ -24,7 +24,7 @@ function SignInPage() {
   };
   return (
     <DefaultTemplate>
-      <div className="flex items-center justify-center">
+      <div className="py-20 flex items-center justify-center">
         <Card className="w-[70%] max-w-2xl px-10 py-5">
           <CardHeader>
             <CardTitle className="text-2xl">Registrarte</CardTitle>
