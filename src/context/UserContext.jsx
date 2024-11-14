@@ -11,6 +11,12 @@ import {
 } from "../services/firebase/AuthService";
 import { formatEmail } from "../utils/formatUser";
 
+const ROLES = {
+  1: "admin",
+  2: "user",
+  3: "sales",
+};
+
 export const UserContext = createContext();
 
 export default function UserProvider({ children }) {
@@ -92,7 +98,8 @@ export default function UserProvider({ children }) {
         photo: response.data.photo,
         email: response.data.email,
         id: response.data.id,
-        roles: response.data.roles,
+        rolesAll: response.data.roles,
+        roles: response.data.roles.map((role) => ROLES[role.roleId]),
       });
     } else setUser(null);
   };
@@ -137,7 +144,8 @@ export default function UserProvider({ children }) {
           email: user.email,
           photo: user.photo,
           id: user.id,
-          roles: user.roles
+          rolesAll: user?.roles || [],
+          roles: user.roles?.map((role) => ROLES[role.roleId]),
         });
 
         setToken(accessToken);
