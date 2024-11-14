@@ -85,8 +85,6 @@ export default function UserProvider({ children }) {
   const handleLogin = async (userInfo) => {
     const response = await login(userInfo);
 
-    console.log(response);
-
     if (!response.error) {
       setUser({
         ...user,
@@ -94,6 +92,7 @@ export default function UserProvider({ children }) {
         photo: response.data.photo,
         email: response.data.email,
         id: response.data.id,
+        roles: response.data.roles,
       });
     } else setUser(null);
   };
@@ -133,13 +132,12 @@ export default function UserProvider({ children }) {
   useEffect(() => {
     const fetchUser = async () => {
       if (accessToken && user) {
-        console.log(user);
         await handleLogin({
           firstName: user.firstName,
           email: user.email,
           photo: user.photo,
           id: user.id,
-          roles: user.roles.map((role) => role.roleId),
+          roles: user.roles
         });
 
         setToken(accessToken);
