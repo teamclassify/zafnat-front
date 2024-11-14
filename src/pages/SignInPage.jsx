@@ -10,7 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
-import { Checkbox } from "../components/ui/checkbox";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import useUser from "../hooks/useUser";
@@ -22,6 +21,7 @@ function SignInPage() {
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
   return (
     <DefaultTemplate>
       <div className="py-20 flex items-center justify-center">
@@ -63,21 +63,7 @@ function SignInPage() {
                   autoComplete="current-password"
                 />
               </div>
-              <div className="flex justify-between">
-                <div className="flex items-center space-x-2">
-                  <Checkbox
-                    id="showpasswd"
-                    checked={showPassword}
-                    onCheckedChange={toggleShowPassword}
-                  />
-                  <label
-                    htmlFor="showpasswd"
-                    className="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                  >
-                    Suscribirte para recibir noticias de nuevas colecciones
-                  </label>
-                </div>
-              </div>
+
               <div className="flex justify-between">
                 <Button className="px-12">Registrase</Button>
                 <div className="flex gap-2">
