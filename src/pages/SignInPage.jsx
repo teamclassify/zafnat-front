@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
+import { Checkbox } from "../components/ui/checkbox";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import useUser from "../hooks/useUser";
@@ -24,21 +25,13 @@ function SignInPage() {
 
   return (
     <DefaultTemplate>
-      <div className="py-20 flex items-center justify-center">
+      <div className="flex items-center justify-center">
         <Card className="w-[70%] max-w-2xl px-10 py-5">
           <CardHeader>
             <CardTitle className="text-2xl">Registrarte</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid w-full gap-4">
-              <div className="flex flex-col  space-y-1.5 gap-1">
-                <Label htmlFor="firstName">Primer Nombre*</Label>
-                <Input id="name" placeholder="John" autoComplete="name" />
-              </div>
-              <div className="flex flex-col gap-1 justify-space-between">
-                <Label htmlFor="lastName">Primer Apellido*</Label>
-                <Input id="passwd" placeholder="Doe" autoComplete="LastName" />
-              </div>
               <div className="flex flex-col  space-y-1.5 gap-1">
                 <Label htmlFor="email">Correo*</Label>
                 <Input
@@ -52,16 +45,23 @@ function SignInPage() {
                 <Input
                   id="passwd"
                   placeholder="********"
+                  type={showPassword ? "text" : "password"}
                   autoComplete="current-password"
                 />
               </div>
-              <div className="flex flex-col  space-y-1.5 gap-1">
-                <Label htmlFor="passwd">Confirmar Contraseña*</Label>
-                <Input
-                  id="passwd"
-                  placeholder="********"
-                  autoComplete="current-password"
+
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="showpasswd"
+                  checked={showPassword}
+                  onCheckedChange={toggleShowPassword}
                 />
+                <label
+                  htmlFor="showpasswd"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  Mostrar Contraseña
+                </label>
               </div>
 
               <div className="flex justify-between">
@@ -76,6 +76,7 @@ function SignInPage() {
                   </Button>
                 </div>
               </div>
+
               <div className="flex justify-start items-center">
                 <label
                   htmlFor="newuser"
