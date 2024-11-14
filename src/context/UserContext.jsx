@@ -170,7 +170,7 @@ export default function UserProvider({ children }) {
     <UserContext.Provider value={value}>
       {loading ? (
         <div className="flex justify-center items-center h-screen">
-          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-purple-500"></div>
+          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-zinc-700"></div>
         </div>
       ) : (
         children
