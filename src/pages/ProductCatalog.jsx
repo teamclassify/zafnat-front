@@ -15,7 +15,6 @@ export default function ProductCatalog() {
       <BreadcrumbResponsive />
       <div className="grid md:grid-cols-[0.3fr,1fr] pt-4">
         <AccordionFilter handleFilter={handleFilter} />
-
         <div className="flex flex-col justify-center items-center gap-10">
           <ProductGrid products={products} />
           <PaginationDefault />
