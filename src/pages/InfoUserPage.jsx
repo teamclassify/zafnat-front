@@ -2,6 +2,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { useQuery } from "react-query";
 import Filter from "../components/custom/Filter";
+import { Loading, LoadingGrid } from "../components/custom/Loading";
 import { UserGrid } from "../components/custom/UserGrid";
 import AdminTemplate from "../components/templates/AdminTemplate";
 import RolesService from "../services/api/RolesService";
@@ -32,7 +33,7 @@ export default function InfoUserPage() {
           <div className="flex justify-between gap-2">
             <Input type="text" placeholder="Buscar" className="w-full" />
             {isLoadingRoles ? (
-              <p>Cargando...</p>
+              <Loading />
             ) : (
               <Filter
                 options={dataRoles.data}
@@ -42,7 +43,7 @@ export default function InfoUserPage() {
           </div>
           <div className="pt-10">
             {isLoading ? (
-              <p>Cargando...</p>
+              <LoadingGrid />
             ) : (
               <>
                 {data?.data?.length > 0 ? (

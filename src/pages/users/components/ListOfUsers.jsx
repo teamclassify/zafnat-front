@@ -14,7 +14,6 @@ function ListOfUsers() {
 
   const users = data?.data || [];
 
-  console.log(users);
 
   const handleDeleteUser = () => {
     // const updatedUsers = users.filter((user) => user.email !== email);
