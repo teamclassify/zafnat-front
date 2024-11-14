@@ -6,7 +6,7 @@ import {
   Settings,
   User,
   UserRoundPen,
-  ShoppingBag, DollarSign, FileArchive, Truck, ScrollText, AlertTriangle, FileUser, MessageSquareDiff, Box, Grid2x2
+  ShoppingBag, DollarSign, FileArchive, Truck, ScrollText, AlertTriangle, FileUser, MessageSquareDiff, Box, Grid2x2, Percent
 } from "lucide-react";
 import { Link, useLocation } from "wouter";
 
@@ -41,6 +41,11 @@ const items = [
         title: "Pedidos",
         url: "/admin/ventas/pedidos",
         icon: ScrollText,
+      },
+      {
+        title: "Mayoristas",
+        url: "/admin/ventas/compras-al-mayor",
+        icon: Percent,
       },
       {
         title: "Envios",

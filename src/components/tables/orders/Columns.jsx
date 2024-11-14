@@ -42,3 +42,48 @@ export const columns = [
     },
   },
 ];
+
+export const columnsWholeSale= [
+  {
+    accessorKey: "id",
+    header: "id",
+  },
+  {
+    accessorKey: "cliente",
+    header: "Cliente",
+  },
+  {
+    accessorKey: "producto",
+    header: "Producto",
+  },
+  {
+    accessorKey: "cantidad",
+    header: "Cantidad",
+  },
+  {
+    accessorKey: "precio",
+    header: "Precio",
+  },
+  {
+    accessorKey: "precio_total",
+    header: "Precio Total",
+  },
+  {
+    accessorKey: "date",
+    header: "Fecha",
+  },
+  {
+    accessorKey: "actions",
+    header: "Acciones",
+    cell: ({ row }) => {
+      return (
+        <button
+          className="btn btn-primary"
+          onClick={() => alert(`Ver detalles del pedido ${row.getValue("id")}`)}
+        >
+          <FaRegEye />
+        </button>
+      );
+    },
+  },
+];
