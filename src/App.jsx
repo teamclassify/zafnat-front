@@ -45,7 +45,7 @@ function App() {
         <Route component={DashboardPage} path="/admin" />
         <Route component={UsersPage} path="/admin/ajustes/usuarios" />
         <Route component={RecoverPassword} path="/recuperar" />
-        <Route component={RecoverCompleted} path="/recuperar_completado" />
+        <Route component={RecoverCompleted} path="/recuperar-completado" />
         <Route component={NewPassword} path="/contraseña-nueva" />
         <Route component={CreateEditProduct} path="crear-editar-producto" />
         <Route component={Cart} path="/carrito" />

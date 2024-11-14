@@ -7,13 +7,14 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa6";
 import { useState } from "react";
 import useUser from "../../hooks/useUser";
+import { Link } from "wouter";
 
 function LoginCard() {
   const { loginWithGoogle } = useUser();
   const [showPassword, setShowPassword] = useState(false);
 
   const toggleShowPassword = () => {
-    setShowPassword(!showPassword); 
+    setShowPassword(!showPassword);
   };
   return (
     <Card className="w-[70%] max-w-2xl px-10 py-5">
@@ -35,15 +36,17 @@ function LoginCard() {
             <Input
               id="passwd"
               placeholder="********"
-              type={showPassword ? "text" : "password"} 
+              type={showPassword ? "text" : "password"}
               autoComplete="current-password"
             />
           </div>
           <div className="flex justify-between">
             <div className="flex items-center space-x-2">
-              <Checkbox id="showpasswd"
-              checked={showPassword}
-              onCheckedChange={toggleShowPassword}/>
+              <Checkbox
+                id="showpasswd"
+                checked={showPassword}
+                onCheckedChange={toggleShowPassword}
+              />
               <label
                 htmlFor="showpasswd"
                 className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -51,9 +54,9 @@ function LoginCard() {
                 Mostrar Contraseña
               </label>
             </div>
-
-            <Button variant="link">¿Olvidaste tu contraseña?</Button>
-
+            <Link to="/recuperar">
+              <Button variant="link">¿Olvidaste tu contraseña?</Button>
+            </Link>
           </div>
           <div className="flex justify-between">
             <Button className="px-12">Ingresar</Button>
@@ -77,9 +80,11 @@ function LoginCard() {
             >
               ¿Eres nuevo?
             </label>
-            <Button variant="link" className="p-0">
-              Crea tu cuenta
-            </Button>
+            <Link to="/registrarse">
+              <Button variant="link" className="p-0">
+                Crea tu cuenta
+              </Button>
+            </Link>
           </div>
         </div>
       </CardContent>
