@@ -12,9 +12,9 @@ import {
 } from "../ui/dropdown-menu";
 import { Input } from "../ui/input";
 
+import { ShoppingCart } from "lucide-react";
 import useUser from "../../hooks/useUser";
 import Logo from "../custom/Logo";
-import { ShoppingCart } from "lucide-react";
 
 function Header({ className } = { className: "" }) {
   const [location] = useLocation();
@@ -31,11 +31,9 @@ function Header({ className } = { className: "" }) {
         </div>
 
         <div className="w-full flex justify-end gap-4 items-center">
-          <div>
-            <Link href="/carrito">
-              <ShoppingCart size={24} />
-            </Link>
-          </div>
+          <Link href="/carrito">
+            <ShoppingCart size={24} />
+          </Link>
 
           {loading ? (
             <Skeleton className="w-[30px] h-[30px] rounded-full" />
@@ -45,8 +43,8 @@ function Header({ className } = { className: "" }) {
                 <div>
                   <DropdownMenu>
                     <DropdownMenuTrigger>
-                      <Avatar>
-                        <AvatarImage src={user?.photo} width={"10px"} />
+                      <Avatar className="h-[30px] mt-1 p-0 w-[30px]">
+                        <AvatarImage src={user?.photo} />
                         <AvatarFallback>{user.firstName}</AvatarFallback>
                       </Avatar>
                     </DropdownMenuTrigger>

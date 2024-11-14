@@ -5,9 +5,9 @@ export function RolesGrid({ roles }) {
     <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
       {roles.map((rol) => (
         <CardInfoRoles
-          key={rol.role}
-          nameRol={rol.role}
-          count={rol.count}
+          key={rol.id}
+          nameRol={rol.name}
+          count={0}
         />
       ))}
     </div>

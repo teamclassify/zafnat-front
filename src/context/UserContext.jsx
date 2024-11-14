@@ -11,6 +11,12 @@ import {
 } from "../services/firebase/AuthService";
 import { formatEmail } from "../utils/formatUser";
 
+const ROLES = {
+  1: "admin",
+  2: "user",
+  3: "sales",
+};
+
 export const UserContext = createContext();
 
 export default function UserProvider({ children }) {
@@ -85,8 +91,6 @@ export default function UserProvider({ children }) {
   const handleLogin = async (userInfo) => {
     const response = await login(userInfo);
 
-    console.log(response);
-
     if (!response.error) {
       setUser({
         ...user,
@@ -94,6 +98,8 @@ export default function UserProvider({ children }) {
         photo: response.data.photo,
         email: response.data.email,
         id: response.data.id,
+        rolesAll: response.data.roles,
+        roles: response.data.roles.map((role) => ROLES[role.roleId]),
       });
     } else setUser(null);
   };
@@ -133,13 +139,13 @@ export default function UserProvider({ children }) {
   useEffect(() => {
     const fetchUser = async () => {
       if (accessToken && user) {
-        console.log(user);
         await handleLogin({
           firstName: user.firstName,
           email: user.email,
           photo: user.photo,
           id: user.id,
-          roles: user.roles.map((role) => role.roleId),
+          rolesAll: user?.roles || [],
+          roles: user.roles?.map((role) => ROLES[role.roleId]),
         });
 
         setToken(accessToken);
@@ -166,5 +172,15 @@ export default function UserProvider({ children }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token, user, loading]);
 
-  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={value}>
+      {loading ? (
+        <div className="flex justify-center items-center h-screen">
+          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-zinc-700"></div>
+        </div>
+      ) : (
+        children
+      )}
+    </UserContext.Provider>
+  );
 }
