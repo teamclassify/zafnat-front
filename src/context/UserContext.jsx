@@ -28,23 +28,23 @@ export default function UserProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   const registerWithEmail = async (email, password) => {
-    setLoading(true);
+    // setLoading(true);
 
     return signUpWithEmailAndPassword(email, password).then((res) => {
-      setLoading(false);
+      // setLoading(false);
       return res;
     });
   };
 
   const loginWithEmail = async (email, password) => {
-    setLoading(true);
+    // setLoading(true);
 
     return signInWithEmail(email, password)
       .then((res) => {
-        setLoading(false);
+        // setLoading(false);
         return res;
       })
-      .finally(() => setLoading(false));
+      // .finally(() => setLoading(false));
   };
 
   const loginWithGoogle = async () => {

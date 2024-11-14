@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
@@ -16,11 +16,31 @@ import { Label } from "../components/ui/label";
 import useUser from "../hooks/useUser";
 
 function SignInPage() {
-  const { loginWithGoogle } = useUser();
+  const { loginWithGoogle, registerWithEmail } = useUser();
   const [showPassword, setShowPassword] = useState(false);
+  const [msg, setMsg] = useState(null);
+  const [msgDescription, setMsgDescription] = useState(null);
+  const [, setLocation] = useLocation();
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    const email = e.target[0].value;
+    const password = e.target[1].value;
+
+    const res = await registerWithEmail(email, password);
+
+    if (res.status === 200) {
+      setMsg(null);
+      setMsgDescription(null);
+      setLocation("/login");
+    } else {
+      setMsg(res.msg || "Error al registrarse");
+      setMsgDescription(res.error || "Intente nuevamente");
+    }
   };
 
   return (
@@ -29,9 +49,16 @@ function SignInPage() {
         <Card className="w-[70%] max-w-2xl px-10 py-5">
           <CardHeader>
             <CardTitle className="text-2xl">Registrarte</CardTitle>
+
+            {msg && (
+              <div className="bg-red-100 text-sm border-l-4 border-red-500 text-red-700 p-2 mt-4">
+                <p className="font-bold">{msg}</p>
+                <p>{msgDescription}</p>
+              </div>
+            )}
           </CardHeader>
           <CardContent>
-            <div className="grid w-full gap-4">
+            <form onSubmit={handleSignUp} className="grid w-full gap-4">
               <div className="flex flex-col  space-y-1.5 gap-1">
                 <Label htmlFor="email">Correo*</Label>
                 <Input
@@ -65,7 +92,9 @@ function SignInPage() {
               </div>
 
               <div className="flex justify-between">
-                <Button className="px-12">Registrase</Button>
+                <Button className="px-12" type="submit">
+                  Registrase
+                </Button>
                 <div className="flex gap-2">
                   <Button
                     variant="Link"
@@ -88,7 +117,7 @@ function SignInPage() {
                   <Link href="/login">Ingresa</Link>
                 </Button>
               </div>
-            </div>
+            </form>
           </CardContent>
         </Card>
       </div>
