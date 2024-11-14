@@ -94,10 +94,13 @@ export default function UserProvider({ children }) {
     if (!response.error) {
       setUser({
         ...user,
-        firstName: response.data.name,
+        firstName: response.data.firstName,
+        lastName: response.data.lastName,
         photo: response.data.photo,
         email: response.data.email,
         id: response.data.id,
+        gender: response.data.gender,
+        phone: response.data.phone,
         rolesAll: response.data.roles,
         roles: response.data.roles.map((role) => ROLES[role.roleId]),
       });
