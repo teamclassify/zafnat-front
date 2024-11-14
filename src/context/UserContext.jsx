@@ -60,7 +60,10 @@ export default function UserProvider({ children }) {
 
         return res;
       })
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLocation("/catalogo");
+        setLoading(false);
+      });
   };
 
   const logout = async () => {
