@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import InfoClient from "./pages/InfoClientPage";
 import UserList from "./pages/InfoUserPage";
 import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/SignInPage";
 import ManageRole from "./pages/ManageRolesPage";
 import NewPassword from "./pages/NewPassword";
 import ProductPage from "./pages/product";
@@ -36,6 +37,7 @@ function App() {
       <Switch>
         <Route component={HomePage} path="/" />
         <Route component={LoginPage} path="/login" />
+        <Route component={RegisterPage} path="/registrarse" />
         <Route component={ProductPage} path="/producto/:id" />
         <Route component={InfoClient} path="/admin/clientes/informacion" />
         <Route component={ManageRole} path="/admin/ajustes/roles" />
