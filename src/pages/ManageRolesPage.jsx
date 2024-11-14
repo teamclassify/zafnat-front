@@ -1,4 +1,5 @@
 import { useQuery } from "react-query";
+import { LoadingGrid } from "../components/custom/Loading";
 import { RolesGrid } from "../components/custom/RolesGrid";
 import { Title } from "../components/custom/Title";
 import AdminTemplate from "../components/templates/AdminTemplate";
@@ -20,7 +21,7 @@ export default function ManageRolePage() {
           <Title title="Roles" />
 
           <div className="pt-3">
-            {isLoading ? <p>Cargando...</p> : <RolesGrid roles={data.data} />}
+            {isLoading ? <LoadingGrid /> : <RolesGrid roles={data.data} />}
           </div>
         </div>
       </AdminTemplate>
