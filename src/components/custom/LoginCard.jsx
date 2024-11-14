@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { FaFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation } from "wouter";
 import useUser from "../../hooks/useUser";
@@ -94,9 +93,6 @@ function LoginCard() {
               Ingresar
             </Button>
             <div className="flex gap-2">
-              <Button variant="link" className="text-lg p-2">
-                <FaFacebook className="text-2xl" />
-              </Button>
               <Button
                 variant="Link"
                 onClick={loginWithGoogle}
