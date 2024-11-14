@@ -5,7 +5,8 @@ function ProductPreview({ images }) {
 
   return (
     <div>
-      <img src={image} className="mb-4 w-full max-w-md mx-auto" />
+    {/**Cambiar a images */}
+      <img src={"/assets/product.png"} className="mb-4 w-full max-w-md mx-auto" />
 
       <div className="w-full grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] gap-2">
         {images.map((img, index) => (
