@@ -1,8 +1,8 @@
 import { Link } from "wouter";
 
-function ProductCard({ id, name, price, img }) {
+function ProductCard({ id, name, price, img, productId }) {
   return (
-    <Link href={`/producto/${id}`}>
+    <Link href={`/producto/${productId}`}>
       <div className="card" key={id}>
         <img src={img} className="card-img-top" alt={name} />
 
