@@ -6,7 +6,7 @@ import {
   Settings,
   User,
   UserRoundPen,
-  ShoppingBag, DollarSign, FileArchive, Truck, ScrollText, AlertTriangle, FileUser, MessageSquareDiff, Box, Grid2x2, Percent, MonitorSmartphone, Package
+  ShoppingBag, DollarSign, FileArchive, Truck, ScrollText, AlertTriangle, FileUser, MessageSquareDiff, Box, Grid2x2, Percent, MonitorSmartphone, Package, LinkIcon
 } from "lucide-react";
 import { Link, useLocation } from "wouter";
 
@@ -149,6 +149,11 @@ const items = [
         title: "Inventario",
         url: "/admin/ajustes/inventario",
         icon: Package,
+      },
+      {
+        title: "Contenido",
+        url: "/admin/ajustes/contenido",
+        icon: LinkIcon,
       },
     ],
   },
