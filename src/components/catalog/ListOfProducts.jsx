@@ -9,7 +9,7 @@ function ListOfProducts({ products }) {
           id={product.id}
           name={product.name}
           price={product.price}
-          img={product.img}
+          img={product.img || "/assets/product.png"}
         />
       ))}
     </div>
