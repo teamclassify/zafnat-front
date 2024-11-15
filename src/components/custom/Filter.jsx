@@ -39,11 +39,12 @@ export default function Filter({ options, handleSelect }) {
         <DropdownMenuSeparator />
         {options.map((role) => (
           <DropdownMenuCheckboxItem
-            key={role}
-            checked={selectedRoles.includes(role)}
-            onCheckedChange={() => handleCheckboxChange(role)}
+            key={role.name}
+            className="uppercase"
+            checked={selectedRoles.includes(role.name)}
+            onCheckedChange={() => handleCheckboxChange(role.name)}
           >
-            {role}
+            {role.name}
           </DropdownMenuCheckboxItem>
         ))}
       </DropdownMenuContent>

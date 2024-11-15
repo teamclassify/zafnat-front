@@ -1,24 +1,26 @@
 import { Route, Switch } from "wouter";
 
 import { Toaster } from "@/components/ui/sonner";
+import AboutUsPage from "./pages/AboutUsPage";
 import DashboardPage from "./pages/admin-page";
 import AlertStock from "./pages/AlertStockPage";
-import CreateEditProduct from "./pages/CreateEditProduct";
+import Cart from "./pages/Cart";
+import EditProduct from "./pages/EditProduct";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import InfoClient from "./pages/InfoClientPage";
 import UserList from "./pages/InfoUserPage";
 import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/SignInPage";
 import ManageRole from "./pages/ManageRolesPage";
 import NewPassword from "./pages/NewPassword";
+import NotAuthPage from "./pages/NotAuth";
 import ProductPage from "./pages/product";
 import ProductCatalog from "./pages/ProductCatalog";
 import ProfilePage from "./pages/profile";
 import RecoverCompleted from "./pages/RecoverCompleted";
 import RecoverPassword from "./pages/RecoverPassword";
 import UsersPage from "./pages/users";
-import AboutUsPage from "./pages/AboutUsPage";
-import Cart from "./pages/Cart";
 import Delivery from "./pages/Delivery";
 import Location from "./pages/Location";
 import Shipping from "./pages/Shipping";
@@ -37,6 +39,7 @@ function App() {
       <Switch>
         <Route component={HomePage} path="/" />
         <Route component={LoginPage} path="/login" />
+        <Route component={RegisterPage} path="/registrarse" />
         <Route component={ProductPage} path="/producto/:id" />
         <Route component={InfoClient} path="/admin/clientes/informacion" />
         <Route component={ManageRole} path="/admin/ajustes/roles" />
@@ -48,7 +51,7 @@ function App() {
         <Route component={RecoverPassword} path="/recuperar" />
         <Route component={RecoverCompleted} path="/recuperar-completado" />
         <Route component={NewPassword} path="/contraseña-nueva" />
-        <Route component={CreateEditProduct} path="crear-editar-producto" />
+        <Route component={EditProduct} path="/admin/producto/:id" />
         <Route component={Cart} path="/carrito" />
         <Route component={Delivery} path="/entrega" />
         <Route component={Location} path="/direccion" />
@@ -60,6 +63,7 @@ function App() {
         <Route component={SocialMedia} path="/admin/ajustes/redes-sociales" />
         <Route component={ProfilePage} path="/perfil" />
         <Route component={AboutUsPage} path="/acerca-de" />
+        <Route component={NotAuthPage} path="/no-autorizado" />
         <Route component={ErrorPage} path="/:rest*" />
       </Switch>
     </>
