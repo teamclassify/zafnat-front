@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import ProductCard from "./ProductCard";
 
 function ListOfProducts({ products }) {

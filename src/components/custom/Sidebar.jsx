@@ -6,7 +6,7 @@ import {
   Settings,
   User,
   UserRoundPen,
-  ShoppingBag, DollarSign, FileArchive, Truck, ScrollText, AlertTriangle, FileUser, MessageSquareDiff, Box, Grid2x2, Percent
+  ShoppingBag, DollarSign, FileArchive, Truck, ScrollText, AlertTriangle, FileUser, MessageSquareDiff, Box, Grid2x2, Percent, MonitorSmartphone
 } from "lucide-react";
 import { Link, useLocation } from "wouter";
 
@@ -139,6 +139,11 @@ const items = [
         title: "Roles",
         url: "/admin/ajustes/roles",
         icon: UserRoundPen,
+      },
+      {
+        title: "Redes Sociales",
+        url: "/admin/ajustes/redes-sociales",
+        icon: MonitorSmartphone,
       },
     ],
   },

@@ -29,6 +29,7 @@ import Pay from "./pages/Pay";
 import PaymentDone from "./pages/PaymentDone";
 import Orders from "./pages/Orders";
 import WholeSale from "./pages/WholeSale"
+import SocialMedia from "./pages/SocialMedia"
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
         <Route component={PaymentDone} path="/pago-realizado" />
         <Route component={Orders} path="/admin/ventas/pedidos" />
         <Route component={WholeSale} path="/admin/ventas/compras-al-mayor" />
+        <Route component={SocialMedia} path="/admin/ajustes/redes-sociales" />
         <Route component={ProfilePage} path="/perfil" />
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={NotAuthPage} path="/no-autorizado" />
