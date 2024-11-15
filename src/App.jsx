@@ -5,7 +5,7 @@ import AboutUsPage from "./pages/AboutUsPage";
 import DashboardPage from "./pages/admin-page";
 import AlertStock from "./pages/AlertStockPage";
 import Cart from "./pages/Cart";
-import CreateEditProduct from "./pages/CreateEditProduct";
+import EditProduct from "./pages/EditProduct";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import InfoClient from "./pages/InfoClientPage";
@@ -50,7 +50,7 @@ function App() {
         <Route component={RecoverPassword} path="/recuperar" />
         <Route component={RecoverCompleted} path="/recuperar-completado" />
         <Route component={NewPassword} path="/contraseña-nueva" />
-        <Route component={CreateEditProduct} path="crear-editar-producto" />
+        <Route component={EditProduct} path="/admin/producto/:id" />
         <Route component={Cart} path="/carrito" />
         <Route component={Delivery} path="/entrega" />
         <Route component={Location} path="/direccion" />
