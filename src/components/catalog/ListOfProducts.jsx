@@ -7,9 +7,10 @@ function ListOfProducts({ products }) {
         <ProductCard
           key={product.id}
           id={product.id}
+          productId={product.product.id}
           name={product.name}
           price={product.price}
-          img={product.img}
+          img={product.img || "/assets/product.png"}
         />
       ))}
     </div>
