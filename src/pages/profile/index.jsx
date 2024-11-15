@@ -18,7 +18,7 @@ import WishListTab from "./components/WishListTab";
 import OrdersTab from "./components/OrdersTab";
 
 function ProfilePage() {
-  const [page, setPage] = useState("pedidos");
+  const [page, setPage] = useState("perfil");
 
   return (
     <DefaultTemplate>

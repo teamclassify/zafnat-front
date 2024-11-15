@@ -9,22 +9,22 @@ function SidebarClient({ page, onChange }) {
 
       <ul className="flex gap-2 flex-col text-gray-500">
         <li
-          onClick={() => onChange("pedidos")}
-          className={`flex justify-between cursor-pointer hover:bg-gray-100 p-2 rounded ${
-            page === "pedidos" ? "bg-gray-100" : ""
-          }`}
-        >
-          <span>Mis pedidos</span>
-          <ChevronRight />
-        </li>
-
-        <li
           onClick={() => onChange("perfil")}
           className={`flex justify-between cursor-pointer hover:bg-gray-100 p-2 rounded ${
             page === "perfil" ? "bg-gray-100" : ""
           }`}
         >
           <span>Mi perfil</span>
+          <ChevronRight />
+        </li>
+
+        <li
+          onClick={() => onChange("pedidos")}
+          className={`flex justify-between cursor-pointer hover:bg-gray-100 p-2 rounded ${
+            page === "pedidos" ? "bg-gray-100" : ""
+          }`}
+        >
+          <span>Mis pedidos</span>
           <ChevronRight />
         </li>
 
