@@ -19,7 +19,7 @@ export default function BreadcrumbResponsive() {
           <ChevronRight />
         </BreadcrumbSeparator>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/components">Mujer</BreadcrumbLink>
+          <BreadcrumbLink href="#">Catalogo</BreadcrumbLink>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
