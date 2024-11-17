@@ -4,11 +4,9 @@ import {
   CardHeader,
   CardTitle,
 } from "../../../components/ui/card";
-import useProduct from "../../../hooks/useProduct";
-import ScrollProduct from "./ScrollProduct";
+import StatsProductGrid from "./StatsProductGrid";
 
-export default function CardProduct({ title}) {
-  const {products} = useProduct()
+export default function CardProduct({ title }) {
   return (
     <Card>
       <CardHeader>
@@ -17,9 +15,7 @@ export default function CardProduct({ title}) {
         </div>
       </CardHeader>
       <CardContent>
-        {products.products.map((product) => (
-          <ScrollProduct key={product.id} product={product}/>
-        ))}
+        <StatsProductGrid />
       </CardContent>
     </Card>
   );
