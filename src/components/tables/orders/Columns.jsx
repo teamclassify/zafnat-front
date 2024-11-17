@@ -43,7 +43,7 @@ export const columns = [
   },
 ];
 
-export const columnsWholeSale= [
+export const columnsWholeSale = [
   {
     accessorKey: "id",
     header: "id",
@@ -80,6 +80,48 @@ export const columnsWholeSale= [
         <button
           className="btn btn-primary"
           onClick={() => alert(`Ver detalles del pedido ${row.getValue("id")}`)}
+        >
+          <FaRegEye />
+        </button>
+      );
+    },
+  },
+];
+
+export const columnsInvoices = [
+  {
+    accessorKey: "id",
+    header: "id",
+  },
+  {
+    accessorKey: "cliente",
+    header: "Cliente",
+  },
+  {
+    accessorKey: "cantidad",
+    header: "Cantidad",
+  },
+  {
+    accessorKey: "status",
+    header: "Estado",
+    cell: ({ row }) => {
+      return row.getValue("status") === "Pagado" ? (
+        <Badge className="bg-green-700">{"Pagado"}</Badge>
+      ) : (
+        <Badge className="bg-red-700">{"No Pago"}</Badge>
+      );
+    },
+  },
+  {
+    accessorKey: "actions",
+    header: "Acciones",
+    cell: ({ row }) => {
+      return (
+        <button
+          className="btn btn-primary"
+          onClick={() =>
+            alert(`Ver detalles de la factura ${row.getValue("id")}`)
+          }
         >
           <FaRegEye />
         </button>

@@ -2,9 +2,10 @@ import { useState } from "react";
 import { initialClients } from "../moks/clients.json";
 
 const options = [
-  "Mayor compra",
-  "Con productos recientes",
-  "Sin productos recientes",
+  { name: "Mayor compra" },
+  { name: "Menor compra" },
+  { name: "Con productos recientes" },
+  { name: "Sin productos recientes" },
 ];
 
 export function useClientFilter() {

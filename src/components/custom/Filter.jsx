@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { FilterIcon } from "lucide-react";
 
-export default function Filter({ options, handleSelect }) {
+export default function Filter({ options, handleSelect, title}) {
   const [selectedRoles, setSelectedRoles] = useState([]);
 
   const handleCheckboxChange = (role) => {
@@ -35,12 +35,12 @@ export default function Filter({ options, handleSelect }) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>Seleccionar Roles</DropdownMenuLabel>
+        <DropdownMenuLabel>{title}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {options.map((role) => (
           <DropdownMenuCheckboxItem
             key={role.name}
-            className="uppercase"
+           /*className="uppercase"*/
             checked={selectedRoles.includes(role.name)}
             onCheckedChange={() => handleCheckboxChange(role.name)}
           >

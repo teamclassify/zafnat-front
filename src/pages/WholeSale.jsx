@@ -100,6 +100,12 @@ export default function WholeSale() {
     },
   ];
   
+  const options = [
+    { name: "Fecha reciente" },
+    { name: "Más antiguo" },
+    { name: "Mayor compra" },
+    { name: "Menor compra" },
+  ];
 
   return (
     <AdminTemplate>
@@ -108,12 +114,7 @@ export default function WholeSale() {
         <div className="flex flex-row justify-between">
           <Input />
           <Filter
-            options={[
-              "Fecha reciente",
-              "Más antiguo",
-              "Mayor compra",
-              "Menor compra",
-            ]}
+            options={options}
           />
         </div>
         <div className="pt-3">

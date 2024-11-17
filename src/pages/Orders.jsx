@@ -20,6 +20,13 @@ export default function Orders() {
     { id: "010", date: "2023-11-14", total: "$50.000", status: "Cancelado" },
   ];
   
+  const options = [
+    { name: "Fecha reciente" },
+    { name: "Más antiguo" },
+    { name: "Mayor compra" },
+    { name: "Menor compra" },
+    { name: "Completado" },
+  ];
 
   return (
     <AdminTemplate>
@@ -28,13 +35,7 @@ export default function Orders() {
         <div className="flex flex-row justify-between">
           <Input />
           <Filter
-            options={[
-              "Fecha reciente",
-              "Más antiguo",
-              "Mayor compra",
-              "Menor compra",
-              "Completado",
-            ]}
+            options={options}
           />
         </div>
         <div className="pt-3">
