@@ -7,7 +7,9 @@ import {
 } from "../../../components/ui/card";
 import { Stadistic } from "./stadistic";
 
-export default function Graphic({ title, data, total, value}) {
+export default function Graphic({ title, data, total, value }) {
+  const padding = value === "ingresos" ? "pl-7" : "pl-0";
+  const totalMonth = value === "ingresos" ? "3400" : total;
   return (
     <Card>
       <CardHeader>
@@ -15,10 +17,12 @@ export default function Graphic({ title, data, total, value}) {
           <CardTitle>{title}</CardTitle>
           <CardTitle className="text-4xl">{total}</CardTitle>
         </div>
-        <CardDescription>+{total/100}% respecto al mes pasado</CardDescription>
+        <CardDescription>
+          +{totalMonth / 100}% respecto al mes pasado
+        </CardDescription>
       </CardHeader>
-      <CardContent className="pl-0">
-        <Stadistic data={data} dataKey={["month", value]}/>
+      <CardContent className={padding}>
+        <Stadistic data={data} dataKey={["month", value]} />
       </CardContent>
     </Card>
   );

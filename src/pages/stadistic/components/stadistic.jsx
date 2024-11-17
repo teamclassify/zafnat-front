@@ -14,7 +14,6 @@ const chartConfig = {
 };
 
 export function Stadistic({ data, dataKey }) {
-  console.log(dataKey)
   return (
     <ChartContainer config={chartConfig}>
       <LineChart accessibilityLayer data={data}>
@@ -29,7 +28,7 @@ export function Stadistic({ data, dataKey }) {
         <YAxis
           tickLine={false}
           axisLine={false}
-          tickMargin={8}
+          tickMargin={0}
           tickCount={10}
         />
         <ChartTooltip
