@@ -33,6 +33,7 @@ import SocialMedia from "./pages/SocialMedia"
 import Content from "./pages/Content"
 import Invoices from "./pages/invoices";
 import ProductStadistic from "./pages/stadistic/product";
+import ClientStadistic from "./pages/stadistic/client";
 
 function App() {
   return (
@@ -67,6 +68,7 @@ function App() {
         <Route component={Content} path="/admin/ajustes/contenido" />
         <Route component={Invoices} path="/admin/ventas/facturas"/>
         <Route component={ProductStadistic} path="/admin/reportes/productos"/>
+        <Route component={ClientStadistic} path="/admin/reportes/clientes"/>
         <Route component={ProfilePage} path="/perfil" />
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={NotAuthPage} path="/no-autorizado" />
