@@ -1,16 +1,20 @@
-export default function ReviewInfo() {
+import { useReviews } from "../../../hooks/useReviews";
+
+export default function ReviewInfo({ name, reviews }) {
+  const { averageReview } = useReviews({ reviews });
+
   return (
     <div className="flex justify-between items-center">
       <div className="flex flex-col justify-between">
-      <p>Jean ochentero</p>
+        <p>{name}</p>
         <div className="flex flex-row gap-3">
           <p>⭐⭐⭐⭐⭐</p>
-          <p>5.0</p>
+          <p>{averageReview.toFixed(1)}</p>
         </div>
       </div>
       <div className="pr-10">
-          <p>240</p>
-        </div>
+        <p>{reviews.length}</p>
+      </div>
     </div>
   );
 }
