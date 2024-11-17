@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "wouter";
 import ProductPreview from "../../components/catalog/ProductPreview";
@@ -9,6 +9,7 @@ import ReviewStars from "../../components/catalog/ReviewStars";
 import { LoadingGrid } from "../../components/custom/Loading";
 import DefaultTemplate from "../../components/templates/DefaultTemplate";
 import ProductsService from "../../services/api/ProductsService";
+import ReviewsService from "../../services/api/ReviewsService";
 import ErrorPage from "../ErrorPage";
 
 function ProductPage() {
@@ -22,6 +23,28 @@ function ProductPage() {
   const { data, isLoading } = useQuery(["product", id], () => {
     return ProductsService.getById(id);
   });
+
+  const { data: reviews, isLoading: isLoadingReviews } = useQuery(
+    ["reviews", id],
+    () => {
+      return ReviewsService.getAll(id);
+    }
+  );
+
+  useEffect(() => {
+    if (data && data.data && data.data.length > 0) {
+      setSelectedSize(sizes[0]);
+      setSelectedColor(colors[0]);
+
+      const sku = data.data.find(
+        (product) =>
+          product.size_attribute.id === sizes[0].id &&
+          product.color_attribute.id === colors[0].id
+      );
+
+      if (sku) setSkuSelected(sku);
+    }
+  }, [data?.data]);
 
   console.log(data);
 
@@ -61,10 +84,11 @@ function ProductPage() {
             <div className="pt-10 grid gap-4 md:grid-cols-2">
               <div>
                 <ProductPreview
-                  images={[
-                    "http://zafnat.epizy.com/wp-content/uploads/2022/04/275794641_4982413095177295_8624581813397849886_n-300x300.jpg",
-                    "http://zafnat.epizy.com/wp-content/uploads/2022/04/278214615_5064259293659341_6017826772153570806_n-300x300.jpg",
-                  ]}
+                  images={
+                    skuSelected
+                      ? skuSelected?.photos.map((photo) => photo.value)
+                      : []
+                  }
                 />
               </div>
 
@@ -72,10 +96,22 @@ function ProductPage() {
                 <h1 className="text-4xl font-bold">{product.name}</h1>
 
                 <div className="my-4">
-                  <ReviewStars rating={4} />
+                  {isLoadingReviews ? (
+                    <span>Cargando reseñas</span>
+                  ) : (
+                    <>
+                      {reviews.data && (
+                        <ReviewStars
+                          rating={reviews.data?.count[0]["_avg"]?.rating}
+                        />
+                      )}
+                    </>
+                  )}
                 </div>
 
-                <p className="text-2xl font-bold">$ {skuSelected?.price ?? ""}</p>
+                <p className="text-2xl font-bold">
+                  $ {skuSelected?.price ?? ""}
+                </p>
 
                 <div className="my-4">
                   <h3 className="text-lg font-bold mb-2">Talla</h3>
@@ -94,9 +130,9 @@ function ProductPage() {
                             )
                           );
                         }}
-                        className={`bg-gray-200 px-4 py-2 rounded-lg ${
+                        className={`bg-gray-100 px-4 py-2 text-sm uppercase rounded-lg ${
                           selecteddSize?.id === size.id
-                            ? "border-2 border-black"
+                            ? " bg-zinc-800 text-white"
                             : ""
                         }`}
                       >
@@ -124,9 +160,9 @@ function ProductPage() {
                             )
                           );
                         }}
-                        className={`bg-gray-200 px-4 py-2 rounded-lg color-product-${color.value.toLowerCase()} ${
+                        className={`bg-gray-100 text-sm capitalize px-4 py-2 rounded-lg color-product-${color.value.toLowerCase()} ${
                           selectedColor?.id === color.id
-                            ? "border-2 border-black"
+                            ? " bg-zinc-800 text-white"
                             : ""
                         }`}
                       >
@@ -138,7 +174,7 @@ function ProductPage() {
               </div>
             </div>
 
-            <Tabs defaultValue="account" className="my-20">
+            <Tabs defaultValue="description" className="my-20">
               <TabsList className="w-full">
                 <TabsTrigger value="description" className="w-full">
                   Descripcion
@@ -156,13 +192,7 @@ function ProductPage() {
                 className="p-4 text-sm text-zinc-600"
               >
                 <p className="leading-7 [&:not(:first-child)]:mt-6">
-                  Déjate llevar por la nostalgia de los 80 con nuestros jeans de
-                  tiro alto. Su corte clásico y su tejido denim rígido con un
-                  ligero desteñido te proporcionarán un look auténtico y lleno
-                  de estilo. El talle alto realza tu figura y el ajuste ceñido
-                  te garantiza comodidad durante todo el día. Combínalos con una
-                  camiseta gráfica y unas zapatillas altas para un outfit casual
-                  y moderno.
+                  {product?.description ?? "Sin descripción"}
                 </p>
               </TabsContent>
 
@@ -175,7 +205,19 @@ function ProductPage() {
                 value="reviews"
                 className="p-4 text-sm text-zinc-600"
               >
-                <ProductReviews id="1" />
+                {isLoadingReviews ? (
+                  <LoadingGrid />
+                ) : (
+                  <>
+                    {reviews.data && (
+                      <ProductReviews
+                        id="1"
+                        rating={reviews.data?.count[0]["_avg"]?.rating}
+                        reviews={reviews.data?.reviews ?? []}
+                      />
+                    )}
+                  </>
+                )}
               </TabsContent>
             </Tabs>
           </div>
