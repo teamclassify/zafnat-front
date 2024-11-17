@@ -17,8 +17,7 @@ export default function Graphic({ title }) {
         </div>
         <CardDescription>+10.5% respecto al mes pasado</CardDescription>
       </CardHeader>
-
-      <CardContent>
+      <CardContent className="pl-0">
         <Stadistic />
       </CardContent>
     </Card>

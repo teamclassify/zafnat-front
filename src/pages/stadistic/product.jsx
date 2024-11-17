@@ -8,11 +8,8 @@ export default function ProductStadistic() {
       <Title title="Estadisticas de productos" />
       <div className="grid grid-cols-2 gap-5">
         <Graphic title="Productos vendidos" />
-        <Graphic title="Productos vendidos" />
-        <Graphic title="Productos vendidos" />
-        <Graphic title="Productos vendidos" />
-        <Graphic title="Productos vendidos" />
-        <Graphic title="Productos vendidos" />
+        <Graphic title="Productos agregados a lista de deseos" />
+        
       </div>
     </AdminTemplate>
   );
