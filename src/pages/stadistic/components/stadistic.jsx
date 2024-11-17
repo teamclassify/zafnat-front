@@ -5,14 +5,6 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-const chartData = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 73 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 214 },
-];
 
 const chartConfig = {
   desktop: {
@@ -21,13 +13,10 @@ const chartConfig = {
   },
 };
 
-export function Stadistic() {
+export function Stadistic({ data }) {
   return (
     <ChartContainer config={chartConfig}>
-      <LineChart
-        accessibilityLayer
-        data={chartData}
-      >
+      <LineChart accessibilityLayer data={data}>
         <CartesianGrid vertical={false} />
         <XAxis
           dataKey="month"
@@ -36,13 +25,18 @@ export function Stadistic() {
           tickMargin={8}
           tickFormatter={(value) => value.slice(0, 3)}
         />
-        <YAxis tickLine={false} axisLine={false} tickMargin={8} tickCount={10} />
+        <YAxis
+          tickLine={false}
+          axisLine={false}
+          tickMargin={8}
+          tickCount={10}
+        />
         <ChartTooltip
           cursor={false}
           content={<ChartTooltipContent hideLabel />}
         />
         <Line
-          dataKey="desktop"
+          dataKey="productos"
           type="linear"
           stroke="var(--color-desktop)"
           strokeWidth={2}
@@ -52,5 +46,3 @@ export function Stadistic() {
     </ChartContainer>
   );
 }
-
-

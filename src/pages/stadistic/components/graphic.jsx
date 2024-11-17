@@ -7,18 +7,18 @@ import {
 } from "../../../components/ui/card";
 import { Stadistic } from "./stadistic";
 
-export default function Graphic({ title }) {
+export default function Graphic({ title, data, total}) {
   return (
     <Card>
       <CardHeader>
         <div className="flex flex-col justify-between gap-4">
           <CardTitle>{title}</CardTitle>
-          <CardTitle className="text-4xl">149</CardTitle>
+          <CardTitle className="text-4xl">{total}</CardTitle>
         </div>
-        <CardDescription>+10.5% respecto al mes pasado</CardDescription>
+        <CardDescription>+{total/100}% respecto al mes pasado</CardDescription>
       </CardHeader>
       <CardContent className="pl-0">
-        <Stadistic />
+        <Stadistic data={data}/>
       </CardContent>
     </Card>
   );
