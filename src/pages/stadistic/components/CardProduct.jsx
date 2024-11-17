@@ -4,9 +4,10 @@ import {
   CardHeader,
   CardTitle,
 } from "../../../components/ui/card";
+import Review from "./Review";
 import StatsProductGrid from "./StatsProductGrid";
 
-export default function CardProduct({ title }) {
+export default function CardProduct({ title, progress }) {
   return (
     <Card>
       <CardHeader>
@@ -14,9 +15,7 @@ export default function CardProduct({ title }) {
           <CardTitle>{title}</CardTitle>
         </div>
       </CardHeader>
-      <CardContent>
-        <StatsProductGrid />
-      </CardContent>
+      <CardContent>{progress ? <StatsProductGrid /> : <Review />}</CardContent>
     </Card>
   );
 }
