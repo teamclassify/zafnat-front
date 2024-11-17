@@ -9,6 +9,7 @@ import ReviewStars from "../../components/catalog/ReviewStars";
 import { LoadingGrid } from "../../components/custom/Loading";
 import DefaultTemplate from "../../components/templates/DefaultTemplate";
 import ProductsService from "../../services/api/ProductsService";
+import ReviewsService from "../../services/api/ReviewsService";
 import ErrorPage from "../ErrorPage";
 
 function ProductPage() {
@@ -22,6 +23,13 @@ function ProductPage() {
   const { data, isLoading } = useQuery(["product", id], () => {
     return ProductsService.getById(id);
   });
+
+  const { data: reviews, isLoading: isLoadingReviews } = useQuery(
+    ["reviews", id],
+    () => {
+      return ReviewsService.getAll(id);
+    }
+  );
 
   useEffect(() => {
     if (data && data.data && data.data.length > 0) {
@@ -88,7 +96,17 @@ function ProductPage() {
                 <h1 className="text-4xl font-bold">{product.name}</h1>
 
                 <div className="my-4">
-                  <ReviewStars rating={4} />
+                  {isLoadingReviews ? (
+                    <span>Cargando reseñas</span>
+                  ) : (
+                    <>
+                      {reviews.data && (
+                        <ReviewStars
+                          rating={reviews.data?.count[0]["_avg"]?.rating}
+                        />
+                      )}
+                    </>
+                  )}
                 </div>
 
                 <p className="text-2xl font-bold">
@@ -187,7 +205,19 @@ function ProductPage() {
                 value="reviews"
                 className="p-4 text-sm text-zinc-600"
               >
-                <ProductReviews id="1" />
+                {isLoadingReviews ? (
+                  <LoadingGrid />
+                ) : (
+                  <>
+                    {reviews.data && (
+                      <ProductReviews
+                        id="1"
+                        rating={reviews.data?.count[0]["_avg"]?.rating}
+                        reviews={reviews.data?.reviews ?? []}
+                      />
+                    )}
+                  </>
+                )}
               </TabsContent>
             </Tabs>
           </div>
