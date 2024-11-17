@@ -5,6 +5,7 @@ import { columns } from "../components/tables/orders/Columns";
 import DataTable from "../components/tables/orders/DataTable";
 import AdminTemplate from "../components/templates/AdminTemplate";
 import { Input } from "../components/ui/input";
+import { optionsOrders } from "../hooks/useOptionsFilters";
 
 export default function Orders() {
   const data = [
@@ -19,14 +20,7 @@ export default function Orders() {
     { id: "009", date: "2023-11-13", total: "$160.000", status: "Entregado" },
     { id: "010", date: "2023-11-14", total: "$50.000", status: "Cancelado" },
   ];
-  
-  const options = [
-    { name: "Fecha reciente" },
-    { name: "Más antiguo" },
-    { name: "Mayor compra" },
-    { name: "Menor compra" },
-    { name: "Completado" },
-  ];
+
 
   return (
     <AdminTemplate>
@@ -35,7 +29,7 @@ export default function Orders() {
         <div className="flex flex-row justify-between">
           <Input />
           <Filter
-            options={options}
+            options={optionsOrders}
           />
         </div>
         <div className="pt-3">

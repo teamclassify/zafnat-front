@@ -5,6 +5,7 @@ import { columnsWholeSale } from "../components/tables/orders/Columns";
 import DataTable from "../components/tables/orders/DataTable";
 import AdminTemplate from "../components/templates/AdminTemplate";
 import { Input } from "../components/ui/input";
+import { optionsWholeSale } from "../hooks/useOptionsFilters";
 
 export default function WholeSale() {
   const data = [
@@ -100,12 +101,6 @@ export default function WholeSale() {
     },
   ];
   
-  const options = [
-    { name: "Fecha reciente" },
-    { name: "Más antiguo" },
-    { name: "Mayor compra" },
-    { name: "Menor compra" },
-  ];
 
   return (
     <AdminTemplate>
@@ -114,7 +109,7 @@ export default function WholeSale() {
         <div className="flex flex-row justify-between">
           <Input />
           <Filter
-            options={options}
+            options={optionsWholeSale}
           />
         </div>
         <div className="pt-3">

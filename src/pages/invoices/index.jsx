@@ -5,6 +5,7 @@ import { columnsInvoices} from "../../components/tables/orders/Columns";
 import DataTable from "../../components/tables/orders/DataTable";
 import AdminTemplate from "../../components/templates/AdminTemplate";
 import { Input } from "../../components/ui/input";
+import { optionsInvoices } from "../../hooks/useOptionsFilters";
 
 export default function Invoices() {
   const data = [
@@ -19,15 +20,6 @@ export default function Invoices() {
     { id: "009", cliente: "Sofía", cantidad: "$160.000", status: "Pagado" },
     { id: "010", cliente: "Emilia", cantidad: "$50.000", status: "Debe" },
   ];  
-
-  const options = [
-    { name: "Fecha reciente" },
-    { name: "Más antiguo" },
-    { name: "Mayor compra" },
-    { name: "Menor compra" },
-    { name: "Pagado" },
-    { name: "No Pago" },
-  ];
   
 
   return (
@@ -37,7 +29,7 @@ export default function Invoices() {
         <div className="flex flex-row justify-between">
           <Input />
           <Filter
-            options={options}
+            options={optionsInvoices}
           />
         </div>
         <div className="pt-3">
