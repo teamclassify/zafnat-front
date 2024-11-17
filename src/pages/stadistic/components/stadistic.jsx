@@ -13,13 +13,14 @@ const chartConfig = {
   },
 };
 
-export function Stadistic({ data }) {
+export function Stadistic({ data, dataKey }) {
+  console.log(dataKey)
   return (
     <ChartContainer config={chartConfig}>
       <LineChart accessibilityLayer data={data}>
         <CartesianGrid vertical={false} />
         <XAxis
-          dataKey="month"
+          dataKey={dataKey[0]}
           tickLine={false}
           axisLine={false}
           tickMargin={8}
@@ -36,7 +37,7 @@ export function Stadistic({ data }) {
           content={<ChartTooltipContent hideLabel />}
         />
         <Line
-          dataKey="productos"
+          dataKey={dataKey[1]}
           type="linear"
           stroke="var(--color-desktop)"
           strokeWidth={2}

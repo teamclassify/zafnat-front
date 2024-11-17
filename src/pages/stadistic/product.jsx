@@ -10,7 +10,7 @@ export default function ProductStadistic() {
       <Title title="Estadísticas de productos" />
       <div className="grid grid-cols-2 gap-5">
         {graphicData.map((graphic, index) => (
-          <Graphic key={index} title={graphic.title} data={graphic.data} total={graphic.totalProducts}/>
+          <Graphic key={index} title={graphic.title} data={graphic.data} total={graphic.totalProducts}  value={"productos"}/>
         ))}
         {cardData.map((card, index) => (
           <CardProduct key={index} title={card.title} progress={card.progress} />

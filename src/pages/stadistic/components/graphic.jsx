@@ -7,7 +7,7 @@ import {
 } from "../../../components/ui/card";
 import { Stadistic } from "./stadistic";
 
-export default function Graphic({ title, data, total}) {
+export default function Graphic({ title, data, total, value}) {
   return (
     <Card>
       <CardHeader>
@@ -18,7 +18,7 @@ export default function Graphic({ title, data, total}) {
         <CardDescription>+{total/100}% respecto al mes pasado</CardDescription>
       </CardHeader>
       <CardContent className="pl-0">
-        <Stadistic data={data}/>
+        <Stadistic data={data} dataKey={["month", value]}/>
       </CardContent>
     </Card>
   );

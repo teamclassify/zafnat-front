@@ -37,6 +37,26 @@ export const graphicData = [
   },
 ];
 
+export const graphicDataClient = [
+  {
+    title: "Clientes totales",
+    data: [
+      { month: "Enero", clientes: 50 },
+      { month: "Febrero", clientes: 80 },
+      { month: "Marzo", clientes: 20 },
+      { month: "Abril", clientes: 30 },
+      { month: "Mayo", clientes: 10 },
+      { month: "Junio", clientes: 43 },
+      { month: "Julio", clientes: 14 },
+      { month: "Agosto", clientes: 29 },
+      { month: "Septiembre", clientes: 61 },
+      { month: "Octubre", clientes: 52 },
+      { month: "Noviembre", clientes: 47 },
+      { month: "Diciembre", clientes: 86 },
+    ],
+    totalClient: 510, 
+  },
+];
 
 export const cardData = [
   { title: "Productos mejores valorados", progress: false },
@@ -46,3 +66,9 @@ export const cardData = [
   { title: "Categorías con más ventas", progress: true },
   { title: "Categorías con menos ventas", progress: true },
 ];
+
+export const cardDataClient = [
+  { title: "Clientes con más compras", progress: true },
+  { title: "Clientes con más pedidos", progress: true },
+];
+
