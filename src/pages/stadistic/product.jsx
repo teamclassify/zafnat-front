@@ -1,5 +1,6 @@
 import { Title } from "../../components/custom/Title";
 import AdminTemplate from "../../components/templates/AdminTemplate";
+import CardProduct from "./components/CardProduct";
 import Graphic from "./components/graphic";
 
 export default function ProductStadistic() {
@@ -9,7 +10,7 @@ export default function ProductStadistic() {
       <div className="grid grid-cols-2 gap-5">
         <Graphic title="Productos vendidos" />
         <Graphic title="Productos agregados a lista de deseos" />
-        
+        <CardProduct title={"Productos menos vendidos"}/>
       </div>
     </AdminTemplate>
   );
