@@ -1,92 +1,84 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import InfoUpload from "./InfoUpload";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
+
 
 export default function UploadFile() {
   const [isDragging, setIsDragging] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
+  const fileInputRef = useRef(null);
 
   const handleDragOver = (e) => {
     e.preventDefault();
-    setIsDragging(true); // Activa el estado al arrastrar
+    setIsDragging(true);
   };
 
-  const handleDragLeave = () => {
-    setIsDragging(false); // Desactiva el estado al salir
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+    setIsDragging(false);
   };
 
   const handleDrop = (e) => {
     e.preventDefault();
-    setIsDragging(false); // Resetea el estado al soltar el archivo
-    const file = e.dataTransfer.files[0];
-    if (file) {
-      setSelectedFile(file);
+    setIsDragging(false);
+    const files = e.dataTransfer.files;
+    if (files.length) {
+      if (files[0].type !== "text/csv") {
+        toast.error("Solo se permiten archivo csv");
+      } else {
+        handleFiles(files[0]);
+      }
     }
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setSelectedFile(file);
+  const handleFiles = (file) => {
+    setSelectedFile(file);
+  };
+
+  const handleClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileInputChange = (e) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      handleFiles(files[0]);
     }
+  };
+
+  const handleUpload = () => {
+    toast("Se ha subido el archivo correctamente");
   };
 
   return (
     <Card>
       <CardContent className="p-6 space-y-4">
         <div
-          className={`border-2 rounded-lg flex flex-col gap-1 p-20 items-center ${
+          className={`border-2 rounded-lg flex flex-col gap-1 p-20 items-center cursor-pointer ${
             isDragging ? "border-blue-500 bg-blue-100" : "border-gray-200"
           }`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
+          onClick={handleClick}
         >
-          <FileIcon className="w-12 h-12" />
-          <span className="text-sm font-medium text-gray-500">
-            {selectedFile
-              ? `Archivo seleccionado: ${selectedFile.name}`
-              : "Arrastra y suelta un archivo o haz clic para buscar"}
-          </span>
-          <span className="text-xs text-gray-500">Archivo CSV</span>
-        </div>
-        <div className="space-y-2 text-sm">
-          <Label htmlFor="file" className="text-sm font-medium">
-            Archivo
-          </Label>
-          <Input
-            id="file"
+          <input
             type="file"
             accept=".csv"
-            onChange={handleFileChange}
+            ref={fileInputRef}
+            onChange={handleFileInputChange}
+            className="hidden"
           />
+          <InfoUpload selectedFile={selectedFile} />
         </div>
       </CardContent>
       <CardFooter className="flex items-end justify-end">
-        <Button size="lg">Subir</Button>
+        <Button size="lg" onClick={handleUpload} disabled={!selectedFile}>
+          Subir
+        </Button>
       </CardFooter>
     </Card>
-  );
-}
-
-function FileIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
-      <path d="M14 2v4a2 2 0 0 0 2 2h4" />
-    </svg>
   );
 }
