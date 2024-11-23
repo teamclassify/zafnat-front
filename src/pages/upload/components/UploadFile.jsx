@@ -26,7 +26,12 @@ export default function UploadFile() {
     const files = e.dataTransfer.files;
     if (files.length) {
       if (files[0].type !== "text/csv") {
-        toast.error("Solo se permiten archivo csv");
+        toast.error("Solo se permiten archivos csv", {
+          style:{
+            backgroundColor: "hsl(0 62.8% 30.6% / 1)",
+            color: "white"
+          }
+        });
       } else {
         handleFiles(files[0]);
       }
@@ -49,7 +54,7 @@ export default function UploadFile() {
   };
 
   const handleUpload = () => {
-    toast("Se ha subido el archivo correctamente");
+    toast.success("Se ha subido el archivo correctamente");
   };
 
   return (
