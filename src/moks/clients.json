@@ -10,12 +10,16 @@
         {
           "product": "Jeans Classic",
           "rating": 5,
-          "description": "Excelente calidad, muy cómodos."
+          "description": "Excelente calidad, muy cómodos.",
+          "date": "2024-11-15",
+          "subject": "Calidad del producto"
         },
         {
           "product": "Chaqueta Denim",
           "rating": 2,
-          "description": "El diseño es bueno, pero la talla no corresponde."
+          "description": "El diseño es bueno, pero la talla no corresponde.",
+          "date": "2024-11-18",
+          "subject": "Problema de tallas"
         }
       ]
     },
@@ -37,7 +41,9 @@
         {
           "product": "Shorts Cargo",
           "rating": 4,
-          "description": "Muy prácticos y frescos para el verano."
+          "description": "Muy prácticos y frescos para el verano.",
+          "date": "2024-11-20",
+          "subject": "Funcionalidad y frescura"
         }
       ]
     },
@@ -51,12 +57,16 @@
         {
           "product": "Jeans Slim Fit",
           "rating": 3,
-          "description": "La calidad está bien, pero no son tan cómodos como esperaba."
+          "description": "La calidad está bien, pero no son tan cómodos como esperaba.",
+          "date": "2024-11-16",
+          "subject": "Comodidad del producto"
         },
         {
           "product": "Blusa Casual",
           "rating": 5,
-          "description": "El diseño es precioso, me encanta."
+          "description": "El diseño es precioso, me encanta.",
+          "date": "2024-11-18",
+          "subject": "Diseño atractivo"
         }
       ]
     },
@@ -78,7 +88,9 @@
         {
           "product": "Chaqueta de Cuero",
           "rating": 1,
-          "description": "Llegó con algunos rasguños, pésima experiencia."
+          "description": "Llegó con algunos rasguños, pésima experiencia.",
+          "date": "2024-11-19",
+          "subject": "Defecto en el producto"
         }
       ]
     },
@@ -92,7 +104,9 @@
         {
           "product": "Vestido de Fiesta",
           "rating": 4,
-          "description": "El color y diseño son hermosos, aunque podría ser más cómodo."
+          "description": "El color y diseño son hermosos, aunque podría ser más cómodo.",
+          "date": "2024-11-20",
+          "subject": "Diseño y comodidad"
         }
       ]
     },
@@ -106,12 +120,16 @@
         {
           "product": "Camiseta Básica",
           "rating": 5,
-          "description": "Perfecta para el día a día, muy cómoda."
+          "description": "Perfecta para el día a día, muy cómoda.",
+          "date": "2024-11-14",
+          "subject": "Uso diario"
         },
         {
           "product": "Pantalón Deportivo",
           "rating": 2,
-          "description": "El material es muy delgado, no parece duradero."
+          "description": "El material es muy delgado, no parece duradero.",
+          "date": "2024-11-17",
+          "subject": "Calidad del material"
         }
       ]
     },
@@ -125,12 +143,16 @@
         {
           "product": "Blazer Elegante",
           "rating": 5,
-          "description": "Espectacular para reuniones, muy elegante."
+          "description": "Espectacular para reuniones, muy elegante.",
+          "date": "2024-11-15",
+          "subject": "Estilo para eventos"
         },
         {
           "product": "Zapatos de Tacón",
           "rating": 3,
-          "description": "El diseño es bonito, pero no son tan cómodos para largas jornadas."
+          "description": "El diseño es bonito, pero no son tan cómodos para largas jornadas.",
+          "date": "2024-11-18",
+          "subject": "Comodidad en uso prolongado"
         }
       ]
     },
@@ -144,7 +166,9 @@
         {
           "product": "Bermuda Casual",
           "rating": 4,
-          "description": "Buena calidad, ideal para el verano."
+          "description": "Buena calidad, ideal para el verano.",
+          "date": "2024-11-16",
+          "subject": "Calidad y funcionalidad"
         }
       ]
     },
@@ -158,12 +182,16 @@
         {
           "product": "Camisa Formal",
           "rating": 5,
-          "description": "Perfecta para la oficina, excelente ajuste."
+          "description": "Perfecta para la oficina, excelente ajuste.",
+          "date": "2024-11-13",
+          "subject": "Uso profesional"
         },
         {
           "product": "Bolso Clásico",
           "rating": 1,
-          "description": "Llegó con un defecto en el cierre, muy decepcionante."
+          "description": "Llegó con un defecto en el cierre, muy decepcionante.",
+          "date": "2024-11-19",
+          "subject": "Problema de fabricación"
         }
       ]
     }
