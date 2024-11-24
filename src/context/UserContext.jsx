@@ -104,7 +104,7 @@ export default function UserProvider({ children }) {
         gender: response.data.gender,
         phone: response.data.phone,
         rolesAll: response.data.roles,
-        roles: response.data.roles.map((role) => ROLES[role.roleId]),
+        roles: response.data?.roles.map((role) => ROLES[role.roleId]),
       });
     } else setUser(null);
   };
