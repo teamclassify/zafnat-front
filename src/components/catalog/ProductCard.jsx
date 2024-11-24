@@ -15,7 +15,9 @@ function ProductCard({ id, name, price, img, productId }) {
 
         <div className="text-center mt-4">
           <h5 className="text-md">{name}</h5>
-          <p className="text-sm font-bold">${price}</p>
+          <p className="text-sm font-bold">
+            ${new Intl.NumberFormat().format(price || 0)}
+          </p>
         </div>
       </div>
     </Link>
