@@ -82,7 +82,7 @@ function ProductPage() {
         <>
           <div>
             <div className="pt-10 grid gap-4 md:grid-cols-2">
-              <div>
+              <div className="">
                 <ProductPreview
                   images={
                     skuSelected
@@ -102,7 +102,11 @@ function ProductPage() {
                     <>
                       {reviews.data && (
                         <ReviewStars
-                          rating={reviews.data?.count[0]["_avg"]?.rating}
+                          rating={
+                            (reviews?.data?.count?.length > 0 &&
+                              reviews?.data?.count[0]["_avg"]?.rating) ||
+                            0
+                          }
                         />
                       )}
                     </>
@@ -110,7 +114,7 @@ function ProductPage() {
                 </div>
 
                 <p className="text-2xl font-bold">
-                  $ {skuSelected?.price ?? ""}
+                  ${new Intl.NumberFormat().format(skuSelected?.price || 0)}
                 </p>
 
                 <div className="my-4">
@@ -212,7 +216,11 @@ function ProductPage() {
                     {reviews.data && (
                       <ProductReviews
                         id="1"
-                        rating={reviews.data?.count[0]["_avg"]?.rating}
+                        rating={
+                          (reviews?.data?.count?.length > 0 &&
+                            reviews?.data?.count[0]["_avg"]?.rating) ||
+                          0
+                        }
                         reviews={reviews.data?.reviews ?? []}
                       />
                     )}

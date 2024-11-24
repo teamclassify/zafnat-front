@@ -1,13 +1,22 @@
 import axios from "axios";
 import { URL, handleAxiosError } from ".";
 
-async function getAll() {
+async function getAll(
+  { status, page } = {
+    status: "",
+    page: 1,
+  }
+) {
   try {
     const res = await axios({
       url: `${URL}/products`,
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+      },
+      params: {
+        status: status,
+        page: page,
       },
     });
 
@@ -35,7 +44,7 @@ async function getById(id) {
 
 const ProductsService = {
   getAll,
-  getById
+  getById,
 };
 
 export default ProductsService;
