@@ -110,7 +110,7 @@ function ProductPage() {
                 </div>
 
                 <p className="text-2xl font-bold">
-                  $ {skuSelected?.price ?? ""}
+                  ${new Intl.NumberFormat().format(skuSelected?.price || 0)}
                 </p>
 
                 <div className="my-4">
