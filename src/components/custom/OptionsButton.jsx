@@ -1,3 +1,4 @@
+// OptionButton.js
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,6 +12,8 @@ import { DialogDisableUser } from "./DialogDisableUser";
 import { DialogEditRole } from "./DialogEditRole";
 
 export function OptionButton({
+  options,
+  setStatus,
   name,
   email,
   rol,
@@ -22,13 +25,14 @@ export function OptionButton({
 
   const handleOptionSelect = (value) => {
     setOption(value);
+    setStatus(value); // Actualiza el estado del status en CardReturn
     setOpenDialog(true);
   };
 
   return (
     <>
       <div>
-        {option === "editar" && (
+        {option === "Editar" && (
           <DialogEditRole
             name={name}
             rol={rol}
@@ -38,7 +42,7 @@ export function OptionButton({
           />
         )}
 
-        {option === "eliminar" && (
+        {option === "Eliminar" && (
           <DialogDisableUser
             name={name}
             email={email}
@@ -55,13 +59,16 @@ export function OptionButton({
         </DropdownMenuTrigger>
 
         <DropdownMenuContent>
-          <DropdownMenuItem onClick={() => handleOptionSelect("editar")}>
-            Editar
-          </DropdownMenuItem>
-
-          <DropdownMenuItem onClick={() => handleOptionSelect("eliminar")}>
-            Deshabilitar
-          </DropdownMenuItem>
+          {options.map((optionSelect) => {
+            return (
+              <DropdownMenuItem
+                key={optionSelect}
+                onClick={() => handleOptionSelect(optionSelect)}
+              >
+                {optionSelect}
+              </DropdownMenuItem>
+            );
+          })}
         </DropdownMenuContent>
       </DropdownMenu>
     </>

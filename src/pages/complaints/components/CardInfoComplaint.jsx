@@ -10,7 +10,7 @@ export default function CardInfoComplaint({ name, reviews }) {
     <Card>
       <CardHeader>
         <div className="flex justify-between items-center">
-          <CardTitle className="text-lg font-bold">{name}</CardTitle>
+          <CardTitle className="text-lg font-semibold">{name}</CardTitle>
         </div>
 
         <div className="mt-4 space-y-2">

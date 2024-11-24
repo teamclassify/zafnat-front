@@ -10,7 +10,8 @@
         "size": "32",
         "color": "azul oscuro"
       },
-      "reason": "Los jeans estaban demasiado ajustados."
+      "reason": "Los jeans estaban demasiado ajustados.",
+      "status": "Pendiente"
     },
     {
       "id": 2,
@@ -22,7 +23,8 @@
         "size": "30",
         "color": "negro"
       },
-      "reason": "Había un desgarro en la tela."
+      "reason": "Había un desgarro en la tela.",
+      "status": "Completado"
     },
     {
       "id": 3,
@@ -34,7 +36,8 @@
         "size": "34",
         "color": "gris"
       },
-      "reason": "El color era diferente al esperado."
+      "reason": "El color era diferente al esperado.",
+      "status": "Rechazado"
     },
     {
       "id": 4,
@@ -46,7 +49,8 @@
         "size": "28",
         "color": "azul claro"
       },
-      "reason": "El ajuste no era como se describía."
+      "reason": "El ajuste no era como se describía.",
+      "status": "En proceso"
     },
     {
       "id": 5,
@@ -58,7 +62,8 @@
         "size": "36",
         "color": "negro"
       },
-      "reason": "Recibí la talla equivocada."
+      "reason": "Recibí la talla equivocada.",
+      "status": "Pendiente"
     },
     {
       "id": 6,
@@ -70,7 +75,8 @@
         "size": "30",
         "color": "azul oscuro"
       },
-      "reason": "Los jeans no eran tan cómodos como esperaba."
+      "reason": "Los jeans no eran tan cómodos como esperaba.",
+      "status": "Completado"
     },
     {
       "id": 7,
@@ -82,7 +88,8 @@
         "size": "32",
         "color": "gris"
       },
-      "reason": "Cambié de opinión sobre el estilo."
+      "reason": "Cambié de opinión sobre el estilo.",
+      "status": "Rechazado"
     },
     {
       "id": 8,
@@ -94,7 +101,8 @@
         "size": "26",
         "color": "azul claro"
       },
-      "reason": "La longitud era demasiado larga."
+      "reason": "La longitud era demasiado larga.",
+      "status": "En proceso"
     },
     {
       "id": 9,
@@ -106,7 +114,8 @@
         "size": "38",
         "color": "negro"
       },
-      "reason": "El material se sentía barato."
+      "reason": "El material se sentía barato.",
+      "status": "Pendiente"
     },
     {
       "id": 10,
@@ -118,7 +127,8 @@
         "size": "30",
         "color": "azul oscuro"
       },
-      "reason": "Se rompieron después de un lavado."
+      "reason": "Se rompieron después de un lavado.",
+      "status": "Completado"
     }
   ]
 }
