@@ -1,0 +1,113 @@
+{"clientsReturns" : [
+  {
+    "customer": "Juan Pérez",
+    "date": "2023-10-15",
+    "returnedProduct": {
+      "type": "jeans",
+      "material": "denim",
+      "size": "32",
+      "color": "azul oscuro"
+    },
+    "reason": "Los jeans estaban demasiado ajustados."
+  },
+  {
+    "customer": "María López",
+    "date": "2023-10-16",
+    "returnedProduct": {
+      "type": "jeans",
+      "material": "denim",
+      "size": "30",
+      "color": "negro"
+    },
+    "reason": "Había un desgarro en la tela."
+  },
+  {
+    "customer": "Carlos García",
+    "date": "2023-10-17",
+    "returnedProduct": {
+      "type": "jeans",
+      "material": "denim",
+      "size": "34",
+      "color": "gris"
+    },
+    "reason": "El color era diferente al esperado."
+  },
+  {
+    "customer": "Ana Martínez",
+    "date": "2023-10-18",
+    "returnedProduct": {
+      "type": "jeans",
+      "material": "denim",
+      "size": "28",
+      "color": "azul claro"
+    },
+    "reason": "El ajuste no era como se describía."
+  },
+  {
+    "customer": "Luis Rodríguez",
+    "date": "2023-10-19",
+    "returnedProduct": {
+      "type": "jeans",
+      "material": "denim",
+      "size": "36",
+      "color": "negro"
+    },
+    "reason": "Recibí la talla equivocada."
+  },
+  {
+    "customer": "Sofía Hernández",
+    "date": "2023-10-20",
+    "returnedProduct": {
+      "type": "jeans",
+      "material": "denim",
+      "size": "30",
+      "color": "azul oscuro"
+    },
+    "reason": "Los jeans no eran tan cómodos como esperaba."
+  },
+  {
+    "customer": "Diego Fernández",
+    "date": "2023-10-21",
+    "returnedProduct": {
+      "type": "jeans",
+      "material": "denim",
+      "size": "32",
+      "color": "gris"
+    },
+    "reason": "Cambié de opinión sobre el estilo."
+  },
+  {
+    "customer": "Laura Jiménez",
+    "date": "2023-10-22",
+    "returnedProduct": {
+      "type": "jeans",
+      "material": "denim",
+      "size": "26",
+      "color": "azul claro"
+    },
+    "reason": "La longitud era demasiado larga."
+  },
+  {
+    "customer": "Pedro Sánchez",
+    "date": "2023-10-23",
+    "returnedProduct": {
+      "type": "jeans",
+      "material": "denim",
+      "size": "38",
+      "color": "negro"
+    },
+    "reason": "El material se sentía barato."
+  },
+  {
+    "customer": "Claudia Morales",
+    "date": "2023-10-24",
+    "returnedProduct": {
+      "type": "jeans",
+      "material": "denim",
+      "size": "30",
+      "color": "azul oscuro"
+    },
+    "reason": "Se rompieron después de un lavado."
+  }
+]
+}
