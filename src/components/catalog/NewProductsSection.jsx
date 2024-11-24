@@ -6,12 +6,9 @@ import { Button } from "../ui/button";
 import ListOfProducts from "./ListOfProducts";
 
 function NewProductsSection() {
-  const { data, error, isLoading } = useQuery(
-    "products",
-    ProductsService.getAll
+  const { data, error, isLoading } = useQuery("products", () =>
+    ProductsService.getAll({ status: true })
   );
-
-  console.log(data);
 
   return (
     <section>
