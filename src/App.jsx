@@ -35,7 +35,7 @@ import Invoices from "./pages/invoices";
 import ProductStadistic from "./pages/stadistic/product";
 import ClientStadistic from "./pages/stadistic/client";
 import SalesStadistic from "./pages/stadistic/sales";
-import UploadCSV from "./pages/upload"
+import UploadCSV from "./pages/uploadProducts";
 
 function App() {
   return (
