@@ -8,25 +8,11 @@ import { OptionButton } from "../../../components/custom/OptionsButton";
 import { Badge } from "@/components/ui/badge";
 import { useState, useEffect } from "react";
 import { DialogNotification } from "./Notification";
+import getBadgeColor from "../../../hooks/useBadgeColor";
 
 export function CardReturn({ client }) {
   const [status, setStatus] = useState(client.status);
   const [isOpen, setIsOpen] = useState(false);
-
-  const getBadgeColor = (status) => {
-    switch (status) {
-      case "Completado":
-        return "bg-green-700";
-      case "Pendiente":
-        return "bg-yellow-600";
-      case "En proceso":
-        return "bg-blue-700";
-      case "Rechazado":
-        return "bg-red-700";
-      default:
-        return "bg-gray-500";
-    }
-  };
 
   useEffect(() => {
     if (status !== client.status) {
