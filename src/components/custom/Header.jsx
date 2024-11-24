@@ -19,7 +19,7 @@ import Logo from "../custom/Logo";
 function Header({ className } = { className: "" }) {
   const [location] = useLocation();
 
-  const { user, loading, logout } = useUser();
+  const { user, loading, logout, isAdmin } = useUser();
 
   return (
     <header className="py-4 border-b">
@@ -55,6 +55,12 @@ function Header({ className } = { className: "" }) {
                       <Link href="/perfil">
                         <DropdownMenuItem>Perfil</DropdownMenuItem>
                       </Link>
+
+                      {isAdmin && (
+                        <Link href="/admin">
+                          <DropdownMenuItem>Administracion</DropdownMenuItem>
+                        </Link>
+                      )}
 
                       <DropdownMenuItem>Pedidos</DropdownMenuItem>
                       <DropdownMenuItem onClick={logout}>
