@@ -4,9 +4,8 @@ import { Title } from "../../components/custom/Title";
 import AdminTemplate from "../../components/templates/AdminTemplate";
 import { Input } from "../../components/ui/input";
 import { useClientFilter } from "../../hooks/useClientFilter";
-import clientReturns from "../../moks/returns.json"
+import clients from "../../moks/returns.json";
 import ClientReturns from "./components/ClientReturns";
-
 
 export default function Returns() {
   const { options, handleClientSelect } = useClientFilter();
@@ -25,7 +24,7 @@ export default function Returns() {
             <Filter options={options} handleSelect={handleClientSelect} />
           </div>
           <div className="pt-10">
-            <ClientReturns client={clientReturns} />
+            <ClientReturns clients={clients} />
           </div>
           <div className="pt-5">
             <PaginationDefault />
