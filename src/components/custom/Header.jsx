@@ -17,7 +17,7 @@ import useUser from "../../hooks/useUser";
 import Logo from "../custom/Logo";
 
 function Header({ className } = { className: "" }) {
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
 
   const { user, loading, logout, isAdmin } = useUser();
 
@@ -27,7 +27,15 @@ function Header({ className } = { className: "" }) {
         <div className="flex gap-2 items-center w-full ">
           {!location.includes("admin") && <Logo />}
 
-          <Input placeholder="Busca aqui..." className="max-w-sm" />
+          <Input
+            placeholder="Busca aqui..."
+            className="max-w-sm"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                setLocation(`/catalogo?name=${e.target.value}`);
+              }
+            }}
+          />
         </div>
 
         <div className="w-full flex justify-end gap-4 items-center">

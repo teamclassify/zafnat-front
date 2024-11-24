@@ -2,9 +2,10 @@ import axios from "axios";
 import { URL, handleAxiosError } from ".";
 
 async function getAll(
-  { status, page } = {
+  { status, page, name } = {
     status: "",
     page: 1,
+    name: "",
   }
 ) {
   try {
@@ -17,6 +18,7 @@ async function getAll(
       params: {
         status: status,
         page: page,
+        name: name,
       },
     });
 
