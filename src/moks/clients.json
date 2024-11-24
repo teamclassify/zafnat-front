@@ -1,45 +1,171 @@
-{ "initialClients": [
-  {
-    "name": "Carlos",
-    "email": "carlos@gmail.com",
-    "age": 34,
-    "address": "123 Main St, Bogotá",
-    "recentProducts": ["Jeans Classic", "Chaqueta Denim"]
-  },
-  {
-    "name": "Luis",
-    "email": "luis@gmail.com",
-    "age": 42,
-    "address": "456 Market St, Medellín",
-    "recentProducts": []
-  },
-  {
-    "name": "Andrea",
-    "email": "andrea@gmail.com",
-    "age": 29,
-    "address": "789 Sunset Ave, Cúcuta",
-    "recentProducts": ["Shorts Cargo"]
-  },
-  {
-    "name": "Sofia",
-    "email": "sofia@gmail.com",
-    "age": 31,
-    "address": "321 Elm St, Caracas",
-    "recentProducts": ["Jeans Slim Fit", "Blusa Casual"]
-  },
-  {
-    "name": "Fernando",
-    "email": "fernando@gmail.com",
-    "age": 38,
-    "address": "987 Park Rd, Bogotá",
-    "recentProducts": []
-  },
-  {
-    "name": "Roberto",
-    "email": "roberto@gmail.com",
-    "age": 45,
-    "address": "654 Industrial Rd, Caracas",
-    "recentProducts": ["Chaqueta de Cuero"]
-  }
-]
+{
+  "initialClients": [
+    {
+      "name": "Carlos",
+      "email": "carlos@gmail.com",
+      "age": 34,
+      "address": "123 Main St, Bogotá",
+      "recentProducts": ["Jeans Classic", "Chaqueta Denim"],
+      "reviews": [
+        {
+          "product": "Jeans Classic",
+          "rating": 5,
+          "description": "Excelente calidad, muy cómodos."
+        },
+        {
+          "product": "Chaqueta Denim",
+          "rating": 2,
+          "description": "El diseño es bueno, pero la talla no corresponde."
+        }
+      ]
+    },
+    {
+      "name": "Luis",
+      "email": "luis@gmail.com",
+      "age": 42,
+      "address": "456 Market St, Medellín",
+      "recentProducts": [],
+      "reviews": []
+    },
+    {
+      "name": "Andrea",
+      "email": "andrea@gmail.com",
+      "age": 29,
+      "address": "789 Sunset Ave, Cúcuta",
+      "recentProducts": ["Shorts Cargo"],
+      "reviews": [
+        {
+          "product": "Shorts Cargo",
+          "rating": 4,
+          "description": "Muy prácticos y frescos para el verano."
+        }
+      ]
+    },
+    {
+      "name": "Sofia",
+      "email": "sofia@gmail.com",
+      "age": 31,
+      "address": "321 Elm St, Caracas",
+      "recentProducts": ["Jeans Slim Fit", "Blusa Casual"],
+      "reviews": [
+        {
+          "product": "Jeans Slim Fit",
+          "rating": 3,
+          "description": "La calidad está bien, pero no son tan cómodos como esperaba."
+        },
+        {
+          "product": "Blusa Casual",
+          "rating": 5,
+          "description": "El diseño es precioso, me encanta."
+        }
+      ]
+    },
+    {
+      "name": "Fernando",
+      "email": "fernando@gmail.com",
+      "age": 38,
+      "address": "987 Park Rd, Bogotá",
+      "recentProducts": [],
+      "reviews": []
+    },
+    {
+      "name": "Roberto",
+      "email": "roberto@gmail.com",
+      "age": 45,
+      "address": "654 Industrial Rd, Caracas",
+      "recentProducts": ["Chaqueta de Cuero"],
+      "reviews": [
+        {
+          "product": "Chaqueta de Cuero",
+          "rating": 1,
+          "description": "Llegó con algunos rasguños, pésima experiencia."
+        }
+      ]
+    },
+    {
+      "name": "Paola",
+      "email": "paola@gmail.com",
+      "age": 26,
+      "address": "678 Pine St, Maracaibo",
+      "recentProducts": ["Vestido de Fiesta"],
+      "reviews": [
+        {
+          "product": "Vestido de Fiesta",
+          "rating": 4,
+          "description": "El color y diseño son hermosos, aunque podría ser más cómodo."
+        }
+      ]
+    },
+    {
+      "name": "Juan",
+      "email": "juan@gmail.com",
+      "age": 30,
+      "address": "234 Oak St, Valencia",
+      "recentProducts": ["Camiseta Básica", "Pantalón Deportivo"],
+      "reviews": [
+        {
+          "product": "Camiseta Básica",
+          "rating": 5,
+          "description": "Perfecta para el día a día, muy cómoda."
+        },
+        {
+          "product": "Pantalón Deportivo",
+          "rating": 2,
+          "description": "El material es muy delgado, no parece duradero."
+        }
+      ]
+    },
+    {
+      "name": "Elena",
+      "email": "elena@gmail.com",
+      "age": 33,
+      "address": "890 Birch Rd, Medellín",
+      "recentProducts": ["Blazer Elegante", "Zapatos de Tacón"],
+      "reviews": [
+        {
+          "product": "Blazer Elegante",
+          "rating": 5,
+          "description": "Espectacular para reuniones, muy elegante."
+        },
+        {
+          "product": "Zapatos de Tacón",
+          "rating": 3,
+          "description": "El diseño es bonito, pero no son tan cómodos para largas jornadas."
+        }
+      ]
+    },
+    {
+      "name": "Marcos",
+      "email": "marcos@gmail.com",
+      "age": 28,
+      "address": "567 Willow St, Bogotá",
+      "recentProducts": ["Bermuda Casual"],
+      "reviews": [
+        {
+          "product": "Bermuda Casual",
+          "rating": 4,
+          "description": "Buena calidad, ideal para el verano."
+        }
+      ]
+    },
+    {
+      "name": "Diana",
+      "email": "diana@gmail.com",
+      "age": 37,
+      "address": "321 Cedar Ave, Caracas",
+      "recentProducts": ["Camisa Formal", "Bolso Clásico"],
+      "reviews": [
+        {
+          "product": "Camisa Formal",
+          "rating": 5,
+          "description": "Perfecta para la oficina, excelente ajuste."
+        },
+        {
+          "product": "Bolso Clásico",
+          "rating": 1,
+          "description": "Llegó con un defecto en el cierre, muy decepcionante."
+        }
+      ]
+    }
+  ]
 }
