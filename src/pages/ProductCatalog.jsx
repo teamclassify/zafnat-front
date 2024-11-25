@@ -6,20 +6,28 @@ import AccordionFilter from "../components/custom/AccordionFilter";
 import BreadcrumbResponsive from "../components/custom/BreadCrumbResponsive";
 import { LoadingGrid } from "../components/custom/Loading";
 import DefaultTemplate from "../components/templates/DefaultTemplate";
+import useCatalog from "../hooks/useCatalog";
 import ProductsService from "../services/api/ProductsService";
 
 export default function ProductCatalog() {
   const searchString = useSearch();
 
+  const { sizes, colors } = useCatalog();
+
   const [nameSearch, setNameSearch] = useState("");
 
-  const { data, error, isLoading } = useQuery(["products", nameSearch], () =>
-    ProductsService.getAll({
-      status: true,
-      name: nameSearch,
-    })
+  const { data, error, isLoading } = useQuery(
+    ["products", nameSearch, sizes, colors],
+    () =>
+      ProductsService.getAll({
+        status: true,
+        name: nameSearch,
+        sizes: sizes,
+        colors: colors,
+      })
   );
 
+  console.log(sizes);
   const handleFilter = (filter) => {
     //Se envia a la API
     console.log(filter);

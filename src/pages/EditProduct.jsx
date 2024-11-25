@@ -1,14 +1,8 @@
 import { Switch } from "@/components/ui/switch";
-import { FaFile, FaFolder } from "react-icons/fa";
 import { TbCameraPlus } from "react-icons/tb";
 import { useParams } from "wouter";
 import AdminTemplate from "../components/templates/AdminTemplate";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../components/ui/accordion";
+
 import { Button } from "../components/ui/button";
 import {
   Card,
@@ -16,17 +10,10 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
-import { Checkbox } from "../components/ui/checkbox";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { Textarea } from "../components/ui/textarea";
-
-const renderCheckboxItem = (icon, label, defaultChecked = false) => (
-  <div className="flex items-center gap-2">
-    {icon}
-    <Checkbox defaultChecked={defaultChecked} /> {label}
-  </div>
-);
+import Categories from "../components/catalog/Categories";
 
 function EditProduct() {
   const params = useParams();
@@ -148,70 +135,7 @@ function EditProduct() {
             </CardContent>
           </Card> */}
 
-            <Card className="p-0">
-              <CardHeader className="pt-4 pb-2">
-                <CardTitle className="text-1xl font-bold">Categorías</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Accordion type="single" collapsible>
-                  <AccordionItem value="men">
-                    <AccordionTrigger className="flex items-center gap-2">
-                      {renderCheckboxItem(
-                        <FaFolder className="text-gray-500" />,
-                        "Men"
-                      )}
-                    </AccordionTrigger>
-                    <AccordionContent className="pl-6">
-                      {renderCheckboxItem(
-                        <FaFile className="text-gray-500" />,
-                        "Formal Wear"
-                      )}
-                      {renderCheckboxItem(
-                        <FaFile className="text-gray-500" />,
-                        "Casual Wear",
-                        true
-                      )}
-                      {renderCheckboxItem(
-                        <FaFile className="text-gray-500" />,
-                        "Active Wear"
-                      )}
-                      {renderCheckboxItem(
-                        <FaFile className="text-gray-500" />,
-                        "Foot Wear"
-                      )}
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  <AccordionItem value="woman">
-                    <AccordionTrigger className="flex items-center gap-2">
-                      {renderCheckboxItem(
-                        <FaFolder className="text-gray-500" />,
-                        "Woman"
-                      )}
-                    </AccordionTrigger>
-                    <AccordionContent className="pl-6">
-                      {renderCheckboxItem(
-                        <FaFile className="text-gray-500" />,
-                        "Formal Wear",
-                        true
-                      )}
-                      {renderCheckboxItem(
-                        <FaFile className="text-gray-500" />,
-                        "Casual Wear"
-                      )}
-                      {renderCheckboxItem(
-                        <FaFile className="text-gray-500" />,
-                        "Active Wear"
-                      )}
-                      {renderCheckboxItem(
-                        <FaFile className="text-gray-500" />,
-                        "Foot Wear"
-                      )}
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              </CardContent>
-            </Card>
+            <Categories />
           </div>
         </div>
       </form>

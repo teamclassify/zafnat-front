@@ -81,7 +81,7 @@ function Header({ className } = { className: "" }) {
                 </div>
               ) : (
                 <div className="flex gap-4">
-                  <Link href="/signup">Crea tu cuenta</Link>
+                  <Link href="/registrarse">Crea tu cuenta</Link>
                   <Link href="/login">Ingresa</Link>
                 </div>
               )}
