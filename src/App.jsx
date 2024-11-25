@@ -35,6 +35,7 @@ import Invoices from "./pages/invoices";
 import ProductStadistic from "./pages/stadistic/product";
 import ClientStadistic from "./pages/stadistic/client";
 import SalesStadistic from "./pages/stadistic/sales";
+import ReturnsPage from "./pages/ReturnsPage";
 
 function App() {
   return (
@@ -71,6 +72,7 @@ function App() {
         <Route component={ProductStadistic} path="/admin/reportes/productos"/>
         <Route component={ClientStadistic} path="/admin/reportes/clientes"/>
         <Route component={SalesStadistic} path="/admin/reportes/ventas"/>
+        <Route component={ReturnsPage} path="/crear-devoluciones"/>
         <Route component={ProfilePage} path="/perfil" />
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={NotAuthPage} path="/no-autorizado" />
