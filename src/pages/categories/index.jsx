@@ -1,11 +1,11 @@
 import Filter from "../../components/custom/Filter";
 import { PaginationDefault } from "../../components/custom/Pagination";
 import { Title } from "../../components/custom/Title";
-import { columnsInvoices } from "../../components/tables/orders/Columns";
+import { columnsCategories } from "../../components/tables/orders/Columns";
 import DataTable from "../../components/tables/orders/DataTable";
 import AdminTemplate from "../../components/templates/AdminTemplate";
 import { Input } from "../../components/ui/input";
-import { dataInvoices } from "../../hooks/useDataTable";
+import { dataCategories } from "../../hooks/useDataTable";
 import { optionsInvoices } from "../../hooks/useOptionsFilters";
 
 
@@ -19,7 +19,7 @@ export default function Categories() {
           <Filter options={optionsInvoices} />
         </div>
         <div className="pt-3">
-          <DataTable columns={columnsInvoices} data={dataInvoices} />
+          <DataTable columns={columnsCategories} data={dataCategories} />
         </div>
         <PaginationDefault />
       </main>

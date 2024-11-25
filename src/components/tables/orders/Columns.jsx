@@ -198,7 +198,7 @@ export const columnsCategories = [
     accessorKey: "estado",
     header: "Estado",
     cell: ({ row }) => {
-      return row.getValue("estado") === "Habilitado" ? (
+      return row.getValue("estado") === "Activo" ? (
         <Badge className="bg-green-700">{"Habilitado"}</Badge>
       ) : (
         <Badge className="bg-red-700">{"Deshabilitado"}</Badge>
