@@ -38,6 +38,7 @@ import SalesStadistic from "./pages/stadistic/sales";
 import UploadCSV from "./pages/uploadProducts";
 import Complaints from "./pages/complaints";
 import Returns from "./pages/returns";
+import Categories from "./pages/categories";
 
 function App() {
   return (
@@ -77,6 +78,7 @@ function App() {
         <Route component={UploadCSV} path="/admin/catalogo/productos" />
         <Route component={Complaints} path="/admin/clientes/quejas" />
         <Route component={Returns} path="/admin/ventas/devoluciones" />
+        <Route component={Categories} path="/admin/catalogo/categorias" />
         <Route component={ProfilePage} path="/perfil" />
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={NotAuthPage} path="/no-autorizado" />
