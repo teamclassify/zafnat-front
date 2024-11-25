@@ -1,3 +1,4 @@
+import { Skeleton } from "@/components/ui/skeleton";
 import { FaFile, FaFolder } from "react-icons/fa";
 import { useQuery } from "react-query";
 import {
@@ -10,7 +11,6 @@ import { CardTitle } from "../ui/card";
 import { Checkbox } from "../ui/checkbox";
 
 import CategoriesService from "../../services/api/CategoriesService";
-import { Loading } from "../custom/Loading";
 
 const renderCheckboxItem = (icon, label, defaultChecked = false) => (
   <div className="flex items-center gap-2">
@@ -25,7 +25,7 @@ function Categories() {
   );
 
   if (isLoading) {
-    return <Loading />;
+    return <Skeleton className="h-[125px] w-full rounded-xl mb-4" />;
   }
 
   return (
