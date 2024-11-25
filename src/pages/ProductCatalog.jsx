@@ -12,22 +12,22 @@ import ProductsService from "../services/api/ProductsService";
 export default function ProductCatalog() {
   const searchString = useSearch();
 
-  const { sizes, colors } = useCatalog();
+  const { categories, sizes, colors } = useCatalog();
 
   const [nameSearch, setNameSearch] = useState("");
 
   const { data, error, isLoading } = useQuery(
-    ["products", nameSearch, sizes, colors],
+    ["products", nameSearch, sizes, colors, categories],
     () =>
       ProductsService.getAll({
         status: true,
         name: nameSearch,
         sizes: sizes,
         colors: colors,
+        categories: categories,
       })
   );
 
-  console.log(sizes);
   const handleFilter = (filter) => {
     //Se envia a la API
     console.log(filter);
