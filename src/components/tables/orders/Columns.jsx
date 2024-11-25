@@ -180,3 +180,59 @@ export const columnsInvoices = [
     },
   },
 ];
+
+export const columnsCategories = [
+  {
+    accessorKey: "id",
+    header: "id",
+  },
+  {
+    accessorKey: "nombre",
+    header: "Nombre",
+  },
+  {
+    accessorKey: "descripción",
+    header: "Descripción",
+  },
+  {
+    accessorKey: "estado",
+    header: "Estado",
+    cell: ({ row }) => {
+      return row.getValue("estado") === "Habilitado" ? (
+        <Badge className="bg-green-700">{"Habilitado"}</Badge>
+      ) : (
+        <Badge className="bg-red-700">{"Deshabilitado"}</Badge>
+      );
+    },
+  },
+  {
+    accessorKey: "actions",
+    header: "Acciones",
+    cell: ({ row }) => {
+      const [isOpen, setIsOpen] = useState(false);
+      const [rowData, setRowData] = useState(null);
+
+      const handleViewClick = () => {
+        setRowData(row.original); // Guardamos los datos de la fila
+        setIsOpen(true); // Abrimos el modal
+      };
+
+      return (
+        <>
+          <button className="btn btn-primary" onClick={handleViewClick}>
+            <FaRegEye />
+          </button>
+
+          {/* Pasamos el estado del modal y los datos de la fila */}
+          {isOpen && (
+            <GeneralModal
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              data={rowData}
+            />
+          )}
+        </>
+      );
+    },
+  },
+];
