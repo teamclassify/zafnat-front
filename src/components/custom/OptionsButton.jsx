@@ -25,7 +25,7 @@ export function OptionButton({
 
   const handleOptionSelect = (value) => {
     setOption(value);
-    setStatus(value); // Actualiza el estado del status en CardReturn
+    setStatus(value); 
     setOpenDialog(true);
   };
 

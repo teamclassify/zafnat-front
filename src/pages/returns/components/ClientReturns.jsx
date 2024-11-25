@@ -7,7 +7,6 @@ export default function ClientReturns({ clients }) {
         <CardReturn
           key={client.id}
           client={client}
-          status={client.status}
         />
       ))}
     </div>

@@ -14,6 +14,7 @@ export function CardReturn({ client }) {
   const [status, setStatus] = useState(client.status);
   const [isOpen, setIsOpen] = useState(false);
 
+
   useEffect(() => {
     if (status !== client.status) {
       setIsOpen(true);
@@ -51,7 +52,12 @@ export function CardReturn({ client }) {
         </CardHeader>
       </Card>
 
-      <DialogNotification isOpen={isOpen} setIsOpen={setIsOpen} />
+      <DialogNotification
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        details={client}
+        status={status}
+      />
     </>
   );
 }

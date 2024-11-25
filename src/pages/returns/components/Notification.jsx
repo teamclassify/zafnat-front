@@ -7,41 +7,59 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { useState, useEffect } from "react";
 
-export function DialogNotification({ isOpen, setIsOpen }) {
+export function DialogNotification({ isOpen, setIsOpen, details, status }) {
+  const [editableMessage, setEditableMessage] = useState("");
+
+  useEffect(() => {
+    if (details && status) {
+      setEditableMessage(
+        `Estimado(a) ${details.customer},
+
+Te informamos que el estado de tu solicitud de devolución con el número de referencia ${details.returnId} ha cambiado a: ${status}.
+
+Detalles del Producto:
+- Producto: ${details.returnedProduct.type} - ${details.returnedProduct.color}, Talla ${details.returnedProduct.size}
+- Fecha de solicitud: ${details.date}
+- Motivo de la devolución: ${details.reason}
+
+Instrucciones:
+${details.instructions}
+
+Gracias por confiar en nosotros.`
+      );
+    }
+  }, [details, status]);
+
+  const handleSave = () => {
+    console.log("Mensaje enviado:", editableMessage);
+    setIsOpen(false);
+  };
+
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[600px]">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>Make changes t</DialogDescription>
+          <DialogTitle>Editar Notificación</DialogTitle>
+          <DialogDescription>
+            Modifica el mensaje antes de enviarlo al cliente.
+          </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input
-              id="name"
-              defaultValue="Pedro Duarte"
-              className="col-span-3"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input
-              id="username"
-              defaultValue="@peduarte"
-              className="col-span-3"
-            />
-          </div>
+        <div className="space-y-4">
+          <Textarea
+            value={editableMessage}
+            onChange={(e) => setEditableMessage(e.target.value)}
+            rows={10}
+            className="w-full"
+          />
         </div>
         <DialogFooter>
-          <Button type="submit">Save changes</Button>
+          <Button variant="secondary" onClick={() => setIsOpen(false)}>
+            Cancelar
+          </Button>
+          <Button onClick={handleSave}>Enviar</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

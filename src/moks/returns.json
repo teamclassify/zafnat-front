@@ -11,7 +11,9 @@
         "color": "azul oscuro"
       },
       "reason": "Los jeans estaban demasiado ajustados.",
-      "status": "Pendiente"
+      "status": "Pendiente",
+      "returnId": "DEV-0001",
+      "instructions": "Por favor, asegúrate de enviar los jeans en su empaque original antes del 2023-11-01."
     },
     {
       "id": 2,
@@ -24,7 +26,9 @@
         "color": "negro"
       },
       "reason": "Había un desgarro en la tela.",
-      "status": "Completado"
+      "status": "Completado",
+      "returnId": "DEV-0002",
+      "instructions": "La devolución ha sido procesada con éxito. El reembolso ya ha sido emitido."
     },
     {
       "id": 3,
@@ -37,7 +41,9 @@
         "color": "gris"
       },
       "reason": "El color era diferente al esperado.",
-      "status": "Rechazado"
+      "status": "Rechazado",
+      "returnId": "DEV-0003",
+      "instructions": "Tu solicitud de devolución ha sido rechazada. Por favor contáctanos para más detalles."
     },
     {
       "id": 4,
@@ -50,7 +56,9 @@
         "color": "azul claro"
       },
       "reason": "El ajuste no era como se describía.",
-      "status": "En proceso"
+      "status": "En proceso",
+      "returnId": "DEV-0004",
+      "instructions": "Estamos procesando tu devolución. Te notificaremos cuando se complete."
     },
     {
       "id": 5,
@@ -63,7 +71,9 @@
         "color": "negro"
       },
       "reason": "Recibí la talla equivocada.",
-      "status": "Pendiente"
+      "status": "Pendiente",
+      "returnId": "DEV-0005",
+      "instructions": "Por favor, envía el producto con la etiqueta de devolución proporcionada."
     },
     {
       "id": 6,
@@ -76,7 +86,9 @@
         "color": "azul oscuro"
       },
       "reason": "Los jeans no eran tan cómodos como esperaba.",
-      "status": "Completado"
+      "status": "Completado",
+      "returnId": "DEV-0006",
+      "instructions": "La devolución fue completada. Gracias por tu paciencia."
     },
     {
       "id": 7,
@@ -89,7 +101,9 @@
         "color": "gris"
       },
       "reason": "Cambié de opinión sobre el estilo.",
-      "status": "Rechazado"
+      "status": "Rechazado",
+      "returnId": "DEV-0007",
+      "instructions": "No podemos aceptar esta devolución. Consulta nuestras políticas para más información."
     },
     {
       "id": 8,
@@ -102,7 +116,9 @@
         "color": "azul claro"
       },
       "reason": "La longitud era demasiado larga.",
-      "status": "En proceso"
+      "status": "En proceso",
+      "returnId": "DEV-0008",
+      "instructions": "Estamos gestionando tu devolución. Por favor, espera nuestro próximo aviso."
     },
     {
       "id": 9,
@@ -115,7 +131,9 @@
         "color": "negro"
       },
       "reason": "El material se sentía barato.",
-      "status": "Pendiente"
+      "status": "Pendiente",
+      "returnId": "DEV-0009",
+      "instructions": "Envía el producto para continuar con el proceso de devolución."
     },
     {
       "id": 10,
@@ -128,7 +146,9 @@
         "color": "azul oscuro"
       },
       "reason": "Se rompieron después de un lavado.",
-      "status": "Completado"
+      "status": "Completado",
+      "returnId": "DEV-0010",
+      "instructions": "La devolución fue completada y el reembolso emitido."
     }
   ]
 }
