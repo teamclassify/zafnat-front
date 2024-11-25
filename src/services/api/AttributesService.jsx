@@ -2,27 +2,21 @@ import axios from "axios";
 import { URL, handleAxiosError } from ".";
 
 async function getAll(
-  { status, page, name, sizes, colors } = {
-    status: "",
+  { page, type } = {
     page: 1,
-    name: "",
-    sizes: [],
-    colors: [],
+    type: null,
   }
 ) {
   try {
     const res = await axios({
-      url: `${URL}/products`,
+      url: `${URL}/attributes`,
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
       params: {
-        status: status,
         page: page,
-        name: name,
-        sizes: sizes,
-        colors: colors,
+        type: type,
       },
     });
 
@@ -35,7 +29,7 @@ async function getAll(
 async function getById(id) {
   try {
     const res = await axios({
-      url: `${URL}/products/${id}`,
+      url: `${URL}/attributes/${id}`,
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -48,9 +42,9 @@ async function getById(id) {
   }
 }
 
-const ProductsService = {
+const AttributesService = {
   getAll,
   getById,
 };
 
-export default ProductsService;
+export default AttributesService;

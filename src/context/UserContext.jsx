@@ -39,12 +39,11 @@ export default function UserProvider({ children }) {
   const loginWithEmail = async (email, password) => {
     // setLoading(true);
 
-    return signInWithEmail(email, password)
-      .then((res) => {
-        // setLoading(false);
-        return res;
-      })
-      // .finally(() => setLoading(false));
+    return signInWithEmail(email, password).then((res) => {
+      // setLoading(false);
+      return res;
+    });
+    // .finally(() => setLoading(false));
   };
 
   const loginWithGoogle = async () => {
@@ -105,7 +104,7 @@ export default function UserProvider({ children }) {
         gender: response.data.gender,
         phone: response.data.phone,
         rolesAll: response.data.roles,
-        roles: response.data.roles.map((role) => ROLES[role.roleId]),
+        roles: response.data?.roles.map((role) => ROLES[role.roleId]),
       });
     } else setUser(null);
   };
@@ -163,6 +162,9 @@ export default function UserProvider({ children }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loggedIn, accessToken]);
 
+  const isAdmin =
+    user?.roles?.includes("admin") || user?.roles?.includes("sales") || false;
+
   const value = useMemo(() => {
     return {
       token,
@@ -173,6 +175,7 @@ export default function UserProvider({ children }) {
       loading,
       registerWithEmail,
       loginWithEmail,
+      isAdmin,
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

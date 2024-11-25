@@ -1,23 +1,78 @@
+import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import { useSearch } from "wouter";
+import ListOfProducts from "../components/catalog/ListOfProducts";
 import AccordionFilter from "../components/custom/AccordionFilter";
 import BreadcrumbResponsive from "../components/custom/BreadCrumbResponsive";
-import { PaginationDefault } from "../components/custom/Pagination";
-import { ProductGrid } from "../components/custom/ProductGrid";
+import { LoadingGrid } from "../components/custom/Loading";
 import DefaultTemplate from "../components/templates/DefaultTemplate";
-import { products } from "../moks/products.json";
+import useCatalog from "../hooks/useCatalog";
+import ProductsService from "../services/api/ProductsService";
 
 export default function ProductCatalog() {
+  const searchString = useSearch();
+
+  const { sizes, colors } = useCatalog();
+
+  const [nameSearch, setNameSearch] = useState("");
+
+  const { data, error, isLoading } = useQuery(
+    ["products", nameSearch, sizes, colors],
+    () =>
+      ProductsService.getAll({
+        status: true,
+        name: nameSearch,
+        sizes: sizes,
+        colors: colors,
+      })
+  );
+
+  console.log(sizes);
   const handleFilter = (filter) => {
     //Se envia a la API
     console.log(filter);
   };
+
+  useEffect(() => {
+    if (searchString) {
+      setNameSearch(searchString.split("=")[1]);
+    }
+  }, [searchString]);
+
   return (
     <DefaultTemplate>
       <BreadcrumbResponsive />
-      <div className="grid md:grid-cols-[0.3fr,1fr] pt-4">
+      <div className="grid md:grid-cols-[0.3fr,1fr] gap-8 pt-4">
         <AccordionFilter handleFilter={handleFilter} />
-        <div className="flex flex-col justify-center items-center gap-10">
-          <ProductGrid products={products} />
-          <PaginationDefault />
+        <div className="">
+          {isLoading ? (
+            <>
+              <LoadingGrid />
+            </>
+          ) : (
+            <>
+              {error ? (
+                <div>Error: {error.message}</div>
+              ) : (
+                <>
+                  {data?.data?.length > 0 ? (
+                    <>
+                      <p className="mb-10">
+                        {nameSearch
+                          ? `Resultados de la busqueda: ${nameSearch}`
+                          : "Todos los productos"}
+                      </p>
+                      <ListOfProducts products={data?.data} />
+                    </>
+                  ) : (
+                    <div>No se encontraron productos</div>
+                  )}
+                </>
+              )}
+            </>
+          )}
+
+          {/* <PaginationDefault /> */}
         </div>
       </div>
     </DefaultTemplate>

@@ -1,4 +1,3 @@
-import { Link } from "wouter";
 import ProductCard from "./ProductCard";
 
 function ListOfProducts({ products }) {
@@ -8,9 +7,10 @@ function ListOfProducts({ products }) {
         <ProductCard
           key={product.id}
           id={product.id}
+          productId={product.id}
           name={product.name}
-          price={product.price}
-          img={product.img}
+          price={product.ProductSku[0]?.price}
+          img={product.ProductSku[0]?.photos[0]?.value}
         />
       ))}
     </div>
