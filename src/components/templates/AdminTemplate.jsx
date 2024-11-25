@@ -7,7 +7,7 @@ import Sidebar from "../custom/Sidebar";
 
 function AdminTemplate({ children }) {
   const { user } = useUser();
-
+/*
   if (!user) {
     return <NotAuth />;
   }
@@ -15,6 +15,7 @@ function AdminTemplate({ children }) {
   if (user.roles && !user.roles.includes("admin")) {
     return <NotAuth />;
   }
+    */
 
   return (
     <>
