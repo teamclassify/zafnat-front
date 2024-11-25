@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaRegEye } from "react-icons/fa";
+import ButtonReturn from "./ButtonReturn";
 import { Badge } from "@/components/ui/badge"
 import { GeneralModal } from "../../../pages/invoices/components/GeneralModal";
 
@@ -42,10 +43,17 @@ export const columns = [
       };
 
       return (
-        <>
-          <button className="btn btn-primary" onClick={handleViewClick}>
+        <div className="flex gap-2">
+          <button
+            className="btn btn-primary"
+            onClick={() =>
+              alert(`Ver detalles del pedido ${row.getValue("id")}`)
+            }
+          >
             <FaRegEye />
           </button>
+
+          <ButtonReturn id={row.getValue("id")} />
 
           {/* Pasamos el estado del modal y los datos de la fila */}
           {isOpen && (
@@ -55,7 +63,7 @@ export const columns = [
               data={rowData}
             />
           )}
-        </>
+        </div>
       );
     },
   },
