@@ -9,7 +9,7 @@ export const columns = [
     header: "id",
   },
   {
-    accessorKey: "date",
+    accessorKey: "fecha",
     header: "Fecha",
   },
   {
@@ -17,15 +17,15 @@ export const columns = [
     header: "Total",
   },
   {
-    accessorKey: "status",
+    accessorKey: "estado",
     header: "Estado",
     cell: ({ row }) => {
-      return row.getValue("status") === "Entregado" ? (
-        <Badge className="bg-green-700">{row.getValue("status")}</Badge>
-      ) : row.getValue("status") === "Pendiente" ? (
-        <Badge className="bg-yellow-600">{row.getValue("status")}</Badge>
+      return row.getValue("estado") === "Entregado" ? (
+        <Badge className="bg-green-700">{row.getValue("estado")}</Badge>
+      ) : row.getValue("estado") === "Pendiente" ? (
+        <Badge className="bg-yellow-600">{row.getValue("estado")}</Badge>
       ) : (
-        <Badge className="bg-red-800">{row.getValue("status")}</Badge>
+        <Badge className="bg-red-800">{row.getValue("estado")}</Badge>
       );
     },
   },
@@ -88,19 +88,20 @@ export const columnsWholeSale = [
     header: "Precio Total",
   },
   {
-    accessorKey: "date",
+    accessorKey: "fecha",
     header: "Fecha",
   },
   {
     accessorKey: "actions",
     header: "Acciones",
     cell: ({ row }) => {
+      {/**Aqui hay un error de useState */}
       const [isOpen, setIsOpen] = useState(false);
       const [rowData, setRowData] = useState(null);
 
       const handleViewClick = () => {
-        setRowData(row.original); // Guardamos los datos de la fila
-        setIsOpen(true); // Abrimos el modal
+        setRowData(row.original); 
+        setIsOpen(true); 
       };
 
       return (
@@ -138,10 +139,10 @@ export const columnsInvoices = [
     header: "Precio",
   },
   {
-    accessorKey: "status",
+    accessorKey: "estado",
     header: "Estado",
     cell: ({ row }) => {
-      return row.getValue("status") === "Pagado" ? (
+      return row.getValue("estado") === "Pagado" ? (
         <Badge className="bg-green-700">{"Pagado"}</Badge>
       ) : (
         <Badge className="bg-red-700">{"No Pago"}</Badge>

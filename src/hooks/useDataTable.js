@@ -1,14 +1,14 @@
 export const dataInvoices = [
-  { id: "001", cliente: "Mauricio", precio: "$150.000", status: "Pagado" },
-  { id: "002", cliente: "Andersson", precio: "$200.000", status: "Pagado" },
-  { id: "003", cliente: "Gianfranco", precio: "$75.000", status: "Pagado" },
-  { id: "004", cliente: "Andrés", precio: "$320.000", status: "Pagado" },
-  { id: "005", cliente: "Lupita", precio: "$180.000", status: "Pagado" },
-  { id: "006", cliente: "Carolina", precio: "$210.000", status: "Pagado" },
-  { id: "007", cliente: "Juliana", precio: "$95.000", status: "Pagado" },
-  { id: "008", cliente: "Ricardo", precio: "$145.000", status: "Pagado" },
-  { id: "009", cliente: "Sofía", precio: "$160.000", status: "Pagado" },
-  { id: "010", cliente: "Emilia", precio: "$50.000", status: "Debe" },
+  { id: "001", cliente: "Mauricio", precio: "$150.000", estado: "Pagado" },
+  { id: "002", cliente: "Andersson", precio: "$200.000", estado: "Pagado" },
+  { id: "003", cliente: "Gianfranco", precio: "$75.000", estado: "Pagado" },
+  { id: "004", cliente: "Andrés", precio: "$320.000", estado: "Pagado" },
+  { id: "005", cliente: "Lupita", precio: "$180.000", estado: "Pagado" },
+  { id: "006", cliente: "Carolina", precio: "$210.000", estado: "Pagado" },
+  { id: "007", cliente: "Juliana", precio: "$95.000", estado: "Pagado" },
+  { id: "008", cliente: "Ricardo", precio: "$145.000", estado: "Pagado" },
+  { id: "009", cliente: "Sofía", precio: "$160.000", estado: "Pagado" },
+  { id: "010", cliente: "Emilia", precio: "$50.000", estado: "Debe" },
 ];
 
 export const dataWholeSale = [
@@ -19,7 +19,7 @@ export const dataWholeSale = [
     cantidad: 10,
     precio: "75.500",
     precio_total: "755.000",
-    date: "2024-11-01",
+    fecha: "2024-11-01",
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ export const dataWholeSale = [
     cantidad: 8,
     precio: "68.300",
     precio_total: "546.400",
-    date: "2024-11-02",
+    fecha: "2024-11-02",
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ export const dataWholeSale = [
     cantidad: 12,
     precio: "79.200",
     precio_total: "950.400",
-    date: "2024-11-03",
+    fecha: "2024-11-03",
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ export const dataWholeSale = [
     cantidad: 15,
     precio: "65.800",
     precio_total: "987.000",
-    date: "2024-11-04",
+    fecha: "2024-11-04",
   },
   {
     id: 5,
@@ -55,7 +55,7 @@ export const dataWholeSale = [
     cantidad: 7,
     precio: "70.500",
     precio_total: "493.500",
-    date: "2024-11-05",
+    fecha: "2024-11-05",
   },
   {
     id: 6,
@@ -64,7 +64,7 @@ export const dataWholeSale = [
     cantidad: 20,
     precio: "80.000",
     precio_total: "1.600.000",
-    date: "2024-11-06",
+    fecha: "2024-11-06",
   },
   {
     id: 7,
@@ -73,7 +73,7 @@ export const dataWholeSale = [
     cantidad: 9,
     precio: "62.700",
     precio_total: "564.300",
-    date: "2024-11-07",
+    fecha: "2024-11-07",
   },
   {
     id: 8,
@@ -82,7 +82,7 @@ export const dataWholeSale = [
     cantidad: 11,
     precio: "69.400",
     precio_total: "763.400",
-    date: "2024-11-08",
+    fecha: "2024-11-08",
   },
   {
     id: 9,
@@ -91,7 +91,7 @@ export const dataWholeSale = [
     cantidad: 14,
     precio: "76.200",
     precio_total: "1.066.800",
-    date: "2024-11-09",
+    fecha: "2024-11-09",
   },
   {
     id: 10,
@@ -100,19 +100,19 @@ export const dataWholeSale = [
     cantidad: 16,
     precio: "71.500",
     precio_total: "1.144.000",
-    date: "2024-11-10",
+    fecha: "2024-11-10",
   },
 ];
 
 export const dataOrders = [
-  { id: "001", date: "2023-11-01", total: "$150.000", status: "Entregado" },
-  { id: "002", date: "2023-11-03", total: "$200.000", status: "Pendiente" },
-  { id: "003", date: "2023-11-05", total: "$75.000", status: "Pendiente" },
-  { id: "004", date: "2023-11-07", total: "$320.000", status: "Entregado" },
-  { id: "005", date: "2023-11-09", total: "$180.000", status: "Entregado" },
-  { id: "006", date: "2023-11-10", total: "$210.000", status: "Entregado" },
-  { id: "007", date: "2023-11-11", total: "$95.000", status: "Pendiente" },
-  { id: "008", date: "2023-11-12", total: "$145.000", status: "Entregado" },
-  { id: "009", date: "2023-11-13", total: "$160.000", status: "Entregado" },
-  { id: "010", date: "2023-11-14", total: "$50.000", status: "Cancelado" },
+  { id: "001", fecha: "2023-11-01", total: "$150.000", estado: "Entregado" },
+  { id: "002", fecha: "2023-11-03", total: "$200.000", estado: "Pendiente" },
+  { id: "003", fecha: "2023-11-05", total: "$75.000", estado: "Pendiente" },
+  { id: "004", fecha: "2023-11-07", total: "$320.000", estado: "Entregado" },
+  { id: "005", fecha: "2023-11-09", total: "$180.000", estado: "Entregado" },
+  { id: "006", fecha: "2023-11-10", total: "$210.000", estado: "Entregado" },
+  { id: "007", fecha: "2023-11-11", total: "$95.000", estado: "Pendiente" },
+  { id: "008", fecha: "2023-11-12", total: "$145.000", estado: "Entregado" },
+  { id: "009", fecha: "2023-11-13", total: "$160.000", estado: "Entregado" },
+  { id: "010", fecha: "2023-11-14", total: "$50.000", estado: "Cancelado" },
 ];
