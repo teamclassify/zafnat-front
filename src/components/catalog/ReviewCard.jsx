@@ -7,20 +7,20 @@ function ReviewCard({ review }) {
       <header className="flex justify-between mb-4">
         <div className="flex items-center gap-2">
           <Avatar>
-            <AvatarImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSngDLxVdX-4fhpWyG8hDPxUWyGV1B9uOXJ3Q&s" />
-            <AvatarFallback>{review.author}</AvatarFallback>
+            <AvatarImage src={review.user.photo ?? ""} />
+            <AvatarFallback>{review.user.firstName}</AvatarFallback>
           </Avatar>
 
           <div>
-            <p>{review.author}</p>
-            <time className="text-xs text-zinc-400">{review.date}</time>
+            <p>{review.user.firstName}</p>
+            <time className="text-xs text-zinc-400">{review.createdAt}</time>
           </div>
         </div>
 
-        <ReviewStars rating={review.stars} />
+        <ReviewStars rating={review.rating} />
       </header>
 
-      <p>{review.body}</p>
+      <p>{review.description}</p>
     </div>
   );
 }

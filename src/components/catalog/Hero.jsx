@@ -1,4 +1,5 @@
 import { FiArrowRight } from "react-icons/fi";
+import { Link } from "wouter";
 import { Button } from "../ui/button";
 
 function Hero() {
@@ -14,12 +15,14 @@ function Hero() {
           Preparate <br /> para lo nuevo
         </h1>
 
-        <Button
-          variant="ghost"
-          className="bg-white text-black rounded-full w-20 h-20 text-6xl"
-        >
-          <FiArrowRight />
-        </Button>
+        <Link to="/catalogo">
+          <Button
+            variant="ghost"
+            className="bg-white text-black rounded-full w-20 h-20 text-6xl"
+          >
+            <FiArrowRight />
+          </Button>
+        </Link>
       </div>
     </section>
   );

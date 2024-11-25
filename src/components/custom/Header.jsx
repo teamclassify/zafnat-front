@@ -17,9 +17,9 @@ import useUser from "../../hooks/useUser";
 import Logo from "../custom/Logo";
 
 function Header({ className } = { className: "" }) {
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
 
-  const { user, loading, logout } = useUser();
+  const { user, loading, logout, isAdmin } = useUser();
 
   return (
     <header className="py-4 border-b">
@@ -27,7 +27,15 @@ function Header({ className } = { className: "" }) {
         <div className="flex gap-2 items-center w-full ">
           {!location.includes("admin") && <Logo />}
 
-          <Input placeholder="Busca aqui..." className="max-w-sm" />
+          <Input
+            placeholder="Busca aqui..."
+            className="max-w-sm"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                setLocation(`/catalogo?name=${e.target.value}`);
+              }
+            }}
+          />
         </div>
 
         <div className="w-full flex justify-end gap-4 items-center">
@@ -56,6 +64,12 @@ function Header({ className } = { className: "" }) {
                         <DropdownMenuItem>Perfil</DropdownMenuItem>
                       </Link>
 
+                      {isAdmin && (
+                        <Link href="/admin">
+                          <DropdownMenuItem>Administracion</DropdownMenuItem>
+                        </Link>
+                      )}
+
                       <DropdownMenuItem>Pedidos</DropdownMenuItem>
                       <DropdownMenuItem onClick={logout}>
                         Cerrar sesion
@@ -67,7 +81,7 @@ function Header({ className } = { className: "" }) {
                 </div>
               ) : (
                 <div className="flex gap-4">
-                  <Link href="/signup">Crea tu cuenta</Link>
+                  <Link href="/registrarse">Crea tu cuenta</Link>
                   <Link href="/login">Ingresa</Link>
                 </div>
               )}
