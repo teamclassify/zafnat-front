@@ -72,8 +72,15 @@ function App() {
         <Route component={ProductStadistic} path="/admin/reportes/productos"/>
         <Route component={ClientStadistic} path="/admin/reportes/clientes"/>
         <Route component={SalesStadistic} path="/admin/reportes/ventas"/>
-        <Route component={ReturnsPage} path="/crear-devoluciones"/>
-        <Route component={ProfilePage} path="/perfil" />
+        <Route component={ReturnsPage} path="/crear-devoluciones/:id"/>
+        
+        <Route component={ProfilePage} path="/perfil/inicio" />
+        <Route component={ProfilePage} path="/perfil/pedidos" />
+        <Route component={ProfilePage} path="/perfil/direcciones" />
+        <Route component={ProfilePage} path="/perfil/devoluciones/:id" />
+        <Route component={ProfilePage} path="/perfil/deseados" />
+        <Route component={ProfilePage} path="/perfil/reviews" />
+
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={NotAuthPage} path="/no-autorizado" />
         <Route component={ErrorPage} path="/:rest*" />

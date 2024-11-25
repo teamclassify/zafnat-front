@@ -1,6 +1,9 @@
 import { ChevronRight } from "lucide-react";
+import { useLocation } from "wouter";
 
 function SidebarClient({ page, onChange }) {
+  const [, setLocation] = useLocation();
+
   return (
     <div>
       <h3 className="">Mi cuenta</h3>
@@ -9,9 +12,9 @@ function SidebarClient({ page, onChange }) {
 
       <ul className="flex gap-2 flex-col text-gray-500">
         <li
-          onClick={() => onChange("perfil")}
+          onClick={() => setLocation("/perfil/inicio")}
           className={`flex justify-between cursor-pointer hover:bg-gray-100 p-2 rounded ${
-            page === "perfil" ? "bg-gray-100" : ""
+            page === "inicio" ? "bg-gray-100" : ""
           }`}
         >
           <span>Mi perfil</span>
@@ -19,7 +22,7 @@ function SidebarClient({ page, onChange }) {
         </li>
 
         <li
-          onClick={() => onChange("pedidos")}
+          onClick={() => setLocation("/perfil/pedidos")}
           className={`flex justify-between cursor-pointer hover:bg-gray-100 p-2 rounded ${
             page === "pedidos" ? "bg-gray-100" : ""
           }`}
@@ -29,7 +32,7 @@ function SidebarClient({ page, onChange }) {
         </li>
 
         <li
-          onClick={() => onChange("direcciones")}
+          onClick={() => setLocation("/perfil/direcciones")}
           className={`flex justify-between cursor-pointer hover:bg-gray-100 p-2 rounded ${
             page === "direcciones" ? "bg-gray-100" : ""
           }`}
@@ -39,7 +42,7 @@ function SidebarClient({ page, onChange }) {
         </li>
 
         <li
-          onClick={() => onChange("deseados")}
+          onClick={() => setLocation("/perfil/deseados")}
           className={`flex justify-between cursor-pointer hover:bg-gray-100 p-2 rounded ${
             page === "deseados" ? "bg-gray-100" : ""
           }`}
@@ -49,7 +52,7 @@ function SidebarClient({ page, onChange }) {
         </li>
 
         <li
-          onClick={() => onChange("reviews")}
+          onClick={() => setLocation("/perfil/reviews")}
           className={`flex justify-between cursor-pointer hover:bg-gray-100 p-2 rounded ${
             page === "reviews" ? "bg-gray-100" : ""
           }`}
@@ -57,6 +60,16 @@ function SidebarClient({ page, onChange }) {
           <span>Reseñas</span>
           <ChevronRight />
         </li>
+
+        {/* <li
+          onClick={() => setLocation("/perfil/devoluciones")}
+          className={`flex justify-between cursor-pointer hover:bg-gray-100 p-2 rounded ${
+            page === "devoluciones" ? "bg-gray-100" : ""
+          }`}
+        >
+          <span>Devoluciones</span>
+          <ChevronRight />
+        </li> */}
       </ul>
     </div>
   );

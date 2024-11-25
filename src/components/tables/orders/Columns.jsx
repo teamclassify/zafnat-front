@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { FaRegEye } from "react-icons/fa";
+import ButtonReturn from "./ButtonReturn";
 
 export const columns = [
   {
@@ -32,12 +33,18 @@ export const columns = [
     header: "Acciones",
     cell: ({ row }) => {
       return (
-        <button
-          className="btn btn-primary"
-          onClick={() => alert(`Ver detalles del pedido ${row.getValue("id")}`)}
-        >
-          <FaRegEye />
-        </button>
+        <div className="flex gap-2">
+          <button
+            className="btn btn-primary"
+            onClick={() =>
+              alert(`Ver detalles del pedido ${row.getValue("id")}`)
+            }
+          >
+            <FaRegEye />
+          </button>
+
+          <ButtonReturn id={row.getValue("id")} />
+        </div>
       );
     },
   },
@@ -117,14 +124,16 @@ export const columnsInvoices = [
     header: "Acciones",
     cell: ({ row }) => {
       return (
-        <button
-          className="btn btn-primary"
-          onClick={() =>
-            alert(`Ver detalles de la factura ${row.getValue("id")}`)
-          }
-        >
-          <FaRegEye />
-        </button>
+        <>
+          <button
+            className="btn btn-primary"
+            onClick={() =>
+              alert(`Ver detalles de la factura ${row.getValue("id")}`)
+            }
+          >
+            <FaRegEye />
+          </button>
+        </>
       );
     },
   },
