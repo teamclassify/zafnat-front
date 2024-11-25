@@ -1,19 +1,28 @@
-import DefaultTemplate from "../components/templates/DefaultTemplate";
+import { useQuery } from "react-query";
+import CartService from "../services/api/CartService";
 import BreadcrumbResponsive from "../components/custom/BreadCrumbResponsive";
-import Purchase from "../components/custom/Purchase";
 import ProductCartGrid from "../components/custom/ProductCartGrid";
-import SelectedCountDisplay from "../components/custom/SelectedCountDisplay";
+import Purchase from "../components/custom/Purchase";
+import DefaultTemplate from "../components/templates/DefaultTemplate";
 
 export default function Cart() {
+  const { data, isLoading, isFetching } = useQuery(
+    "products-cart",
+    CartService.getAll
+  );
+
   return (
     <DefaultTemplate>
       <main>
         <BreadcrumbResponsive />
         <div className="pt-5">
-          <SelectedCountDisplay />
           <div className="flex flex-row justify-between ">
-            <ProductCartGrid />
-            <Purchase buy={false} />
+            <ProductCartGrid data={data} isLoading={isLoading || isFetching} />
+            <Purchase
+              buy={false}
+              data={data}
+              isLoading={isLoading || isFetching}
+            />
           </div>
         </div>
       </main>
