@@ -6,20 +6,29 @@ import {
 } from "@/components/ui/card";
 import { OptionButton } from "../../../components/custom/OptionsButton";
 import { Badge } from "@/components/ui/badge";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { DialogNotification } from "./Notification";
 import getBadgeColor from "../../../hooks/useBadgeColor";
 
 export function CardReturn({ client }) {
-  const [status, setStatus] = useState(client.status);
+  const [status, setStatus] = useState(client.status); 
   const [isOpen, setIsOpen] = useState(false);
+  const [tempStatus, setTempStatus] = useState(client.status); 
 
+  const handleOpenDialog = (newStatus) => {
+    setTempStatus(newStatus); 
+    setIsOpen(true);
+  };
 
-  useEffect(() => {
-    if (status !== client.status) {
-      setIsOpen(true);
-    }
-  }, [status, client.status]);
+  const handleCancelDialog = () => {
+    setTempStatus(status); 
+    setIsOpen(false);
+  };
+
+  const handleConfirmDialog = () => {
+    setStatus(tempStatus); 
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -32,7 +41,7 @@ export function CardReturn({ client }) {
             <Badge className={getBadgeColor(status)}>{status}</Badge>
             <OptionButton
               options={["Pendiente", "En proceso", "Completado", "Rechazado"]}
-              setStatus={setStatus}
+              setStatus={handleOpenDialog} 
             />
           </div>
 
@@ -56,7 +65,9 @@ export function CardReturn({ client }) {
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         details={client}
-        status={status}
+        status={tempStatus} 
+        onCancel={handleCancelDialog} 
+        onConfirm={handleConfirmDialog} 
       />
     </>
   );

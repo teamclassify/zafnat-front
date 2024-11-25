@@ -9,8 +9,15 @@ import {
 } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
 import { useState, useEffect } from "react";
-
-export function DialogNotification({ isOpen, setIsOpen, details, status }) {
+import { toast } from "sonner";
+export function DialogNotification({
+  isOpen,
+  setIsOpen,
+  details,
+  status,
+  onCancel,
+  onConfirm,
+}) {
   const [editableMessage, setEditableMessage] = useState("");
 
   useEffect(() => {
@@ -33,9 +40,14 @@ Gracias por confiar en nosotros.`
     }
   }, [details, status]);
 
+  const handleCancel = () => {
+    onCancel(); 
+    toast.error("Se ha cancelado la notificación al cliente")
+  };
+
   const handleSave = () => {
-    console.log("Mensaje enviado:", editableMessage);
-    setIsOpen(false);
+    toast.success("Se ha enviado la notificación al cliente")
+    onConfirm(); 
   };
 
   return (
@@ -56,7 +68,7 @@ Gracias por confiar en nosotros.`
           />
         </div>
         <DialogFooter>
-          <Button variant="secondary" onClick={() => setIsOpen(false)}>
+          <Button variant="secondary" onClick={handleCancel}>
             Cancelar
           </Button>
           <Button onClick={handleSave}>Enviar</Button>
