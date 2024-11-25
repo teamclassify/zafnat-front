@@ -2,12 +2,13 @@ import axios from "axios";
 import { URL, handleAxiosError } from ".";
 
 async function getAll(
-  { status, page, name, sizes, colors } = {
+  { status, page, name, sizes, colors, categories } = {
     status: "",
     page: 1,
     name: "",
     sizes: [],
     colors: [],
+    categories: [],
   }
 ) {
   try {
@@ -23,6 +24,7 @@ async function getAll(
         name: name,
         sizes: sizes,
         colors: colors,
+        categories: categories,
       },
     });
 

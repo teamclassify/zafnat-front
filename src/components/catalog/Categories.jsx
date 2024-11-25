@@ -10,23 +10,46 @@ import {
 import { CardTitle } from "../ui/card";
 import { Checkbox } from "../ui/checkbox";
 
+import useCatalog from "../../hooks/useCatalog";
 import CategoriesService from "../../services/api/CategoriesService";
 
-const renderCheckboxItem = (icon, label, defaultChecked = false) => (
+const renderCheckboxItem = (
+  icon,
+  label,
+  defaultChecked = false,
+  handleSelect
+) => (
   <div className="flex items-center gap-2">
     {icon}
-    <Checkbox defaultChecked={defaultChecked} /> {label}
+    <Checkbox
+      defaultChecked={defaultChecked}
+      onCheckedChange={() => handleSelect(label)}
+    />
+    {label}
   </div>
 );
 
 function Categories() {
+  const { categories, setCategories } = useCatalog();
+
   const { data, isLoading } = useQuery("categories", () =>
     CategoriesService.getAll()
   );
 
+  const handleSelect = (option) => {
+    setCategories((prev) => {
+      if (prev.includes(option)) {
+        return prev.filter((category) => category !== option);
+      }
+      return [...prev, option];
+    });
+  };
+
   if (isLoading) {
     return <Skeleton className="h-[125px] w-full rounded-xl mb-4" />;
   }
+
+  console.log(categories)
 
   return (
     <>
@@ -42,7 +65,9 @@ function Categories() {
                 <AccordionTrigger className="p-1 flex items-center gap-2">
                   {renderCheckboxItem(
                     <FaFolder className="text-gray-500" />,
-                    category.name
+                    category.name,
+                    false,
+                    handleSelect
                   )}
                 </AccordionTrigger>
                 <AccordionContent className="pl-6">
@@ -50,7 +75,9 @@ function Categories() {
                     <div key={subcategory.id}>
                       {renderCheckboxItem(
                         <FaFile className="text-gray-500" />,
-                        subcategory.name
+                        subcategory.name,
+                        false,
+                        handleSelect
                       )}
                     </div>
                   ))}
