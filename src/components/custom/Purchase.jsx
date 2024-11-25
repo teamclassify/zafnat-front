@@ -12,7 +12,7 @@ export default function Purchase({ buy, data, isLoading }) {
   // }
 
   useEffect(() => {
-    if (data[0]?.products) {
+    if (data && data[0]?.products) {
       const total = data[0].products.reduce((acc, product) => {
         return acc + product.product_sku.price * product.quantity;
       }, 0);
