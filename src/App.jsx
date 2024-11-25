@@ -35,6 +35,9 @@ import Invoices from "./pages/invoices";
 import ProductStadistic from "./pages/stadistic/product";
 import ClientStadistic from "./pages/stadistic/client";
 import SalesStadistic from "./pages/stadistic/sales";
+import UploadCSV from "./pages/uploadProducts";
+import Complaints from "./pages/complaints";
+import Returns from "./pages/returns";
 import ReturnsPage from "./pages/ReturnsPage";
 
 function App() {
@@ -72,6 +75,7 @@ function App() {
         <Route component={ProductStadistic} path="/admin/reportes/productos"/>
         <Route component={ClientStadistic} path="/admin/reportes/clientes"/>
         <Route component={SalesStadistic} path="/admin/reportes/ventas"/>
+          
         <Route component={ReturnsPage} path="/crear-devoluciones/:id"/>
         
         <Route component={ProfilePage} path="/perfil/inicio" />
@@ -80,6 +84,11 @@ function App() {
         <Route component={ProfilePage} path="/perfil/devoluciones/:id" />
         <Route component={ProfilePage} path="/perfil/deseados" />
         <Route component={ProfilePage} path="/perfil/reviews" />
+
+        <Route component={UploadCSV} path="/admin/catalogo/productos" />
+        <Route component={Complaints} path="/admin/clientes/quejas" />
+        <Route component={Returns} path="/admin/ventas/devoluciones" />
+        <Route component={ReturnsPage} path="/crear-devoluciones"/>
 
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={NotAuthPage} path="/no-autorizado" />

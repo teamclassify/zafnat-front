@@ -1,8 +1,8 @@
+import { Skeleton } from "@/components/ui/skeleton";
 import { useQuery } from "react-query";
 import useCatalog from "../../hooks/useCatalog";
 import AttributesService from "../../services/api/AttributesService";
 import AccordionOption from "../custom/AccordionOptions";
-import { Loading } from "../custom/Loading";
 
 function AccordionColors() {
   const { setColors } = useCatalog();
@@ -14,7 +14,7 @@ function AccordionColors() {
   );
 
   if (isLoading) {
-    return <Loading />;
+    return <Skeleton className="h-[125px] w-full rounded-xl mb-4" />;
   }
 
   const handleSelect = (option) => {

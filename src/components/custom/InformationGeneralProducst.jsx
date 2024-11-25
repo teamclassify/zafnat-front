@@ -1,17 +1,15 @@
-import useCalculateProductPrice from "../../hooks/useCalculateProductPrice";
-import useProduct from "../../hooks/useProduct";
-
-export default function InformationGeneralProducts() {
-  const { totalPrice } = useCalculateProductPrice();
-  const { productSelect } = useProduct();
+export default function InformationGeneralProducts({
+  lengthProducts,
+  totalPrice,
+}) {
   return (
     <div className="flex justify-between font-semibold">
-      {productSelect && productSelect.length > 0 ? (
-        <p>Total general ({`${productSelect.length}`} articulo)</p>
+      {lengthProducts > 0 ? (
+        <p>Total general ({`${lengthProducts}`} articulo)</p>
       ) : (
-        <p>Total general (0 articulos)</p>
+        <p>Total general ({lengthProducts} articulos)</p>
       )}
-      <p>{totalPrice ? "$" + totalPrice + ".000" : "$0.00"}</p>
+      <p>${new Intl.NumberFormat().format(totalPrice || 0)}</p>
     </div>
   );
 }

@@ -1,0 +1,154 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "customer": "Juan Pérez",
+      "date": "2023-10-15",
+      "returnedProduct": {
+        "type": "jeans",
+        "material": "denim",
+        "size": "32",
+        "color": "azul oscuro"
+      },
+      "reason": "Los jeans estaban demasiado ajustados.",
+      "status": "Pendiente",
+      "returnId": "DEV-0001",
+      "instructions": "Por favor, asegúrate de enviar los jeans en su empaque original antes del 2023-11-01."
+    },
+    {
+      "id": 2,
+      "customer": "María López",
+      "date": "2023-10-16",
+      "returnedProduct": {
+        "type": "jeans",
+        "material": "denim",
+        "size": "30",
+        "color": "negro"
+      },
+      "reason": "Había un desgarro en la tela.",
+      "status": "Completado",
+      "returnId": "DEV-0002",
+      "instructions": "La devolución ha sido procesada con éxito. El reembolso ya ha sido emitido."
+    },
+    {
+      "id": 3,
+      "customer": "Carlos García",
+      "date": "2023-10-17",
+      "returnedProduct": {
+        "type": "jeans",
+        "material": "denim",
+        "size": "34",
+        "color": "gris"
+      },
+      "reason": "El color era diferente al esperado.",
+      "status": "Rechazado",
+      "returnId": "DEV-0003",
+      "instructions": "Tu solicitud de devolución ha sido rechazada. Por favor contáctanos para más detalles."
+    },
+    {
+      "id": 4,
+      "customer": "Ana Martínez",
+      "date": "2023-10-18",
+      "returnedProduct": {
+        "type": "jeans",
+        "material": "denim",
+        "size": "28",
+        "color": "azul claro"
+      },
+      "reason": "El ajuste no era como se describía.",
+      "status": "En proceso",
+      "returnId": "DEV-0004",
+      "instructions": "Estamos procesando tu devolución. Te notificaremos cuando se complete."
+    },
+    {
+      "id": 5,
+      "customer": "Luis Rodríguez",
+      "date": "2023-10-19",
+      "returnedProduct": {
+        "type": "jeans",
+        "material": "denim",
+        "size": "36",
+        "color": "negro"
+      },
+      "reason": "Recibí la talla equivocada.",
+      "status": "Pendiente",
+      "returnId": "DEV-0005",
+      "instructions": "Por favor, envía el producto con la etiqueta de devolución proporcionada."
+    },
+    {
+      "id": 6,
+      "customer": "Sofía Hernández",
+      "date": "2023-10-20",
+      "returnedProduct": {
+        "type": "jeans",
+        "material": "denim",
+        "size": "30",
+        "color": "azul oscuro"
+      },
+      "reason": "Los jeans no eran tan cómodos como esperaba.",
+      "status": "Completado",
+      "returnId": "DEV-0006",
+      "instructions": "La devolución fue completada. Gracias por tu paciencia."
+    },
+    {
+      "id": 7,
+      "customer": "Diego Fernández",
+      "date": "2023-10-21",
+      "returnedProduct": {
+        "type": "jeans",
+        "material": "denim",
+        "size": "32",
+        "color": "gris"
+      },
+      "reason": "Cambié de opinión sobre el estilo.",
+      "status": "Rechazado",
+      "returnId": "DEV-0007",
+      "instructions": "No podemos aceptar esta devolución. Consulta nuestras políticas para más información."
+    },
+    {
+      "id": 8,
+      "customer": "Laura Jiménez",
+      "date": "2023-10-22",
+      "returnedProduct": {
+        "type": "jeans",
+        "material": "denim",
+        "size": "26",
+        "color": "azul claro"
+      },
+      "reason": "La longitud era demasiado larga.",
+      "status": "En proceso",
+      "returnId": "DEV-0008",
+      "instructions": "Estamos gestionando tu devolución. Por favor, espera nuestro próximo aviso."
+    },
+    {
+      "id": 9,
+      "customer": "Pedro Sánchez",
+      "date": "2023-10-23",
+      "returnedProduct": {
+        "type": "jeans",
+        "material": "denim",
+        "size": "38",
+        "color": "negro"
+      },
+      "reason": "El material se sentía barato.",
+      "status": "Pendiente",
+      "returnId": "DEV-0009",
+      "instructions": "Envía el producto para continuar con el proceso de devolución."
+    },
+    {
+      "id": 10,
+      "customer": "Claudia Morales",
+      "date": "2023-10-24",
+      "returnedProduct": {
+        "type": "jeans",
+        "material": "denim",
+        "size": "30",
+        "color": "azul oscuro"
+      },
+      "reason": "Se rompieron después de un lavado.",
+      "status": "Completado",
+      "returnId": "DEV-0010",
+      "instructions": "La devolución fue completada y el reembolso emitido."
+    }
+  ]
+}

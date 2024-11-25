@@ -1,21 +1,22 @@
-import useCalculateProductPrice from "../../hooks/useCalculateProductPrice";
 import InformationGeneralProducts from "./InformationGeneralProducst";
 import InformationPurchase from "./InformationPurchase";
 
-export default function PurchaseInfo() {
-  const { totalPrice } = useCalculateProductPrice();
+export default function PurchaseInfo({ lengthProducts, totalPrice }) {
   return (
     <div>
       <InformationPurchase
         name={"Subtotal"}
-        value={totalPrice ? "$" + totalPrice + ".000" : "$0.00"}
+        value={`$${new Intl.NumberFormat().format(totalPrice || 0)}`}
       />
-      <InformationPurchase
+      {/* <InformationPurchase
         name={"Cupón de descuento"}
         value={"Aplicar cupón"}
-      />
+      /> */}
       <InformationPurchase name={"Envío"} value={"$0.00"} />
-      <InformationGeneralProducts />
+      <InformationGeneralProducts
+        lengthProducts={lengthProducts}
+        totalPrice={totalPrice}
+      />
     </div>
   );
 }

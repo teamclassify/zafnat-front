@@ -7,7 +7,7 @@ import Sidebar from "../custom/Sidebar";
 
 function AdminTemplate({ children }) {
   const { user } = useUser();
-  
+
   if (!user) {
     return <NotAuth />;
   }
