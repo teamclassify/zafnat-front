@@ -1,9 +1,12 @@
 import { useQuery } from "react-query";
+import useCatalog from "../../hooks/useCatalog";
 import AttributesService from "../../services/api/AttributesService";
 import AccordionOption from "../custom/AccordionOptions";
 import { Loading } from "../custom/Loading";
 
 function AccordionSizes() {
+  const { setSizes } = useCatalog();
+
   const { data, isLoading } = useQuery("sizes", () =>
     AttributesService.getAll({
       type: "size",
@@ -15,7 +18,12 @@ function AccordionSizes() {
   }
 
   const handleSelect = (option) => {
-    console.log(option);
+    setSizes((prev) => {
+      if (prev.includes(option)) {
+        return prev.filter((size) => size !== option);
+      }
+      return [...prev, option];
+    });
   };
 
   return (
