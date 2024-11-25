@@ -5,10 +5,9 @@ import { columnsInvoices } from "../../components/tables/orders/Columns";
 import DataTable from "../../components/tables/orders/DataTable";
 import AdminTemplate from "../../components/templates/AdminTemplate";
 import { Input } from "../../components/ui/input";
-import { optionsInvoices } from "../../hooks/useOptionsFilters";
 import { dataInvoices } from "../../hooks/useDataTable";
-import CSV from "./components/csv";
-
+import { optionsInvoices } from "../../hooks/useOptionsFilters";
+import Csv from "./components/csv";
 
 export default function Invoices() {
   return (
@@ -18,7 +17,7 @@ export default function Invoices() {
         <div className="flex flex-row justify-between gap-2">
           <Input />
           <Filter options={optionsInvoices} />
-          <CSV/>
+          <Csv />
         </div>
         <div className="pt-3">
           <DataTable columns={columnsInvoices} data={dataInvoices} />
