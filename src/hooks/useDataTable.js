@@ -1,14 +1,14 @@
 export const dataInvoices = [
-  { id: "001", cliente: "Mauricio", cantidad: "$150.000", status: "Pagado" },
-  { id: "002", cliente: "Andersson", cantidad: "$200.000", status: "Pagado" },
-  { id: "003", cliente: "Gianfranco", cantidad: "$75.000", status: "Pagado" },
-  { id: "004", cliente: "Andrés", cantidad: "$320.000", status: "Pagado" },
-  { id: "005", cliente: "Lupita", cantidad: "$180.000", status: "Pagado" },
-  { id: "006", cliente: "Carolina", cantidad: "$210.000", status: "Pagado" },
-  { id: "007", cliente: "Juliana", cantidad: "$95.000", status: "Pagado" },
-  { id: "008", cliente: "Ricardo", cantidad: "$145.000", status: "Pagado" },
-  { id: "009", cliente: "Sofía", cantidad: "$160.000", status: "Pagado" },
-  { id: "010", cliente: "Emilia", cantidad: "$50.000", status: "Debe" },
+  { id: "001", cliente: "Mauricio", precio: "$150.000", status: "Pagado" },
+  { id: "002", cliente: "Andersson", precio: "$200.000", status: "Pagado" },
+  { id: "003", cliente: "Gianfranco", precio: "$75.000", status: "Pagado" },
+  { id: "004", cliente: "Andrés", precio: "$320.000", status: "Pagado" },
+  { id: "005", cliente: "Lupita", precio: "$180.000", status: "Pagado" },
+  { id: "006", cliente: "Carolina", precio: "$210.000", status: "Pagado" },
+  { id: "007", cliente: "Juliana", precio: "$95.000", status: "Pagado" },
+  { id: "008", cliente: "Ricardo", precio: "$145.000", status: "Pagado" },
+  { id: "009", cliente: "Sofía", precio: "$160.000", status: "Pagado" },
+  { id: "010", cliente: "Emilia", precio: "$50.000", status: "Debe" },
 ];
 
 export const dataWholeSale = [

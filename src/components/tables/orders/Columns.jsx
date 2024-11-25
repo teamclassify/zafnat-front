@@ -1,5 +1,7 @@
-import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
 import { FaRegEye } from "react-icons/fa";
+import { Badge } from "@/components/ui/badge"
+import { GeneralModal } from "../../../pages/invoices/components/GeneralModal";
 
 export const columns = [
   {
@@ -31,18 +33,35 @@ export const columns = [
     accessorKey: "actions",
     header: "Acciones",
     cell: ({ row }) => {
+      const [isOpen, setIsOpen] = useState(false);
+      const [rowData, setRowData] = useState(null);
+
+      const handleViewClick = () => {
+        setRowData(row.original); // Guardamos los datos de la fila
+        setIsOpen(true); // Abrimos el modal
+      };
+
       return (
-        <button
-          className="btn btn-primary"
-          onClick={() => alert(`Ver detalles del pedido ${row.getValue("id")}`)}
-        >
-          <FaRegEye />
-        </button>
+        <>
+          <button className="btn btn-primary" onClick={handleViewClick}>
+            <FaRegEye />
+          </button>
+
+          {/* Pasamos el estado del modal y los datos de la fila */}
+          {isOpen && (
+            <GeneralModal
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              data={rowData}
+            />
+          )}
+        </>
       );
     },
   },
 ];
 
+// Definición de columnas para la venta mayorista
 export const columnsWholeSale = [
   {
     accessorKey: "id",
@@ -76,18 +95,35 @@ export const columnsWholeSale = [
     accessorKey: "actions",
     header: "Acciones",
     cell: ({ row }) => {
+      const [isOpen, setIsOpen] = useState(false);
+      const [rowData, setRowData] = useState(null);
+
+      const handleViewClick = () => {
+        setRowData(row.original); // Guardamos los datos de la fila
+        setIsOpen(true); // Abrimos el modal
+      };
+
       return (
-        <button
-          className="btn btn-primary"
-          onClick={() => alert(`Ver detalles del pedido ${row.getValue("id")}`)}
-        >
-          <FaRegEye />
-        </button>
+        <>
+          <button className="btn btn-primary" onClick={handleViewClick}>
+            <FaRegEye />
+          </button>
+
+          {/* Pasamos el estado del modal y los datos de la fila */}
+          {isOpen && (
+            <GeneralModal
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              data={rowData}
+            />
+          )}
+        </>
       );
     },
   },
 ];
 
+// Definición de columnas para las facturas
 export const columnsInvoices = [
   {
     accessorKey: "id",
@@ -98,8 +134,8 @@ export const columnsInvoices = [
     header: "Cliente",
   },
   {
-    accessorKey: "cantidad",
-    header: "Cantidad",
+    accessorKey: "precio",
+    header: "Precio",
   },
   {
     accessorKey: "status",
@@ -116,15 +152,29 @@ export const columnsInvoices = [
     accessorKey: "actions",
     header: "Acciones",
     cell: ({ row }) => {
+      const [isOpen, setIsOpen] = useState(false);
+      const [rowData, setRowData] = useState(null);
+
+      const handleViewClick = () => {
+        setRowData(row.original); // Guardamos los datos de la fila
+        setIsOpen(true); // Abrimos el modal
+      };
+
       return (
-        <button
-          className="btn btn-primary"
-          onClick={() =>
-            alert(`Ver detalles de la factura ${row.getValue("id")}`)
-          }
-        >
-          <FaRegEye />
-        </button>
+        <>
+          <button className="btn btn-primary" onClick={handleViewClick}>
+            <FaRegEye />
+          </button>
+
+          {/* Pasamos el estado del modal y los datos de la fila */}
+          {isOpen && (
+            <GeneralModal
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              data={rowData}
+            />
+          )}
+        </>
       );
     },
   },
