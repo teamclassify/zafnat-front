@@ -7,15 +7,18 @@ import AdminTemplate from "../../components/templates/AdminTemplate";
 import { Input } from "../../components/ui/input";
 import { optionsInvoices } from "../../hooks/useOptionsFilters";
 import { dataInvoices } from "../../hooks/useDataTable";
+import CSV from "./components/csv";
+
 
 export default function Invoices() {
   return (
     <AdminTemplate>
       <main>
         <Title title="Facturas" />
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-between gap-2">
           <Input />
           <Filter options={optionsInvoices} />
+          <CSV/>
         </div>
         <div className="pt-3">
           <DataTable columns={columnsInvoices} data={dataInvoices} />

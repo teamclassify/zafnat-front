@@ -28,7 +28,7 @@ export default function Filter({ options, handleSelect, title}) {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline">
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
             <FilterIcon className="w-4" />
             Filtrar {selectedRoles.length > 0 && `(${selectedRoles.length})`}
           </div>
