@@ -1,8 +1,9 @@
 import { Accordion } from "@/components/ui/accordion";
 import { useId } from "react";
 import { useAccordionFilter } from "../../hooks/useAccordionFilter";
+import AccordionColors from "../catalog/AccordionColors";
+import AccordionSizes from "../catalog/AccordionSizes";
 import Categories from "../catalog/Categories";
-import AccordionOption from "./AccordionOptions";
 
 // const category = ["Chaquetas", "Shorts", "Jeans"];
 const size = ["8", "10", "12", "14", "16", "18"];
@@ -26,19 +27,8 @@ export default function AccordionFilter({ handleFilter }) {
       /> */}
 
       <Categories />
-
-      <AccordionOption
-        id={colorID}
-        name="Color"
-        options={color}
-        handleSelect={handleSelect}
-      />
-      <AccordionOption
-        id={sizeID}
-        name="Talla"
-        options={size}
-        handleSelect={handleSelect}
-      />
+      <AccordionColors />
+      <AccordionSizes />
     </Accordion>
   );
 }
