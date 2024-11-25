@@ -8,12 +8,25 @@ import {
   DropdownMenuItem,
 } from "../../../components/ui/dropdown-menu";
 
+import { useQuery } from "react-query";
+import { LoadingGrid } from "../../../components/custom/loading";
+import AddressService from "../../../services/api/AddressService";
 import HeaderTab from "./HeaderTab";
 
 function AddressTab() {
+  const { data, isLoading } = useQuery("addresses", () =>
+    AddressService.getAll()
+  );
+
+  if (isLoading) {
+    return <LoadingGrid />;
+  }
+
   const handleNewAddress = () => {
     console.log("New address");
   };
+
+  console.log(data);
 
   return (
     <div>
