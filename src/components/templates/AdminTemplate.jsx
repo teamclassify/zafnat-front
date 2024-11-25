@@ -1,19 +1,11 @@
 import { SidebarProvider } from "../ui/sidebar";
 
-import useUser from "../../hooks/useUser";
-import NotAuth from "../../pages/NotAuth";
+{/*import useUser from "../../hooks/useUser";
+import NotAuth from "../../pages/NotAuth";*/}
 import Header from "../custom/Header";
 import Sidebar from "../custom/Sidebar";
 
 function AdminTemplate({ children }) {
-  const { user } = useUser();
-  if (!user) {
-    return <NotAuth />;
-  }
-
-  if (user.roles && !user.roles.includes("admin")) {
-    return <NotAuth />;
-  }
 
   return (
     <>
