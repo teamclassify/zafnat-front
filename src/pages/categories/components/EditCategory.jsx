@@ -7,19 +7,28 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "../../../components/ui/button";
-import { Input } from "@/components/ui/input"; // Asegúrate de tener este componente de entrada
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { toast } from "sonner";
 
-export default function EditCategory({ isOpen, setIsOpen, data, onSave }) {
+export default function EditCategory({ isOpen, setIsOpen, data }) {
   const [formData, setFormData] = useState(data);
 
   const handleChange = (key, value) => {
-    if (key === "id") return; // No permitimos modificar el id
+    if (key === "id") return;
     setFormData((prev) => ({ ...prev, [key]: value }));
   };
 
   const handleSave = () => {
-    onSave(formData);
     setIsOpen(false);
+    toast.success("Se ha modificado con exito la categoría")
   };
 
   return (
@@ -35,7 +44,21 @@ export default function EditCategory({ isOpen, setIsOpen, data, onSave }) {
                 <strong>{key.charAt(0).toUpperCase() + key.slice(1)}:</strong>
               </label>
               {key === "id" ? (
-                <p>{value}</p> 
+                <p>{value}</p>
+              ) : key === "estado" ? (
+                <Select>
+                  <SelectTrigger className="w-[200px]">
+                    <SelectValue placeholder="Selecciona un estado" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectItem value="Habilitado">Habilitado</SelectItem>
+                      <SelectItem value="Deshabilitado">
+                        Deshabilitado
+                      </SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
               ) : (
                 <Input
                   value={value}
