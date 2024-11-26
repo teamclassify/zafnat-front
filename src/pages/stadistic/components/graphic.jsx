@@ -5,11 +5,12 @@ import {
   CardHeader,
   CardTitle,
 } from "../../../components/ui/card";
+import useCalculatePercentage from "../../../hooks/useCalculatePercentage";
 import { Stadistic } from "./stadistic";
 
 export default function Graphic({ title, data, total, value }) {
-  const padding = value === "ingresos" ? "pl-7" : "pl-0";
-  const totalMonth = value === "ingresos" ? "3400" : total;
+  const { percentageChange, padding } = useCalculatePercentage({data, value});
+
   return (
     <Card>
       <CardHeader>
@@ -18,7 +19,9 @@ export default function Graphic({ title, data, total, value }) {
           <CardTitle className="text-4xl">{total}</CardTitle>
         </div>
         <CardDescription>
-          +{totalMonth / 100}% respecto al mes pasado
+          {percentageChange !== 0
+            ? `+${percentageChange.toFixed(2)}% respecto al mes pasado`
+            : "Sin variación respecto al mes pasado"}
         </CardDescription>
       </CardHeader>
       <CardContent className={padding}>

@@ -37,6 +37,10 @@ import ClientStadistic from "./pages/stadistic/client";
 import ProductStadistic from "./pages/stadistic/product";
 import SalesStadistic from "./pages/stadistic/sales";
 import UploadCSV from "./pages/uploadProducts";
+import Complaints from "./pages/complaints";
+import Returns from "./pages/returns";
+import Categories from "./pages/categories";
+import ReturnsPage from "./pages/ReturnsPage";
 import UsersPage from "./pages/users";
 import WholeSale from "./pages/WholeSale";
 
@@ -75,9 +79,7 @@ function App() {
         <Route component={ProductStadistic} path="/admin/reportes/productos" />
         <Route component={ClientStadistic} path="/admin/reportes/clientes" />
         <Route component={SalesStadistic} path="/admin/reportes/ventas" />
-
         <Route component={ReturnsPage} path="/crear-devoluciones/:id" />
-
         <Route component={ProfilePage} path="/perfil/inicio" />
         <Route component={ProfilePage} path="/perfil/pedidos" />
         <Route component={ProfilePage} path="/perfil/direcciones" />
@@ -85,12 +87,12 @@ function App() {
         <Route component={ProfilePage} path="/perfil/devoluciones/:id" />
         <Route component={ProfilePage} path="/perfil/deseados" />
         <Route component={ProfilePage} path="/perfil/reviews" />
-
         <Route component={UploadCSV} path="/admin/catalogo/productos" />
         <Route component={Complaints} path="/admin/clientes/quejas" />
         <Route component={Returns} path="/admin/ventas/devoluciones" />
-        <Route component={ReturnsPage} path="/crear-devoluciones" />
-
+        <Route component={Categories} path="/admin/catalogo/categorias" />
+        <Route component={ReturnsPage} path="/crear-devoluciones"/>
+        <Route component={ProfilePage} path="/perfil" />
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={NotAuthPage} path="/no-autorizado" />
         <Route component={ErrorPage} path="/:rest*" />
