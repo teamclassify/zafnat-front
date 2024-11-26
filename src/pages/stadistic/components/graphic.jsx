@@ -8,9 +8,22 @@ import {
 import { Stadistic } from "./stadistic";
 
 export default function Graphic({ title, data, total, value }) {
-  console.log(data)
-  const padding = value === "ingresos" ? "pl-7" : "pl-0";
-  const totalMonth = value === "ingresos" ? "3400" : total;
+  const padding = value === "ingresos" ? "pl-7" : "pl-0"; 
+
+  // Encontrar el valor del mes anterior
+  const currentMonthData = data[data.length - 1];
+  const previousMonthData = data[data.length - 2];
+
+  let percentageChange = 0;
+  if (previousMonthData) {
+    const currentMonthValue = currentMonthData[value];
+    const previousMonthValue = previousMonthData[value];
+
+    if (previousMonthValue !== 0) {
+      percentageChange = ((currentMonthValue - previousMonthValue) / previousMonthValue) * 100;
+    }
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -19,7 +32,9 @@ export default function Graphic({ title, data, total, value }) {
           <CardTitle className="text-4xl">{total}</CardTitle>
         </div>
         <CardDescription>
-          +{totalMonth / 100}% respecto al mes pasado
+          {percentageChange !== 0
+            ? `+${percentageChange.toFixed(2)}% respecto al mes pasado`
+            : "Sin variación respecto al mes pasado"}
         </CardDescription>
       </CardHeader>
       <CardContent className={padding}>
