@@ -11,7 +11,7 @@ import { toast } from "sonner";
 export default function DisableState({ isOpen, setIsOpen, data, name }) {
 
   const handleAccept = () => {
-    toast.success(`Se ha ${data.estado === "Habilitado" ? "Deshabilitado" : "Habilitalo"} la categoria ${data.nombre}`)
+    toast.success(`Se ha ${data.estado === "Habilitado" ? "Deshabilitado" : "Habilitado"} la categoria ${data.nombre}`)
     setIsOpen(false)
   }
   return (
