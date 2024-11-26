@@ -118,14 +118,14 @@ export const dataOrders = [
 ];
 
 export const dataCategories = [
-  { id: "001", nombre: "Ochenteros", descripción: "Jeans de estilo vintage de los años 80", estado: "Activo" },
-  { id: "002", nombre: "Denim Clásico", descripción: "Jeans con diseño clásico y tradicional", estado: "Activo" },
-  { id: "003", nombre: "Skinny", descripción: "Jeans ajustados al cuerpo, ideales para un look moderno", estado: "Activo" },
-  { id: "004", nombre: "Bootcut", descripción: "Jeans con corte acampanado hacia el tobillo", estado: "Inactivo" },
-  { id: "005", nombre: "Boyfriend", descripción: "Jeans de corte holgado y relajado", estado: "Activo" },
-  { id: "006", nombre: "Cropped", descripción: "Jeans con un largo más corto, ideales para estilos casuales", estado: "Inactivo" },
-  { id: "007", nombre: "High Waisted", descripción: "Jeans de tiro alto para un look retro y favorecedor", estado: "Activo" },
-  { id: "008", nombre: "Straight", descripción: "Jeans de corte recto, versátiles y cómodos", estado: "Activo" },
-  { id: "009", nombre: "Ripped", descripción: "Jeans con detalles desgastados o rotos", estado: "Activo" },
-  { id: "010", nombre: "Flare", descripción: "Jeans con un corte más amplio desde la rodilla hacia abajo", estado: "Inactivo" },
+  { id: "001", nombre: "Ochenteros", descripción: "Jeans de estilo vintage de los años 80", estado: "Habilitado" },
+  { id: "002", nombre: "Denim Clásico", descripción: "Jeans con diseño clásico y tradicional", estado: "Habilitado" },
+  { id: "003", nombre: "Skinny", descripción: "Jeans ajustados al cuerpo, ideales para un look moderno", estado: "Habilitado" },
+  { id: "004", nombre: "Bootcut", descripción: "Jeans con corte acampanado hacia el tobillo", estado: "Deshabilitado" },
+  { id: "005", nombre: "Boyfriend", descripción: "Jeans de corte holgado y relajado", estado: "Habilitado" },
+  { id: "006", nombre: "Cropped", descripción: "Jeans con un largo más corto, ideales para estilos casuales", estado: "Deshabilitado" },
+  { id: "007", nombre: "High Waisted", descripción: "Jeans de tiro alto para un look retro y favorecedor", estado: "Habilitado" },
+  { id: "008", nombre: "Straight", descripción: "Jeans de corte recto, versátiles y cómodos", estado: "Habilitado" },
+  { id: "009", nombre: "Ripped", descripción: "Jeans con detalles desgastados o rotos", estado: "Habilitado" },
+  { id: "010", nombre: "Flare", descripción: "Jeans con un corte más amplio desde la rodilla hacia abajo", estado: "Deshabilitado" },
 ];
