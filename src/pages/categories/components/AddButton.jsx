@@ -20,7 +20,7 @@ export default function AddButton() {
   };
   return (
     <Dialog>
-      <DialogTrigger>
+      <DialogTrigger asChild>
         <Button variant="outline">
           <IoAddCircleOutline />
           Agregar Categoria
@@ -52,7 +52,7 @@ export default function AddButton() {
           </div>
         </div>
         <DialogFooter>
-          <DialogClose>
+          <DialogClose asChild>
             <Button type="submit" onClick={() => handleSave()}>
               Guardar cambios
             </Button>
