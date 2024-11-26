@@ -9,6 +9,7 @@ import {
 } from "../../../components/ui/dropdown-menu";
 
 import { useQuery } from "react-query";
+import { Link } from "wouter";
 import { LoadingGrid } from "../../../components/custom/loading";
 import AddressService from "../../../services/api/AddressService";
 import HeaderTab from "./HeaderTab";
@@ -31,7 +32,9 @@ function AddressTab() {
   return (
     <div>
       <HeaderTab title="Direcciones">
-        <Button onClick={handleNewAddress}>Agregar direccion</Button>
+        <Link to="/perfil/direcciones/nueva">
+          <Button onClick={handleNewAddress}>Agregar direccion</Button>
+        </Link>
       </HeaderTab>
 
       <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))]">
