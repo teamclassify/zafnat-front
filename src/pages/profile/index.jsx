@@ -12,6 +12,7 @@ import { Link, useLocation, useParams } from "wouter";
 import SidebarClient from "../../components/custom/SidebarClient";
 import DefaultTemplate from "../../components/templates/DefaultTemplate";
 import AddressTab from "./components/AddressTab";
+import NewAddressTab from "./components/NewAddressTab";
 import OrdersTab from "./components/OrdersTab";
 import ProfileTab from "./components/ProfileTab";
 import ReturnsTab from "./components/ReturnsTab";
@@ -28,7 +29,13 @@ function ProfilePage() {
 
   useEffect(() => {
     const page = location.split("/")[2];
-    setPage(page);
+    setPage(
+      page === "direcciones"
+        ? location.split("/")[3] === "nueva"
+          ? "nueva"
+          : "direcciones"
+        : page
+    );
   }, [location]);
 
   return (
@@ -56,6 +63,7 @@ function ProfilePage() {
         {page === "reviews" && <ReviewsTab />}
         {page === "deseados" && <WishListTab />}
         {page === "devoluciones" && <ReturnsTab productId={id} />}
+        {page === "nueva" && <NewAddressTab />}
       </div>
     </DefaultTemplate>
   );
