@@ -60,7 +60,7 @@ function Header({ className } = { className: "" }) {
                       <DropdownMenuLabel>Mi cuenta</DropdownMenuLabel>
                       <DropdownMenuSeparator />
 
-                      <Link href="/perfil">
+                      <Link href="/perfil/inicio">
                         <DropdownMenuItem>Perfil</DropdownMenuItem>
                       </Link>
 

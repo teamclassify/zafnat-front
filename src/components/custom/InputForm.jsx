@@ -13,11 +13,12 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
-const formSchema = (isRequired) => z.object({
-  name_6309141036: isRequired ? z.string() : z.string().optional(),
-});
+const formSchema = (isRequired) =>
+  z.object({
+    name_6309141036: isRequired ? z.string() : z.string().optional(),
+  });
 
-export default function InputForm({ title , placeholder, type, isRequired}) {
+export default function InputForm({ title, placeholder, type, isRequired }) {
   const schema = formSchema(isRequired);
   const form = useForm({
     resolver: zodResolver(schema),
@@ -33,7 +34,9 @@ export default function InputForm({ title , placeholder, type, isRequired}) {
       );
     } catch (error) {
       console.error("Error al enviar el formulario", error);
-      toast.error("No se pudo enviar el formulario. Por favor, intenta de nuevo.");
+      toast.error(
+        "No se pudo enviar el formulario. Por favor, intenta de nuevo."
+      );
     }
   }
 

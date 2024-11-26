@@ -1,15 +1,13 @@
-import { CheckBoxProductPay } from "./CheckBoxProductPay";
 import Quantity from "./Quantity";
 
-export default function ProductCartInfo({ product, isChecked }) {
+export default function ProductCartInfo({ product }) {
   return (
     <div className="flex">
-      <CheckBoxProductPay product={product} isChecked={isChecked} />
-      <img src={product.img} className="w-5/12" />
+      <img src={product.product_sku.photos[0]?.value} className="w-5/12" />
       <div className="flex flex-col pt-5 gap-2">
-        <p>{product.name}</p>
-        <p>Talla: {product.size}</p>
-        <Quantity num={product.quantity} />
+        <p>{product.product_sku.product.name}</p>
+        <p>Talla: {product.product_sku.size_attribute.value}</p>
+        <Quantity id={product.id} num={product.quantity} />
       </div>
     </div>
   );
