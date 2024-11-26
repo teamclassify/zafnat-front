@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaRegEye } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge"
 import { GeneralModal } from "../../../pages/invoices/components/GeneralModal";
+import { Modal } from "../../../pages/categories/components/Modal";
 
 export const columns = [
   {
@@ -225,7 +226,7 @@ export const columnsCategories = [
 
           {/* Pasamos el estado del modal y los datos de la fila */}
           {isOpen && (
-            <GeneralModal
+            <Modal
               isOpen={isOpen}
               setIsOpen={setIsOpen}
               data={rowData}
