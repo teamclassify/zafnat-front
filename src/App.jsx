@@ -39,6 +39,7 @@ import SalesStadistic from "./pages/stadistic/sales";
 import UploadCSV from "./pages/uploadProducts";
 import UsersPage from "./pages/users";
 import WholeSale from "./pages/WholeSale";
+import ClientsProducts from "./pages/ClientsProducts";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
         <Route component={UserList} path="/admin/ajustes/usuarios" />
         <Route component={AlertStock} path="/admin/ajustes/inventario" />
         <Route component={ProductCatalog} path="/catalogo" />
+        <Route component={ClientsProducts} path="/admin/catalogo/lista-productos" />
         <Route component={DashboardPage} path="/admin" />
         <Route component={UsersPage} path="/admin/ajustes/usuarios" />
         <Route component={RecoverPassword} path="/recuperar" />
