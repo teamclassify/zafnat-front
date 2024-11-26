@@ -5,24 +5,11 @@ import {
   CardHeader,
   CardTitle,
 } from "../../../components/ui/card";
+import useCalculatePercentage from "../../../hooks/useCalculatePercentage";
 import { Stadistic } from "./stadistic";
 
 export default function Graphic({ title, data, total, value }) {
-  const padding = value === "ingresos" ? "pl-7" : "pl-0"; 
-
-  // Encontrar el valor del mes anterior
-  const currentMonthData = data[data.length - 1];
-  const previousMonthData = data[data.length - 2];
-
-  let percentageChange = 0;
-  if (previousMonthData) {
-    const currentMonthValue = currentMonthData[value];
-    const previousMonthValue = previousMonthData[value];
-
-    if (previousMonthValue !== 0) {
-      percentageChange = ((currentMonthValue - previousMonthValue) / previousMonthValue) * 100;
-    }
-  }
+  const { percentageChange, padding } = useCalculatePercentage({data, value});
 
   return (
     <Card>
