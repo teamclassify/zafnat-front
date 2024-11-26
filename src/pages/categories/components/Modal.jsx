@@ -8,9 +8,11 @@ import {
 import { Button } from "../../../components/ui/button";
 import { useState } from "react";
 import EditCategory from "./EditCategory";
+import DisableState from "./DisableState";
 
-export function Modal({ isOpen, setIsOpen, data }) {
+export default function Modal({ isOpen, setIsOpen, data }) {
   const [openDialog, setOpenDialog] = useState(false);
+  const [openDialogState, setOpenDialogState] = useState(false);
 
   return (
     <>
@@ -30,7 +32,7 @@ export function Modal({ isOpen, setIsOpen, data }) {
             ))}
           </div>
           <DialogFooter>
-            <Button>Deshabilitar</Button>
+            <Button onClick={() => setOpenDialogState(true)}>{data.estado === "Habilitado" ? "Deshabilitar" : "Habilitar"}</Button>
             <Button variant={"outline"} onClick={() => setOpenDialog(true)}>
               Editar
             </Button>
@@ -41,6 +43,12 @@ export function Modal({ isOpen, setIsOpen, data }) {
         </DialogContent>
       </Dialog>
       <EditCategory isOpen={openDialog} setIsOpen={setIsOpen} data={data} />
+      <DisableState
+        isOpen={openDialogState}
+        setIsOpen={setOpenDialogState}
+        data={data}
+        name={data.estado === "Habilitado" ? "Deshabilitar" : "Habilitar"}
+      />
     </>
   );
 }
