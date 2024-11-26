@@ -43,6 +43,7 @@ import Categories from "./pages/categories";
 import ReturnsPage from "./pages/ReturnsPage";
 import UsersPage from "./pages/users";
 import WholeSale from "./pages/WholeSale";
+import ClientsProducts from "./pages/ClientsProducts";
 import ClientReviews from "./pages/ClientReviews";
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
         <Route component={UserList} path="/admin/ajustes/usuarios" />
         <Route component={AlertStock} path="/admin/ajustes/inventario" />
         <Route component={ProductCatalog} path="/catalogo" />
+        <Route component={ClientsProducts} path="/admin/catalogo/lista-productos" />
         <Route component={DashboardPage} path="/admin" />
         <Route component={UsersPage} path="/admin/ajustes/usuarios" />
         <Route component={RecoverPassword} path="/recuperar" />
