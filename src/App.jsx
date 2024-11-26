@@ -1,44 +1,44 @@
 import { Route, Switch } from "wouter";
 
 import { Toaster } from "@/components/ui/sonner";
+import ScrollToTop from "./components/custom/ScrollToTop";
 import AboutUsPage from "./pages/AboutUsPage";
 import DashboardPage from "./pages/admin-page";
 import AlertStock from "./pages/AlertStockPage";
 import Cart from "./pages/Cart";
+import Complaints from "./pages/complaints";
+import Content from "./pages/Content";
+import Delivery from "./pages/Delivery";
 import EditProduct from "./pages/EditProduct";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import InfoClient from "./pages/InfoClientPage";
 import UserList from "./pages/InfoUserPage";
+import Invoices from "./pages/invoices";
+import Location from "./pages/Location";
 import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/SignInPage";
 import ManageRole from "./pages/ManageRolesPage";
 import NewPassword from "./pages/NewPassword";
 import NotAuthPage from "./pages/NotAuth";
+import Orders from "./pages/Orders";
+import Pay from "./pages/Pay";
+import PaymentDone from "./pages/PaymentDone";
 import ProductPage from "./pages/product";
 import ProductCatalog from "./pages/ProductCatalog";
 import ProfilePage from "./pages/profile";
 import RecoverCompleted from "./pages/RecoverCompleted";
 import RecoverPassword from "./pages/RecoverPassword";
-import UsersPage from "./pages/users";
-import Delivery from "./pages/Delivery";
-import Location from "./pages/Location";
-import Shipping from "./pages/Shipping";
-import ScrollToTop from "./components/custom/ScrollToTop";
-import Pay from "./pages/Pay";
-import PaymentDone from "./pages/PaymentDone";
-import Orders from "./pages/Orders";
-import WholeSale from "./pages/WholeSale"
-import SocialMedia from "./pages/SocialMedia"
-import Content from "./pages/Content"
-import Invoices from "./pages/invoices";
-import ProductStadistic from "./pages/stadistic/product";
-import ClientStadistic from "./pages/stadistic/client";
-import SalesStadistic from "./pages/stadistic/sales";
-import UploadCSV from "./pages/uploadProducts";
-import Complaints from "./pages/complaints";
 import Returns from "./pages/returns";
 import ReturnsPage from "./pages/ReturnsPage";
+import Shipping from "./pages/Shipping";
+import RegisterPage from "./pages/SignInPage";
+import SocialMedia from "./pages/SocialMedia";
+import ClientStadistic from "./pages/stadistic/client";
+import ProductStadistic from "./pages/stadistic/product";
+import SalesStadistic from "./pages/stadistic/sales";
+import UploadCSV from "./pages/uploadProducts";
+import UsersPage from "./pages/users";
+import WholeSale from "./pages/WholeSale";
 
 function App() {
   return (
@@ -71,16 +71,17 @@ function App() {
         <Route component={WholeSale} path="/admin/ventas/compras-al-mayor" />
         <Route component={SocialMedia} path="/admin/ajustes/redes-sociales" />
         <Route component={Content} path="/admin/ajustes/contenido" />
-        <Route component={Invoices} path="/admin/ventas/facturas"/>
-        <Route component={ProductStadistic} path="/admin/reportes/productos"/>
-        <Route component={ClientStadistic} path="/admin/reportes/clientes"/>
-        <Route component={SalesStadistic} path="/admin/reportes/ventas"/>
-          
-        <Route component={ReturnsPage} path="/crear-devoluciones/:id"/>
-        
+        <Route component={Invoices} path="/admin/ventas/facturas" />
+        <Route component={ProductStadistic} path="/admin/reportes/productos" />
+        <Route component={ClientStadistic} path="/admin/reportes/clientes" />
+        <Route component={SalesStadistic} path="/admin/reportes/ventas" />
+
+        <Route component={ReturnsPage} path="/crear-devoluciones/:id" />
+
         <Route component={ProfilePage} path="/perfil/inicio" />
         <Route component={ProfilePage} path="/perfil/pedidos" />
         <Route component={ProfilePage} path="/perfil/direcciones" />
+        <Route component={ProfilePage} path="/perfil/direcciones/nueva" />
         <Route component={ProfilePage} path="/perfil/devoluciones/:id" />
         <Route component={ProfilePage} path="/perfil/deseados" />
         <Route component={ProfilePage} path="/perfil/reviews" />
@@ -88,7 +89,7 @@ function App() {
         <Route component={UploadCSV} path="/admin/catalogo/productos" />
         <Route component={Complaints} path="/admin/clientes/quejas" />
         <Route component={Returns} path="/admin/ventas/devoluciones" />
-        <Route component={ReturnsPage} path="/crear-devoluciones"/>
+        <Route component={ReturnsPage} path="/crear-devoluciones" />
 
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={NotAuthPage} path="/no-autorizado" />

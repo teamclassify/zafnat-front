@@ -1,8 +1,3 @@
-import { useState } from "react";
-import { toast } from "sonner";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
 import {
   Form,
   FormControl,
@@ -10,15 +5,20 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import LocationSelector from "@/components/ui/location-input"; 
+} from "@/components/ui/form";
+import LocationSelector from "@/components/ui/location-input";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import * as z from "zod";
 
 const formSchema = z.object({
   name_7076714022: z.tuple([z.string(), z.string().optional()]),
 });
 
-export default function CountryForm() {
-  const [countryName, setCountryName] = useState("");
+export default function CountryForm({ countryName, setCountryName }) {
+  // const [countryName, setCountryName] = useState("");
   const [stateName, setStateName] = useState("");
 
   const form = useForm({
@@ -39,7 +39,9 @@ export default function CountryForm() {
       );
     } catch (error) {
       console.error("Error al enviar el formulario", error);
-      toast.error("Error al enviar el formulario. Por favor, inténtalo de nuevo.");
+      toast.error(
+        "Error al enviar el formulario. Por favor, inténtalo de nuevo."
+      );
     }
   }
 
@@ -56,11 +58,17 @@ export default function CountryForm() {
                 <LocationSelector
                   onCountryChange={(country) => {
                     setCountryName(country?.name || "");
-                    form.setValue(field.name, [country?.name || "", stateName || ""]);
+                    form.setValue(field.name, [
+                      country?.name || "",
+                      stateName || "",
+                    ]);
                   }}
                   onStateChange={(state) => {
                     setStateName(state?.name || "");
-                    form.setValue(field.name, [countryName || "", state?.name || ""]);
+                    form.setValue(field.name, [
+                      countryName || "",
+                      state?.name || "",
+                    ]);
                   }}
                 />
               </FormControl>
