@@ -15,56 +15,63 @@ import AddressService from "../../../services/api/AddressService";
 import HeaderTab from "./HeaderTab";
 
 function AddressTab() {
-  const { data, isLoading } = useQuery("addresses", () =>
+  const { data, isLoading, isRefetching } = useQuery("addresses", () =>
     AddressService.getAll()
   );
 
-  if (isLoading) {
-    return <LoadingGrid />;
-  }
-
-  const handleNewAddress = () => {
-    console.log("New address");
+  const handleDelete = () => {
+    console.log("Delete");
   };
 
-  console.log(data);
+  if (isLoading || isRefetching) {
+    return <LoadingGrid />;
+  }
 
   return (
     <div>
       <HeaderTab title="Direcciones">
         <Link to="/perfil/direcciones/nueva">
-          <Button onClick={handleNewAddress}>Agregar direccion</Button>
+          <Button>Agregar direccion</Button>
         </Link>
       </HeaderTab>
 
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))]">
-        <Card>
-          <CardHeader>
-            <div className="flex justify-between">
-              <h3 className="text-lg font-semibold">Casa</h3>
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-2">
+        {data && data?.length > 0 ? (
+          data.map((address) => (
+            <Card key={address.id}>
+              <CardHeader>
+                <div className="flex justify-between">
+                  <h3 className="text-lg font-semibold">{address.title}</h3>
 
-              <DropdownMenu>
-                <DropdownMenuTrigger>
-                  <HiDotsVertical />
-                </DropdownMenuTrigger>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger>
+                      <HiDotsVertical />
+                    </DropdownMenuTrigger>
 
-                <DropdownMenuContent>
-                  <DropdownMenuItem>
-                    Establecer como predeterminada
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>Editar</DropdownMenuItem>
-                  <DropdownMenuItem>Eliminar</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-          </CardHeader>
+                    <DropdownMenuContent>
+                      <DropdownMenuItem>
+                        Establecer como predeterminada
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>Editar</DropdownMenuItem>
+                      <DropdownMenuItem onClick={handleDelete}>
+                        Eliminar
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
+              </CardHeader>
 
-          <CardContent>
-            <p className="text-sm text-gray-500">
-              Calle 123, Colonia Centro, CDMX
-            </p>
-          </CardContent>
-        </Card>
+              <CardContent>
+                <p className="text-sm text-gray-500">
+                  {address.address_line_1}, {address.country}, {address.city}
+                </p>
+                <p className="text-sm text-gray-500">{address.postal_code}</p>
+              </CardContent>
+            </Card>
+          ))
+        ) : (
+          <p>No hay direcciones registradas</p>
+        )}
       </div>
     </div>
   );
