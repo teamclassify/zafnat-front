@@ -8,6 +8,7 @@ import {
 import { Stadistic } from "./stadistic";
 
 export default function Graphic({ title, data, total, value }) {
+  console.log(data)
   const padding = value === "ingresos" ? "pl-7" : "pl-0";
   const totalMonth = value === "ingresos" ? "3400" : total;
   return (
