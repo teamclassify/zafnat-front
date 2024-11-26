@@ -1,13 +1,16 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { useEffect, useState } from "react";
-import { useQuery } from "react-query";
+import { FaShoppingCart } from "react-icons/fa";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 import { useParams } from "wouter";
 import ProductPreview from "../../components/catalog/ProductPreview";
 import ProductReviews from "../../components/catalog/ProductReviews";
 import ReviewStars from "../../components/catalog/ReviewStars";
-import { LoadingGrid } from "../../components/custom/Loading";
+import { LoadingGrid } from "../../components/custom/loading";
 import DefaultTemplate from "../../components/templates/DefaultTemplate";
+import { Button } from "../../components/ui/button";
+import CartService from "../../services/api/CartService";
 import ProductsService from "../../services/api/ProductsService";
 import ReviewsService from "../../services/api/ReviewsService";
 import ErrorPage from "../ErrorPage";
@@ -15,6 +18,8 @@ import ErrorPage from "../ErrorPage";
 function ProductPage() {
   const params = useParams();
   const id = params.id;
+
+  const queryClient = useQueryClient();
 
   const [selecteddSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
@@ -28,6 +33,20 @@ function ProductPage() {
     ["reviews", id],
     () => {
       return ReviewsService.getAll(id);
+    }
+  );
+
+  const { mutate, isLoading: isLoadingMutate } = useMutation(
+    (data) => {
+      return CartService.create({
+        productId: data.id,
+        quantity: data.quantity,
+      });
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("products-cart");
+      },
     }
   );
 
@@ -74,6 +93,12 @@ function ProductPage() {
       return [...acc, curr];
     }, []);
 
+  const handleAddToCart = () => {
+    if (!skuSelected) return;
+
+    mutate({ id: skuSelected.id, quantity: 1 });
+  };
+
   return (
     <DefaultTemplate>
       {isLoading ? (
@@ -116,6 +141,16 @@ function ProductPage() {
                 <p className="text-2xl font-bold">
                   ${new Intl.NumberFormat().format(skuSelected?.price || 0)}
                 </p>
+
+                <div className="mt-4">
+                  <Button variant="outline" onClick={handleAddToCart}>
+                    <span>
+                      {(isLoadingMutate && "Agregando al carrito...") ||
+                        "Agregar al carrito"}
+                    </span>
+                    <FaShoppingCart />
+                  </Button>
+                </div>
 
                 <div className="my-4">
                   <h3 className="text-lg font-bold mb-2">Talla</h3>
@@ -164,7 +199,7 @@ function ProductPage() {
                             )
                           );
                         }}
-                        className={`bg-gray-100 text-sm capitalize px-4 py-2 rounded-lg color-product-${color.value.toLowerCase()} ${
+                        className={`bg-gray-100 text-sm capitalize px-4 py-2 rounded-lg  ${
                           selectedColor?.id === color.id
                             ? " bg-zinc-800 text-white"
                             : ""

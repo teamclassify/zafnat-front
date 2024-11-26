@@ -6,19 +6,37 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { ChevronRight } from "lucide-react";
-import { useState } from "react";
-import { Link } from "wouter";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useParams } from "wouter";
 
 import SidebarClient from "../../components/custom/SidebarClient";
 import DefaultTemplate from "../../components/templates/DefaultTemplate";
 import AddressTab from "./components/AddressTab";
+import NewAddressTab from "./components/NewAddressTab";
+import OrdersTab from "./components/OrdersTab";
 import ProfileTab from "./components/ProfileTab";
+import ReturnsTab from "./components/ReturnsTab";
 import ReviewsTab from "./components/ReviewsTab";
 import WishListTab from "./components/WishListTab";
-import OrdersTab from "./components/OrdersTab";
 
 function ProfilePage() {
-  const [page, setPage] = useState("perfil");
+  const [location] = useLocation();
+
+  const params = useParams();
+  const { id } = params;
+
+  const [page, setPage] = useState("inicio");
+
+  useEffect(() => {
+    const page = location.split("/")[2];
+    setPage(
+      page === "direcciones"
+        ? location.split("/")[3] === "nueva"
+          ? "nueva"
+          : "direcciones"
+        : page
+    );
+  }, [location]);
 
   return (
     <DefaultTemplate>
@@ -40,10 +58,12 @@ function ProfilePage() {
         <SidebarClient page={page} onChange={(value) => setPage(value)} />
 
         {page === "pedidos" && <OrdersTab />}
-        {page === "perfil" && <ProfileTab />}
+        {page === "inicio" && <ProfileTab />}
         {page === "direcciones" && <AddressTab />}
         {page === "reviews" && <ReviewsTab />}
         {page === "deseados" && <WishListTab />}
+        {page === "devoluciones" && <ReturnsTab productId={id} />}
+        {page === "nueva" && <NewAddressTab />}
       </div>
     </DefaultTemplate>
   );

@@ -1,21 +1,21 @@
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
-import useProduct from "../../hooks/useProduct";
 
-export function DialogDisableProduct({ open, setOpen, product }) {
-  const { handleDisableProduct } = useProduct();
-
+export function DialogDisableProduct({
+  open,
+  setOpen,
+  product,
+  handleConfirm,
+}) {
   const onDisable = () => {
-    handleDisableProduct(product);
-    toast.success("Se ha eliminado el producto del carrito de compras");
+    handleConfirm(product);
     setOpen(false);
   };
 

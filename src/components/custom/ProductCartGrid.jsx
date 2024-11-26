@@ -1,24 +1,21 @@
-import useProduct from "../../hooks/useProduct";
+import { LoadingGrid } from "./loading";
 import ProductCart from "./ProductCart";
 
-export default function ProductCartGrid() {
-  const { products, handleDisableProduct, handleProductSelect, productSelect } =
-    useProduct();
+export default function ProductCartGrid({ data, isLoading }) {
+  if (isLoading) {
+    return (
+      <div className="w-full mr-8">
+        <LoadingGrid />
+      </div>
+    );
+  }
+
+  const products = data[0]?.products || [];
 
   return (
     <div className="flex flex-col gap-4 w-2/4">
-      {products.products.map((product) => (
-        <ProductCart
-          key={product.id}
-          infoProduct={product}
-          handleProductSelect={handleProductSelect}
-          isChecked={productSelect.some(
-            (select) =>
-              select.name === product.name &&
-              select.size === product.attributes[0].value
-          )}
-          handleDisableProduct={handleDisableProduct}
-        />
+      {products?.map((product) => (
+        <ProductCart key={product.id} product={product} />
       ))}
     </div>
   );
