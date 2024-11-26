@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import { CatalogProvider } from "./context/CatalogContext.jsx";
 import { ProductProvider } from "./context/ProductContext.jsx";
 import UserProvider from "./context/UserContext";
+import FilterProvider from "./context/FilterStadisticContext.jsx"
 import "./index.css";
 
 const queryClient = new QueryClient({
@@ -22,7 +23,9 @@ createRoot(document.getElementById("root")).render(
       <UserProvider>
         <ProductProvider>
           <CatalogProvider>
-            <App />
+            <FilterProvider>
+              <App />
+            </FilterProvider>
           </CatalogProvider>
         </ProductProvider>
       </UserProvider>

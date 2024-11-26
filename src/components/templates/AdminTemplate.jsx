@@ -15,6 +15,7 @@ function AdminTemplate({ children }) {
   if (user.roles && !user.roles.includes("admin")) {
     return <NotAuth />;
   }
+    
 
   return (
     <>
