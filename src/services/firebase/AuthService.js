@@ -2,6 +2,7 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   sendEmailVerification,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
@@ -133,8 +134,32 @@ const verifyEmail = () => {
     });
 };
 
+/**
+ * Sends a password reset email to the specified email address.
+ * @param email - The email address to send the password reset email to.
+ * @returns A Promise that resolves to a ResponseFirebase object containing the status and data of the operation.
+ */
+const resetPassword = async (email) => {
+  return sendPasswordResetEmail(auth, email)
+    .then(() => {
+      return {
+        msg: "Correo enviado correctamente",
+        data: null,
+        status: 200,
+      };
+    })
+    .catch((error) => {
+      return {
+        msg: "Error: El correo no se pudo enviar",
+        error: error.message,
+        status: 404,
+      };
+    });
+};
+
 export {
   logoutUser,
+  resetPassword,
   signInGoogle,
   signInWithEmail,
   signUpWithEmailAndPassword,
