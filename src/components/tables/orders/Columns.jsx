@@ -51,14 +51,11 @@ export const columns = [
 
       return (
         <>
-          <div className="flex gap-3">
+          <div className="flex gap-3 items-center">
             <TooltipProvider>
               <Tooltip>
-                <TooltipTrigger>
-                  {" "}
-                  <button className="btn btn-primary" onClick={handleViewClick}>
+                <TooltipTrigger  onClick={handleViewClick}>
                     <FaRegEye />
-                  </button> 
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>Ver detalles</p>
