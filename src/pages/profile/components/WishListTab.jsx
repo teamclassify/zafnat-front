@@ -16,7 +16,7 @@ function WishListTab() {
           price: 75.0,
           photos: [
             {
-              value: "/public/assets/product.png",
+              value: "/assets/product.png",
             },
           ],
           quantity: 30,
@@ -37,7 +37,7 @@ function WishListTab() {
           price: 150.0,
           photos: [
             {
-              value: "/public/assets/product.png",
+              value: "/assets/product.png",
             },
           ],
           quantity: 20,
@@ -58,7 +58,7 @@ function WishListTab() {
           price: 250.0,
           photos: [
             {
-              value: "/public/assets/product.png",
+              value: "/assets/product.png",
             },
           ],
           quantity: 15,
