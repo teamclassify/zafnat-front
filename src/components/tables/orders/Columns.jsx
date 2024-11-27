@@ -54,7 +54,7 @@ export const columns = [
           <div className="flex gap-3 items-center">
             <TooltipProvider>
               <Tooltip>
-                <TooltipTrigger  onClick={handleViewClick}>
+                <TooltipTrigger onClick={handleViewClick}>
                     <FaRegEye />
                 </TooltipTrigger>
                 <TooltipContent>
