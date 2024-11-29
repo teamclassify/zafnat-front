@@ -10,7 +10,7 @@ function Footer() {
         alt="Logo de fondo"
       />
       <div className="relative z-10">
-        <div className="mt-12 mb-32 w-[90%] mx-auto max-w-screen-lg grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] relative z-10">
+        <div className="mt-12 mb-32 w-[90%] mx-auto max-w-screen-lg grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] place-items-center relative z-10">
           <div>
             <h4 className="text-2xl font-bold mb-2">Ayuda</h4>
             <p className="text-gray-300">Envios</p>
@@ -23,9 +23,9 @@ function Footer() {
           </div>
 
           <div>
-            <h4 className="text-2xl font-bold mb-2">Quienese somos</h4>
+            <h4 className="text-2xl font-bold mb-2">Quienes somos</h4>
             <Link to="/acerca-de">
-              <Button variant="link" className="text-gray-300">
+              <Button variant="link" className="text-gray-300 pl-1">
                 Acerca de ZafNat
               </Button>
             </Link>
