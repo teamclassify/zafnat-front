@@ -142,7 +142,7 @@ function ProductPage() {
                   ${new Intl.NumberFormat().format(skuSelected?.price || 0)}
                 </p>
 
-                <div className="mt-4">
+                <div className="flex gap-2 mt-4">
                   <Button variant="outline" onClick={handleAddToCart}>
                     <span>
                       {(isLoadingMutate && "Agregando al carrito...") ||
@@ -150,6 +150,9 @@ function ProductPage() {
                     </span>
                     <FaShoppingCart />
                   </Button>
+                  <div>
+                    <Button>Comprar al mayor</Button>
+                  </div>
                 </div>
 
                 <div className="my-4">
