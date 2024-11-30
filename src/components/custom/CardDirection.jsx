@@ -4,18 +4,32 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { CheckBoxProductPay } from "./CheckBoxProductPay";
+import { Checkbox } from "../ui/checkbox";
 
-export default function CartDirection({isChecked}) {
+export default function CartDirection({
+  address,
+  addressSelected,
+  setAddressSelected,
+}) {
   return (
     <Card>
       <CardHeader>
         <div className="flex justify-between">
-          <CardTitle>Jhon Deo</CardTitle>
-          <CheckBoxProductPay isChecked={isChecked}/>
+          <CardTitle>{address.title}</CardTitle>
+          <Checkbox
+            onCheckedChange={() => setAddressSelected(address)}
+            checked={addressSelected?.id === address.id}
+          />
         </div>
         <CardDescription>
-          3650 Court Street, California, FL , US 9006
+          {
+            <>
+              <p>{address.address_line_1}</p>
+              <p>
+                {address.city}, {address.country} - {address.postal_code}
+              </p>
+            </>
+          }
         </CardDescription>
       </CardHeader>
     </Card>

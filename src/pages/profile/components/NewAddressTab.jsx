@@ -41,6 +41,11 @@ function NewAddressTab({
       onSuccess: () => {
         queryClient.invalidateQueries("addresses");
 
+        if (type === "new-in-sales") {
+          setLocation("/envio");
+          return;
+        }
+
         setLocation("/perfil/direcciones");
       },
     }
@@ -135,6 +140,10 @@ function NewAddressTab({
 
               {type === "update" && (
                 <>{isLoadingUpdate ? "Actualizando..." : "Actualizar"}</>
+              )}
+
+              {type === "new-in-sales" && (
+                <>{isLoadingUpdate ? "Guardando..." : "Siguiente"}</>
               )}
             </Button>
           </div>
