@@ -1,7 +1,7 @@
 import axios from "axios";
 import { URL, handleAxiosError } from ".";
 
-async function getAll(productId) {
+async function getAll(productId, filters = {}) {
   const params = productId ? { productId } : {};
 
   try {
@@ -11,7 +11,10 @@ async function getAll(productId) {
       headers: {
         "Content-Type": "application/json",
       },
-      params,
+      params: {
+        ...params,
+        ...filters,
+      },
     });
 
     return res.data;
