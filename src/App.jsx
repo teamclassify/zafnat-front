@@ -61,7 +61,7 @@ function App() {
         <Route component={ProductCatalog} path="/catalogo" />
         <Route component={ClientsProducts} path="/admin/catalogo/lista-productos" />
         <Route component={DashboardPage} path="/admin" />
-        <Route component={UsersPage} path="/admin/ajustes/usuarios" />
+        {/* <Route component={UsersPage} path="/admin/ajustes/usuarios" /> */}
         <Route component={RecoverPassword} path="/recuperar" />
         <Route component={RecoverCompleted} path="/recuperar-completado" />
         <Route component={NewPassword} path="/contraseña-nueva" />
