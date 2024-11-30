@@ -8,19 +8,48 @@ import CountryForm from "../../../components/custom/CountryForm";
 import { Button } from "../../../components/ui/button";
 import AddressService from "../../../services/api/AddressService";
 
-function NewAddressTab() {
+function NewAddressTab({
+  initialData = {
+    id: null,
+    address_line_1: "",
+    city: "",
+    postal_code: "",
+    country: "",
+  },
+  type = "new",
+}) {
   const queryClient = useQueryClient();
 
   const [, setLocation] = useLocation();
 
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [country, setCountry] = useState("");
+  const [address, setAddress] = useState(initialData?.address_line_1 || "");
+  const [city, setCity] = useState(initialData?.city);
+  const [postalCode, setPostalCode] = useState(initialData?.postal_code || "");
+  const [country, setCountry] = useState(initialData?.country || "");
 
-  const { mutate, isLoading } = useMutation(
+  const { mutate: mutateNew, isLoading: isLoadingNew } = useMutation(
     (data) => {
       return AddressService.create({
+        address: data.address,
+        city: data.city,
+        postalCode: data.postalCode,
+        country: data.country,
+      });
+    },
+
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("addresses");
+
+        setLocation("/perfil/direcciones");
+      },
+    }
+  );
+
+  const { mutate: mutateUpdate, isLoading: isLoadingUpdate } = useMutation(
+    (data) => {
+      return AddressService.update({
+        id: initialData.id,
         address: data.address,
         city: data.city,
         postalCode: data.postalCode,
@@ -43,7 +72,18 @@ function NewAddressTab() {
       return;
     }
 
-    mutate({
+    if (type === "update") {
+      mutateUpdate({
+        address,
+        city,
+        postalCode,
+        country,
+      });
+
+      return;
+    }
+
+    mutateNew({
       address,
       city,
       postalCode,
@@ -89,7 +129,13 @@ function NewAddressTab() {
 
           <div className="flex flex-row justify-end pt-2">
             <Button onClick={handleNewAddress}>
-              {isLoading ? "Guardando..." : "Guardar"}
+              {type === "new" && (
+                <>{isLoadingNew ? "Guardando..." : "Guardar"}</>
+              )}
+
+              {type === "update" && (
+                <>{isLoadingUpdate ? "Actualizando..." : "Actualizar"}</>
+              )}
             </Button>
           </div>
         </div>

@@ -14,6 +14,7 @@ import CartService from "../../services/api/CartService";
 import ProductsService from "../../services/api/ProductsService";
 import ReviewsService from "../../services/api/ReviewsService";
 import ErrorPage from "../ErrorPage";
+import RecomendacionProductos from "../../components/catalog/RecomedacionProductos";
 import { toast } from "sonner";
 
 function ProductPage() {
@@ -239,6 +240,8 @@ function ProductPage() {
                 </div>
               </div>
             </div>
+
+            <RecomendacionProductos productId={id} />
 
             <Tabs defaultValue="description" className="my-20">
               <TabsList className="w-full">
