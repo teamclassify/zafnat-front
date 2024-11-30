@@ -1,6 +1,7 @@
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Link } from "wouter";
 
+
 function ProductCard({ id, name, price, img, productId }) {
   return (
     <Link href={`/producto/${productId}`}>

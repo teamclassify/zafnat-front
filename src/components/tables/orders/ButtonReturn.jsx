@@ -6,7 +6,7 @@ function ButtonReturn({ id }) {
 
   return (
     <button
-      className="btn btn-primary"
+      className="btn btn-primary flex"
       onClick={() => {
         setLocation(`/perfil/devoluciones/${id}`);
       }}
