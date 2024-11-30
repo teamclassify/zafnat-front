@@ -1,3 +1,9 @@
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import { HiDotsVertical } from "react-icons/hi";
 import { Button } from "../../../components/ui/button";
@@ -13,6 +19,7 @@ import { Link } from "wouter";
 import { LoadingGrid } from "../../../components/custom/loading";
 import AddressService from "../../../services/api/AddressService";
 import HeaderTab from "./HeaderTab";
+import NewAddressTab from "./NewAddressTab";
 
 function AddressTab() {
   const { data, isLoading, isRefetching } = useQuery("addresses", () =>
@@ -43,21 +50,44 @@ function AddressTab() {
                 <div className="flex justify-between">
                   <h3 className="text-lg font-semibold">{address.title}</h3>
 
-                  <DropdownMenu>
-                    <DropdownMenuTrigger>
-                      <HiDotsVertical />
-                    </DropdownMenuTrigger>
+                  <Dialog>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger>
+                        <HiDotsVertical />
+                      </DropdownMenuTrigger>
 
-                    <DropdownMenuContent>
-                      <DropdownMenuItem>
-                        Establecer como predeterminada
-                      </DropdownMenuItem>
-                      <DropdownMenuItem>Editar</DropdownMenuItem>
-                      <DropdownMenuItem onClick={handleDelete}>
-                        Eliminar
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                      <DropdownMenuContent>
+                        <DropdownMenuItem>
+                          Establecer como predeterminada
+                        </DropdownMenuItem>
+
+                        <DialogTrigger asChild>
+                          <DropdownMenuItem>Editarx</DropdownMenuItem>
+                        </DialogTrigger>
+
+                        <DropdownMenuItem onClick={handleDelete}>
+                          Eliminar
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+
+                    <DialogContent>
+                      <DialogHeader>
+                        {address && (
+                          <NewAddressTab
+                            initialData={{
+                              id: address.id,
+                              address_line_1: address.address_line_1,
+                              city: address.city,
+                              postal_code: address.postal_code,
+                              country: address.country,
+                            }}
+                            type="update"
+                          />
+                        )}
+                      </DialogHeader>
+                    </DialogContent>
+                  </Dialog>
                 </div>
               </CardHeader>
 

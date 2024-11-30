@@ -50,9 +50,59 @@ async function create({ address, city, postalCode, country }) {
   }
 }
 
+async function update({ id, address, city, postalCode, country }) {
+  try {
+    const token = await getToken();
+
+    if (!token) throw new Error("Token not found");
+
+    const res = await axios({
+      url: `${URL}/address/${id}`,
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      data: {
+        address_line_1: address,
+        city: city,
+        postal_code: postalCode,
+        country: country,
+      },
+    });
+
+    return res.data;
+  } catch (error) {
+    return handleAxiosError(error);
+  }
+}
+
+async function remove(id) {
+  try {
+    const token = await getToken();
+
+    if (!token) throw new Error("Token not found");
+
+    const res = await axios({
+      url: `${URL}/address/${id}`,
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return res.data;
+  } catch (error) {
+    return handleAxiosError(error);
+  }
+}
+
 const AddressService = {
   getAll,
   create,
+  update,
+  remove,
 };
 
 export default AddressService;
