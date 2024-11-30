@@ -26,7 +26,7 @@ export function ReviewCard({ name, date, product, reviewTitle, reviewText, ratin
           <div className="text-gray-500">
           <GiClothes />
           </div>
-          <Label className="text-gray-600 text-sm">{product}</Label>
+          <Label className="text-gray-600 text-sm">{product.name}</Label>
         </div>
         <h3 className="font-semibold text-sm mb-1">{reviewTitle}</h3>
         <p className="text-gray-600 text-sm">{reviewText}</p>
