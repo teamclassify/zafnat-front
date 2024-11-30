@@ -27,7 +27,7 @@ export default function ContentUpload({
     >
       <input
         type="file"
-        accept=".csv"
+        accept=".xlsx"
         ref={fileInputRef}
         onChange={handleFileInputChange}
         className="hidden"
