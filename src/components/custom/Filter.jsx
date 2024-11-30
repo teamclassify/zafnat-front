@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -6,20 +7,23 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import { FilterIcon } from "lucide-react";
+import { useState } from "react";
 
-export default function Filter({ options, handleSelect, title}) {
+export default function Filter({ options, handleSelect, title }) {
   const [selectedRoles, setSelectedRoles] = useState([]);
 
   const handleCheckboxChange = (role) => {
     let newSelectedRoles = [];
-    if (selectedRoles.includes(role)) {
-      newSelectedRoles = selectedRoles.filter((r) => r !== role);
-    } else {
-      newSelectedRoles = [...selectedRoles, role];
-    }
+
+    // if (selectedRoles.includes(role)) {
+    //   newSelectedRoles = selectedRoles.filter((r) => r !== role);
+    // } else {
+    //   newSelectedRoles = [...selectedRoles, role];
+    // }
+
+    newSelectedRoles = [role];
+
     setSelectedRoles(newSelectedRoles);
     handleSelect(newSelectedRoles);
   };
@@ -40,7 +44,7 @@ export default function Filter({ options, handleSelect, title}) {
         {options.map((role) => (
           <DropdownMenuCheckboxItem
             key={role.name}
-           /*className="uppercase"*/
+            /*className="uppercase"*/
             checked={selectedRoles.includes(role.name)}
             onCheckedChange={() => handleCheckboxChange(role.name)}
           >

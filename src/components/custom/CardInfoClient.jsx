@@ -6,10 +6,17 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import { SelectOption } from "./SelectOptions";
 import { Frown } from "lucide-react";
+import { useEffect, useState } from "react";
+import { SelectOption } from "./SelectOptions";
 
-export function CardInfoClient({ name, email, address, products }) {
+export function CardInfoClient({ name, email, address, products, gender }) {
+  const [addressMain, setAddressMain] = useState(address[0] || null);
+
+  useEffect(() => {
+    setAddressMain(address[0]);
+  }, [address]);
+
   return (
     <Card className="">
       <CardHeader>
@@ -17,7 +24,18 @@ export function CardInfoClient({ name, email, address, products }) {
           <CardTitle>{name}</CardTitle>
         </div>
         <CardDescription>Email: {email}</CardDescription>
-        <CardDescription>Dirección: {address}</CardDescription>
+        <CardDescription>Genero: {gender}</CardDescription>
+        <CardDescription>
+          Dirección:{" "}
+          {addressMain ? (
+            <>
+              {addressMain.address_line_1} - {addressMain.country},{" "}
+              {addressMain.city}
+            </>
+          ) : (
+            "No hay dirección"
+          )}
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <form>

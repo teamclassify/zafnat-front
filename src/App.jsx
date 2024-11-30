@@ -6,6 +6,9 @@ import AboutUsPage from "./pages/AboutUsPage";
 import DashboardPage from "./pages/admin-page";
 import AlertStock from "./pages/AlertStockPage";
 import Cart from "./pages/Cart";
+import Categories from "./pages/categories";
+import ClientReviews from "./pages/ClientReviews";
+import ClientsProducts from "./pages/ClientsProducts";
 import Complaints from "./pages/complaints";
 import Content from "./pages/Content";
 import Delivery from "./pages/Delivery";
@@ -37,11 +40,7 @@ import ClientStadistic from "./pages/stadistic/client";
 import ProductStadistic from "./pages/stadistic/product";
 import SalesStadistic from "./pages/stadistic/sales";
 import UploadCSV from "./pages/uploadProducts";
-import Categories from "./pages/categories";
-import UsersPage from "./pages/users";
 import WholeSale from "./pages/WholeSale";
-import ClientsProducts from "./pages/ClientsProducts";
-import ClientReviews from "./pages/ClientReviews";
 
 function App() {
   return (
@@ -59,9 +58,12 @@ function App() {
         <Route component={UserList} path="/admin/ajustes/usuarios" />
         <Route component={AlertStock} path="/admin/ajustes/inventario" />
         <Route component={ProductCatalog} path="/catalogo" />
-        <Route component={ClientsProducts} path="/admin/catalogo/lista-productos" />
+        <Route
+          component={ClientsProducts}
+          path="/admin/catalogo/lista-productos"
+        />
         <Route component={DashboardPage} path="/admin" />
-        <Route component={UsersPage} path="/admin/ajustes/usuarios" />
+        {/* <Route component={UsersPage} path="/admin/ajustes/usuarios" /> */}
         <Route component={RecoverPassword} path="/recuperar" />
         <Route component={RecoverCompleted} path="/recuperar-completado" />
         <Route component={NewPassword} path="/contraseña-nueva" />
@@ -92,7 +94,7 @@ function App() {
         <Route component={Complaints} path="/admin/clientes/quejas" />
         <Route component={Returns} path="/admin/ventas/devoluciones" />
         <Route component={Categories} path="/admin/catalogo/categorias" />
-        <Route component={ReturnsPage} path="/crear-devoluciones"/>
+        <Route component={ReturnsPage} path="/crear-devoluciones" />
         <Route component={ProfilePage} path="/perfil" />
         <Route component={AboutUsPage} path="/acerca-de" />
         <Route component={NotAuthPage} path="/no-autorizado" />
