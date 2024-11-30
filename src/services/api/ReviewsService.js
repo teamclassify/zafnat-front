@@ -2,6 +2,25 @@ import axios from "axios";
 import { URL, handleAxiosError } from ".";
 
 async function getAll(productId) {
+  const params = productId ? { productId } : {};
+
+  try {
+    const res = await axios({
+      url: `${URL}/reviews`,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      params,
+    });
+
+    return res.data;
+  } catch (error) {
+    return handleAxiosError(error);
+  }
+}
+
+async function getAllByUser(userId) {
   try {
     const res = await axios({
       url: `${URL}/reviews`,
@@ -10,8 +29,8 @@ async function getAll(productId) {
         "Content-Type": "application/json",
       },
       params: {
-        productId
-      }
+        userId,
+      },
     });
 
     return res.data;
@@ -38,7 +57,8 @@ async function getById(id) {
 
 const ReviewsService = {
   getAll,
-  getById
+  getById,
+  getAllByUser,
 };
 
 export default ReviewsService;
