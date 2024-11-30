@@ -14,7 +14,20 @@ import {
   DropdownMenuItem,
 } from "../../../components/ui/dropdown-menu";
 
-import { useQuery } from "react-query";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+
+import { useState } from "react";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import { toast } from "sonner";
 import { Link } from "wouter";
 import { LoadingGrid } from "../../../components/custom/loading";
 import AddressService from "../../../services/api/AddressService";
@@ -22,12 +35,32 @@ import HeaderTab from "./HeaderTab";
 import NewAddressTab from "./NewAddressTab";
 
 function AddressTab() {
+  const queryClient = useQueryClient();
+
+  const [isOpenConfirmDelete, setIsOpenConfirmDelete] = useState(false);
+  const [currentAddressId, setCurrentAddressId] = useState(null);
+
   const { data, isLoading, isRefetching } = useQuery("addresses", () =>
     AddressService.getAll()
   );
 
+  const { mutate, isLoading: isLoadingDelete } = useMutation(
+    () => AddressService.remove(currentAddressId),
+    {
+      onSuccess: () => {
+        setIsOpenConfirmDelete(false);
+
+        queryClient.invalidateQueries("addresses");
+
+        toast.success("Dirección eliminada correctamente");
+      },
+    }
+  );
+
   const handleDelete = () => {
-    console.log("Delete");
+    if (currentAddressId) {
+      mutate();
+    }
   };
 
   if (isLoading || isRefetching) {
@@ -41,6 +74,27 @@ function AddressTab() {
           <Button>Agregar direccion</Button>
         </Link>
       </HeaderTab>
+
+      <AlertDialog open={isOpenConfirmDelete}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              ¿Estás seguro de que deseas eliminar esta dirección?
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              Esta acción no se puede deshacer.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel onClick={() => setIsOpenConfirmDelete(false)}>
+              Cancelar
+            </AlertDialogCancel>
+            <AlertDialogAction onClick={handleDelete}>
+              {isLoadingDelete ? "Eliminando..." : "Eliminar"}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
 
       <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-2">
         {data && data?.length > 0 ? (
@@ -62,10 +116,15 @@ function AddressTab() {
                         </DropdownMenuItem>
 
                         <DialogTrigger asChild>
-                          <DropdownMenuItem>Editarx</DropdownMenuItem>
+                          <DropdownMenuItem>Editar</DropdownMenuItem>
                         </DialogTrigger>
 
-                        <DropdownMenuItem onClick={handleDelete}>
+                        <DropdownMenuItem
+                          onClick={() => {
+                            setCurrentAddressId(address.id);
+                            setIsOpenConfirmDelete(true);
+                          }}
+                        >
                           Eliminar
                         </DropdownMenuItem>
                       </DropdownMenuContent>
