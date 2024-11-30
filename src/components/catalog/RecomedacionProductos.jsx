@@ -11,7 +11,7 @@ function RecomendacionProductos({ productId }) {
   if (isLoading) {
     return (
       <div className="my-10">
-        <LoadingGrid />;
+        <LoadingGrid />
       </div>
     );
   }
