@@ -7,21 +7,21 @@ function OrdersTab() {
   const orders = [
     {
       id: 1,
-      date: "12/12/2021",
+      fecha: "12/12/2021",
       total: 100,
-      status: "Entregado",
+      estado: "Entregado",
     },
     {
       id: 2,
-      date: "12/12/2021",
+      fecha: "12/12/2021",
       total: 200,
-      status: "En camino",
+      estado: "En camino",
     },
     {
       id: 3,
-      date: "12/12/2021",
+      fecha: "12/12/2021",
       total: 300,
-      status: "Entregado",
+      estado: "Entregado",
     },
   ];
 

@@ -1,8 +1,15 @@
 import { useState } from "react";
 import { FaRegEye } from "react-icons/fa";
 import ButtonReturn from "./ButtonReturn";
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/badge";
 import { GeneralModal } from "../../../pages/invoices/components/GeneralModal";
+import Modal from "../../../pages/categories/components/Modal";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export const columns = [
   {
@@ -43,18 +50,31 @@ export const columns = [
       };
 
       return (
-        <div className="flex gap-2">
-          <button
-            className="btn btn-primary"
-            onClick={() =>
-              alert(`Ver detalles del pedido ${row.getValue("id")}`)
-            }
-          >
-            <FaRegEye />
-          </button>
+        <>
+          <div className="flex gap-3 items-center">
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger onClick={handleViewClick}>
+                    <FaRegEye />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Ver detalles</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
 
-          <ButtonReturn id={row.getValue("id")} />
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <ButtonReturn id={row.getValue("id")} />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Pedir devolución</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
 
+          </div>
           {/* Pasamos el estado del modal y los datos de la fila */}
           {isOpen && (
             <GeneralModal
@@ -63,7 +83,7 @@ export const columns = [
               data={rowData}
             />
           )}
-        </div>
+        </>
       );
     },
   },
@@ -103,13 +123,15 @@ export const columnsWholeSale = [
     accessorKey: "actions",
     header: "Acciones",
     cell: ({ row }) => {
-      {/**Aqui hay un error de useState */}
+      {
+        /**Aqui hay un error de useState */
+      }
       const [isOpen, setIsOpen] = useState(false);
       const [rowData, setRowData] = useState(null);
 
       const handleViewClick = () => {
-        setRowData(row.original); 
-        setIsOpen(true); 
+        setRowData(row.original);
+        setIsOpen(true);
       };
 
       return (
@@ -182,6 +204,58 @@ export const columnsInvoices = [
               setIsOpen={setIsOpen}
               data={rowData}
             />
+          )}
+        </>
+      );
+    },
+  },
+];
+
+export const columnsCategories = [
+  {
+    accessorKey: "id",
+    header: "id",
+  },
+  {
+    accessorKey: "nombre",
+    header: "Nombre",
+  },
+  {
+    accessorKey: "descripción",
+    header: "Descripción",
+  },
+  {
+    accessorKey: "estado",
+    header: "Estado",
+    cell: ({ row }) => {
+      return row.getValue("estado") === "Habilitado" ? (
+        <Badge className="bg-green-700">{"Habilitado"}</Badge>
+      ) : (
+        <Badge className="bg-red-700">{"Deshabilitado"}</Badge>
+      );
+    },
+  },
+  {
+    accessorKey: "actions",
+    header: "Acciones",
+    cell: ({ row }) => {
+      const [isOpen, setIsOpen] = useState(false);
+      const [rowData, setRowData] = useState(null);
+
+      const handleViewClick = () => {
+        setRowData(row.original); // Guardamos los datos de la fila
+        setIsOpen(true); // Abrimos el modal
+      };
+
+      return (
+        <>
+          <button className="btn btn-primary" onClick={handleViewClick}>
+            <FaRegEye />
+          </button>
+
+          {/* Pasamos el estado del modal y los datos de la fila */}
+          {isOpen && (
+            <Modal isOpen={isOpen} setIsOpen={setIsOpen} data={rowData} />
           )}
         </>
       );

@@ -70,8 +70,13 @@ const items = [
     icon: Book,
     submenu: [
       {
-        title: "Productos",
+        title: "Subir Productos",
         url: "/admin/catalogo/productos",
+        icon: Box,
+      },
+      {
+        title: "Ver Productos",
+        url: "/admin/catalogo/lista-productos",
         icon: Box,
       },
       {

@@ -3,16 +3,23 @@ import AdminTemplate from "../../components/templates/AdminTemplate";
 import CardProduct from "./components/CardProduct";
 import Graphic from "./components/graphic";
 import { graphicDataClient, cardDataClient } from "../../hooks/useDataGraphic";
+import FilterDate from "./components/FilterDate";
+import { useFilterContext } from "../../context/FilterStadisticContext";
 
 export default function ClientStadistic() {
+  const { filterDataByTimeRange } = useFilterContext();
+
   return (
     <AdminTemplate>
       <Title title="Estadísticas de clientes" />
       <div className="grid gap-5">
         <div>
+          <div className="flex justify-end mb-4">
+            <FilterDate />
+          </div>
           <Graphic
             title={graphicDataClient[0].title}
-            data={graphicDataClient[0].data}
+            data={filterDataByTimeRange(graphicDataClient[0].data)}
             total={graphicDataClient[0].totalClient}
             value="clientes"
           />

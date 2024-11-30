@@ -15,6 +15,7 @@ import ProductsService from "../../services/api/ProductsService";
 import ReviewsService from "../../services/api/ReviewsService";
 import ErrorPage from "../ErrorPage";
 import RecomendacionProductos from "../../components/catalog/RecomedacionProductos";
+import { toast } from "sonner";
 
 function ProductPage() {
   const params = useParams();
@@ -100,6 +101,22 @@ function ProductPage() {
     mutate({ id: skuSelected.id, quantity: 1 });
   };
 
+  const handleClick = () => {
+    toast.success(
+      "En unos momentos serás redirigido a WhatsApp para atención personalizada."
+    );
+
+    setTimeout(() => {
+      const phoneNumber = "584247054070";
+      const text = encodeURIComponent(
+        "Hola, estoy interesado en comprar al mayor"
+      );
+      const url = `https://wa.me/${phoneNumber}?text=${text}`;
+
+      window.open(url, "_blank", "noopener,noreferrer");
+    }, 2000);
+  };
+
   return (
     <DefaultTemplate>
       {isLoading ? (
@@ -143,13 +160,23 @@ function ProductPage() {
                   ${new Intl.NumberFormat().format(skuSelected?.price || 0)}
                 </p>
 
-                <div className="mt-4">
+                <div className="flex gap-2 mt-4">
                   <Button variant="outline" onClick={handleAddToCart}>
                     <span>
                       {(isLoadingMutate && "Agregando al carrito...") ||
                         "Agregar al carrito"}
                     </span>
                     <FaShoppingCart />
+                  </Button>
+                  <Button
+                    onClick={handleClick}
+                    className="flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                  >
+                    Comprar al mayor
+                    <img
+                      src="/assets/icons8-whatsapp.svg"
+                      className="w-5 h-5"
+                    />
                   </Button>
                 </div>
 

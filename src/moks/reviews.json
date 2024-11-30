@@ -1,0 +1,31 @@
+{
+  "initialReviews": [
+    {
+      "id": 1,
+      "name": "Carlos",
+      "product": "Jeans Classic",
+      "rating": 5,
+      "title": "Muy modernos",
+      "description": "Excelente calidad, muy cómodos.",
+      "date": "28/09/2024 02:54pm"
+    },
+    {
+      "id": 2,
+      "name": "Andrea",
+      "product": "Shorts Cargo",
+      "rating": 4,
+      "title": "Muy cómodos",
+      "description": "Muy prácticos y frescos para el verano.",
+      "date": "27/09/2024 03:14pm"
+    },
+    {
+      "id": 3,
+      "name": "Roberto",
+      "product": "Chaqueta de Cuero",
+      "rating": 1,
+      "title": "Medio Mala",
+      "description": "Llegó con algunos rasguños, pésima experiencia.",
+      "date": "25/09/2024 10:42am"
+    }
+  ]
+}
