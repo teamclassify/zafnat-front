@@ -23,7 +23,7 @@ async function getAll(productId, filters = {}) {
   }
 }
 
-async function getAllByUser(userId) {
+async function getAllByUser(filters = "", userId) {
   try {
     const res = await axios({
       url: `${URL}/reviews`,
@@ -33,6 +33,7 @@ async function getAllByUser(userId) {
       },
       params: {
         userId,
+        filters,
       },
     });
 
