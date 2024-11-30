@@ -6,16 +6,23 @@ import {
 } from "@/components/ui/card";
 import { CheckBoxProductPay } from "./CheckBoxProductPay";
 
-export default function CartDirection({isChecked}) {
+export default function CartDirection({ isChecked, address }) {
   return (
     <Card>
       <CardHeader>
         <div className="flex justify-between">
-          <CardTitle>Jhon Deo</CardTitle>
-          <CheckBoxProductPay isChecked={isChecked}/>
+          <CardTitle>{address.title}</CardTitle>
+          <CheckBoxProductPay isChecked={isChecked} />
         </div>
         <CardDescription>
-          3650 Court Street, California, FL , US 9006
+          {
+            <>
+              <p>{address.address_line_1}</p>
+              <p>
+                {address.city}, {address.country} - {address.postal_code}
+              </p>
+            </>
+          }
         </CardDescription>
       </CardHeader>
     </Card>
