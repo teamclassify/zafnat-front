@@ -1,27 +1,20 @@
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import { FilterIcon } from "lucide-react";
+import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu";
+import { Button } from "../ui/button";
+import { useState } from "react";
 
-export default function Filter({ options, handleSelect, title}) {
-  const [selectedRoles, setSelectedRoles] = useState([]);
+export default function Filter({ options, handleSelect }) {
+  const [selectedFilters, setSelectedFilters] = useState([]);
 
-  const handleCheckboxChange = (role) => {
-    let newSelectedRoles = [];
-    if (selectedRoles.includes(role)) {
-      newSelectedRoles = selectedRoles.filter((r) => r !== role);
+  const handleCheckboxChange = (filterName) => {
+    let newSelectedFilters = [];
+    if (selectedFilters.includes(filterName)) {
+      newSelectedFilters = selectedFilters.filter((f) => f !== filterName);
     } else {
-      newSelectedRoles = [...selectedRoles, role];
+      newSelectedFilters = [...selectedFilters, filterName];
     }
-    setSelectedRoles(newSelectedRoles);
-    handleSelect(newSelectedRoles);
+    setSelectedFilters(newSelectedFilters);
+    handleSelect(newSelectedFilters);
   };
 
   return (
@@ -30,22 +23,27 @@ export default function Filter({ options, handleSelect, title}) {
         <Button variant="outline">
           <div className="flex gap-2 items-center">
             <FilterIcon className="w-4" />
-            Filtrar {selectedRoles.length > 0 && `(${selectedRoles.length})`}
+            Filtrar {selectedFilters.length > 0 && `(${selectedFilters.length})`}
           </div>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>{title}</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        {options.map((role) => (
-          <DropdownMenuCheckboxItem
-            key={role.name}
-           /*className="uppercase"*/
-            checked={selectedRoles.includes(role.name)}
-            onCheckedChange={() => handleCheckboxChange(role.name)}
-          >
-            {role.name}
-          </DropdownMenuCheckboxItem>
+        {Object.entries(options).map(([groupTitle, groupOptions]) => (
+          <div key={groupTitle}>
+            <DropdownMenuLabel className="text-sm text-gray-500">
+              {groupTitle.charAt(0).toUpperCase() + groupTitle.slice(1)}
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            {groupOptions.map((option) => (
+              <DropdownMenuCheckboxItem
+                key={option.name}
+                checked={selectedFilters.includes(option.name)}
+                onCheckedChange={() => handleCheckboxChange(option.name)}
+              >
+                {option.name}
+              </DropdownMenuCheckboxItem>
+            ))}
+          </div>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>

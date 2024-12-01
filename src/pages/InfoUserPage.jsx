@@ -23,6 +23,7 @@ export default function InfoUserPage() {
     setFilter(role);
   };
 
+  console.log(dataRoles.data)
   return (
     <>
       <AdminTemplate>

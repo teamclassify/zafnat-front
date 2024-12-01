@@ -1,33 +1,56 @@
-export const optionsInvoices = [
-  { name: "Fecha reciente" },
-  { name: "Más antiguo" },
-  { name: "Mayor compra" },
-  { name: "Menor compra" },
-  { name: "Pagado" },
-  { name: "No Pago" },
-];
+// Facturas
+export const optionsInvoices = {
+  fecha: [
+    { name: "Fecha reciente" },
+    { name: "Más antiguo" },
+  ],
+  compra: [
+    { name: "Mayor compra" },
+    { name: "Menor compra" },
+  ],
+  estado: [
+    { name: "Pagado" },
+    { name: "No Pago" },
+  ],
+};
 
-export const optionsOrders = [
-  { name: "Fecha reciente" },
-  { name: "Más antiguo" },
-  { name: "Mayor compra" },
-  { name: "Menor compra" },
-  { name: "Entregado" },
-  { name: "Empaquetado" },
-  { name: "Enviado" },
-];
+// Órdenes
+export const optionsOrders = {
+  fecha: [
+    { name: "Fecha reciente" },
+    { name: "Más antiguo" },
+  ],
+  compra: [
+    { name: "Mayor compra" },
+    { name: "Menor compra" },
+  ],
+  estado: [
+    { name: "Entregado" },
+    { name: "Empaquetado" },
+    { name: "Enviado" },
+  ],
+};
 
-export const optionsWholeSale = [
-  { name: "Fecha reciente" },
-  { name: "Más antiguo" },
-  { name: "Mayor compra" },
-  { name: "Menor compra" }
-];
+// Mayoristas
+export const optionsWholeSale = {
+  fecha: [
+    { name: "Fecha reciente" },
+    { name: "Más antiguo" },
+  ],
+  compra: [
+    { name: "Mayor compra" },
+    { name: "Menor compra" },
+  ],
+};
 
-export const optionsCategory = [
-  { name: "Hombres" },
-  { name: "Mujeres" },
-  { name: "Habilitado" },
-  { name: "Deshabilitado" },
-]
-
+// Categorías
+export const optionsCategory = {
+  genero: [
+    { name: "Hombres" },
+    { name: "Mujeres" },
+  ],
+  estado: [
+    { name: "Habilitado" },
+    { name: "Deshabilitado" },
+  ],
+};
