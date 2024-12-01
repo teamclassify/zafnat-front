@@ -42,6 +42,7 @@ import UsersPage from "./pages/users";
 import WholeSale from "./pages/WholeSale";
 import ClientsProducts from "./pages/ClientsProducts";
 import ClientReviews from "./pages/ClientReviews";
+import History from "./pages/history";
 
 function App() {
   return (
@@ -76,6 +77,7 @@ function App() {
         <Route component={WholeSale} path="/admin/ventas/compras-al-mayor" />
         <Route component={SocialMedia} path="/admin/ajustes/redes-sociales" />
         <Route component={Content} path="/admin/ajustes/contenido" />
+        <Route component={History} path="/admin/ajustes/historial" />
         <Route component={Invoices} path="/admin/ventas/facturas" />
         <Route component={ProductStadistic} path="/admin/reportes/productos" />
         <Route component={ClientStadistic} path="/admin/reportes/clientes" />

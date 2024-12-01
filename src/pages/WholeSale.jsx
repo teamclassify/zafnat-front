@@ -13,7 +13,7 @@ export default function WholeSale() {
     <AdminTemplate>
       <main>
         <Title title="Compras al mayor" />
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-between gap-2">
           <Input />
           <Filter options={optionsWholeSale} />
         </div>

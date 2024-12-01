@@ -130,3 +130,76 @@ export const dataCategories = [
   { id: "009", nombre: "Ripped", descripción: "Jeans con detalles desgastados o rotos", estado: "Habilitado" },
   { id: "010", nombre: "Flare", descripción: "Jeans con un corte más amplio desde la rodilla hacia abajo", estado: "Deshabilitado" },
 ];
+
+export const dataHistory = [
+  {
+    id: "001",
+    usuario: "Juan Pérez",
+    fecha: "2023-11-01",
+    producto: "Jean Classic Fit",
+    cantidad: 2,
+  },
+  {
+    id: "002",
+    usuario: "María Gómez",
+    fecha: "2023-11-02",
+    producto: "Chaqueta Denim Casual",
+    cantidad: 1,
+  },
+  {
+    id: "003",
+    usuario: "Carlos Ramírez",
+    fecha: "2023-11-03",
+    producto: "Short Casual Fit",
+    cantidad: 3,
+  },
+  {
+    id: "004",
+    usuario: "Ana Torres",
+    fecha: "2023-11-04",
+    producto: "Jean Skinny Fit",
+    cantidad: 2,
+  },
+  {
+    id: "005",
+    usuario: "Luis Martínez",
+    fecha: "2023-11-05",
+    producto: "Jean Classic Fit",
+    cantidad: 1,
+  },
+  {
+    id: "006",
+    usuario: "Paula Rodríguez",
+    fecha: "2023-11-06",
+    producto: "Chaqueta Denim Casual",
+    cantidad: 2,
+  },
+  {
+    id: "007",
+    usuario: "José López",
+    fecha: "2023-11-07",
+    producto: "Short Casual Fit",
+    cantidad: 4,
+  },
+  {
+    id: "008",
+    usuario: "Marta Castillo",
+    fecha: "2023-11-08",
+    producto: "Jean Skinny Fit",
+    cantidad: 1,
+  },
+  {
+    id: "009",
+    usuario: "Andrés Gil",
+    fecha: "2023-11-09",
+    producto: "Jean Classic Fit",
+    cantidad: 3,
+  },
+  {
+    id: "010",
+    usuario: "Laura Morales",
+    fecha: "2023-11-10",
+    producto: "Short Casual Fit",
+    cantidad: 2,
+  },
+];

@@ -5,6 +5,7 @@ import Modal from "../../../pages/categories/components/Modal";
 import DetailsEyesTable from "../../custom/DetailsEyesTable";
 import ReturnsTableButton from "../../custom/ReturnsTableButton";
 
+
 /**Columnas de Perfil Usuario */
 export const columns = [
   {
@@ -280,6 +281,59 @@ export const columnsCategories = [
           <DetailsEyesTable handleViewClick={handleViewClick} />
           {isOpen && (
             <Modal isOpen={isOpen} setIsOpen={setIsOpen} data={rowData} />
+          )}
+        </>
+      );
+    },
+  },
+];
+
+//Columnas para el hsitorial de cambios
+export const columnsHistory = [
+  {
+    accessorKey: "id",
+    header: "id",
+  },
+  {
+    accessorKey: "usuario",
+    header: "Usuario",
+  },
+  {
+    accessorKey: "fecha",
+    header: "Fecha de modificación",
+  },
+  {
+    accessorKey: "producto",
+    header: "Producto",
+  },
+  {
+    accessorKey: "cantidad",
+    header: "Cantidad",
+  },
+  {
+    accessorKey: "actions",
+    header: "Acciones",
+    cell: ({ row }) => {
+      {
+        /**Aqui hay un error de useState */
+      }
+      const [isOpen, setIsOpen] = useState(false);
+      const [rowData, setRowData] = useState(null);
+
+      const handleViewClick = () => {
+        setRowData(row.original);
+        setIsOpen(true);
+      };
+
+      return (
+        <>
+          <DetailsEyesTable handleViewClick={handleViewClick} />
+          {isOpen && (
+            <GeneralModal
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              data={rowData}
+            />
           )}
         </>
       );

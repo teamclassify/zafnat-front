@@ -23,3 +23,4 @@ export const optionsWholeSale = [
   { name: "Mayor compra" },
   { name: "Menor compra" }
 ];
+

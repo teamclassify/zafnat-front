@@ -13,7 +13,7 @@ export default function Orders() {
     <AdminTemplate>
       <main>
         <Title title="Pedidos" />
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-between gap-2">
           <Input />
           <Filter options={optionsOrders} />
         </div>
