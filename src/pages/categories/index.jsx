@@ -9,18 +9,23 @@ import { optionsCategory } from "../../hooks/useOptionsFilters";
 import AddButton from "./components/AddButton";
 import { LoadingGrid } from "../../components/custom/loading";
 import { useDataCategories } from "../../hooks/useDataCategories";
+import { useState } from "react";
 
 export default function Categories() {
-  const  { dataCategories, error, isLoading } = useDataCategories()
+  const [filters, setFilters] = useState({});
+  const { dataCategories, error, isLoading } = useDataCategories({ filters });
 
- 
+  const handleSelect = (optionSelected) => {
+    setFilters(optionSelected);
+  };
+
   return (
     <AdminTemplate>
       <main>
         <Title title="Categorias" />
         <div className="flex flex-row justify-between gap-2">
           <Input />
-          <Filter options={optionsCategory}/>
+          <Filter options={optionsCategory} handleSelect={handleSelect} />
           <AddButton />
         </div>
         <div className="pt-3">
