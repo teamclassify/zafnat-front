@@ -1,4 +1,4 @@
-import { FilterIcon } from "lucide-react";
+import { FilterIcon } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -24,6 +24,8 @@ export default function Filter({ options, handleSelect }) {
     handleSelect(newSelectedFilters);
   };
 
+  const isGroupedOptions = !Array.isArray(options);
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -36,24 +38,37 @@ export default function Filter({ options, handleSelect }) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        {Object.entries(options).map(([groupTitle, groupOptions]) => (
-          <div key={groupTitle}>
-            <DropdownMenuLabel className="text-sm text-gray-500">
-              {groupTitle.charAt(0).toUpperCase() + groupTitle.slice(1)}
-            </DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            {groupOptions.map((option) => (
-              <DropdownMenuCheckboxItem
-                key={option.name}
-                checked={selectedFilters.includes(option.name)}
-                onCheckedChange={() => handleCheckboxChange(option.name)}
-              >
-                {option.name}
-              </DropdownMenuCheckboxItem>
-            ))}
-          </div>
-        ))}
+        {isGroupedOptions ? (
+          Object.entries(options).map(([groupTitle, groupOptions]) => (
+            <div key={groupTitle}>
+              <DropdownMenuLabel className="text-sm text-gray-500">
+                {groupTitle.charAt(0).toUpperCase() + groupTitle.slice(1)}
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              {groupOptions.map((option) => (
+                <DropdownMenuCheckboxItem
+                  key={option.name}
+                  checked={selectedFilters.includes(option.name)}
+                  onCheckedChange={() => handleCheckboxChange(option.name)}
+                >
+                  {option.name}
+                </DropdownMenuCheckboxItem>
+              ))}
+            </div>
+          ))
+        ) : (
+          options.map((option) => (
+            <DropdownMenuCheckboxItem
+              key={option.name}
+              checked={selectedFilters.includes(option.name)}
+              onCheckedChange={() => handleCheckboxChange(option.name)}
+            >
+              {option.name}
+            </DropdownMenuCheckboxItem>
+          ))
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );
 }
+
