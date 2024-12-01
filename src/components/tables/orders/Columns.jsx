@@ -246,6 +246,10 @@ export const columnsCategories = [
     header: "id",
   },
   {
+    accessorKey: "genero",
+    header: "Genero",
+  },
+  {
     accessorKey: "nombre",
     header: "Nombre",
   },

@@ -117,7 +117,7 @@ export const dataOrders = [
   { id: "010", cliente: "Laura Morales", fecha: "2023-11-14", total: "$50.000", estado: "Enviado" },
 ];
 
-
+/*
 export const dataCategories = [
   { id: "001", nombre: "Ochenteros", descripción: "Jeans de estilo vintage de los años 80", estado: "Habilitado" },
   { id: "002", nombre: "Denim Clásico", descripción: "Jeans con diseño clásico y tradicional", estado: "Habilitado" },
@@ -130,6 +130,7 @@ export const dataCategories = [
   { id: "009", nombre: "Ripped", descripción: "Jeans con detalles desgastados o rotos", estado: "Habilitado" },
   { id: "010", nombre: "Flare", descripción: "Jeans con un corte más amplio desde la rodilla hacia abajo", estado: "Deshabilitado" },
 ];
+*/
 
 export const dataHistory = [
   {

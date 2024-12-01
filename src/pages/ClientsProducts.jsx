@@ -16,6 +16,8 @@ export default function ProductPage() {
     ProductsService.getAll({ status: true })
   );
 
+  //console.log(data)
+
   const adaptProductsData = (data) => {
     return data.map((product) => ({
       id: product.id,

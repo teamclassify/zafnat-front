@@ -5,12 +5,15 @@ import { columnsCategories } from "../../components/tables/orders/Columns";
 import DataTable from "../../components/tables/orders/DataTable";
 import AdminTemplate from "../../components/templates/AdminTemplate";
 import { Input } from "../../components/ui/input";
-import { dataCategories } from "../../hooks/useDataTable";
 import { optionsInvoices } from "../../hooks/useOptionsFilters";
 import AddButton from "./components/AddButton";
-
+import { LoadingGrid } from "../../components/custom/loading";
+import { useDataCategories } from "../../hooks/useDataCategories";
 
 export default function Categories() {
+  const  { dataCategories, error, isLoading } = useDataCategories()
+  console.log(dataCategories)
+ 
   return (
     <AdminTemplate>
       <main>
@@ -21,7 +24,17 @@ export default function Categories() {
           <AddButton />
         </div>
         <div className="pt-3">
-          <DataTable columns={columnsCategories} data={dataCategories} />
+          {isLoading ? (
+            <LoadingGrid />
+          ) : (
+            <>
+              {error ? (
+                <div>Error: {error.message}</div>
+              ) : (
+                <DataTable columns={columnsCategories} data={dataCategories} />
+              )}
+            </>
+          )}
         </div>
         <PaginationDefault />
       </main>
