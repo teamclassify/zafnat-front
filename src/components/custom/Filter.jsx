@@ -1,5 +1,12 @@
 import { FilterIcon } from "lucide-react";
-import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
 import { useState } from "react";
 
@@ -23,7 +30,8 @@ export default function Filter({ options, handleSelect }) {
         <Button variant="outline">
           <div className="flex gap-2 items-center">
             <FilterIcon className="w-4" />
-            Filtrar {selectedFilters.length > 0 && `(${selectedFilters.length})`}
+            Filtrar
+            {selectedFilters.length > 0 && `(${selectedFilters.length})`}
           </div>
         </Button>
       </DropdownMenuTrigger>
