@@ -4,7 +4,7 @@ import Graphic from "./components/graphic";
 import { graphicDataSales } from "../../hooks/useDataGraphic";
 import FilterDate from "./components/FilterDate";
 import { useFilterContext } from "../../context/FilterStadisticContext";
-
+import CSV from "../invoices/components/csv";
 export default function SalesStadistic() {
   const value = ["ingresos", "ventas", "pedidos"];
   const { filterDataByTimeRange } = useFilterContext();
@@ -13,15 +13,18 @@ export default function SalesStadistic() {
     <AdminTemplate>
       <Title title="Estadísticas de ventas" />
       <div className="mb-5">
-        <div className="flex justify-end mb-4">
+        <div className="flex justify-end mb-4 gap-3">
           <FilterDate />
+          <CSV type="pdf" />
         </div>
-        <Graphic
-          title={graphicDataSales[0].title}
-          data={filterDataByTimeRange(graphicDataSales[0].data)}
-          total={graphicDataSales[0].total}
-          value={value[0]}
-        />
+        <div>
+          <Graphic
+            title={graphicDataSales[0].title}
+            data={filterDataByTimeRange(graphicDataSales[0].data)}
+            total={graphicDataSales[0].total}
+            value={value[0]}
+          />
+        </div>
       </div>
 
       <div className="grid grid-cols-2 gap-5">
