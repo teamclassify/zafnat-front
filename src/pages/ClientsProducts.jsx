@@ -1,13 +1,13 @@
-import  { useState, useEffect, useMemo } from 'react';
-import { useQuery } from "react-query";
-import AdminTemplate from "../components/templates/AdminTemplate";
 import { Input } from "@/components/ui/input";
-import Filter from "../components/custom/Filter";
+import { useEffect, useMemo, useState } from "react";
+import { useQuery } from "react-query";
 import { ClientsProductsCard } from "../components/custom/ClientProductsCard";
-import { PaginationDefault } from '../components/custom/Pagination';
-import { useProductFilter } from "../hooks/useProductFilter";
+import Filter from "../components/custom/Filter";
+import { PaginationDefault } from "../components/custom/Pagination";
 import { Title } from "../components/custom/Title";
 import { LoadingGrid } from "../components/custom/loading";
+import AdminTemplate from "../components/templates/AdminTemplate";
+import { useProductFilter } from "../hooks/useProductFilter";
 import ProductsService from "../services/api/ProductsService";
 
 export default function ProductPage() {
@@ -27,19 +27,24 @@ export default function ProductPage() {
       id: product.id,
       name: product.name,
       description: product.description,
-      category: { 
-       name: product.categories[0]?.name || "Sin categoría" 
+      category: {
+        name: product.categories[0]?.name || "Sin categoría",
       },
-      skus: Array.isArray(product.ProductSku) ? product.ProductSku.map((sku) => ({
-        price: sku.price,
-        quantity: sku.quantity,
-        photos: Array.isArray(sku.photos) && sku.photos.length > 0
-          ? sku.photos.map((photo) => ({ value: photo?.value || "Sin imagen" }))
-          : [], 
-      })) : [],
+      skus: Array.isArray(product.ProductSku)
+        ? product.ProductSku.map((sku) => ({
+            price: sku.price,
+            quantity: sku.quantity,
+            photos:
+              Array.isArray(sku.photos) && sku.photos.length > 0
+                ? sku.photos.map((photo) => ({
+                    value: photo?.value || "Sin imagen",
+                  }))
+                : [],
+          }))
+        : [],
       reviews: product.reviews || [],
     }));
-  }; 
+  };
 
   const filteredProducts = useMemo(() => {
     if (!data) return [];
@@ -48,9 +53,10 @@ export default function ProductPage() {
   }, [data, selectedFilters, applyFilter]);
 
   const searchFilteredProducts = useMemo(() => {
-    return filteredProducts.filter(product =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.category.name.toLowerCase().includes(searchTerm.toLowerCase())
+    return filteredProducts.filter(
+      (product) =>
+        product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.category.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [filteredProducts, searchTerm]);
 
@@ -117,4 +123,3 @@ export default function ProductPage() {
     </AdminTemplate>
   );
 }
-
