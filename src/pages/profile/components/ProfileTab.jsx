@@ -121,6 +121,20 @@ function ProfileTab() {
 
           <FormField
             control={form.control}
+            name="document"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Cédula</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
             name="gender"
             render={({ field }) => (
               <FormItem>
@@ -172,10 +186,9 @@ function ProfileTab() {
               </FormItem>
             )}
           /> */}
-
-          <Button type="submit" disabled={mutateUpdateProfile.isLoading}>
-            {mutateUpdateProfile.isLoading ? "Guardando..." : "Guardar"}
-          </Button>
+            <Button type="submit" disabled={mutateUpdateProfile.isLoading}>
+              {mutateUpdateProfile.isLoading ? "Guardando..." : "Guardar"}
+            </Button>
         </form>
       </Form>
     </div>
