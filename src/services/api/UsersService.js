@@ -28,7 +28,7 @@ async function getAll(filter) {
   }
 }
 
-async function update(firstName, lastName, gender, phone) {
+async function update(firstName, lastName, gender, phone, cc) {
   try {
     const token = await getToken();
 
@@ -46,6 +46,7 @@ async function update(firstName, lastName, gender, phone) {
         lastName,
         gender,
         phone,
+        cc,
       },
     });
 
