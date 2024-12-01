@@ -13,8 +13,8 @@ export const optionsOrders = [
   { name: "Mayor compra" },
   { name: "Menor compra" },
   { name: "Entregado" },
-  { name: "Pendiente" },
-  { name: "Cancelado" },
+  { name: "Empaquetado" },
+  { name: "Enviado" },
 ];
 
 export const optionsWholeSale = [

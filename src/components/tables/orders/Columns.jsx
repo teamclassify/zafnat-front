@@ -1,16 +1,11 @@
 import { useState } from "react";
-import { FaRegEye } from "react-icons/fa";
-import ButtonReturn from "./ButtonReturn";
 import { Badge } from "@/components/ui/badge";
 import { GeneralModal } from "../../../pages/invoices/components/GeneralModal";
 import Modal from "../../../pages/categories/components/Modal";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import DetailsEyesTable from "../../custom/DetailsEyesTable";
+import ReturnsTableButton from "../../custom/ReturnsTableButton";
 
+/**Columnas de Perfil Usuario */
 export const columns = [
   {
     accessorKey: "id",
@@ -30,10 +25,10 @@ export const columns = [
     cell: ({ row }) => {
       return row.getValue("estado") === "Entregado" ? (
         <Badge className="bg-green-700">{row.getValue("estado")}</Badge>
-      ) : row.getValue("estado") === "Pendiente" ? (
+      ) : row.getValue("estado") === "Empaquetado" ? (
         <Badge className="bg-yellow-600">{row.getValue("estado")}</Badge>
       ) : (
-        <Badge className="bg-red-800">{row.getValue("estado")}</Badge>
+        <Badge className="bg-blue-800">{row.getValue("estado")}</Badge>
       );
     },
   },
@@ -52,28 +47,8 @@ export const columns = [
       return (
         <>
           <div className="flex gap-3 items-center">
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger onClick={handleViewClick}>
-                    <FaRegEye />
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Ver detalles</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger>
-                  <ButtonReturn id={row.getValue("id")} />
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Pedir devolución</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-
+            <DetailsEyesTable handleViewClick={handleViewClick} />
+            <ReturnsTableButton row={row} />
           </div>
           {/* Pasamos el estado del modal y los datos de la fila */}
           {isOpen && (
@@ -89,7 +64,68 @@ export const columns = [
   },
 ];
 
-// Definición de columnas para la venta mayorista
+/**Columnas de Pedidos Admin */
+export const columnsAdmin = [
+  {
+    accessorKey: "id",
+    header: "id",
+  },
+  {
+    accessorKey: "fecha",
+    header: "Fecha",
+  },
+  {
+    accessorKey: "cliente",
+    header: "Cliente",
+  },
+  {
+    accessorKey: "total",
+    header: "Total",
+  },
+  {
+    accessorKey: "estado",
+    header: "Estado",
+    cell: ({ row }) => {
+      return row.getValue("estado") === "Entregado" ? (
+        <Badge className="bg-green-700">{row.getValue("estado")}</Badge>
+      ) : row.getValue("estado") === "Empaquetado" ? (
+        <Badge className="bg-yellow-600">{row.getValue("estado")}</Badge>
+      ) : (
+        <Badge className="bg-blue-800">{row.getValue("estado")}</Badge>
+      );
+    },
+  },
+  {
+    accessorKey: "actions",
+    header: "Acciones",
+    cell: ({ row }) => {
+      const [isOpen, setIsOpen] = useState(false);
+      const [rowData, setRowData] = useState(null);
+
+      const handleViewClick = () => {
+        setRowData(row.original); 
+        setIsOpen(true); 
+      };
+
+      return (
+        <>
+          <div className="flex gap-3 items-center">
+          <DetailsEyesTable handleViewClick={handleViewClick} />
+          </div>
+          {isOpen && (
+            <GeneralModal
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              data={rowData}
+            />
+          )}
+        </>
+      );
+    },
+  },
+];
+
+// Columnas para la venta mayorista
 export const columnsWholeSale = [
   {
     accessorKey: "id",
@@ -136,11 +172,7 @@ export const columnsWholeSale = [
 
       return (
         <>
-          <button className="btn btn-primary" onClick={handleViewClick}>
-            <FaRegEye />
-          </button>
-
-          {/* Pasamos el estado del modal y los datos de la fila */}
+          <DetailsEyesTable handleViewClick={handleViewClick} />
           {isOpen && (
             <GeneralModal
               isOpen={isOpen}
@@ -154,7 +186,7 @@ export const columnsWholeSale = [
   },
 ];
 
-// Definición de columnas para las facturas
+// Columnas para las facturas
 export const columnsInvoices = [
   {
     accessorKey: "id",
@@ -187,17 +219,13 @@ export const columnsInvoices = [
       const [rowData, setRowData] = useState(null);
 
       const handleViewClick = () => {
-        setRowData(row.original); // Guardamos los datos de la fila
-        setIsOpen(true); // Abrimos el modal
+        setRowData(row.original); 
+        setIsOpen(true); 
       };
 
       return (
         <>
-          <button className="btn btn-primary" onClick={handleViewClick}>
-            <FaRegEye />
-          </button>
-
-          {/* Pasamos el estado del modal y los datos de la fila */}
+          <DetailsEyesTable handleViewClick={handleViewClick} />
           {isOpen && (
             <GeneralModal
               isOpen={isOpen}
@@ -243,17 +271,13 @@ export const columnsCategories = [
       const [rowData, setRowData] = useState(null);
 
       const handleViewClick = () => {
-        setRowData(row.original); // Guardamos los datos de la fila
-        setIsOpen(true); // Abrimos el modal
+        setRowData(row.original); 
+        setIsOpen(true); 
       };
 
       return (
         <>
-          <button className="btn btn-primary" onClick={handleViewClick}>
-            <FaRegEye />
-          </button>
-
-          {/* Pasamos el estado del modal y los datos de la fila */}
+          <DetailsEyesTable handleViewClick={handleViewClick} />
           {isOpen && (
             <Modal isOpen={isOpen} setIsOpen={setIsOpen} data={rowData} />
           )}

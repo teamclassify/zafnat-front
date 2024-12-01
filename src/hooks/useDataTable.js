@@ -105,17 +105,18 @@ export const dataWholeSale = [
 ];
 
 export const dataOrders = [
-  { id: "001", fecha: "2023-11-01", total: "$150.000", estado: "Entregado" },
-  { id: "002", fecha: "2023-11-03", total: "$200.000", estado: "Pendiente" },
-  { id: "003", fecha: "2023-11-05", total: "$75.000", estado: "Pendiente" },
-  { id: "004", fecha: "2023-11-07", total: "$320.000", estado: "Entregado" },
-  { id: "005", fecha: "2023-11-09", total: "$180.000", estado: "Entregado" },
-  { id: "006", fecha: "2023-11-10", total: "$210.000", estado: "Entregado" },
-  { id: "007", fecha: "2023-11-11", total: "$95.000", estado: "Pendiente" },
-  { id: "008", fecha: "2023-11-12", total: "$145.000", estado: "Entregado" },
-  { id: "009", fecha: "2023-11-13", total: "$160.000", estado: "Entregado" },
-  { id: "010", fecha: "2023-11-14", total: "$50.000", estado: "Cancelado" },
+  { id: "001", cliente: "Juan Pérez", fecha: "2023-11-01", total: "$150.000", estado: "Entregado" },
+  { id: "002", cliente: "María Gómez", fecha: "2023-11-03", total: "$200.000", estado: "Empaquetado" },
+  { id: "003", cliente: "Carlos Ramírez", fecha: "2023-11-05", total: "$75.000", estado: "Empaquetado" },
+  { id: "004", cliente: "Ana Torres", fecha: "2023-11-07", total: "$320.000", estado: "Entregado" },
+  { id: "005", cliente: "Luis Martínez", fecha: "2023-11-09", total: "$180.000", estado: "Entregado" },
+  { id: "006", cliente: "Paula Rodríguez", fecha: "2023-11-10", total: "$210.000", estado: "Enviado" },
+  { id: "007", cliente: "José López", fecha: "2023-11-11", total: "$95.000", estado: "Empaquetado" },
+  { id: "008", cliente: "Marta Castillo", fecha: "2023-11-12", total: "$145.000", estado: "Entregado" },
+  { id: "009", cliente: "Andrés Gil", fecha: "2023-11-13", total: "$160.000", estado: "Entregado" },
+  { id: "010", cliente: "Laura Morales", fecha: "2023-11-14", total: "$50.000", estado: "Enviado" },
 ];
+
 
 export const dataCategories = [
   { id: "001", nombre: "Ochenteros", descripción: "Jeans de estilo vintage de los años 80", estado: "Habilitado" },
