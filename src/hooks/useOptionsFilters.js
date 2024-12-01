@@ -24,3 +24,10 @@ export const optionsWholeSale = [
   { name: "Menor compra" }
 ];
 
+export const optionsCategory = [
+  { name: "Hombres" },
+  { name: "Mujeres" },
+  { name: "Habilitado" },
+  { name: "Deshabilitado" },
+]
+

@@ -5,14 +5,14 @@ import { columnsCategories } from "../../components/tables/orders/Columns";
 import DataTable from "../../components/tables/orders/DataTable";
 import AdminTemplate from "../../components/templates/AdminTemplate";
 import { Input } from "../../components/ui/input";
-import { optionsInvoices } from "../../hooks/useOptionsFilters";
+import { optionsCategory } from "../../hooks/useOptionsFilters";
 import AddButton from "./components/AddButton";
 import { LoadingGrid } from "../../components/custom/loading";
 import { useDataCategories } from "../../hooks/useDataCategories";
 
 export default function Categories() {
   const  { dataCategories, error, isLoading } = useDataCategories()
-  console.log(dataCategories)
+
  
   return (
     <AdminTemplate>
@@ -20,7 +20,7 @@ export default function Categories() {
         <Title title="Categorias" />
         <div className="flex flex-row justify-between gap-2">
           <Input />
-          <Filter options={optionsInvoices} />
+          <Filter options={optionsCategory}/>
           <AddButton />
         </div>
         <div className="pt-3">
