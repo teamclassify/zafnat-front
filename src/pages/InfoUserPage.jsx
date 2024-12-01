@@ -23,7 +23,14 @@ export default function InfoUserPage() {
     setFilter(role);
   };
 
-  console.log(dataRoles.data)
+  const optionsRoles = dataRoles?.data
+  ? {
+      roles: dataRoles.data.map((role) => ({
+        name: role.name,
+      })),
+    }
+  : { roles: [] };
+
   return (
     <>
       <AdminTemplate>
@@ -37,7 +44,7 @@ export default function InfoUserPage() {
               <Loading />
             ) : (
               <Filter
-                options={dataRoles.data}
+                options={optionsRoles}
                 handleSelect={handleRoleSelect}
               />
             )}
