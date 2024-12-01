@@ -53,7 +53,6 @@ export function useProductFilter() {
         )
       );
     }
-
     return filteredProducts;
   };
 
