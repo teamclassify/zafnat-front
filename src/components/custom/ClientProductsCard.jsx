@@ -10,28 +10,35 @@ import { FaStar } from "react-icons/fa";
 
 export function ClientsProductsCard({ products }) {
   return (
-    <div className="flex flex-col flex-wrap gap-4 justify-start w-full">
-      {" "}
+    <div className="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-3">
       {products.length > 0 ? (
         products.map((product) => {
+          // Manejo seguro de reviews
+          const reviews = Array.isArray(product.reviews) ? product.reviews : [];
           const averageRating =
-            product.reviews.reduce((sum, review) => sum + review.rating, 0) /
-            product.reviews.length;
+            reviews.length > 0
+              ? reviews.reduce((sum, review) => sum + review.rating, 0) /
+                reviews.length
+              : 0;
 
-          const imageUrl = product.photos[0]?.value
-            ? `/images/${product.photos[0].value}`
-            : null;
+          // Manejo seguro de fotos
+          const photos = product.skus?.[0]?.photos || [];
+          const imageUrl = photos.length > 0 ? photos[0]?.value : null;
+
+          // Manejo seguro de skus y categoría
+          const sku = product.skus?.[0] || {};
+          const category = product.category?.name || "Sin categoría";
 
           return (
             <Card
               key={product.id}
-              className="w-full max-w-xl p-4 shadow-md rounded-lg flex items-start gap-4"
+              className="p-4 shadow-md rounded-lg flex items-start gap-4"
             >
               {imageUrl && (
                 <img
                   src={imageUrl}
                   alt={`Imagen de ${product.name}`}
-                  className="h-28 w-28 object-cover rounded-lg"
+                  className="w-1/4 object-cover rounded-lg"
                 />
               )}
               <div className="flex-1">
@@ -47,15 +54,15 @@ export function ClientsProductsCard({ products }) {
                   <div className="text-sm flex flex-row gap-3">
                     <p>
                       <span className="font-semibold">Valor:</span>{" "}
-                      {`${product.skus[0]?.price.toLocaleString()}$`}
+                      {sku.price ? `${sku.price.toLocaleString()}$` : "N/A"}
                     </p>
                     <p>
                       <span className="font-semibold">Stock:</span>{" "}
-                      {product.skus[0]?.quantity}
+                      {sku.quantity || "N/A"}
                     </p>
                     <p>
                       <span className="font-semibold">Categoría:</span>{" "}
-                      {product.category.name}
+                      {category}
                     </p>
                   </div>
                 </CardContent>
