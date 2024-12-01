@@ -2,11 +2,12 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
-  CardFooter,
 } from "@/components/ui/card";
 import { FaStar } from "react-icons/fa";
+import { Link } from "wouter";
 
 export function ClientsProductsCard({ products }) {
   return (
@@ -30,63 +31,62 @@ export function ClientsProductsCard({ products }) {
           const category = product.category?.name || "Sin categoría";
 
           return (
-            <Card
-              key={product.id}
-              className="p-4 shadow-md rounded-lg flex items-start gap-4"
-            >
-              {imageUrl && (
-                <img
-                  src={imageUrl}
-                  alt={`Imagen de ${product.name}`}
-                  className="w-1/4 object-cover rounded-lg"
-                />
-              )}
-              <div className="flex-1">
-                <CardHeader className="p-0 mb-2">
-                  <CardTitle className="text-lg font-bold">
-                    {product.name}
-                  </CardTitle>
-                  <CardDescription className="text-gray-600 text-sm">
-                    {product.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="p-0 mb-2">
-                  <div className="text-sm flex flex-row gap-3">
-                    <p>
-                      <span className="font-semibold">Valor:</span>{" "}
-                      {sku.price ? `${sku.price.toLocaleString()}$` : "N/A"}
-                    </p>
-                    <p>
-                      <span className="font-semibold">Stock:</span>{" "}
-                      {sku.quantity || "N/A"}
-                    </p>
-                    <p>
-                      <span className="font-semibold">Categoría:</span>{" "}
-                      {category}
-                    </p>
-                  </div>
-                </CardContent>
-                <CardFooter className="p-0">
-                  <div className="flex items-center text-sm">
-                    <span className="font-semibold mr-2">
-                      Valoración promedio:
-                    </span>
-                    <div className="flex text-yellow-500">
-                      {[...Array(5)].map((_, i) => (
-                        <FaStar
-                          key={i}
-                          className={
-                            i < Math.round(averageRating)
-                              ? "text-yellow-500"
-                              : "text-gray-300"
-                          }
-                        />
-                      ))}
+            <Link key={product.id} to={`/admin/producto/${product.id}`}>
+              <Card className="p-4 shadow-md rounded-lg flex items-start gap-4">
+                {imageUrl && (
+                  <img
+                    src={imageUrl}
+                    alt={`Imagen de ${product.name}`}
+                    className="w-1/4 object-cover rounded-lg"
+                  />
+                )}
+                <div className="flex-1">
+                  <CardHeader className="p-0 mb-2">
+                    <CardTitle className="text-lg font-bold">
+                      {product.name}
+                    </CardTitle>
+                    <CardDescription className="text-gray-600 text-sm">
+                      {product.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="p-0 mb-2">
+                    <div className="text-sm flex flex-row gap-3">
+                      <p>
+                        <span className="font-semibold">Valor:</span>{" "}
+                        {sku.price ? `${sku.price.toLocaleString()}$` : "N/A"}
+                      </p>
+                      <p>
+                        <span className="font-semibold">Stock:</span>{" "}
+                        {sku.quantity || "N/A"}
+                      </p>
+                      <p>
+                        <span className="font-semibold">Categoría:</span>{" "}
+                        {category}
+                      </p>
                     </div>
-                  </div>
-                </CardFooter>
-              </div>
-            </Card>
+                  </CardContent>
+                  <CardFooter className="p-0">
+                    <div className="flex items-center text-sm">
+                      <span className="font-semibold mr-2">
+                        Valoración promedio:
+                      </span>
+                      <div className="flex text-yellow-500">
+                        {[...Array(5)].map((_, i) => (
+                          <FaStar
+                            key={i}
+                            className={
+                              i < Math.round(averageRating)
+                                ? "text-yellow-500"
+                                : "text-gray-300"
+                            }
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </CardFooter>
+                </div>
+              </Card>
+            </Link>
           );
         })
       ) : (
