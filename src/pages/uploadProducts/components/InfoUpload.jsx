@@ -9,7 +9,7 @@ export default function InfoUpload({selectedFile}) {
           ? `Archivo seleccionado: ${selectedFile.name}`
           : "Arrastra y suelta un archivo o haz clic para buscar"}
       </span>
-      <span className="text-xs text-gray-500">Archivo CSV</span>
+      <span className="text-xs text-gray-500">Archivo Excel .xlsx</span>
     </>
   );
 }

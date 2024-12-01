@@ -2,11 +2,7 @@ import axios from "axios";
 import { URL, handleAxiosError } from ".";
 import { getToken } from "./Auth";
 
-async function getAll(
-  { page } = {
-    page: 1,
-  }
-) {
+async function getAll({ page = 1, filters = {} } = {}) {
   try {
     const res = await axios({
       url: `${URL}/categories`,
@@ -15,7 +11,8 @@ async function getAll(
         "Content-Type": "application/json",
       },
       params: {
-        page: page,
+        page,
+        ...filters, // Añade los filtros como parámetros de la solicitud
       },
     });
 
@@ -24,6 +21,7 @@ async function getAll(
     return handleAxiosError(error);
   }
 }
+
 
 async function getById(id) {
   try {

@@ -41,6 +41,7 @@ import ProductStadistic from "./pages/stadistic/product";
 import SalesStadistic from "./pages/stadistic/sales";
 import UploadCSV from "./pages/uploadProducts";
 import WholeSale from "./pages/WholeSale";
+import History from "./pages/history";
 
 function App() {
   return (
@@ -78,6 +79,7 @@ function App() {
         <Route component={WholeSale} path="/admin/ventas/compras-al-mayor" />
         <Route component={SocialMedia} path="/admin/ajustes/redes-sociales" />
         <Route component={Content} path="/admin/ajustes/contenido" />
+        <Route component={History} path="/admin/ajustes/historial" />
         <Route component={Invoices} path="/admin/ventas/facturas" />
         <Route component={ProductStadistic} path="/admin/reportes/productos" />
         <Route component={ClientStadistic} path="/admin/reportes/clientes" />

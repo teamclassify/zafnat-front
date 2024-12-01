@@ -15,12 +15,12 @@ export function Format() {
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="none" className="font-semibold text-xs text-blue-950">
-          Formato del Archivo CSV
+          Formato del Archivo Excel
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[900px]">
         <DialogHeader>
-          <DialogTitle>Formato del archivo CSV</DialogTitle>
+          <DialogTitle>Formato del archivo Excel</DialogTitle>
           <DialogDescription>
             Asegúrate de que el archivo cumpla con este formato antes de subirlo.
           </DialogDescription>

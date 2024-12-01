@@ -1,7 +1,7 @@
 import Filter from "../components/custom/Filter";
 import { PaginationDefault } from "../components/custom/Pagination";
 import { Title } from "../components/custom/Title";
-import { columns } from "../components/tables/orders/Columns";
+import { columnsAdmin } from "../components/tables/orders/Columns";
 import DataTable from "../components/tables/orders/DataTable";
 import AdminTemplate from "../components/templates/AdminTemplate";
 import { Input } from "../components/ui/input";
@@ -13,12 +13,12 @@ export default function Orders() {
     <AdminTemplate>
       <main>
         <Title title="Pedidos" />
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-between gap-2">
           <Input />
           <Filter options={optionsOrders} />
         </div>
         <div className="pt-3">
-          <DataTable columns={columns} data={dataOrders} />
+          <DataTable columns={columnsAdmin} data={dataOrders} />
         </div>
         <PaginationDefault />
       </main>
