@@ -103,6 +103,7 @@ export default function UserProvider({ children }) {
         id: response.data.id,
         gender: response.data.gender,
         phone: response.data.phone,
+        cc: response.data.cc,
         rolesAll: response.data.roles,
         roles: response.data?.roles?.map((role) => ROLES[role.roleId]),
       });

@@ -41,6 +41,9 @@ const formSchema = z.object({
   phone: z.string().min(10, {
     message: "El celular debe tener al menos 10 caracteres",
   }),
+  cc: z.string().min(5, {
+    message: "La cédula debe tener al menos 5 caracteres",
+  }),
 });
 
 function ProfileTab() {
@@ -52,7 +55,8 @@ function ProfileTab() {
         data.firstName,
         data.lastName,
         data.gender,
-        data.phone
+        data.phone,
+        data.cc
       );
     },
     {
@@ -78,6 +82,7 @@ function ProfileTab() {
       gender: user?.gender || "na",
       email: user?.email || "",
       phone: user?.phone || "",
+      cc: user?.cc || "",
     },
   });
 
@@ -121,7 +126,7 @@ function ProfileTab() {
 
           <FormField
             control={form.control}
-            name="document"
+            name="cc"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Cédula</FormLabel>
@@ -186,9 +191,9 @@ function ProfileTab() {
               </FormItem>
             )}
           /> */}
-            <Button type="submit" disabled={mutateUpdateProfile.isLoading}>
-              {mutateUpdateProfile.isLoading ? "Guardando..." : "Guardar"}
-            </Button>
+          <Button type="submit" disabled={mutateUpdateProfile.isLoading}>
+            {mutateUpdateProfile.isLoading ? "Guardando..." : "Guardar"}
+          </Button>
         </form>
       </Form>
     </div>
