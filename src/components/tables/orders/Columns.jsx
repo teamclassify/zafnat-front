@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { GeneralModal } from "../../../pages/invoices/components/GeneralModal";
+import { useState } from "react";
 import Modal from "../../../pages/categories/components/Modal";
+import { GeneralModal } from "../../../pages/invoices/components/GeneralModal";
 import DetailsEyesTable from "../../custom/DetailsEyesTable";
 import ReturnsTableButton from "../../custom/ReturnsTableButton";
-
 
 /**Columnas de Perfil Usuario */
 export const columns = [
@@ -13,7 +12,7 @@ export const columns = [
     header: "id",
   },
   {
-    accessorKey: "fecha",
+    accessorKey: "createdAt",
     header: "Fecha",
   },
   {
@@ -21,15 +20,15 @@ export const columns = [
     header: "Total",
   },
   {
-    accessorKey: "estado",
+    accessorKey: "status",
     header: "Estado",
     cell: ({ row }) => {
-      return row.getValue("estado") === "Entregado" ? (
-        <Badge className="bg-green-700">{row.getValue("estado")}</Badge>
-      ) : row.getValue("estado") === "Empaquetado" ? (
-        <Badge className="bg-yellow-600">{row.getValue("estado")}</Badge>
+      return row.getValue("status") === "delivered" ? (
+        <Badge className="bg-green-700">Entregado</Badge>
+      ) : row.getValue("status") === "waiting_shipment" ? (
+        <Badge className="bg-yellow-600">Esperando envio</Badge>
       ) : (
-        <Badge className="bg-blue-800">{row.getValue("estado")}</Badge>
+        <Badge className="bg-blue-800">{row.getValue("status")}</Badge>
       );
     },
   },
@@ -72,11 +71,11 @@ export const columnsAdmin = [
     header: "id",
   },
   {
-    accessorKey: "fecha",
+    accessorKey: "createdAt",
     header: "Fecha",
   },
   {
-    accessorKey: "cliente",
+    accessorKey: "user.firstName",
     header: "Cliente",
   },
   {
@@ -84,13 +83,13 @@ export const columnsAdmin = [
     header: "Total",
   },
   {
-    accessorKey: "estado",
+    accessorKey: "status",
     header: "Estado",
     cell: ({ row }) => {
-      return row.getValue("estado") === "Entregado" ? (
-        <Badge className="bg-green-700">{row.getValue("estado")}</Badge>
-      ) : row.getValue("estado") === "Empaquetado" ? (
-        <Badge className="bg-yellow-600">{row.getValue("estado")}</Badge>
+      return row.getValue("status") === "delivered" ? (
+        <Badge className="bg-green-700">Entregado</Badge>
+      ) : row.getValue("status") === "waiting_shipment" ? (
+        <Badge className="bg-yellow-600">Esperando envio</Badge>
       ) : (
         <Badge className="bg-blue-800">{row.getValue("estado")}</Badge>
       );
@@ -104,14 +103,14 @@ export const columnsAdmin = [
       const [rowData, setRowData] = useState(null);
 
       const handleViewClick = () => {
-        setRowData(row.original); 
-        setIsOpen(true); 
+        setRowData(row.original);
+        setIsOpen(true);
       };
 
       return (
         <>
           <div className="flex gap-3 items-center">
-          <DetailsEyesTable handleViewClick={handleViewClick} />
+            <DetailsEyesTable handleViewClick={handleViewClick} />
           </div>
           {isOpen && (
             <GeneralModal
@@ -194,18 +193,22 @@ export const columnsInvoices = [
     header: "id",
   },
   {
-    accessorKey: "cliente",
+    accessorKey: "transaction_id",
+    header: "Transacción",
+  },
+  {
+    accessorKey: "order.user.firstName",
     header: "Cliente",
   },
   {
-    accessorKey: "precio",
+    accessorKey: "amount",
     header: "Precio",
   },
   {
-    accessorKey: "estado",
+    accessorKey: "status",
     header: "Estado",
     cell: ({ row }) => {
-      return row.getValue("estado") === "Pagado" ? (
+      return row.getValue("status") === "paid" ? (
         <Badge className="bg-green-700">{"Pagado"}</Badge>
       ) : (
         <Badge className="bg-red-700">{"No Pago"}</Badge>
@@ -220,8 +223,8 @@ export const columnsInvoices = [
       const [rowData, setRowData] = useState(null);
 
       const handleViewClick = () => {
-        setRowData(row.original); 
-        setIsOpen(true); 
+        setRowData(row.original);
+        setIsOpen(true);
       };
 
       return (
@@ -276,8 +279,8 @@ export const columnsCategories = [
       const [rowData, setRowData] = useState(null);
 
       const handleViewClick = () => {
-        setRowData(row.original); 
-        setIsOpen(true); 
+        setRowData(row.original);
+        setIsOpen(true);
       };
 
       return (

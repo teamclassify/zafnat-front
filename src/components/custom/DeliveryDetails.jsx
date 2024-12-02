@@ -1,17 +1,17 @@
-import { useState } from "react";
 import { useQuery } from "react-query";
 import { Link } from "wouter";
+import useCart from "../../hooks/useCart";
 import AddressService from "../../services/api/AddressService";
 import { Button } from "../ui/button";
 import CartDirection from "./CardDirection";
 import { Title } from "./Title";
 
 export default function DeliveryDetails() {
+  const { address, setAddress } = useCart();
+
   const { data, isLoading, isRefetching } = useQuery("addresses", () =>
     AddressService.getAll()
   );
-
-  const [addressSelected, setAddressSelected] = useState(null);
 
   return (
     <main className="flex flex-col gap-4 w-2/4">
@@ -23,13 +23,13 @@ export default function DeliveryDetails() {
         ) : (
           <>
             {data && data?.length > 0 ? (
-              data.map((address) => (
+              data.map((a) => (
                 <CartDirection
-                  key={address.id}
-                  address={address}
+                  key={a.id}
+                  address={a}
                   isChecked={false}
-                  setAddressSelected={setAddressSelected}
-                  addressSelected={addressSelected}
+                  setAddressSelected={setAddress}
+                  addressSelected={address}
                 />
               ))
             ) : (
