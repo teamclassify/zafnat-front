@@ -8,7 +8,7 @@ import AdminTemplate from "../../components/templates/AdminTemplate";
 import { Input } from "../../components/ui/input";
 import { optionsCategory } from "../../hooks/useOptionsFilters";
 import AddButton from "./components/AddButton";
-import { LoadingGrid } from "../../components/custom/loading";
+import { LoadingGrid } from "../../components/custom/Loading";
 import { useDataCategories } from "../../hooks/useDataCategories";
 
 export default function Categories() {
