@@ -2,7 +2,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { useQuery } from "react-query";
 import Filter from "../components/custom/Filter";
-import { LoadingGrid } from "../components/custom/loading";
+import { LoadingGrid } from "../components/custom/Loading";
 import { PaginationDefault } from "../components/custom/Pagination";
 import { ReviewGrid } from "../components/custom/ReviewGrid";
 import { Title } from "../components/custom/Title";
