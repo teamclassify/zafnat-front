@@ -12,7 +12,7 @@ export function NotificationsHistory({ history, setHistory }) {
     setHistory([]);
     localStorage.removeItem("notifications");
   };
-
+  
   return (
     <div className="relative">
       <button onClick={toggleHistory} className="p-2">
@@ -28,6 +28,12 @@ export function NotificationsHistory({ history, setHistory }) {
       {isOpen && (
         <div className="absolute top-10 right-0 bg-white shadow-lg p-4 rounded-md w-64">
           <h3 className="font-bold text-sm">Historial de Notificaciones</h3>
+          <button
+            onClick={clearAllNotifications}
+            className="bg-red-500 text-white py-1 px-3 rounded mt-3"
+          >
+            Eliminar todas
+          </button>
           <ul className="space-y-2 mt-2">
             {history.map((item, index) => (
               <li key={index} className="text-sm">
@@ -35,12 +41,6 @@ export function NotificationsHistory({ history, setHistory }) {
               </li>
             ))}
           </ul>
-          <button
-            onClick={clearAllNotifications}
-            className="bg-red-500 text-white py-1 px-3 rounded mt-3"
-          >
-            Eliminar todas
-          </button>
         </div>
       )}
     </div>
