@@ -2,11 +2,22 @@ import { Switch } from "@/components/ui/switch";
 import { useParams } from "wouter";
 import AdminTemplate from "../components/templates/AdminTemplate";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { useEffect, useState } from "react";
 import { FaFile, FaFolder } from "react-icons/fa";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { toast } from "sonner";
 import { LoadingGrid } from "../components/custom/loading";
+import SelectColor from "../components/custom/SelectColor";
+import SelectSize from "../components/custom/SelectSize";
 import {
   Accordion,
   AccordionContent,
@@ -56,6 +67,11 @@ function EditProduct() {
   const [state, setState] = useState(false);
   const [categorias, setCategorias] = useState([]);
 
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
+  const [price, setPrice] = useState("");
+  const [sku, setSku] = useState("");
+
   const { data, isLoading } = useQuery(["product", id], () =>
     ProductsService.getById(id)
   );
@@ -73,6 +89,25 @@ function EditProduct() {
         description: data.description,
         categories: data.categorias,
         status: data.state,
+      });
+    },
+
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(["product", id]);
+        toast.success("Producto actualizado correctamente");
+      },
+    }
+  );
+
+  const { mutate: mutateNewSku, isLoading: isLoadingNewSku } = useMutation(
+    (data) => {
+      return ProductsService.createProductSku({
+        productId: id,
+        name: data.sku,
+        price: data.price,
+        color: data.color,
+        size: data.size,
       });
     },
 
@@ -110,6 +145,25 @@ function EditProduct() {
         return prev.filter((category) => category !== option);
       }
       return [...prev, option];
+    });
+  };
+
+  const handleChangeColor = (val) => {
+    setColor(val);
+  };
+
+  const handleChangeSize = (val) => {
+    setSize(val);
+  };
+
+  const handleNewVariacion = () => {
+    console.log(sku, price, color, size);
+
+    mutateNewSku({
+      sku,
+      price,
+      color,
+      size,
     });
   };
 
@@ -204,7 +258,66 @@ function EditProduct() {
                     Variaciones
                   </CardTitle>
 
-                  <Button>Nueva variacion</Button>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="outline">Nueva variacion</Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                      <DialogHeader>
+                        <DialogTitle>
+                          Nueva variación para el producto
+                        </DialogTitle>
+                        <DialogDescription></DialogDescription>
+                      </DialogHeader>
+                      <div className="grid gap-4 py-4">
+                        <div className="grid grid-cols-4 items-center gap-4">
+                          <Label htmlFor="name" className="text-right">
+                            SKU
+                          </Label>
+                          <Input
+                            className="col-span-3"
+                            value={sku}
+                            onChange={(e) => setSku(e.target.value)}
+                          />
+                        </div>
+                        <div className="grid grid-cols-4 items-center gap-4">
+                          <Label htmlFor="username" className="text-right">
+                            Precio
+                          </Label>
+                          <Input
+                            className="col-span-3"
+                            value={price}
+                            onChange={(e) => setPrice(e.target.value)}
+                          />
+                        </div>
+
+                        <div className="grid grid-cols-4 items-center gap-4">
+                          <Label htmlFor="username" className="text-right">
+                            Color
+                          </Label>
+                          <SelectColor
+                            defaultValue={""}
+                            handleSelect={handleChangeColor}
+                          />
+                        </div>
+
+                        <div className="grid grid-cols-4 items-center gap-4">
+                          <Label htmlFor="username" className="text-right">
+                            Tamaño
+                          </Label>
+                          <SelectSize
+                            defaultValue={""}
+                            handleSelect={handleChangeSize}
+                          />
+                        </div>
+                      </div>
+                      <DialogFooter>
+                        <Button onClick={handleNewVariacion}>
+                          {isLoadingNewSku ? "Guardando..." : "Guardar"}
+                        </Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
                 </CardHeader>
                 <CardContent className="">
                   {data?.data?.map((variation) => {

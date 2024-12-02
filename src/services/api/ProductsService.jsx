@@ -171,6 +171,34 @@ async function getSizes() {
   }
 }
 
+async function createProductSku({ productId, name, price, color, size }) {
+  try {
+    const token = await getToken();
+
+    if (!token) throw new Error("Token not found");
+
+    const res = await axios({
+      url: `${URL}/products/${productId}/sku`,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      data: {
+        sku: name,
+        price,
+        color,
+        size,
+        productId,
+      },
+    });
+
+    return res.data;
+  } catch (error) {
+    return handleAxiosError(error);
+  }
+}
+
 const ProductsService = {
   getAll,
   getById,
@@ -179,6 +207,7 @@ const ProductsService = {
   updateProductSku,
   getColors,
   getSizes,
+  createProductSku,
 };
 
 export default ProductsService;
