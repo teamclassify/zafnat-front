@@ -270,7 +270,7 @@ function EditProduct() {
                         <DialogDescription></DialogDescription>
                       </DialogHeader>
                       <div className="grid gap-4 py-4">
-                        <div className="grid grid-cols-4 items-center gap-4">
+                        <div className="">
                           <Label htmlFor="name" className="text-right">
                             SKU
                           </Label>
@@ -280,7 +280,7 @@ function EditProduct() {
                             onChange={(e) => setSku(e.target.value)}
                           />
                         </div>
-                        <div className="grid grid-cols-4 items-center gap-4">
+                        <div className="">
                           <Label htmlFor="username" className="text-right">
                             Precio
                           </Label>
@@ -291,7 +291,7 @@ function EditProduct() {
                           />
                         </div>
 
-                        <div className="grid grid-cols-4 items-center gap-4">
+                        <div className="">
                           <Label htmlFor="username" className="text-right">
                             Color
                           </Label>
@@ -301,7 +301,7 @@ function EditProduct() {
                           />
                         </div>
 
-                        <div className="grid grid-cols-4 items-center gap-4">
+                        <div className="">
                           <Label htmlFor="username" className="text-right">
                             Tamaño
                           </Label>
