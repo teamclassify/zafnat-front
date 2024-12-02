@@ -29,7 +29,7 @@ import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { toast } from "sonner";
 import { Link } from "wouter";
-import { LoadingGrid } from "../../../components/custom/loading";
+import { LoadingGrid } from "../../../components/custom/Loading";
 import AddressService from "../../../services/api/AddressService";
 import HeaderTab from "./HeaderTab";
 import NewAddressTab from "./NewAddressTab";

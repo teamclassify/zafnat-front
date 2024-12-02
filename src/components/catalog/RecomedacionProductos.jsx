@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import { Link } from "wouter";
 import RecomendacionService from "../../services/api/RecomendacionProductos";
-import { LoadingGrid } from "../custom/loading";
+import { LoadingGrid } from "../custom/Loading";
 
 function RecomendacionProductos({ productId }) {
   const { data, isLoading } = useQuery(["recomendaciones", productId], () =>

@@ -7,7 +7,7 @@ import { useParams } from "wouter";
 import ProductPreview from "../../components/catalog/ProductPreview";
 import ProductReviews from "../../components/catalog/ProductReviews";
 import ReviewStars from "../../components/catalog/ReviewStars";
-import { LoadingGrid } from "../../components/custom/loading";
+import { LoadingGrid } from "../../components/custom/Loading";
 import DefaultTemplate from "../../components/templates/DefaultTemplate";
 import { Button } from "../../components/ui/button";
 import CartService from "../../services/api/CartService";

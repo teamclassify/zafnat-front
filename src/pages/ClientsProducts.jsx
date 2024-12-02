@@ -5,7 +5,7 @@ import { ClientsProductsCard } from "../components/custom/ClientProductsCard";
 import Filter from "../components/custom/Filter";
 import { PaginationDefault } from "../components/custom/Pagination";
 import { Title } from "../components/custom/Title";
-import { LoadingGrid } from "../components/custom/loading";
+import { LoadingGrid } from "../components/custom/Loading";
 import AdminTemplate from "../components/templates/AdminTemplate";
 import { useProductFilter } from "../hooks/useProductFilter";
 import ProductsService from "../services/api/ProductsService";

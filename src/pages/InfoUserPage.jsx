@@ -2,7 +2,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { useQuery } from "react-query";
 import Filter from "../components/custom/Filter";
-import { Loading, LoadingGrid } from "../components/custom/loading";
+import { Loading, LoadingGrid } from "../components/custom/Loading";
 import { UserGrid } from "../components/custom/UserGrid";
 import AdminTemplate from "../components/templates/AdminTemplate";
 import RolesService from "../services/api/RolesService";

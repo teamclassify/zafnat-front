@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 import { FaFile, FaFolder } from "react-icons/fa";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { toast } from "sonner";
-import { LoadingGrid } from "../components/custom/loading";
+import { LoadingGrid } from "../components/custom/Loading";
 import SelectColor from "../components/custom/SelectColor";
 import SelectSize from "../components/custom/SelectSize";
 import {
