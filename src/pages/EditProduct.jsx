@@ -26,6 +26,7 @@ import { Label } from "../components/ui/label";
 import { Textarea } from "../components/ui/textarea";
 import CategoriesService from "../services/api/CategoriesService";
 import ProductsService from "../services/api/ProductsService";
+import EditSku from "./EditSku";
 import ErrorPage from "./ErrorPage";
 
 const renderCheckboxItem = (
@@ -77,7 +78,7 @@ function EditProduct() {
 
     {
       onSuccess: () => {
-        queryClient.invalidateQueries("addresses");
+        queryClient.invalidateQueries(["product", id]);
         toast.success("Producto actualizado correctamente");
       },
     }
@@ -87,10 +88,7 @@ function EditProduct() {
     return <ErrorPage />;
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(e);
-
+  const handleSubmit = () => {
     console.log({
       name,
       description,
@@ -132,12 +130,12 @@ function EditProduct() {
 
   return (
     <AdminTemplate>
-      <form onSubmit={handleSubmit}>
+      <div>
         <div className="flex flex-row mb-4 align-middle justify-between">
           <h1 className="text-2xl font-bold tracking-tight">
             Editar Producto {id}
           </h1>
-          <Button type="submit">
+          <Button onClick={handleSubmit}>
             {isLoadingUpdate ? "Guardando..." : "Guardar"}
           </Button>
         </div>
@@ -199,9 +197,32 @@ function EditProduct() {
                   </Card>
                 </CardContent>
               </Card> */}
+
+              <Card className="p-0">
+                <CardHeader className="py-4 flex flex-row justify-between items-center">
+                  <CardTitle className="text-1xl font-bold">
+                    Variaciones
+                  </CardTitle>
+
+                  <Button>Nueva variacion</Button>
+                </CardHeader>
+                <CardContent className="">
+                  {data?.data?.map((variation) => {
+                    return (
+                      <>
+                        <EditSku
+                          key={variation.id}
+                          productId={id}
+                          sku={variation}
+                        />
+                      </>
+                    );
+                  })}
+                </CardContent>
+              </Card>
             </div>
 
-            <div className="grid gap-4">
+            <div className="grid gap-4 h-[100px]">
               <Card className="p-0">
                 <CardHeader className="py-4">
                   <CardTitle className="text-1xl font-bold">Opciones</CardTitle>
@@ -287,7 +308,7 @@ function EditProduct() {
             </div>
           </div>
         )}
-      </form>
+      </div>
     </AdminTemplate>
   );
 }
