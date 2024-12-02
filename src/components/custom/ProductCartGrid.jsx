@@ -1,4 +1,4 @@
-import { LoadingGrid } from "./loading";
+import { LoadingGrid } from "./Loading";
 import ProductCart from "./ProductCart";
 
 export default function ProductCartGrid({ data, isLoading }) {
