@@ -7,7 +7,7 @@ import AdminTemplate from "../../components/templates/AdminTemplate";
 import { Input } from "../../components/ui/input";
 import { dataInvoices } from "../../hooks/useDataTable";
 import { optionsInvoices } from "../../hooks/useOptionsFilters";
-import Csv from "./components/csv";
+import Csv from "./components/CSV";
 
 export default function Invoices() {
   return (

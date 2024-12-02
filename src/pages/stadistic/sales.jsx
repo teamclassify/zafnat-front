@@ -4,7 +4,7 @@ import Graphic from "./components/graphic";
 import { graphicDataSales } from "../../hooks/useDataGraphic";
 import FilterDate from "./components/FilterDate";
 import { useFilterContext } from "../../context/FilterStadisticContext";
-import CSV from "../invoices/components/csv";
+import CSV from "../invoices/components/CSV";
 
 export default function SalesStadistic() {
   const value = ["ingresos", "ventas", "pedidos"];
