@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { useLocation } from "wouter";
 import CountryForm from "../../../components/custom/CountryForm";
 import { Button } from "../../../components/ui/button";
+import useCart from "../../../hooks/useCart";
 import AddressService from "../../../services/api/AddressService";
 
 function NewAddressTab({
@@ -21,6 +22,7 @@ function NewAddressTab({
   const queryClient = useQueryClient();
 
   const [, setLocation] = useLocation();
+  const { setAddress: setAddressHook } = useCart();
 
   const [address, setAddress] = useState(initialData?.address_line_1 || "");
   const [city, setCity] = useState(initialData?.city);
@@ -38,11 +40,14 @@ function NewAddressTab({
     },
 
     {
-      onSuccess: () => {
+      onSuccess: (data) => {
         queryClient.invalidateQueries("addresses");
 
         if (type === "new-in-sales") {
           setLocation("/envio");
+
+          setAddressHook(data);
+
           return;
         }
 

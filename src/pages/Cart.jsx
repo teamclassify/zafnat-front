@@ -1,9 +1,9 @@
 import { useQuery } from "react-query";
-import CartService from "../services/api/CartService";
 import BreadcrumbResponsive from "../components/custom/BreadCrumbResponsive";
 import ProductCartGrid from "../components/custom/ProductCartGrid";
 import Purchase from "../components/custom/Purchase";
 import DefaultTemplate from "../components/templates/DefaultTemplate";
+import CartService from "../services/api/CartService";
 
 export default function Cart() {
   const { data, isLoading, isFetching } = useQuery(
