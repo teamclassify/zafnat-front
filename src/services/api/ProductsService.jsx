@@ -1,5 +1,6 @@
 import axios from "axios";
 import { URL, handleAxiosError } from ".";
+import { getToken } from "./Auth";
 
 async function getAll(
   { status, page, name, sizes, colors, categories } = {
@@ -50,9 +51,163 @@ async function getById(id) {
   }
 }
 
+async function create({ name, description, categories }) {
+  const token = await getToken();
+
+  if (!token) throw new Error("Token not found");
+
+  try {
+    const res = await axios({
+      url: `${URL}/products`,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      data: {
+        name,
+        description,
+        categories,
+      },
+    });
+
+    return res.data;
+  } catch (error) {
+    return handleAxiosError(error);
+  }
+}
+
+async function update({ id, name, description, categories, status }) {
+  try {
+    const token = await getToken();
+
+    if (!token) throw new Error("Token not found");
+
+    const res = await axios({
+      url: `${URL}/products/${id}`,
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      data: {
+        name,
+        description,
+        categories,
+        status,
+      },
+    });
+
+    return res.data;
+  } catch (error) {
+    return handleAxiosError(error);
+  }
+}
+
+async function updateProductSku({
+  id,
+  sku,
+  name,
+  price,
+  color_attribute_id,
+  size_attribute_id,
+}) {
+  try {
+    const token = await getToken();
+
+    if (!token) throw new Error("Token not found");
+
+    const res = await axios({
+      url: `${URL}/products/${id}/sku`,
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      data: {
+        id: sku,
+        price,
+        sku: name,
+        color_attribute_id,
+        size_attribute_id,
+      },
+    });
+
+    return res.data;
+  } catch (error) {
+    return handleAxiosError(error);
+  }
+}
+
+async function getColors() {
+  try {
+    const res = await axios({
+      url: `${URL}/products/colors`,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return res.data;
+  } catch (error) {
+    return handleAxiosError(error);
+  }
+}
+
+async function getSizes() {
+  try {
+    const res = await axios({
+      url: `${URL}/products/sizes`,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return res.data;
+  } catch (error) {
+    return handleAxiosError(error);
+  }
+}
+
+async function createProductSku({ productId, name, price, color, size }) {
+  try {
+    const token = await getToken();
+
+    if (!token) throw new Error("Token not found");
+
+    const res = await axios({
+      url: `${URL}/products/${productId}/sku`,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      data: {
+        sku: name,
+        price,
+        color,
+        size,
+        productId,
+      },
+    });
+
+    return res.data;
+  } catch (error) {
+    return handleAxiosError(error);
+  }
+}
+
 const ProductsService = {
   getAll,
   getById,
+  create,
+  update,
+  updateProductSku,
+  getColors,
+  getSizes,
+  createProductSku,
 };
 
 export default ProductsService;
