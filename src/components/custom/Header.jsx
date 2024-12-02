@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-
+import { useState, useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import {
@@ -16,10 +16,39 @@ import { ShoppingCart } from "lucide-react";
 import useUser from "../../hooks/useUser";
 import Logo from "../custom/Logo";
 
+import { NotificationsHistory } from "./NotificationsHistory";
+import { useStockAlerts } from "../../hooks/useStockAlerts";
+
 function Header({ className } = { className: "" }) {
   const [location, setLocation] = useLocation();
-
   const { user, loading, logout, isAdmin } = useUser();
+
+  const [notificationHistory, setNotificationHistory] = useState([]);
+  const [pendingCount, setPendingCount] = useState(0); // Nuevo estado para el contador
+  const { alerts } = useStockAlerts(15);
+
+  useEffect(() => {
+    const savedNotifications = JSON.parse(localStorage.getItem("notifications")) || [];
+    setNotificationHistory(savedNotifications);
+    setPendingCount(savedNotifications.length); // Cargar el contador inicial
+  }, []);
+
+  useEffect(() => {
+    if (notificationHistory.length > 0) {
+      localStorage.setItem("notifications", JSON.stringify(notificationHistory));
+    }
+  }, [notificationHistory]);
+
+  useEffect(() => {
+    // Agregar nuevas notificaciones
+    if (alerts.length > 0) {
+      alerts.forEach((alert) => {
+        const newNotification = { message: `⚠️ Bajo stock: ${alert.name}` };
+        setNotificationHistory((prev) => [...prev, newNotification]);
+        setPendingCount((prev) => prev + 1); // Incrementar el contador de pendientes
+      });
+    }
+  }, [alerts]);
 
   return (
     <header className="py-4 border-b">
@@ -39,6 +68,13 @@ function Header({ className } = { className: "" }) {
         </div>
 
         <div className="w-full flex justify-end gap-4 items-center">
+           <NotificationsHistory
+            history={notificationHistory}
+            setHistory={setNotificationHistory}
+            pendingCount={pendingCount} // Pasa el contador al componente
+            setPendingCount={setPendingCount} // Para resetearlo
+          />
+
           <Link href="/carrito">
             <ShoppingCart size={24} />
           </Link>
