@@ -127,6 +127,8 @@ export default function UserProvider({ children }) {
 
         const token = await user.getIdToken(true);
 
+        console.log(userInfo)
+
         setAccessToken(token);
         setUser(userInfo);
         setLoggedIn(true);
