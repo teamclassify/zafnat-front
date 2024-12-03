@@ -144,9 +144,16 @@ export default function PaymentMethod() {
                 {preferenceId && initPoint && (
                   <>
                     <CardContent className="grid gap-6"></CardContent>
-                    <CardFooter className="flex flex-row justify-end">
+
+                    <CardFooter className="flex justify-center">
                       <a href={initPoint} target="_blank">
-                        <Button type="submit">Pagar</Button>
+                        <Button variant="outline">
+                          <img
+                            className="block max-w-[30px]"
+                            src="https://logowik.com/content/uploads/images/mercado-pago3162.logowik.com.webp"
+                          />
+                          <p>Pagar con Mercado Pago</p>
+                        </Button>
                       </a>
                     </CardFooter>
                   </>
