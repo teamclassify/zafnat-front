@@ -1,6 +1,6 @@
-import { Link, useLocation } from "wouter";
-import { useState, useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "wouter";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import {
   DropdownMenu,
@@ -16,8 +16,8 @@ import { ShoppingCart } from "lucide-react";
 import useUser from "../../hooks/useUser";
 import Logo from "../custom/Logo";
 
-import { NotificationsHistory } from "./NotificationsHistory";
 import { useStockAlerts } from "../../hooks/useStockAlerts";
+import { NotificationsHistory } from "./NotificationsHistory";
 
 function Header({ className } = { className: "" }) {
   const [location, setLocation] = useLocation();
@@ -28,14 +28,18 @@ function Header({ className } = { className: "" }) {
   const { alerts } = useStockAlerts(15);
 
   useEffect(() => {
-    const savedNotifications = JSON.parse(localStorage.getItem("notifications")) || [];
+    const savedNotifications =
+      JSON.parse(localStorage.getItem("notifications")) || [];
     setNotificationHistory(savedNotifications);
     setPendingCount(savedNotifications.length); // Cargar el contador inicial
   }, []);
 
   useEffect(() => {
     if (notificationHistory.length > 0) {
-      localStorage.setItem("notifications", JSON.stringify(notificationHistory));
+      localStorage.setItem(
+        "notifications",
+        JSON.stringify(notificationHistory)
+      );
     }
   }, [notificationHistory]);
 
@@ -68,7 +72,7 @@ function Header({ className } = { className: "" }) {
         </div>
 
         <div className="w-full flex justify-end gap-4 items-center">
-           <NotificationsHistory
+          <NotificationsHistory
             history={notificationHistory}
             setHistory={setNotificationHistory}
             pendingCount={pendingCount} // Pasa el contador al componente
@@ -106,7 +110,10 @@ function Header({ className } = { className: "" }) {
                         </Link>
                       )}
 
-                      <DropdownMenuItem>Pedidos</DropdownMenuItem>
+                      <Link href="/perfil/pedidos">
+                        <DropdownMenuItem>Pedidos</DropdownMenuItem>
+                      </Link>
+
                       <DropdownMenuItem onClick={logout}>
                         Cerrar sesion
                       </DropdownMenuItem>

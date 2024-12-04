@@ -1,10 +1,31 @@
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
+import { useMutation } from "react-query";
 import { toast } from "sonner";
+import FileService from "../services/api/FileService";
 
 export default function useUpdateCSV() {
   const [isDragging, setIsDragging] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const fileInputRef = useRef(null);
+
+  const { mutate, data, isLoading } = useMutation(
+    (data) => {
+      return FileService.upload(data.file);
+    },
+    {
+      onSuccess: (data) => {
+        toast.success("Orden de producion subido correctamente.");
+
+        if (data.error) {
+          toast.error(data.error);
+        }
+      },
+      onError: (error) => {
+        toast.error("Error al subir la orden de produccion.");
+        console.log(error);
+      },
+    }
+  );
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -53,6 +74,14 @@ export default function useUpdateCSV() {
   };
 
   const handleUpload = () => {
+    console.log(selectedFile);
+
+    if (selectedFile) {
+      mutate({
+        file: selectedFile,
+      });
+    }
+
     toast.success("Se ha subido el archivo correctamente");
   };
 
@@ -65,5 +94,7 @@ export default function useUpdateCSV() {
     handleDragOver,
     isDragging,
     selectedFile,
+    isLoading,
+    data
   };
 }

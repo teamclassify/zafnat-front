@@ -14,7 +14,7 @@ export default function Pay() {
   return (
     <DefaultTemplate>
       <Title title="Método de pago" />
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between gap-8">
         <PaymentMethod />
         <Purchase buy={true} data={data} isLoading={isLoading || isFetching} />
       </div>
