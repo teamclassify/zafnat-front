@@ -34,7 +34,7 @@ export function NotificationsHistory({ history, setHistory }) {
       )}
 
       {isOpen && (
-        <div className="absolute top-10 right-0 bg-white shadow-lg p-4 rounded-md w-64 z-10">
+        <div className="absolute top-10 right-0 bg-white shadow-lg p-4 rounded-md w-64 z-20">
           <div className="flex justify-between items-center">
             <h3 className="font-bold text-sm">Historial de Notificaciones</h3>
             <TooltipProvider>
