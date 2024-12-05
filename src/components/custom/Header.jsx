@@ -72,17 +72,17 @@ function Header({ className } = { className: "" }) {
         </div>
 
         <div className="w-full flex justify-end gap-4 items-center">
-          <NotificationsHistory
-            history={notificationHistory}
-            setHistory={setNotificationHistory}
-            pendingCount={pendingCount} // Pasa el contador al componente
-            setPendingCount={setPendingCount} // Para resetearlo
-          />
-
+          {user && user.roles.includes("admin") && (
+            <NotificationsHistory
+              history={notificationHistory}
+              setHistory={setNotificationHistory}
+              pendingCount={pendingCount} // Pasa el contador al componente
+              setPendingCount={setPendingCount} // Para resetearlo
+            />
+          )}
           <Link href="/carrito">
             <ShoppingCart size={24} />
           </Link>
-
           {loading ? (
             <Skeleton className="w-[30px] h-[30px] rounded-full" />
           ) : (

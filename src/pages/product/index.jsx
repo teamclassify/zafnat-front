@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { useMutation, useQuery, useQueryClient } from "react-query";
-import { useParams } from "wouter";
+import { useLocation, useParams } from "wouter";
 import ProductPreview from "../../components/catalog/ProductPreview";
 import ProductReviews from "../../components/catalog/ProductReviews";
 import ReviewStars from "../../components/catalog/ReviewStars";
@@ -16,12 +16,15 @@ import ReviewsService from "../../services/api/ReviewsService";
 import ErrorPage from "../ErrorPage";
 import RecomendacionProductos from "../../components/catalog/RecomedacionProductos";
 import { toast } from "sonner";
+import useUser from "../../hooks/useUser";
 
 function ProductPage() {
   const params = useParams();
   const id = params.id;
 
   const queryClient = useQueryClient();
+  const { user } = useUser();
+  const [, setLocation] = useLocation();
 
   const [selecteddSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
@@ -96,6 +99,9 @@ function ProductPage() {
     }, []);
 
   const handleAddToCart = () => {
+    if(!user){
+      setLocation("/registrarse")
+    }
     if (!skuSelected) return;
 
     mutate({ id: skuSelected.id, quantity: 1 });

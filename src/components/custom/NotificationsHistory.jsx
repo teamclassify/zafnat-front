@@ -1,5 +1,13 @@
 import { FaRegBell } from "react-icons/fa";
 import { useState } from "react";
+import { Button } from "../ui/button";
+import { Trash2 } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export function NotificationsHistory({ history, setHistory }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +20,7 @@ export function NotificationsHistory({ history, setHistory }) {
     setHistory([]);
     localStorage.removeItem("notifications");
   };
-  
+
   return (
     <div className="relative">
       <button onClick={toggleHistory} className="p-2">
@@ -26,14 +34,24 @@ export function NotificationsHistory({ history, setHistory }) {
       )}
 
       {isOpen && (
-        <div className="absolute top-10 right-0 bg-white shadow-lg p-4 rounded-md w-64">
-          <h3 className="font-bold text-sm">Historial de Notificaciones</h3>
-          <button
-            onClick={clearAllNotifications}
-            className="bg-red-500 text-white py-1 px-3 rounded mt-3"
-          >
-            Eliminar todas
-          </button>
+        <div className="absolute top-10 right-0 bg-white shadow-lg p-4 rounded-md w-64 z-10">
+          <div className="flex justify-between items-center">
+            <h3 className="font-bold text-sm">Historial de Notificaciones</h3>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Button
+                    onClick={clearAllNotifications}
+                    variant={"ghost"}
+                    className="p-1"
+                  >
+                    <Trash2 />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>Eliminar todos</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
           <ul className="space-y-2 mt-2">
             {history.map((item, index) => (
               <li key={index} className="text-sm">
