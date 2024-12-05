@@ -51,7 +51,8 @@ export const columns = [
             <ReturnsTableButton row={row} />
           </div>
           {/* Pasamos el estado del modal y los datos de la fila */}
-          {isOpen && (
+          
+          {isOpen &&   (
             <GeneralModal
               isOpen={isOpen}
               setIsOpen={setIsOpen}
